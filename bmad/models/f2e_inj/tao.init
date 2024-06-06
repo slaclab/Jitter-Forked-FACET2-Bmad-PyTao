@@ -1,0 +1,208 @@
+&tao_start
+  n_universes = 1
+  plot_file   ='$LCLS_LATTICE/bmad/tao/tao_plot.init '
+  startup_file='$LCLS_LATTICE/bmad/tao/tao.startup'
+/
+
+
+
+
+!--------------------------------------------------------
+&tao_design_lattice
+  !unique_name_suffix="*::_##?"
+  design_lattice(1)%file= 'f2e_inj.lat.bmad'
+!  combine_consecutive_elements_of_like_name = T
+/
+
+!------------------------------------------------------------------------
+&tao_params
+  !global%plot_on = T
+  global%track_type = 'single'
+  global%beam_timer_on = T
+  global%random_engine = 'pseudo' ! or: 'quasi'
+  global%de_lm_step_ratio = 1500
+  global%optimizer = 'lmdif'
+  global%n_opti_cycles = 100
+  global%var_out_file = ''
+  !---Bmad---
+  bmad_com%radiation_damping_on = F
+  bmad_com%radiation_fluctuations_on = T
+/
+
+
+&tao_beam_init
+beam_init%random_engine = 'quasi'
+ix_universe = 1
+beam_saved_at =  "MARKER::*"
+track_start = 'L0AFEND'
+track_end = 'PR10711'
+beam_init%position_file = '$FACET2_LATTICE/bmad/beams/L0AFEND.h5'
+beam_init%center(1) = 0.0
+beam_init%center(2) = 0.0
+beam_init%center(3) = 0.0
+beam_init%center(4) = 0.0
+beam_init%center(5) = 0.0
+beam_init%center(6) = 0.0
+
+/
+
+
+
+
+!&tao_d2_data
+        d2_data%name = 'floor'
+        universe = 1
+        n_d1_data = 1
+/
+
+!&tao_d1_data
+        ix_d1_data = 1
+        default_weight = 1
+        d1_data%name = 'end'
+        datum( 1) =  'floor.x'     '' '' 'OTR2'   'target' 0     1e1 
+        datum( 2) =  'floor.y'     '' '' 'OTR2'   'target' 0     1e1 
+        datum( 3) =  'floor.z'     '' '' 'OTR2'   'target' 0     1e1 
+        datum( 4) =  'floor.theta'     '' '' 'OTR2'   'target' 0     1e1 
+        datum( 5) =  's_position'  '' '' 'OTR2'   'target' 0     1e1 
+/
+
+
+
+&tao_d2_data
+        d2_data%name = 'L0AF'
+        universe = 1
+        n_d1_data = 1
+/
+
+&tao_d1_data
+        ix_d1_data = 1
+        default_weight = 1
+        d1_data%name = 'endtwiss'
+        datum( 1) =  'beta.a'     '' '' 'L0AFEND'   'target' 36     1e1
+        datum( 2) =  'alpha.a'    '' '' 'L0AFEND'   'target' -8    1e2
+        datum( 3) =  'beta.b'     '' '' 'L0AFEND'   'target' 36      1e1
+        datum( 4) =  'alpha.b'    '' '' 'L0AFEND'   'target' -8      1e2
+        datum( 5) =  'eta.x'      '' '' 'L0AFEND'   'target' 0      1e1
+        datum( 6) =  'etap.x'     '' '' 'L0AFEND'   'target' 0      1e2
+/
+
+
+
+&tao_d2_data
+        d2_data%name = 'MRK0F'
+        universe = 1
+        n_d1_data = 1
+/
+
+&tao_d1_data
+        ix_d1_data = 1
+        default_weight = 1
+        d1_data%name = 'begtwiss'
+        datum( 1) =  'beta.a'     '' '' 'MRK0F'   'target'  1.1   1e1
+        datum( 2) =  'alpha.a'    '' '' 'MRK0F'   'target'  0 1e2
+        datum( 3) =  'beta.b'     '' '' 'MRK0F'   'target'  1.1     1e1
+        datum( 4) =  'alpha.b'    '' '' 'MRK0F'   'target'  0  1e2
+        datum( 5) =  'eta.x'      '' '' 'MRK0F'   'target'   0  1e1
+        datum( 6) =  'etap.x'     '' '' 'MRK0F'   'target'   0   1e2
+/ 
+
+
+
+
+!-----------------------------------------
+! BPM Orbit
+! Auto-generated BPM datums using: $LCLS_LATTICE/bmad/conversion/tao/create_vars_and_datums.ipynb
+        
+&tao_d2_data
+    d2_data%name = 'orbit'
+    universe = 1
+    n_d1_data = 3
+/    
+    
+&tao_d1_data
+    ix_d1_data = 1
+    default_weight = 1
+    d1_data%name = 'x'
+    default_data_type = 'bpm_orbit.x'
+    default_data_source = 'lat'
+    !search_for_lat_eles = "monitor::bpm*,monitor::rfb*" 
+    datum(1:)%ele_name =  'BPM10221', 'BPM10371', 'BPM10425', 'BPM10511', 'BPM10525',
+     'BPM10581', 'BPM10631', 'BPM10651', 'BPM10731', 'BPM10771', 'BPM10781'
+    datum(1:)%meas = 0
+/
+
+&tao_d1_data
+    ix_d1_data = 2
+    default_weight = 1
+    d1_data%name = 'y'
+    default_data_type = 'bpm_orbit.y'
+    default_data_source = 'lat'
+    !search_for_lat_eles = "monitor::bpm*,monitor::rfb*" 
+    use_same_lat_eles_as = 'orbit.x'
+    datum(1:)%meas = 0
+/
+
+&tao_d1_data
+    ix_d1_data = 3
+    default_weight = 1
+    d1_data%name = 'charge'
+    default_data_type = 'bunch_charge.live'
+    default_data_source = 'beam'
+    !search_for_lat_eles = "monitor::bpm*,monitor::rfb*" 
+    use_same_lat_eles_as = 'orbit.x'
+/
+
+
+
+
+
+!-----------------------------------------
+
+!----------------------------------------
+!----------------------------------------
+
+&tao_var
+	v1_var%name = 'begtwiss'
+	default_step = 1e-4
+	default_universe = '1'
+	ix_min_var = 1
+	ix_max_var = 6
+	var(1:6)%ele_name  = 'beginning', 'beginning', 'beginning', 'beginning', 'beginning', 'beginning'
+    var(1:6)%attribute = 'beta_a', 'alpha_a', 'beta_b', 'alpha_b', 'eta_x', 'etap_x'
+    var(1)%low_lim = 0.01
+    var(3)%low_lim = 0.01
+/
+
+
+&tao_var
+    v1_var%name = 'q_MRK0F'
+	default_step = 1e-4
+	default_attribute = 'K1'
+	var(1:)%ele_name = 'QA10361','QA10371', 'QE10425', 'QE10441', 'QE10511', 'QE10525'
+/
+
+
+
+!----------------------------------------
+! Correctors
+! Auto-generated corrector datums using: $LCLS_LATTICE/bmad/conversion/tao/create_vars_and_datums.ipynb
+        
+&tao_var
+    v1_var%name = 'xcor'
+    default_step = 1e-2
+    default_attribute = 'bl_kick'
+    var(1:)%ele_name =  'XC10121', 'XC10221', 'XC10311', 'XC10381', 'XC10411',
+     'XC10491', 'XC10521', 'XC10641', 'XC10721', 'XC10761'
+/
+
+
+&tao_var
+    v1_var%name = 'ycor'
+    default_step = 1e-2
+    default_attribute = 'bl_kick'
+    var(1:)%ele_name =  'YC10122', 'YC10222', 'YC10312', 'YC10382', 'YC10412',
+     'YC10492', 'YC10522', 'YC10642', 'YC10722', 'YC10762'
+/
+
+!----------------------------------------
+

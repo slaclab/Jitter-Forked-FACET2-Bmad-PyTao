@@ -1,0 +1,404 @@
+
+! *** OPTICS=FACET2-16FEB24 ***
+
+! ==============================================================================
+! Modification History
+! ------------------------------------------------------------------------------
+! 14-JAN-2024, M. Woodley
+!  * restore changed element names per K. Luchini
+!    > CE141802 -> CE141815
+!    > YC141820 -> YC141780
+!    > VV14885  -> VV14887
+!    > IM14895  -> IM14890
+! ------------------------------------------------------------------------------
+! 19-OCT-2023, M. Woodley
+!  * restore element names that were changed per K. Luchini
+!   * CE141815 -> CE141802
+!   * YC141780 -> YC141820
+!   * VV14887  -> VV14885
+!   * IM14890  -> IM14895
+! 01-SEP-2023, M. Woodley
+!  * rename/redefine BC14E drift lengths (see G. White comments below)
+!  * make BC14P equivalent to BC14E (same complement/Z-locations of devices)
+! ------------------------------------------------------------------------------
+! 26-APR-2023, G. White
+!  * From measurements by Georg:
+!   * YC14780 dz +0.0841m
+!   * BPM14801 dz -0.0188m
+!   * PR14803 dz -0.2212m
+!   * CE14815 dz +0.863m
+!   * CQ14866 dz +0.0651m
+! 13-APR-2023, G. White
+!  * Changes according to tunnel inspection by L. Alsburg & G. White:
+!   * VV14885 -> VV14887 dS = +0.0759m
+!   * BL14888 dS = +0.1524m
+!   * QM14891 dS = 0.0472m
+!   * IM14895 -> IM14890 to match controls IM14890 dS = -0.1095m
+!   * Q14901 dS = -0.2048m
+!   * Add in PR14892 (non-functional, mystery MONITOR device)
+!   * Add VV14940 SLC fast valve
+! ------------------------------------------------------------------------------
+! 01-DEC-2022, G. White
+!  * re-matched QM14891 - Q15601 to keep S15 strengths on quad strings more equal
+! 28-FEB-2020, G. White - changes after visual inspection of beamline
+!  * Moved YC14820 upstream of BCX14796 and changed unit number to 780
+!  * Moved IM14890 toroid to between QM14891 & Q14901 and changed unit # to 895
+!  * Moved VV14890 to just after BCX14883 and changed unit # to 885
+!  * Changed CE14802 unit number to 815
+! 23-AUG-2018, M. Woodley
+!  * quadrupole K1 values from FACET2e_baseline.mat
+!  * CQ's tweaked for Yuri-style match
+!  * add VV14711 and VV14890
+! ------------------------------------------------------------------------------
+! 31-JAN-2017, M. Woodley
+!  * from FACET2e.xsif
+! ------------------------------------------------------------------------------
+
+! ==============================================================================
+! SBEN
+! ------------------------------------------------------------------------------
+
+! BC14 (electron side)
+! - use series approximation for sinc(x)=sin(x)/x to allow AB14=0
+
+! GB14  : chicane bend gap height (m)
+! ZB14  : chicane bend "Z" length (m)
+! AB14  : chicane bend angle (rad)
+! LB14  : chicane bend path length (m)
+! AB14s : "short" half chicane bend angle (rad)
+! LB14s : "short" half chicane bend path length (m)
+! AB14l : "long" half chicane bend angle (rad)
+! LB14l : "long" half chicane bend path length (m)
+
+gb14 = 0.03335
+zb14 = 0.549
+ab14 = 0.04192
+ab14_2 = ab14*ab14
+ab14_4 = ab14_2*ab14_2
+ab14_6 = ab14_4*ab14_2
+sincab14 = 1-ab14_2/6+ab14_4/120-ab14_6/5040 !~sinc(AB14)=sin(AB14)/AB14
+lb14 = zb14/sincab14
+ab14s = asin(sin(ab14)/2)
+ab14s_2 = ab14s*ab14s
+ab14s_4 = ab14s_2*ab14s_2
+ab14s_6 = ab14s_4*ab14s_2
+sincab14s = 1-ab14s_2/6+ab14s_4/120-ab14s_6/5040 !~sinc(AB14s)=sin(AB14s)/AB14s
+lb14s = (zb14/2)/sincab14s
+ab14l = ab14-ab14s
+lb14l = lb14-lb14s
+ebc14e = 0.199858196713e-2
+
+bcx14720a: sbend, type = "1.34D19.3", l = lb14s, angle = -ab14s, hgap = gb14/2, e1 = 0, fint = 0.633, fintx = 0
+bcx14720b: sbend, type = "1.34D19.3", l = lb14l, angle = -ab14l, hgap = gb14/2, fint = 0, e2 = ebc14e, fintx = 0.633
+bcx14796a: sbend, type = "1.34D19.3", l = lb14l, angle = +ab14l, hgap = gb14/2, e1 = +ab14, fint = 0.633, fintx = 0
+bcx14796b: sbend, type = "1.34D19.3", l = lb14s, angle = +ab14s, hgap = gb14/2, fint = 0, e2 = 0, fintx = 0.633
+bcx14808a: sbend, type = "1.34D19.3", l = lb14s, angle = +ab14s, hgap = gb14/2, e1 = 0, fint = 0.633, fintx = 0
+bcx14808b: sbend, type = "1.34D19.3", l = lb14l, angle = +ab14l, hgap = gb14/2, fint = 0, e2 = +ab14, fintx = 0.633
+bcx14883a: sbend, type = "1.34D19.3", l = lb14l, angle = -ab14l, hgap = gb14/2, e1 = ebc14e, fint = 0.633, fintx = 0
+bcx14883b: sbend, type = "1.34D19.3", l = lb14s, angle = -ab14s, hgap = gb14/2, fint = 0, e2 = 0, fintx = 0.633
+
+! define unsplit SBENs for BMAD ... not used by MAD
+
+bcx14720: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = -ab14, e1 = 0, fint = 0.633, e2 = ebc14e,
+          fintx = 0.633
+bcx14796: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = +ab14, e1 = +ab14, fint = 0.633, e2 = 0,
+          fintx = 0.633
+bcx14808: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = +ab14, e1 = 0, fint = 0.633, e2 = +ab14,
+          fintx = 0.633
+bcx14883: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = -ab14, e1 = ebc14e, fint = 0.633, e2 = 0,
+          fintx = 0.633
+
+! BC14 (positron side)
+
+ebc14p = -ebc14e
+
+bcx141720a: sbend, type = "1.34D19.3", l = lb14s, angle = +ab14s, hgap = gb14/2, e1 = 0, fint = 0.633, fintx = 0
+bcx141720b: sbend, type = "1.34D19.3", l = lb14l, angle = +ab14l, hgap = gb14/2, fint = 0, e2 = ebc14p, fintx = 0.633
+bcx141796a: sbend, type = "1.34D19.3", l = lb14l, angle = -ab14l, hgap = gb14/2, e1 = -ab14, fint = 0.633, fintx = 0
+bcx141796b: sbend, type = "1.34D19.3", l = lb14s, angle = -ab14s, hgap = gb14/2, fint = 0, e2 = 0, fintx = 0.633
+bcx141808a: sbend, type = "1.34D19.3", l = lb14s, angle = -ab14s, hgap = gb14/2, e1 = 0, fint = 0.633, fintx = 0
+bcx141808b: sbend, type = "1.34D19.3", l = lb14l, angle = -ab14l, hgap = gb14/2, fint = 0, e2 = -ab14, fintx = 0.633
+bcx141883a: sbend, type = "1.34D19.3", l = lb14l, angle = +ab14l, hgap = gb14/2, e1 = ebc14p, fint = 0.633, fintx = 0
+bcx141883b: sbend, type = "1.34D19.3", l = lb14s, angle = +ab14s, hgap = gb14/2, fint = 0, e2 = 0, fintx = 0.633
+
+! define unsplit SBENs for BMAD ... not used by MAD
+
+bcx141720: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = +ab14, e1 = 0, fint = 0.633, e2 = ebc14p,
+          fintx = 0.633
+bcx141796: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = -ab14, e1 = -ab14, fint = 0.633, e2 = 0,
+          fintx = 0.633
+bcx141808: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = -ab14, e1 = 0, fint = 0.633, e2 = -ab14,
+          fintx = 0.633
+bcx141883: sbend, type = "1.34D19.3", hgap = gb14/2, l = lb14, angle = +ab14, e1 = ebc14p, fint = 0.633, e2 = 0,
+          fintx = 0.633
+
+! ==============================================================================
+! QUAD
+! ------------------------------------------------------------------------------
+
+! common
+
+kq14701 = -1.665165076061
+kqm14715 = 1.569247133195
+kqm14891 = 1.54788
+kq14901 = -1.954
+
+q14701: quadrupole, type = "1.085Q4.31", l = lqe/2, aperture = rqe, k1 = qsign*(kq14701)
+qm14715: quadrupole, type = "1.085Q4.31", l = lqe/2, aperture = rqe, k1 = qsign*(kqm14715)
+qm14891: quadrupole, type = "1.085Q4.31", l = lqe/2, aperture = rqe, k1 = qsign*(kqm14891)
+q14901: quadrupole, type = "1.085Q4.31", l = lqe/2, aperture = rqe, k1 = qsign*(kq14901)
+
+! electron
+
+kcq14 = 0
+kcq14738 = -0.228768471644e-2
+kcq14866 = -0.228768471644e-2
+
+cq14738: quadrupole, type = "2.1Q5.87", l = lqc2/2, aperture = rqc2, k1 = kcq14738
+cq14866: quadrupole, type = "2.1Q5.87", l = lqc2/2, aperture = rqc2, k1 = kcq14866
+
+! positron
+
+kcq141738 = -0.228768471644e-2
+kcq141866 = -0.228768471644e-2
+
+cq141738: quadrupole, type = "2.1Q5.87", l = lqc2/2, aperture = rqc2, k1 = kcq141738
+cq141866: quadrupole, type = "2.1Q5.87", l = lqc2/2, aperture = rqc2, k1 = kcq141866
+
+! ==============================================================================
+! DRIF
+! ------------------------------------------------------------------------------
+
+dm20: drift, l = 0.0342
+dm21: drift, l = 1.9339006   !0.6096+0.193+0.6340002+0.4973004
+dm21a: drift, l = 1.4366002
+dm21b: drift, l = dm21[l]-dm21a[l]
+dm22: drift, l = 0.509664791 !0.316596+0.193068791
+
+zdbq2a = 1.924996725395
+zd210a1 = 6.908547661855
+zd210a2 = 0.852976041214
+zd210b1 = 0.962912148546
+zd210b2 = 6.863711554523
+zdbq2b = 1.859896725395
+
+dbq2a: drift, l = zdbq2a /cos(ab14), type = "CSR"
+d210a1: drift, l = zd210a1/cos(ab14), type = "CSR"
+d210a2: drift, l = zd210a2/cos(ab14), type = "CSR"
+ddg21: drift, l = 0.360994711244, type = "CSR"
+ddg22: drift, l = 0.144666, type = "CSR"
+ddg23: drift, l = 0.58687672, type = "CSR"
+d210b1: drift, l = zd210b1/cos(ab14), type = "CSR"
+d210b2: drift, l = zd210b2/cos(ab14), type = "CSR"
+dbq2b: drift, l = zdbq2b /cos(ab14), type = "CSR"
+
+dm23a: drift, l = 0.589065836686 !0.589065382243
+dm23b: drift, l = 0.190735       !0.152434617756996
+dm23c: drift, l = 0.122265       !0.160565382243004
+dm24: drift, l = 0.5552
+dm24a: drift, l = 0.1498
+dm24b: drift, l = 0.1534
+dm25: drift, l = 0.0446
+dm25a: drift, l = 0.254
+dm25b: drift, l = 0.2797
+
+! ==============================================================================
+! XCORs and YCORs
+! ------------------------------------------------------------------------------
+
+! electron
+
+yc14780: vkicker, type = "type-4"
+
+! positron
+
+yc141780: vkicker, type = "type-4"
+
+! ==============================================================================
+! diagnostics
+! ------------------------------------------------------------------------------
+
+! BPMs (LCLS-II type designations)
+
+! common
+
+bpm14701: monitor, type = "Stripline-2"
+bpm14715: monitor, type = "Stripline-2"
+bpm14891: monitor, type = "Stripline-2"
+bpm14901: monitor, type = "Stripline-2"
+
+! electron
+
+bpm14801: monitor, type = "Stripline-8"
+
+! positron
+
+bpm141801: monitor, type = "Stripline-8"
+
+! misc
+
+! common
+
+bl14888: monitor, type = "CSR"
+im14890: marker, type = "toroid"
+
+! electron
+
+pr14803: monitor, type = "OTR BC"
+pr14892: monitor, type = "MYSTERY" ! NON-FUNCTIONAL
+
+! positron
+
+pr141803: monitor, type = "OTR BC"
+
+! ==============================================================================
+! collimators
+! ------------------------------------------------------------------------------
+
+! electron
+
+ce14815: rcollimator, type = "HCOLL" !energy collimator
+
+! positron
+
+ce141815: rcollimator, type = "HCOLL" !energy collimator
+
+! ==============================================================================
+! vacuum valves
+! ------------------------------------------------------------------------------
+
+vv14711: instrument !BC14 upstream vacuum valve
+vv14887: instrument !BC14 downstream vacuum valve
+vv14940: marker !SLC fast-valve
+
+! ==============================================================================
+! MARK
+! ------------------------------------------------------------------------------
+
+begbc14_1: marker
+endbc14_1: marker
+begbc14e: marker
+endbc14e: marker
+begbc14p: marker
+endbc14p: marker
+begbc14_2: marker
+cnt2b: marker, type = "CENTER"
+endbc14_2: marker
+
+! ==============================================================================
+! BEAMLINEs
+! ------------------------------------------------------------------------------
+
+
+
+!Old split line:  Q14701_full  : LINE=(Q14701,BPM14701,Q14701)
+
+q14701_full: line = (q14701)
+q14701[L] = 2*q14701[L]
+bpm14701[superimpose] = T
+bpm14701[ref] = q14701
+
+
+!Old split line:  QM14715_full : LINE=(QM14715,BPM14715,QM14715)
+
+qm14715_full: line = (qm14715)
+qm14715[L] = 2*qm14715[L]
+bpm14715[superimpose] = T
+bpm14715[ref] = qm14715
+
+  BC14_1 : LINE=(BEGBC14_1,DM20,Q14701_full,DM21a,VV14711,DM21b,QM14715_full,DM22,ENDBC14_1)
+
+
+
+!Old split line:  BCX14720_full : LINE=(BCX14720a,BCX14720b)
+
+bcx14720_full: line = (bcx14720)
+
+
+!Old split line:  CQ14738_full  : LINE=(CQ14738,CQ14738)
+
+cq14738_full: line = (cq14738)
+cq14738[L] = 2*cq14738[L]
+
+
+!Old split line:  BCX14796_full : LINE=(BCX14796a,BCX14796b)
+
+bcx14796_full: line = (bcx14796)
+
+
+!Old split line:  BCX14808_full : LINE=(BCX14808a,BCX14808b)
+
+bcx14808_full: line = (bcx14808)
+
+
+!Old split line:  CQ14866_full  : LINE=(CQ14866,CQ14866)
+
+cq14866_full: line = (cq14866)
+cq14866[L] = 2*cq14866[L]
+
+
+!Old split line:  BCX14883_full : LINE=(BCX14883a,BCX14883b)
+
+bcx14883_full: line = (bcx14883)
+
+  BC14E : LINE=(BEGBC14E,BCX14720_full,DBQ2A,CQ14738_full,D210A1,YC14780,D210A2,BCX14796_full,DDG21,BPM14801,DDG22,
+         PR14803,DDG23,BCX14808_full,D210B1,CE14815,D210B2,CQ14866_full,DBQ2B,BCX14883_full,ENDBC14E)
+
+
+
+!Old split line:  BCX141720_full : LINE=(BCX141720a,BCX141720b)
+
+bcx141720_full: line = (bcx141720)
+
+
+!Old split line:  CQ141738_full  : LINE=(CQ141738,CQ141738)
+
+cq141738_full: line = (cq141738)
+cq141738[L] = 2*cq141738[L]
+
+
+!Old split line:  BCX141796_full : LINE=(BCX141796a,BCX141796b)
+
+bcx141796_full: line = (bcx141796)
+
+
+!Old split line:  BCX141808_full : LINE=(BCX141808a,BCX141808b)
+
+bcx141808_full: line = (bcx141808)
+
+
+!Old split line:  CQ141866_full  : LINE=(CQ141866,CQ141866)
+
+cq141866_full: line = (cq141866)
+cq141866[L] = 2*cq141866[L]
+
+
+!Old split line:  BCX141883_full : LINE=(BCX141883a,BCX141883b)
+
+bcx141883_full: line = (bcx141883)
+
+  BC14P : LINE=(BEGBC14P,BCX141720_full,DBQ2A,CQ141738_full,D210A1,YC141780,D210A2,BCX141796_full,DDG21,BPM141801,DDG22,
+         PR141803,DDG23,BCX141808_full,D210B1,CE141815,D210B2,CQ141866_full,DBQ2B,BCX141883_full,ENDBC14P)
+
+
+
+!Old split line:  QM14891_full : LINE=(QM14891,BPM14891,QM14891)
+
+qm14891_full: line = (qm14891)
+qm14891[L] = 2*qm14891[L]
+bpm14891[superimpose] = T
+bpm14891[ref] = qm14891
+
+
+!Old split line:  Q14901_full  : LINE=(Q14901,BPM14901,Q14901)
+
+q14901_full: line = (q14901)
+q14901[L] = 2*q14901[L]
+bpm14901[superimpose] = T
+bpm14901[ref] = q14901
+
+  BC14_2 : LINE=(BEGBC14_2,CNT2B,DM23A,VV14887,DM23B,BL14888,DM23C,QM14891_full,DM24a,IM14890,DM24b,Q14901_full,DM25,
+         PR14892,DM25A,VV14940,DM25B,ENDBC14_2)
+
+! ==============================================================================
+
