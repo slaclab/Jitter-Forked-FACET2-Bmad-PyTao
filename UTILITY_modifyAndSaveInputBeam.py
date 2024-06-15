@@ -48,7 +48,7 @@ def modifyAndSaveInputBeam(
 
     filePath = os.getcwd()
     #Write as the active file
-    P.write(f'{filePath}/bmad/beams/activeBeamFile.h5')
+    P.write(f'{filePath}/beams/activeBeamFile.h5')
 
     #Also return the beam object
     return P
