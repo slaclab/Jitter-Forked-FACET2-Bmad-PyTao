@@ -7,8 +7,10 @@ def setLattice(
     tao,
     #L1PhaseSet = -28.2, #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
     #L2PhaseSet = -41.0, #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-    L1PhaseSet = -25.4, #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-    L2PhaseSet = -40.0, #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+    #L1PhaseSet = -25.4, #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+    #L2PhaseSet = -40.0, #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+    L1PhaseSet = -20.0, #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
+    L2PhaseSet = -38.0, #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
     L2EnergyOffset = 0,
     L3EnergyOffset = 0,
 
