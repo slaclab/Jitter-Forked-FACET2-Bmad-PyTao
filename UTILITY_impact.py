@@ -16,6 +16,7 @@ def runImpact(
     gridCount = 8,
     numMacroParticles = 1e4
 ):
+    print("Running Impact")
     
     if not filePath:
         filePath = os.getcwd()
@@ -67,7 +68,7 @@ def runImpact(
     t=I2.track(P0,s=0.9)
     
     E=t['mean_energy']
-    print(E)
+    #print(E)
 
 
     I['L0AF_scale']['rf_field_scale']=30e6
@@ -76,9 +77,10 @@ def runImpact(
     
     target_L0AF=E+L0AF_E_Gain
     
-    print(target_L0AF)
-    
-    res_L0AF = impact.autophase.autophase_and_scale(I, phase_ele_name='L0AF_phase', scale_ele_name='L0AF_scale', target=target_L0AF, scale_range=(10e6, 100e6), initial_particles=P0, verbose=True)
+    #print(target_L0AF)
+
+    print("\t Impact: Autophasing")
+    res_L0AF = impact.autophase.autophase_and_scale(I, phase_ele_name='L0AF_phase', scale_ele_name='L0AF_scale', target=target_L0AF, scale_range=(10e6, 100e6), initial_particles=P0, verbose=False)
 
     I['L0AF_phase']['theta0_deg']=I['L0AF_phase']['theta0_deg']-L0AF_Phase
 
@@ -95,8 +97,12 @@ def runImpact(
     #NMM overwrite; replace solenoid scan
     t = -0.4185
 
-    G=update_distgen(G,SETTINGS0,verbose=True)
+    print("\t Impact: Distgen")
+    G=update_distgen(G,SETTINGS0,verbose=False)
     G.input
+
+    print("\t Impact: Tracking")
+    
     G.run()
     P = G.particles
     I.initial_particles = P
@@ -104,7 +110,7 @@ def runImpact(
     I.numprocs=SETTINGS0['numprocs']
 
     I['SOL10111:solenoid_field_scale']=t/sim_sol_conv
-    print(I)
+    #print(I)
 
     I.workdir = impactFolderPath
     I.verbose=True
@@ -120,8 +126,6 @@ def runImpact(
     P1.write(filePath+"/beams/"+"ImpactBeam.h5")
 
     
-
-
 
 def update_impact(I,settings=None,
                impact_config=None,

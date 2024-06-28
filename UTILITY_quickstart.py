@@ -88,7 +88,13 @@ def initializeTao(
         inputBeamFilePath = f'{filePath}/beams/ImpactBeam.h5'
 
     else:
-        inputBeamFilePath = f'{filePath}{inputBeamFilePathSuffix}'
+        if inputBeamFilePathSuffix:
+            inputBeamFilePath = f'{filePath}{inputBeamFilePathSuffix}'
+            
+        else: #If tracking wasn't requested and a beamfile wasn't specified just grab a random beam... assume the user only wants to do single-particle sims
+            print("WARNING! No beam file is specified!")
+            inputBeamFilePath = f'{filePath}/beams/activeBeamFile.h5'
+            
 
         if numMacroParticles:
             print(f"Number of macro particles = {numMacroParticles}")

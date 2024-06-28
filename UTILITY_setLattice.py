@@ -15,6 +15,15 @@ def setLattice(
     L3EnergyOffset = 0,
 
 
+    #These quad settings are from the official lattice, as of 2024-06-28
+    QA10361kG = -2.60267,
+    QA10371kG =  2.62955,
+    QE10425kG = -8.66839,
+    QE10441kG =  10.1164,
+    QE10511kG =  5.40082,
+    QE10525kG = -4.85541,
+    
+
     #These quad settings are from the official lattice, as of 2024-05-20
     #quadNameList = ["Q5FF", "Q4FF", "Q3FF", "Q2FF", "Q1FF", "Q0FF", "Q0D", "Q1D", "Q2D"]
     #[(i, getQuadkG(tao,i)) for i in quadNameList]
@@ -62,6 +71,8 @@ def setLattice(
     
     setLinacsHelper(tao, L1PhaseSet, L2PhaseSet, L2EnergyOffset, L3EnergyOffset)
 
+    setAllInjectorQuads(tao, QA10361kG, QA10371kG, QE10425kG, QE10441kG, QE10511kG, QE10525kG)
+    
     setAllFinalFocusQuads(tao, Q5FFkG, Q4FFkG, Q3FFkG, Q2FFkG, Q1FFkG, Q0FFkG, Q0DkG, Q1DkG, Q2DkG)
 
     
@@ -159,6 +170,15 @@ def getSextkG(tao, sextName):
     #Bmad uses opposite sign!
     return -1 * sextIntegratedFieldkG
 
+def setAllInjectorQuads(tao, QA10361kG, QA10371kG, QE10425kG, QE10441kG, QE10511kG, QE10525kG):
+    setQuadkG(tao, "QA10361", QA10361kG)
+    setQuadkG(tao, "QA10371", QA10371kG)
+    setQuadkG(tao, "QE10425", QE10425kG)
+    setQuadkG(tao, "QE10441", QE10441kG)
+    setQuadkG(tao, "QE10511", QE10511kG)
+    setQuadkG(tao, "QE10525", QE10525kG)
+
+    return
 
 def setAllFinalFocusQuads(tao, Q5FFkG, Q4FFkG, Q3FFkG, Q2FFkG, Q1FFkG, Q0FFkG, Q0DkG, Q1DkG, Q2DkG):
 
