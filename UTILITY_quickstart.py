@@ -116,3 +116,19 @@ def initializeTao(
 def trackBeam(tao):
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+def getBeamAtElement(tao, eleString):
+    P = ParticleGroup(data=tao.bunch_data(eleString))
+    P = P[P.status == 1]
+    return P
+
+def getDriverAndWitness(P):
+    #See, e.g. "2024-07-01 Nudge Macroparticle Weights.ipynb" for details
+    
+    weights = np.sort(np.unique(P.weight))
+    if len(weights) != 2:
+        print("WARNING! Expected drive/witness structure not found")
+        return
+    PWitness = P[P.weight == weights[0]]
+    PDrive = P[P.weight == weights[1]]
+    return PDrive, PWitness
