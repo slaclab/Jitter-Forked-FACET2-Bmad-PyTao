@@ -23,8 +23,6 @@ from UTILITY_impact import runImpact
 
 import os
 
-
-
 def initializeTao(
     filePath = None,
     lastTrackedElement = "end",
@@ -108,8 +106,6 @@ def initializeTao(
     
     tao.cmd(f'set beam_init position_file={filePath}/beams/activeBeamFile.h5')
     tao.cmd('reinit beam')
-
-
     
     return tao
 

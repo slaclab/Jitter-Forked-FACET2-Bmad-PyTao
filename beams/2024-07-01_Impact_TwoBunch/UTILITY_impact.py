@@ -16,7 +16,8 @@ def runImpact(
     gridCount = 8,
     numMacroParticles = 1e4,
     GFILESuffix = 'distgen.yaml',
-    L0APhaseOffset = 0
+    L0APhaseOffset = 0,
+    solenoidTValue = -0.4185
 ):
     print("Running Impact")
     
@@ -97,7 +98,7 @@ def runImpact(
 
 
     #NMM overwrite; replace solenoid scan
-    t = -0.4185
+    t = solenoidTValue#-0.4185
 
     print("\t Impact: Distgen")
     G=update_distgen(G,SETTINGS0,verbose=False)

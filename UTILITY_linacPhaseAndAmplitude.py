@@ -1,11 +1,13 @@
 import numpy as np
 
-L1MatchStrings = []
-L2MatchStrings = []
-L3MatchStrings = []
-selectMarkers = []
+# L1MatchStrings = []
+# L2MatchStrings = []
+# L3MatchStrings = []
+# selectMarkers = []
 
 def getLinacMatchStrings(tao):
+    """Determine the strings required to match Bmad cavity elements"""
+    
     global L1MatchStrings, L2MatchStrings, L3MatchStrings, selectMarkers
     
     #These more general match strings might cause problems by including both lords and slaves!
@@ -29,6 +31,13 @@ def getLinacMatchStrings(tao):
     return [L1MatchStrings, L2MatchStrings, L3MatchStrings, selectMarkers]
 
 def getEnergyChangeFromElements(tao, activeMatchStrings):
+    """Calculate the energy change imparted by selected elements
+    
+    activeMatchStrings may be a string of a common name ("L1", "L2", or "L3") or an actual list of strings to match
+    """
+    
+    activeMatchStrings = matchStringWrapper(tao, activeMatchStrings)
+    
     #VOLTAGE is just gradient times length; need to manually include phase info
     voltagesArr = [tao.lat_list(i, "ele.VOLTAGE", flags="-no_slaves -array_out") for i in activeMatchStrings]
     voltagesArr = np.concatenate(voltagesArr)
@@ -41,6 +50,13 @@ def getEnergyChangeFromElements(tao, activeMatchStrings):
 
 
 def setLinacGradientAuto(tao, activeMatchStrings, targetVoltage): 
+    """Set all elements to a constant gradient required to achieve target voltage change
+
+    activeMatchStrings may be a string of a common name ("L1", "L2", or "L3") or an actual list of strings to match    
+    """
+    
+    activeMatchStrings = matchStringWrapper(tao, activeMatchStrings)
+    
     #Set to a fixed gradient so everything is the same. Not exactly physical but probably close
     baseGradient = 1.0e7
     for i in activeMatchStrings: tao.cmd(f'set ele {i} GRADIENT = {baseGradient}')
@@ -58,7 +74,35 @@ def setLinacGradientAuto(tao, activeMatchStrings, targetVoltage):
     #print(voltageSum/1e6)
 
 def setLinacPhase(tao, activeMatchStrings, phi0Deg):
+    """Set all elements to a phase
+
+    activeMatchStrings may be a string of a common name ("L1", "L2", or "L3") or an actual list of strings to match
+    """
+    
+    activeMatchStrings = matchStringWrapper(tao, activeMatchStrings)
+    
     for i in activeMatchStrings: tao.cmd(f'set ele {i} PHI0 = {phi0Deg / 360.}')
+
+
+def matchStringWrapper(tao, activeMatchStrings):
+    """
+    This is just to make life a little simpler for people.
+    Usually activeMatchStrings should be an array
+    However, if it's a string that's a common name ("L1", "L2", or "L3"), return the relevant match strings
+    Otherwise just spit out whatever was provided
+    """
+    if isinstance(activeMatchStrings, str):
+        [L1MatchStrings, L2MatchStrings, L3MatchStrings, selectMarkers] = getLinacMatchStrings(tao)
+        if activeMatchStrings == "L1":
+            return L1MatchStrings
+        if activeMatchStrings == "L2":
+            return L2MatchStrings
+        if activeMatchStrings == "L3":
+            return L3MatchStrings
+
+
+    return activeMatchStrings
+
 
 #Broken! If you comma separate too many values it just starts ignoring them...
 #def printETOTValues(activeElements):

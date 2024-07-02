@@ -21,8 +21,9 @@ def modifyAndSaveInputBeam(
     #    P.data.update(resample_particles(P, n=numMacroParticles))
     #PROBLEM! Built-in resampling smushes everything down to a single particle weight. No good for me since I'm using those to keep track of driver/witness
     #Instead, since the weights are ~equal, just pick a random subset then rescale their weights
-    initialImportSize = np.size(P.id)
+    initialImportSize = np.size(P.x)
     if numMacroParticles:
+        numMacroParticles = int(numMacroParticles)
         P = P[random.sample(range(initialImportSize), numMacroParticles)]
         P.weight = P.weight * (initialImportSize / numMacroParticles)
     
