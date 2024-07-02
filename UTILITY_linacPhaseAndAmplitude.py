@@ -85,7 +85,7 @@ def setLinacPhase(tao, activeMatchStrings, phi0Deg):
 
 
 def matchStringWrapper(tao, activeMatchStrings):
-    """
+    """Translate common names ("L1", "L2", or "L3") into relevant match strings
     This is just to make life a little simpler for people.
     Usually activeMatchStrings should be an array
     However, if it's a string that's a common name ("L1", "L2", or "L3"), return the relevant match strings
