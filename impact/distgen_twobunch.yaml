@@ -1,3 +1,4 @@
+species: electron
 n_particle: 1000000
 
 random_type: hammersley
