@@ -1,7 +1,9 @@
 #L1PhaseSet :  -28.2 #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
 #L2PhaseSet :  -41.0 #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+
 #L1PhaseSet :  -25.4 #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
 #L2PhaseSet :  -40.0 #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+
 L1PhaseSet :  -20.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
 L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
 L2EnergyOffset :  0
@@ -9,12 +11,14 @@ L3EnergyOffset :  0
 
 
 #These quad settings are from the official lattice, as of 2024-06-28
+#quadNameList=["QA10361", "QA10371", "QA10425", "QA10441", "QA10511", "QA10525"]
+#[(i, getQuadkG(tao,i)) for i in quadNameList]
 QA10361kG :  -2.60267
 QA10371kG :   2.62955
-QE10425kG :  -8.66839
-QE10441kG :   10.1164
-QE10511kG :   5.40082
-QE10525kG :  -4.85541
+QE10425kG :  -8.77368
+QE10441kG :   10.2393
+QE10511kG :   5.46642
+QE10525kG :  -4.91438
 
 
 #These quad settings are from the official lattice, as of 2024-05-20

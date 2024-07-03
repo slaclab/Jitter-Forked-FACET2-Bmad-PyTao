@@ -5,3 +5,5 @@ impact/tmp*
 ARCHIVE/
 output_data.csv
 output_data.json
+beams/ImpactBeam.h5
+beams/activeBeamFile.h5
