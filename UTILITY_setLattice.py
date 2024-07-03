@@ -1,3 +1,5 @@
+import yaml
+
 from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, setLinacGradientAuto
 
 
@@ -5,80 +7,76 @@ from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, 
 #This way there's a single place where default values need to be kept
 def setLattice(
     tao,
-    #L1PhaseSet = -28.2, #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-    #L2PhaseSet = -41.0, #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-    #L1PhaseSet = -25.4, #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-    #L2PhaseSet = -40.0, #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-    L1PhaseSet = -20.0, #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
-    L2PhaseSet = -38.0, #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
-    L2EnergyOffset = 0,
-    L3EnergyOffset = 0,
+    defaultsFile=None, 
+    **overrides
+):
 
+    if not defaultsFile:
+        defaultsFile = 'setLattice_defaults.yml'
+        print(f"No defaults file provided to setLattice(). Using {defaultsFile}")
+        
+    with open(defaultsFile, 'r') as file:
+        defaults = yaml.safe_load(file)
+        
+    # Combine defaults and overrides, with overrides taking precedence
+    latticeSettings = {**defaults, **overrides}
 
-    #These quad settings are from the official lattice, as of 2024-06-28
-    QA10361kG = -2.60267,
-    QA10371kG =  2.62955,
-    QE10425kG = -8.66839,
-    QE10441kG =  10.1164,
-    QE10511kG =  5.40082,
-    QE10525kG = -4.85541,
-    
-
-    #These quad settings are from the official lattice, as of 2024-05-20
-    #quadNameList = ["Q5FF", "Q4FF", "Q3FF", "Q2FF", "Q1FF", "Q0FF", "Q0D", "Q1D", "Q2D"]
-    #[(i, getQuadkG(tao,i)) for i in quadNameList]
-    Q5FFkG = -71.837,
-    Q4FFkG = -81.251,
-    Q3FFkG = 99.225,
-    Q2FFkG = 126.35,
-    Q1FFkG = -235.218,
-    Q0FFkG = 126.353,
-    Q0DkG = -109.694,
-    Q1DkG = 180.862,
-    Q2DkG = -109.694,
-
-    #These bend settings are from the official lattice, as of 2024-05-20    
-    #bendNameList = ["B1LE", "B2LE", "B3LE", "B3RE", "B2RE", "B1RE"]
-    #[(i, getBendkG(tao,i)) for i in bendNameList]
-    B1EkG = 7.533,
-    B2EkG = -10.942,
-    B3EkG = 3.409,
-
-    #These quad settings are from the official lattice, as of 2024-05-20
-    #quadNameList = ["Q1EL", "Q2EL", "Q3EL_1", "Q3EL_2", "Q4EL_1", "Q4EL_2", "Q4EL_3", "Q5EL", "Q6E", "Q5ER", "Q4ER_1", "Q4ER_2", "Q4ER_3", "Q3ER_1", "Q3ER_2", "Q2ER", "Q1ER"]
-    #[(i, getBendkG(tao,i)) for i in bendNameList]
-    Q1EkG = 161.311,
-    Q2EkG = -154.229,
-    Q3EkG = 110.217,
-    Q4EkG = 132.268,
-    Q5EkG = -23.373,
-    Q6EkG = -142.271,
-    
-    #These sextupole settings are from the official lattice, as of 2024-05-20
-    #sextNameList = ["S1EL", "S2EL", "S3EL_1", "S3EL_2", "S3ER_1", "S3ER_2", "S2ER", "S1ER"]
-    #[(i, getSextkG(tao,i)) for i in sextNameList]
-    S1ELkG = 804.871, 
-    S2ELkG = -2049.489, 
-    S3ELkG = -1019.3230, 
-    S3ERkG = -1019.3230, 
-    S2ERkG = -2049.489, 
-    S1ERkG = 804.871,
-    
-    **kwargs):
 
     #Prevent recalculation until changes are made
     tao.cmd("set global lattice_calc_on = F")
     
-    setLinacsHelper(tao, L1PhaseSet, L2PhaseSet, L2EnergyOffset, L3EnergyOffset)
+    setLinacsHelper(tao, 
+                    latticeSettings["L1PhaseSet"], 
+                    latticeSettings["L2PhaseSet"], 
+                    latticeSettings["L2EnergyOffset"], 
+                    latticeSettings["L3EnergyOffset"]
+                   )
 
-    setAllInjectorQuads(tao, QA10361kG, QA10371kG, QE10425kG, QE10441kG, QE10511kG, QE10525kG)
+    setAllInjectorQuads(tao, 
+                        latticeSettings["QA10361kG"], 
+                        latticeSettings["QA10371kG"], 
+                        latticeSettings["QE10425kG"], 
+                        latticeSettings["QE10441kG"], 
+                        latticeSettings["QE10511kG"], 
+                        latticeSettings["QE10525kG"]
+                       )
     
-    setAllFinalFocusQuads(tao, Q5FFkG, Q4FFkG, Q3FFkG, Q2FFkG, Q1FFkG, Q0FFkG, Q0DkG, Q1DkG, Q2DkG)
+    setAllFinalFocusQuads(tao, 
+                          latticeSettings["Q5FFkG"], 
+                          latticeSettings["Q4FFkG"], 
+                          latticeSettings["Q3FFkG"], 
+                          latticeSettings["Q2FFkG"], 
+                          latticeSettings["Q1FFkG"], 
+                          latticeSettings["Q0FFkG"], 
+                          latticeSettings["Q0DkG"], 
+                          latticeSettings["Q1DkG"], 
+                          latticeSettings["Q2DkG"]
+                         )
 
     
-    setAllWChicaneBends(tao, B1EkG, B2EkG, B3EkG)
-    setAllWChicaneQuads(tao, Q1EkG, Q2EkG, Q3EkG, Q4EkG, Q5EkG, Q6EkG)
-    setAllWChicaneSextupoles(tao, S1ELkG, S2ELkG, S3ELkG, S3ERkG, S2ERkG, S1ERkG)
+    setAllWChicaneBends(tao, 
+                        latticeSettings["B1EkG"], 
+                        latticeSettings["B2EkG"], 
+                        latticeSettings["B3EkG"]
+                       )
+    
+    setAllWChicaneQuads(tao, 
+                        latticeSettings["Q1EkG"], 
+                        latticeSettings["Q2EkG"], 
+                        latticeSettings["Q3EkG"], 
+                        latticeSettings["Q4EkG"], 
+                        latticeSettings["Q5EkG"], 
+                        latticeSettings["Q6EkG"]
+                       )
+    
+    setAllWChicaneSextupoles(tao, 
+                             latticeSettings["S1ELkG"], 
+                             latticeSettings["S2ELkG"], 
+                             latticeSettings["S3ELkG"], 
+                             latticeSettings["S3ERkG"], 
+                             latticeSettings["S2ERkG"], 
+                             latticeSettings["S1ERkG"]
+                            )
     
     #Reenable lattice calculations
     tao.cmd("set global lattice_calc_on = T")
