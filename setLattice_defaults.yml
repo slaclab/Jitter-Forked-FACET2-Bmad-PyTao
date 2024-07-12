@@ -44,19 +44,34 @@ B3EkG :  3.409
 #These quad settings are from the official lattice, as of 2024-05-20
 #quadNameList :  ["Q1EL", "Q2EL", "Q3EL_1", "Q3EL_2", "Q4EL_1", "Q4EL_2", "Q4EL_3", "Q5EL", "Q6E", "Q5ER", "Q4ER_1", "Q4ER_2", "Q4ER_3", "Q3ER_1", "Q3ER_2", "Q2ER", "Q1ER"]
 #[(i, getBendkG(tao,i)) for i in bendNameList]
-Q1EkG :  161.311
-Q2EkG :  -154.229
-Q3EkG :  110.217
-Q4EkG :  132.268
-Q5EkG :  -23.373
-Q6EkG :  -142.271
+# Q1EkG :  161.311
+# Q2EkG :  -154.229
+# Q3EkG :  110.217
+# Q4EkG :  132.268
+# Q5EkG :  -23.373
+# Q6EkG :  -142.271
 
 #These sextupole settings are from the official lattice, as of 2024-05-20
 #sextNameList :  ["S1EL", "S2EL", "S3EL_1", "S3EL_2", "S3ER_1", "S3ER_2", "S2ER", "S1ER"]
 #[(i, getSextkG(tao,i)) for i in sextNameList]
-S1ELkG :  804.871
-S2ELkG :  -2049.489
-S3ELkG :  -1019.3230 
-S3ERkG :  -1019.3230 
-S2ERkG :  -2049.489 
-S1ERkG :  804.871
+# S1ELkG :  804.871
+# S2ELkG :  -2049.489
+# S3ELkG :  -1019.3230 
+# S3ERkG :  -1019.3230 
+# S2ERkG :  -2049.489 
+# S1ERkG :  804.871
+
+
+#Two bunch optimized settings, 2024-07-12
+Q1EkG  :  1.480418e+02
+Q2EkG  : -1.482654e+02
+Q3EkG  :  1.087544e+02
+Q4EkG  :  1.410736e+02
+Q5EkG  : -1.919430e+01
+Q6EkG  : -1.506697e+02
+S1ELkG :  8.939040e+02
+S2ELkG : -3.427560e+03
+S3ELkG : -1.545775e+03
+S3ERkG : -9.003223e+02
+S2ERkG : -3.504816e+03
+S1ERkG :  7.521739e+02

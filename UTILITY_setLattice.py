@@ -7,13 +7,15 @@ from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, 
 #This way there's a single place where default values need to be kept
 def setLattice(
     tao,
-    defaultsFile=None, 
+    defaultsFile=None,
+    verbose = False,
     **overrides
 ):
 
     if not defaultsFile:
         defaultsFile = 'setLattice_defaults.yml'
-        print(f"No defaults file provided to setLattice(). Using {defaultsFile}")
+        if verbose:
+            print(f"No defaults file provided to setLattice(). Using {defaultsFile}")
         
     with open(defaultsFile, 'r') as file:
         defaults = yaml.safe_load(file)

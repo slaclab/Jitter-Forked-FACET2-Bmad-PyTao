@@ -23,6 +23,8 @@ from UTILITY_impact import runImpact
 
 import os
 
+filePathGlobal = None
+
 def initializeTao(
     filePath = None,
     lastTrackedElement = "end",
@@ -37,9 +39,13 @@ def initializeTao(
     #######################################################################
     #Set file path
     #######################################################################
+    global filePathGlobal 
+    
     if not filePath:
         filePath = os.getcwd()
+        
     os.environ['FACET2_LATTICE'] = filePath
+    filePathGlobal = filePath
     
     print('Environment set to: ', environ['FACET2_LATTICE']) 
 
@@ -63,8 +69,9 @@ def initializeTao(
 
 
     if loadDefaultLatticeTF:
-        setLattice(tao) #Set lattice to my latest default config
-        print("Loading default setLattice() values")
+        print("Overwriting lattice with setLattice() defaults")
+        setLattice(tao, verbose = True) #Set lattice to my latest default config
+        
     else:
         print("Base Tao lattice")
     
@@ -128,3 +135,23 @@ def getDriverAndWitness(P):
     PWitness = P[P.weight == weights[0]]
     PDrive = P[P.weight == weights[1]]
     return PDrive, PWitness
+
+def makeBeamActiveBeamFile(P):
+    global filePathGlobal
+    P.write(f"{filePathGlobal}/beams/activeBeamFile.h5")
+
+def smallestInterval(nums, percentage=0.9):
+    """Give the smallest interval containing a desired percentage of provided points"""
+    nums.sort()
+    n = len(nums)
+    k = int(n * percentage)
+    min_range = float('inf')
+    interval = (None, None)
+    
+    for i in range(n - k + 1):
+        current_range = nums[i + k - 1] - nums[i]
+        if current_range < min_range:
+            min_range = current_range
+            interval = (nums[i], nums[i + k - 1])
+    
+    return interval[1]-interval[0]
