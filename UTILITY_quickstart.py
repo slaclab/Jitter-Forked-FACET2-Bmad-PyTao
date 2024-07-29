@@ -11,6 +11,9 @@ import random
 from IPython.display import display, clear_output, update_display
 import bayes_opt
 
+import scipy
+from scipy.optimize import curve_fit
+
 from pmd_beamphysics import ParticleGroup
 #from pmd_beamphysics.statistics import resample_particles
 import pmd_beamphysics.statistics
@@ -155,3 +158,59 @@ def smallestInterval(nums, percentage=0.9):
             interval = (nums[i], nums[i + k - 1])
     
     return interval[1]-interval[0]
+
+
+def smallestIntervalImpliedSigma(nums, percentage=0.9):
+    interval = smallestInterval(nums, percentage)
+    intervalToSigmaFactor = scipy.special.erfinv(percentage) * (2 * np.sqrt(2))
+    return interval/intervalToSigmaFactor
+
+#See "Discussion of alternative emittance and spot size calculations.ipynb"
+#See also "2024-07-01 RMS vs FWHM at PENT.ipynb"
+def smallestIntervalImpliedEmittanceModelFunction(z, sigmax, sigmaxp, rho):
+    return np.sqrt(sigmax**2 + 2 * z * rho * sigmax * sigmaxp + z**2 * sigmaxp**2)
+
+def smallestIntervalImpliedEmittance(P, plane = "x", percentage = 0.9, verbose = False):
+    zValues = np.arange(-20, 20, 0.1)
+    if plane == "x":
+        sigmaXResults = [ smallestIntervalImpliedSigma(P.x + z * P.xp, percentage = percentage) for z in zValues]
+        sigmaXResultsExact = [ np.std(P.x + z * P.xp) for z in zValues]
+    elif plane == "y":
+        sigmaXResults = [ smallestIntervalImpliedSigma(P.y + z * P.yp, percentage = percentage) for z in zValues]
+        sigmaXResultsExact = [ np.std(P.y + z * P.yp) for z in zValues]
+    else:
+        return
+
+    #sigmaXResults = [ smallestIntervalImpliedSigma(P.x + z * P.xp, percentage = percentage) for z in zValues]
+    #sigmaXResultsExact = [ np.std(P.x + z * P.xp) for z in zValues]
+    
+    
+    # Fit the model to the data
+    popt, pcov = curve_fit(smallestIntervalImpliedEmittanceModelFunction, zValues, sigmaXResults, p0=[1, 1, 0])
+    
+    # Extract optimal parameters
+    sigmax_opt, sigmaxp_opt, rho_opt = popt
+
+
+    
+    emit_opt = np.sqrt( sigmax_opt**2 * sigmaxp_opt**2 - (rho_opt * sigmax_opt * sigmaxp_opt)**2 )
+
+
+    if verbose:
+        print(f"""True sigma_x, sigma_xp, rho: {P.std("x")}, {P.std("xp")}, {P["cov_x__xp"] / (P.std("x") * P.std("xp"))}""")
+        print(f"Optimizer parameters: sigma_x = {sigmax_opt}, sigma_xp = {sigmaxp_opt}, rho = {rho_opt}")
+    
+
+        plt.scatter(zValues, sigmaXResultsExact, label='True rms')
+        plt.scatter(zValues, sigmaXResults, label='Inferred rms')
+        plt.plot(zValues, smallestIntervalImpliedEmittanceModelFunction(zValues, *popt), label='Fitted function', color='red')
+        plt.xlabel('Drift [m]')
+        plt.ylabel('Sigma_x [m]')
+        plt.legend()
+        plt.show()
+
+        print(f"""Actual emittance: \t {P["norm_emit_x"]}""")
+        print(f"""Fit emittance: \t\t {emit_opt * P["mean_gamma"]}""")
+
+    return emit_opt * P["mean_gamma"]
+    
