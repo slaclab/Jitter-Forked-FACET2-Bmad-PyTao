@@ -75,16 +75,34 @@ L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Dow
 L2EnergyOffset :  0
 L3EnergyOffset :  0
 
-#Two bunch optimized settings, 2024-07-12
-Q1EkG      :           1.451376e+02
-Q2EkG      :          -1.488650e+02
-Q3EkG      :           1.083835e+02
-Q4EkG      :           1.457254e+02
-Q5EkG      :          -2.241865e+01
-Q6EkG      :          -1.526558e+02
-S1ELkG     :           9.796145e+02
-S2ELkG     :          -3.453383e+03
-S3ELkG     :          -1.425552e+03
-S3ERkG     :          -1.002427e+03
-S2ERkG     :          -3.545273e+03
-S1ERkG     :           7.011810e+02
+#Two bunch optimized settings, 2024-07-29
+# L1PhaseSet   :           -19.869413
+# L2PhaseSet   :           -38.149783
+# Q1EkG        :           156.856597
+# Q2EkG        :          -153.327540
+# Q3EkG        :           110.542152
+# Q4EkG        :           128.719505
+# Q5EkG        :           -23.046732
+# Q6EkG        :          -145.673670
+# S1ELkG       :          1222.899253
+# S2ELkG       :         -3461.993191
+# S3ELkG       :         -2075.978465
+# S3ERkG       :          -475.452695
+# S2ERkG       :         -2792.381501
+# S1ERkG       :           743.036473
+
+
+L1PhaseSet     :       -2.000000e+01
+L2PhaseSet     :       -3.800000e+01
+Q1EkG          :        1.568320e+02
+Q2EkG          :       -1.533035e+02
+Q3EkG          :        1.105249e+02
+Q4EkG          :        1.286994e+02
+Q5EkG          :       -2.304313e+01
+Q6EkG          :       -1.456509e+02
+S1ELkG         :        1.222708e+03
+S2ELkG         :       -3.461451e+03
+S3ELkG         :       -2.075654e+03
+S3ERkG         :       -4.753783e+02
+S2ERkG         :       -2.791944e+03
+S1ERkG         :        7.429202e+02
