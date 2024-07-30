@@ -75,6 +75,16 @@ L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Dow
 L2EnergyOffset :  0
 L3EnergyOffset :  0
 
+#2024-07-30-10-41-37 Injector quad settings. Quick optimization but substantial improvement over base lattice
+#With CSR at BEGBC20 get witness = 
+QA10361kG : -2.7318546468
+QA10371kG : 2.7876922658
+QE10425kG : -8.9883303953
+QE10441kG : 10.33265155
+QE10511kG : 3.8954093339
+QE10525kG : -3.8910243474
+
+
 #2024-07-29-16-43-53, 150 um spacing, no CSR
 # L1PhaseSet     :         -19.977779
 # L2PhaseSet     :         -38.103345
