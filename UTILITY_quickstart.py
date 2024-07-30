@@ -123,9 +123,15 @@ def trackBeam(tao):
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
 
-def getBeamAtElement(tao, eleString):
+def getBeamAtElement(tao, eleString, tToZ = True):
     P = ParticleGroup(data=tao.bunch_data(eleString))
     P = P[P.status == 1]
+
+    #Naive implementation for "typical" beams. ParticleGroup has .drift_to_z but I couldn't get it to work...
+    if tToZ:
+        P.z = -299792458 * P["delta_t"]
+        #P.t = 0 * P.t #I haven't decided the best practice for this yet. Technically the beam is not self-consistent without t being set to zero but not doing so is convenient for backwards compatibility
+        
     return P
 
 def getDriverAndWitness(P):
