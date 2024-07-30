@@ -75,34 +75,36 @@ L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Dow
 L2EnergyOffset :  0
 L3EnergyOffset :  0
 
-#Two bunch optimized settings, 2024-07-29
-# L1PhaseSet   :           -19.869413
-# L2PhaseSet   :           -38.149783
-# Q1EkG        :           156.856597
-# Q2EkG        :          -153.327540
-# Q3EkG        :           110.542152
-# Q4EkG        :           128.719505
-# Q5EkG        :           -23.046732
-# Q6EkG        :          -145.673670
-# S1ELkG       :          1222.899253
-# S2ELkG       :         -3461.993191
-# S3ELkG       :         -2075.978465
-# S3ERkG       :          -475.452695
-# S2ERkG       :         -2792.381501
-# S1ERkG       :           743.036473
+#2024-07-29-16-43-53, 150 um spacing, no CSR
+L1PhaseSet     :         -19.977779
+L2PhaseSet     :         -38.103345
+Q1EkG          :         164.175691
+Q2EkG          :        -150.487729
+Q3EkG          :         110.375435
+Q4EkG          :         125.226688
+Q5EkG          :         -23.713077
+Q6EkG          :        -141.693656
+S1ELkG         :        1243.563220
+S2ELkG         :       -3642.591547
+S3ELkG         :       -2230.471848
+S3ERkG         :        -467.405542
+S2ERkG         :       -2843.975693
+S1ERkG         :         747.427952
+
+#2024-07-29-16-29-13, 200 um spacing, no CSR
+L1PhaseSet      :        -19.501477
+L2PhaseSet      :        -37.133857
+Q1EkG           :        128.019695
+Q2EkG           :       -148.951445
+Q3EkG           :        112.554589
+Q4EkG           :        148.124457
+Q5EkG           :        -24.845088
+Q6EkG           :       -158.010569
+S1ELkG          :       1126.575596
+S2ELkG          :      -4303.476953
+S3ELkG          :      -2803.453710
+S3ERkG          :       -434.834365
+S2ERkG          :      -3245.553255
+S1ERkG          :       1320.613658
 
 
-L1PhaseSet     :       -2.000000e+01
-L2PhaseSet     :       -3.800000e+01
-Q1EkG          :        1.568320e+02
-Q2EkG          :       -1.533035e+02
-Q3EkG          :        1.105249e+02
-Q4EkG          :        1.286994e+02
-Q5EkG          :       -2.304313e+01
-Q6EkG          :       -1.456509e+02
-S1ELkG         :        1.222708e+03
-S2ELkG         :       -3.461451e+03
-S3ELkG         :       -2.075654e+03
-S3ERkG         :       -4.753783e+02
-S2ERkG         :       -2.791944e+03
-S1ERkG         :        7.429202e+02
