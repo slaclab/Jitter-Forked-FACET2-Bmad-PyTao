@@ -75,46 +75,62 @@ L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Dow
 L2EnergyOffset :  0
 L3EnergyOffset :  0
 
-#2024-07-30-10-41-37 Injector quad settings. Quick optimization but substantial improvement over base lattice
-#With CSR at BEGBC20 get witness = 
-QA10361kG : -2.7318546468
-QA10371kG : 2.7876922658
-QE10425kG : -8.9883303953
-QE10441kG : 10.33265155
-QE10511kG : 3.8954093339
-QE10525kG : -3.8910243474
+#2024-07-30-12-48-22 Injector quad settings. Quick optimization but substantial improvement over base lattice
+#With CSR on, at BEGBC20 get witness = 4.0 x 3.1, drive = 4.8 x 4.9 um-rad
+QA10361kG : -2.7552407742
+QA10371kG : 2.7814478298
+QE10425kG : -8.9145981371
+QE10441kG : 9.8806817063
+QE10511kG : 3.7349987997
+QE10525kG : -3.9580562132
 
 
-#2024-07-29-16-43-53, 150 um spacing, no CSR
-# L1PhaseSet     :         -19.977779
-# L2PhaseSet     :         -38.103345
-# Q1EkG          :         164.175691
-# Q2EkG          :        -150.487729
-# Q3EkG          :         110.375435
-# Q4EkG          :         125.226688
-# Q5EkG          :         -23.713077
-# Q6EkG          :        -141.693656
-# S1ELkG         :        1243.563220
-# S2ELkG         :       -3642.591547
-# S3ELkG         :       -2230.471848
-# S3ERkG         :        -467.405542
-# S2ERkG         :       -2843.975693
-# S1ERkG         :         747.427952
+#2024-07-30-12-50-45, 100 um spacing, with CSR
+# L1PhaseSet : -20.1125382826
+# L2PhaseSet : -37.0476725119
+# Q1EkG : 158.9378527091
+# Q2EkG : -148.0023111916
+# Q3EkG : 110.8647108133
+# Q4EkG : 118.4993245751
+# Q5EkG : -22.2706394902
+# Q6EkG : -132.9993557561
+# S1ELkG : 1194.8404914873
+# S2ELkG : -3102.2854292775
+# S3ELkG : -2060.9522075778
+# S3ERkG : -427.0846528576
+# S2ERkG : -2759.6031167752
+# S1ERkG : 858.1755779787
 
-#2024-07-30-09-43-11, 150 um spacing, with CSR
-L1PhaseSet    :        -2.032490e+01
-L2PhaseSet    :        -3.842917e+01
-Q1EkG         :         1.644753e+02
-Q2EkG         :        -1.536576e+02
-Q3EkG         :         1.103582e+02
-Q4EkG         :         1.252071e+02
-Q5EkG         :        -2.240660e+01
-Q6EkG         :        -1.416715e+02
-S1ELkG        :         1.455560e+03
-S2ELkG        :        -3.408697e+03
-S3ELkG        :        -2.265793e+03
-S3ERkG        :        -5.403155e+02
-S2ERkG        :        -2.533322e+03
-S1ERkG        :         8.550976e+02
+#2024-07-30-11-51-21, 150 um spacing, with CSR
+L1PhaseSet     :         -19.977779
+L2PhaseSet     :         -38.103345
+Q1EkG : 147.8978868144
+Q2EkG : -155.727740189
+Q3EkG : 113.0943904805
+Q4EkG : 114.1636832079
+Q5EkG : -21.5869253123
+Q6EkG : -126.2897304319
+S1ELkG : 1364.6669125783
+S2ELkG : -3544.0843005753
+S3ELkG : -2100.4887715829
+S3ERkG : -533.5030387336
+S2ERkG : -2719.0846994511
+S1ERkG : 838.9070618449
+
+#2024-07-30-12-49-53, 200 um spacing, with CSR
+# L1PhaseSet : -20.9803372534
+# L2PhaseSet : -38.6643826808
+# Q1EkG : 131.7651562903
+# Q2EkG : -151.9079479429
+# Q3EkG : 111.7452618677
+# Q4EkG : 153.3623507182
+# Q5EkG : -26.789329477
+# Q6EkG : -142.7487184027
+# S1ELkG : 1017.9764045258
+# S2ELkG : -4492.7214391172
+# S3ELkG : -2573.0672311811
+# S3ERkG : -468.7052993169
+# S2ERkG : -3276.5681717899
+# S1ERkG : 1334.0047390033
 
 
