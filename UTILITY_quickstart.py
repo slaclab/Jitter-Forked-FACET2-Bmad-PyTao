@@ -35,6 +35,7 @@ def initializeTao(
     inputBeamFilePathSuffix = None,
     numMacroParticles = None,
     loadDefaultLatticeTF = True,
+    defaultsFile = None, 
     runImpactTF = False,
     impactGridCount = 32
 ):
@@ -73,7 +74,7 @@ def initializeTao(
 
     if loadDefaultLatticeTF:
         print("Overwriting lattice with setLattice() defaults")
-        setLattice(tao, verbose = True) #Set lattice to my latest default config
+        setLattice(tao, verbose = True,  defaultsFile = defaultsFile) #Set lattice to my latest default config
         
     else:
         print("Base Tao lattice")
