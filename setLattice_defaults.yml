@@ -107,14 +107,17 @@ Q2DkGBounds : (-223, 0)  #BCON = -112
 ######################################################################################
 ######################################################################################
 
-#L1PhaseSet :  -28.2 #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-#L2PhaseSet :  -41.0 #2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+#2024-05-17: optimized PENT (sigmaX * sigmaY * sigmaZ) with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+#L1PhaseSet :  -28.2 
+#L2PhaseSet :  -41.0 
 
-#L1PhaseSet :  -25.4 #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
-#L2PhaseSet :  -40.0 #2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+#2024-05-17: optimized PENT sigmaZ with 2024-02-16_2bunch_1e5Downsample_nudgeWeights_driverOnly_2023-05-16InjectorMatch.h5, otherwise base lattice; no energy offsets
+#L1PhaseSet :  -25.4 
+#L2PhaseSet :  -40.0
 
-L1PhaseSet :  -20.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
-L2PhaseSet :  -38.0 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
+#2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
+L1PhaseSet :  -20.0 
+L2PhaseSet :  -38.0
 L2EnergyOffset :  0
 L3EnergyOffset :  0
 
@@ -127,6 +130,16 @@ QE10441kG : 9.8806817063
 QE10511kG : 3.7349987997
 QE10525kG : -3.9580562132
 
+#Sector 20 Configurator GUI TCAV optics values, as of 2024-08-16
+# Q5FFkG : -192.1
+# Q4FFkG : -162.2
+# Q3FFkG : 105.6
+# Q2FFkG : 120.5
+# Q1FFkG : -209.4
+# Q0FFkG : 120.5
+# Q0DkG  : -139.3
+# Q1DkG  : 225.4
+# Q2DkG  : -139.3
 
 #2024-07-31-07-21-03, 100 um spacing, with CSR. maximizeMe = 1.0 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = True)
 # L1PhaseSet : -20.1125382826
@@ -256,6 +269,13 @@ QE10525kG : -3.9580562132
 # S3ERkG : -625.0233969049
 # S2ERkG : -4024.269299035
 # S1ERkG : 933.2393170764
+# 2024-08-15-09-54-13, FF optimization
+# Q5FFkG : -72.9847682601
+# Q4FFkG : -82.1811420037
+# Q3FFkG : 98.8732941443
+# Q2FFkG : 126.5639138285
+# Q1FFkG : -232.5171806501
+# Q0FFkG : 125.458906881
 # #2024-08-09-16-38-16 Second IP FF optimization
 # # Q5FFkG : -0.0041432061
 # # Q4FFkG : -63.5770403527
@@ -267,7 +287,26 @@ QE10525kG : -3.9580562132
 # Q0DkG : -126.385150771
 # Q1DkG : 111.8355545827
 # Q2DkG : -114.0550078477
-
+#2024-08-16-10-17-01 TCAV optics. 4.2:1 ratio
+# Q5FFkG : -121.0677752565
+# Q4FFkG : -28.3373348476
+# Q3FFkG : 65.4769927603
+# Q2FFkG : 63.1892030627
+# Q1FFkG : -32.0764243318
+# Q0FFkG : 14.8859214008
+# Q0DkG : -238.4351577783
+# Q1DkG : 362.3956423393
+# Q2DkG : -9.8562813813
+#2024-08-16-16-43-35 TCAV optics, intermediate
+# Q5FFkG : -107.7054049657
+# Q4FFkG : -60.5661440142
+# Q3FFkG : 92.7828110417
+# Q2FFkG : 111.6114218464
+# Q1FFkG : -201.4278981097
+# Q0FFkG : 50.3984532302
+# Q0DkG : -64.6838140589
+# Q1DkG : 106.5835778024
+# Q2DkG : -144.9493369743
 
 #2024-07-31-07-21-03, 100 um spacing, with CSR. maximizeMe = 3.4 @ 1e4 particles. Assumes propagateToBEGBC20(centerXYatBEGBC20 = False)
 # L1PhaseSet : -20.6640221514
@@ -292,26 +331,59 @@ QE10525kG : -3.9580562132
 # Q1FFkG : -236.5282361521
 # Q0FFkG : 132.1788702586
 
-#2024-08-10-11-07-03, 200 um spacing, with CSR. Second IP optics
-L1PhaseSet : -19.2349804326
-L2PhaseSet : -38.0933922102
+#2024-08-10-14-23-50, 200 um spacing, with CSR. Second IP optics
+# L1PhaseSet : -19.2349804326
+# L2PhaseSet : -38.0933922102
+# Q1EkG : 150.2867295956
+# Q2EkG : -152.5541532252
+# Q3EkG : 113.4139030036
+# Q4EkG : 120.3861567316
+# Q5EkG : -25.4198855394
+# Q6EkG : -139.9690997108
+# S1ELkG : 874.1893339687
+# S2ELkG : -3807.7520570449
+# S3ELkG : -1710.4002632548
+# S3ERkG : -663.7505841951
+# S2ERkG : -3840.2042400853
+# S1ERkG : 934.3714157681
+# Q5FFkG : -122.7786213641
+# Q4FFkG : 0.
+# Q3FFkG : 271.3551898769
 
-Q1EkG : 150.3595882983
-Q2EkG : -152.384970934
-Q3EkG : 113.4257824724
-Q4EkG : 120.4351970024
-Q5EkG : -25.4522987347
-Q6EkG : -140.0792353606
-S1ELkG : 881.8172372504
-S2ELkG : -3770.2446972095
-S3ELkG : -1685.4754547365
-S3ERkG : -648.8518616435
-S2ERkG : -3952.4151213527
-S1ERkG : 905.1446965279
-# Q5FFkG : -41.9721473679
-# Q4FFkG : -60.1178451828
-# Q3FFkG : 158.6068915646
 
-Q5FFkG : -122.1207947232
-Q4FFkG : 0.
-Q3FFkG : 272.1141660089
+#2024-08-17-15-25-21 200 um spacing, with CSR. Constrain absolute angle and position at PENT.
+L1PhaseSet : -19.4572874083
+L2PhaseSet : -37.961644913
+Q1EkG : 152.5151637466
+Q2EkG : -147.4003599458
+Q3EkG : 113.0185482112
+Q4EkG : 116.8270214616
+Q5EkG : -26.9200903065
+Q6EkG : -138.3201283114
+S1ELkG : 1068.2659915658
+S2ELkG : -3486.0325878561
+S3ELkG : -1916.9526264848
+S3ERkG : -786.2407150946
+S2ERkG : -2919.311044304
+S1ERkG : 968.7127510304
+#2024-08-18-07-46-43 TCAV optics intermediate. ~2:1
+# Q5FFkG : -98.2300909232
+# Q4FFkG : -99.2555130032
+# Q3FFkG : 63.2246802049
+# Q2FFkG : 104.9239861027
+# Q1FFkG : -93.7027234057
+# Q0FFkG : 17.9542740642
+# Q0DkG : -174.7534605299
+# Q1DkG : 146.897408871
+# Q2DkG : -121.8341416277
+
+#Minimize sigma_xp at TCAV
+# Q5FFkG : -97.1809514545
+# Q4FFkG : -68.7652608942
+# Q3FFkG : 60.7435999921
+# Q2FFkG : 83.4765464514
+# Q1FFkG : -39.2765853991
+# Q0FFkG : 6.3516596417
+# Q0DkG : -135.0329037175
+# Q1DkG : 310.9723157905
+# Q2DkG : -73.3737116603
