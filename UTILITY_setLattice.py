@@ -79,6 +79,17 @@ def setLattice(
                              latticeSettings["S2ERkG"], 
                              latticeSettings["S1ERkG"]
                             )
+
+    setAllWChicaneMovers(tao,
+                         latticeSettings["S1EL_xOffset"], 
+                         latticeSettings["S1EL_yOffset"], 
+                         latticeSettings["S2EL_xOffset"], 
+                         latticeSettings["S2EL_yOffset"], 
+                         latticeSettings["S2ER_xOffset"], 
+                         latticeSettings["S2ER_yOffset"], 
+                         latticeSettings["S1ER_xOffset"], 
+                         latticeSettings["S1ER_yOffset"]
+                        )
     
     #Reenable lattice calculations
     tao.cmd("set global lattice_calc_on = T")
@@ -170,6 +181,16 @@ def getSextkG(tao, sextName):
     #Bmad uses opposite sign!
     return -1 * sextIntegratedFieldkG
 
+def setXOffset(tao, eleName, offset):
+    tao.cmd(f"set ele {eleName} X_OFFSET = {offset}")
+
+    return
+
+def setYOffset(tao, eleName, offset):
+    tao.cmd(f"set ele {eleName} Y_OFFSET = {offset}")
+
+    return
+
 def setAllInjectorQuads(tao, QA10361kG, QA10371kG, QE10425kG, QE10441kG, QE10511kG, QE10525kG):
     setQuadkG(tao, "QA10361", QA10361kG)
     setQuadkG(tao, "QA10371", QA10371kG)
@@ -239,4 +260,17 @@ def setAllWChicaneSextupoles(tao, S1ELkG, S2ELkG, S3ELkG, S3ERkG, S2ERkG, S1ERkG
     setSextkG(tao, "S2ER",   S2ERkG)
     setSextkG(tao, "S1ER",   S1ERkG)
 
+    return
+
+def setAllWChicaneMovers(tao, S1EL_xOffset, S1EL_yOffset, S2EL_xOffset, S2EL_yOffset, S2ER_xOffset, S2ER_yOffset, S1ER_xOffset, S1ER_yOffset):
+    
+    setXOffset(tao, "S1EL", S1EL_xOffset)
+    setYOffset(tao, "S1EL", S1EL_yOffset)
+    setXOffset(tao, "S2EL", S2EL_xOffset)
+    setYOffset(tao, "S2EL", S2EL_yOffset)
+    setXOffset(tao, "S2ER", S2ER_xOffset)
+    setYOffset(tao, "S2ER", S2ER_yOffset)
+    setXOffset(tao, "S1ER", S1ER_xOffset)
+    setYOffset(tao, "S1ER", S1ER_yOffset)
+    
     return
