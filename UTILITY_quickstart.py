@@ -221,3 +221,13 @@ def smallestIntervalImpliedEmittance(P, plane = "x", percentage = 0.9, verbose =
 
     return emit_opt * P["mean_gamma"]
     
+
+def getMatrix(tao, start, end, print = False):
+    """Return first order transport matrix from start to end. Optionally print in a human readable format"""
+    
+    transportMatrix = (tao.matrix(start, end))["mat6"]
+
+    if print:
+        display(pd.DataFrame(transportMatrix).style.hide(axis="index").hide(axis="columns"))
+        
+    return transportMatrix
