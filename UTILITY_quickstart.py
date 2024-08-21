@@ -21,7 +21,7 @@ import pmd_beamphysics.statistics
 from UTILITY_plotMod import plotMod, slicePlotMod
 from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, setLinacGradientAuto
 from UTILITY_modifyAndSaveInputBeam import modifyAndSaveInputBeam
-from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG
+from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG, setXOffset, setYOffset
 from UTILITY_impact import runImpact
 
 import os
@@ -221,6 +221,8 @@ def smallestIntervalImpliedEmittance(P, plane = "x", percentage = 0.9, verbose =
 
     return emit_opt * P["mean_gamma"]
     
+def displayMatrix(matrix):
+    display(pd.DataFrame(matrix).style.hide(axis="index").hide(axis="columns"))
 
 def getMatrix(tao, start, end, print = False):
     """Return first order transport matrix from start to end. Optionally print in a human readable format"""
@@ -228,6 +230,7 @@ def getMatrix(tao, start, end, print = False):
     transportMatrix = (tao.matrix(start, end))["mat6"]
 
     if print:
-        display(pd.DataFrame(transportMatrix).style.hide(axis="index").hide(axis="columns"))
+        #display(pd.DataFrame(transportMatrix).style.hide(axis="index").hide(axis="columns"))
+        displayMatrix(transportMatrix)
         
     return transportMatrix
