@@ -10,6 +10,8 @@ import pandas as pd
 import random
 from IPython.display import display, clear_output, update_display
 import bayes_opt
+import shutil
+from scipy.special import jn as besselj
 
 import scipy
 from scipy.optimize import curve_fit
@@ -121,7 +123,60 @@ def initializeTao(
     
     return tao
 
-def trackBeam(tao):
+def trackBeam(
+    tao,
+    trackStart = "L0AFEND",
+    trackEnd = "end",
+    laserHeater = False,
+    **kwargs,
+):
+    global filePathGlobal
+
+    #For backwards compatibility, want this function to leave activeBeamFile unmodified
+    #Introducing patchBeamFile for piecewise tracking
+    #Note that, although initializeTao() asks for inputBeamFilePathSuffix, it will /always/ write it to activeBeamFile
+    
+    shutil.copy(f'{filePathGlobal}/beams/activeBeamFile.h5', f'{filePathGlobal}/beams/patchBeamFile.h5') 
+    tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+    tao.cmd('reinit beam')
+    
+    tao.cmd(f'set beam_init track_start = {trackStart}')
+    tao.cmd(f'set beam_init track_end = {trackEnd}')
+
+    
+    if laserHeater:
+        #Will track from start to HTRUNDF, get the beam, modify it, export it, import it, update track_start and track_end
+        tao.cmd(f'set beam_init track_end = HTRUNDF')
+        
+        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
+        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+        P = getBeamAtElement(tao, "HTRUNDF", tToZ = False)
+
+        PAfterLHmodulation, deltagamma, t = addLHmodulation(P, **kwargs,);
+        
+        writeBeam(PAfterLHmodulation, f'{filePathGlobal}/beams/patchBeamFile.h5')
+
+        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd('reinit beam')
+
+        tao.cmd(f'set beam_init track_start = HTRUNDF')
+        tao.cmd(f'set beam_init track_end = {trackEnd}')
+
+    
+    tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
+    tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+
+
+
+    #For backwards compatibility, return to activeBeamFile. Might be unnecessary
+    tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/activeBeamFile.h5')
+    tao.cmd('reinit beam')
+
+def trackBeamLEGACY(tao):
+    #This is the pre-2024-08-23 version of trackBeam(), retained for debugging purposes. Can be deleted
+    
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
 
@@ -240,3 +295,48 @@ def getMatrix(tao, start, end, print = False):
         displayMatrix(transportMatrix)
         
     return transportMatrix
+
+def addLHmodulation(
+    inputBeam, 
+    #Elaser, 
+    showplots=False,
+    laserHeater_laserEnergy = 0.5e-3,
+    laserHeater_sigma_t =  (2 / 2.355) * 1e-12,
+    laserHeater_offset = -0.5
+):
+    """ From C. Emma, 2024-08-23 """
+    # Hardcode FACET-II laser and undulator parameters
+    # Laser parameters
+    Elaser = laserHeater_laserEnergy
+    lambda_laser = 760e-9
+    sigmar_laser = 200e-6
+    sigmat_laser = laserHeater_sigma_t # (2 / 2.355) * 1e-12
+    Plaser = Elaser / np.sqrt(2 * np.pi * sigmat_laser**2)
+    offset = laserHeater_offset #-0.5  # laser to e-beam offset if you want you can add it
+    # Undulator parameters
+    K = 1.1699
+    lambdaw = 0.054
+    Nwig = 9
+    # Electron beam
+    outputBeam = inputBeam.copy()
+    x = inputBeam.x - np.mean(inputBeam.x)
+    y = inputBeam.y - np.mean(inputBeam.y)
+    gamma = inputBeam.gamma
+    gamma0 = np.mean(inputBeam.gamma)
+    t = inputBeam.t-np.mean(inputBeam.t);
+    # Calculated parameters
+    lambda_r = lambdaw / 2 / gamma0**2 * (1 + K**2 / 2)  # Assumes planar undulator
+    omega = 2 * np.pi * 299792458 / lambda_r  # Resonant frequency
+    JJ = besselj(0, K**2 / (4 + 2 * K**2)) - besselj(1, K**2 / (4 + 2 * K**2))
+    totalLaserEnergy = np.sqrt(2 * np.pi * sigmat_laser**2) * Plaser
+    # Laser is assumed Gaussian with peak power Plaser
+    # This formula from eq. 8 Huang PRSTAB 074401 2004
+    mod_amplitude = np.sqrt(Plaser / 8.7e9) * K * lambdaw * Nwig / gamma0 / sigmar_laser * JJ
+    #print(mod_amplitude / np.sqrt(Plaser))
+    # offset = 1.0  # temporal offset between laser and e-beam in units of laser wavelengths
+    # Calculate induced modulation deltagamma
+    deltagamma = mod_amplitude * np.exp(-0.25 * (x**2 + y**2) / sigmar_laser**2) * \
+                 np.sin(omega * t + offset * 2 * np.pi) * \
+                 np.exp(-0.5 * ((t - offset * sigmat_laser) / sigmat_laser)**2)
+    outputBeam.gamma = inputBeam.gamma + deltagamma
+    return outputBeam, deltagamma, t
