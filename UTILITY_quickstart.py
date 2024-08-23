@@ -23,6 +23,7 @@ from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, 
 from UTILITY_modifyAndSaveInputBeam import modifyAndSaveInputBeam
 from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG, setXOffset, setYOffset
 from UTILITY_impact import runImpact
+from UTILITY_OpenPMDtoBmad import OpenPMD_to_Bmad
 
 import os
 
@@ -145,6 +146,11 @@ def getDriverAndWitness(P):
     PWitness = P[P.weight == weights[0]]
     PDrive = P[P.weight == weights[1]]
     return PDrive, PWitness
+
+def writeBeam(P, fileName):
+    """ Writes the beam as an h5 with E. Cropp's timeOffset fix """
+    P.write(fileName)
+    OpenPMD_to_Bmad(fileName)
 
 def makeBeamActiveBeamFile(P):
     global filePathGlobal
