@@ -128,6 +128,8 @@ def trackBeam(
     trackStart = "L0AFEND",
     trackEnd = "end",
     laserHeater = False,
+    centerBC14 = False,
+    centerBC20 = False,
     **kwargs,
 ):
     global filePathGlobal
@@ -135,9 +137,15 @@ def trackBeam(
     #For backwards compatibility, want this function to leave activeBeamFile unmodified
     #Introducing patchBeamFile for piecewise tracking
     #Note that, although initializeTao() asks for inputBeamFilePathSuffix, it will /always/ write it to activeBeamFile
-    
-    shutil.copy(f'{filePathGlobal}/beams/activeBeamFile.h5', f'{filePathGlobal}/beams/patchBeamFile.h5') 
-    tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+
+
+    #Having second thoughts about this. Might be excessively paranoid?
+    #shutil.copy(f'{filePathGlobal}/beams/activeBeamFile.h5', f'{filePathGlobal}/beams/patchBeamFile.h5') 
+    #tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+    #tao.cmd('reinit beam')
+
+    #Instead, stick with always starting with activeBeamFile?
+    tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/activeBeamFile.h5')
     tao.cmd('reinit beam')
     
     tao.cmd(f'set beam_init track_start = {trackStart}')
@@ -163,6 +171,42 @@ def trackBeam(
         tao.cmd(f'set beam_init track_start = HTRUNDF')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
 
+    if centerBC14:
+        tao.cmd(f'set beam_init track_end = BEGBC14_1')
+        
+        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
+        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+        P = getBeamAtElement(tao, "BEGBC14_1", tToZ = False)
+
+        PMod = centerBeam(P)
+        
+        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
+
+        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd('reinit beam')
+
+        tao.cmd(f'set beam_init track_start = BEGBC14_1')
+        tao.cmd(f'set beam_init track_end = {trackEnd}')
+
+    if centerBC20:
+        tao.cmd(f'set beam_init track_end = BEGBC20')
+        
+        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
+        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+        P = getBeamAtElement(tao, "BEGBC20", tToZ = False)
+
+        PMod = centerBeam(P)
+        
+        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
+
+        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd('reinit beam')
+
+        tao.cmd(f'set beam_init track_start = BEGBC20')
+        tao.cmd(f'set beam_init track_end = {trackEnd}')
+
     
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
@@ -171,8 +215,8 @@ def trackBeam(
 
 
     #For backwards compatibility, return to activeBeamFile. Might be unnecessary
-    tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/activeBeamFile.h5')
-    tao.cmd('reinit beam')
+    # tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/activeBeamFile.h5')
+    # tao.cmd('reinit beam')
 
 def trackBeamLEGACY(tao):
     #This is the pre-2024-08-23 version of trackBeam(), retained for debugging purposes. Can be deleted
@@ -340,3 +384,12 @@ def addLHmodulation(
                  np.exp(-0.5 * ((t - offset * sigmat_laser) / sigmat_laser)**2)
     outputBeam.gamma = inputBeam.gamma + deltagamma
     return outputBeam, deltagamma, t
+
+def centerBeam(P):
+    PMod = P
+    PMod.x = P.x - np.mean(P.x)
+    PMod.y = P.y - np.mean(P.y)
+    PMod.px = P.px - np.mean(P.px)
+    PMod.py = P.py - np.mean(P.py)
+
+    return PMod
