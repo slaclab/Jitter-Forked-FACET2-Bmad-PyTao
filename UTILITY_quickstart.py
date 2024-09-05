@@ -160,9 +160,9 @@ def trackBeam(
         tao.cmd(f'set beam_init track_end = HTRUNDF')
         if verbose: print(f"Set track_end = HTRUNDF")
         
+        if verbose: print(f"Tracking!")
         tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
-        if verbose: print(f"Tracking!")
 
         P = getBeamAtElement(tao, "HTRUNDF", tToZ = False)
 
@@ -182,10 +182,10 @@ def trackBeam(
     if centerBC14:
         tao.cmd(f'set beam_init track_end = BEGBC14_1')
         if verbose: print(f"Set track_end = BEGBC14_1")
-        
+
+        if verbose: print(f"Tracking!")
         tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
-        if verbose: print(f"Tracking!")
 
         P = getBeamAtElement(tao, "BEGBC14_1", tToZ = False)
 
@@ -205,10 +205,10 @@ def trackBeam(
     if centerBC20:
         tao.cmd(f'set beam_init track_end = BEGBC20')
         if verbose: print(f"Set track_end = BEGBC20")
-        
+
+        if verbose: print(f"Tracking!")
         tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
-        if verbose: print(f"Tracking!")
 
         P = getBeamAtElement(tao, "BEGBC20", tToZ = False)
 
@@ -225,14 +225,11 @@ def trackBeam(
         tao.cmd(f'set beam_init track_end = {trackEnd}')
         if verbose: print(f"Set track_start = BEGBC20, track_end = {trackEnd}")
 
-    
+    if verbose: print(f"Tracking!")
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
-    if verbose: print(f"Tracking!")
 
     if verbose: print(f"trackBeam() exiting")
-
-
 
 
     #For backwards compatibility, return to activeBeamFile. Might be unnecessary
@@ -279,6 +276,7 @@ def makeBeamActiveBeamFile(P):
 
 def smallestInterval(nums, percentage=0.9):
     """Give the smallest interval containing a desired percentage of provided points"""
+    nums = nums.copy()  # Create a copy to avoid modifying the original list
     nums.sort()
     n = len(nums)
     k = int(n * percentage)
