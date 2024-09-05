@@ -130,6 +130,7 @@ def trackBeam(
     laserHeater = False,
     centerBC14 = False,
     centerBC20 = False,
+    verbose = False,
     **kwargs,
 ):
     global filePathGlobal
@@ -147,69 +148,89 @@ def trackBeam(
     #Instead, stick with always starting with activeBeamFile?
     tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/activeBeamFile.h5')
     tao.cmd('reinit beam')
+    if verbose: print("Loaded activeBeamFile.h5")
     
     tao.cmd(f'set beam_init track_start = {trackStart}')
     tao.cmd(f'set beam_init track_end = {trackEnd}')
+    if verbose: print(f"Set track_start = {trackStart}, track_end = {trackEnd}")
 
     
     if laserHeater:
         #Will track from start to HTRUNDF, get the beam, modify it, export it, import it, update track_start and track_end
         tao.cmd(f'set beam_init track_end = HTRUNDF')
+        if verbose: print(f"Set track_end = HTRUNDF")
         
         tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        if verbose: print(f"Tracking!")
 
         P = getBeamAtElement(tao, "HTRUNDF", tToZ = False)
 
         PAfterLHmodulation, deltagamma, t = addLHmodulation(P, **kwargs,);
         
         writeBeam(PAfterLHmodulation, f'{filePathGlobal}/beams/patchBeamFile.h5')
+        if verbose: print(f"Beam with LH modulation written to patchBeamFile.h5")
 
         tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
         tao.cmd('reinit beam')
+        if verbose: print("Loaded patchBeamFile.h5")
 
         tao.cmd(f'set beam_init track_start = HTRUNDF')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
+        if verbose: print(f"Set track_start = HTRUNDF, track_end = {trackEnd}")
 
     if centerBC14:
         tao.cmd(f'set beam_init track_end = BEGBC14_1')
+        if verbose: print(f"Set track_end = BEGBC14_1")
         
         tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        if verbose: print(f"Tracking!")
 
         P = getBeamAtElement(tao, "BEGBC14_1", tToZ = False)
 
         PMod = centerBeam(P)
         
         writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
+        if verbose: print(f"Beam centered at BEGBC14 written to patchBeamFile.h5")
 
         tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
         tao.cmd('reinit beam')
+        if verbose: print("Loaded patchBeamFile.h5")
 
         tao.cmd(f'set beam_init track_start = BEGBC14_1')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
+        if verbose: print(f"Set track_start = BEGBC14_1, track_end = {trackEnd}")
 
     if centerBC20:
         tao.cmd(f'set beam_init track_end = BEGBC20')
+        if verbose: print(f"Set track_end = BEGBC20")
         
         tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        if verbose: print(f"Tracking!")
 
         P = getBeamAtElement(tao, "BEGBC20", tToZ = False)
 
         PMod = centerBeam(P)
         
         writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
+        if verbose: print(f"Beam centered at BEGBC20 written to patchBeamFile.h5")
 
         tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
         tao.cmd('reinit beam')
+        if verbose: print("Loaded patchBeamFile.h5")
 
         tao.cmd(f'set beam_init track_start = BEGBC20')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
+        if verbose: print(f"Set track_start = BEGBC20, track_end = {trackEnd}")
 
     
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+    if verbose: print(f"Tracking!")
+
+    if verbose: print(f"trackBeam() exiting")
 
 
 
@@ -253,7 +274,8 @@ def writeBeam(P, fileName):
 
 def makeBeamActiveBeamFile(P):
     global filePathGlobal
-    P.write(f"{filePathGlobal}/beams/activeBeamFile.h5")
+    #P.write(f"{filePathGlobal}/beams/activeBeamFile.h5")
+    writeBeam(P, f"{filePathGlobal}/beams/activeBeamFile.h5")
 
 def smallestInterval(nums, percentage=0.9):
     """Give the smallest interval containing a desired percentage of provided points"""
