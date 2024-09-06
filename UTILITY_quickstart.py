@@ -161,8 +161,7 @@ def trackBeam(
         if verbose: print(f"Set track_end = HTRUNDF")
         
         if verbose: print(f"Tracking!")
-        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
-        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        trackBeamHelper(tao)
 
         P = getBeamAtElement(tao, "HTRUNDF", tToZ = False)
 
@@ -184,8 +183,7 @@ def trackBeam(
         if verbose: print(f"Set track_end = BEGBC14_1")
 
         if verbose: print(f"Tracking!")
-        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
-        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        trackBeamHelper(tao)
 
         P = getBeamAtElement(tao, "BEGBC14_1", tToZ = False)
 
@@ -207,8 +205,7 @@ def trackBeam(
         if verbose: print(f"Set track_end = BEGBC20")
 
         if verbose: print(f"Tracking!")
-        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
-        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        trackBeamHelper(tao)
 
         P = getBeamAtElement(tao, "BEGBC20", tToZ = False)
 
@@ -226,8 +223,7 @@ def trackBeam(
         if verbose: print(f"Set track_start = BEGBC20, track_end = {trackEnd}")
 
     if verbose: print(f"Tracking!")
-    tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
-    tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+    trackBeamHelper(tao)
 
     if verbose: print(f"trackBeam() exiting")
 
@@ -241,6 +237,20 @@ def trackBeamLEGACY(tao):
     
     tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+def trackBeamHelper(tao):
+    """Wrap some of the tao commands with a try/except. This way if tracking doesn't work, we failsafe to track_type = single"""
+    try:
+        tao.cmd('set global track_type = beam') #set "track_type = single" to return to single particle
+    except:
+        print("Beam tracking failed. Resetting track_type = single")
+        tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+        return
+
+    tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
+
+    return
+        
 
 def getBeamAtElement(tao, eleString, tToZ = True):
     P = ParticleGroup(data=tao.bunch_data(eleString))
