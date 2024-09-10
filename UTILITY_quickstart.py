@@ -28,6 +28,7 @@ from UTILITY_impact import runImpact
 from UTILITY_OpenPMDtoBmad import OpenPMD_to_Bmad
 
 import os
+import yaml
 
 filePathGlobal = None
 
