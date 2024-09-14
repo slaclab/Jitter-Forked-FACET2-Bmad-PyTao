@@ -90,6 +90,13 @@ def setLattice(
                          latticeSettings["S1ER_xOffset"], 
                          latticeSettings["S1ER_yOffset"]
                         )
+
+    setAllFinalFocusKickers(tao,
+                        latticeSettings["XC1FFkG"],
+                        latticeSettings["XC3FFkG"],
+                        latticeSettings["YC1FFkG"],
+                        latticeSettings["YC2FFkG"]
+                        )
     
     #Reenable lattice calculations
     tao.cmd("set global lattice_calc_on = T")
@@ -191,6 +198,14 @@ def setYOffset(tao, eleName, offset):
 
     return
 
+def setKickerkG(tao, kickerName, integratedFieldkG):
+    """Set HKICKER or VKICKER based on EPICS-style integrated field"""
+
+    tao.cmd(f"set ele {kickerName} BL_KICK = {integratedFieldkG/10}")
+
+    return
+    
+
 def setAllInjectorQuads(tao, QA10361kG, QA10371kG, QE10425kG, QE10441kG, QE10511kG, QE10525kG):
     setQuadkG(tao, "QA10361", QA10361kG)
     setQuadkG(tao, "QA10371", QA10371kG)
@@ -273,4 +288,13 @@ def setAllWChicaneMovers(tao, S1EL_xOffset, S1EL_yOffset, S2EL_xOffset, S2EL_yOf
     setXOffset(tao, "S1ER", S1ER_xOffset)
     setYOffset(tao, "S1ER", S1ER_yOffset)
     
+    return
+
+def setAllFinalFocusKickers(tao, XC1FFkG, XC3FFkG, YC1FFkG, YC2FFkG):
+    
+    setKickerkG(tao, "XC1FF", XC1FFkG)
+    setKickerkG(tao, "XC3FF", XC3FFkG)
+    setKickerkG(tao, "YC1FF", YC1FFkG)
+    setKickerkG(tao, "YC2FF", YC2FFkG)
+
     return
