@@ -416,11 +416,30 @@ def addLHmodulation(
     outputBeam.gamma = inputBeam.gamma + deltagamma
     return outputBeam, deltagamma, t
 
-def centerBeam(P):
+def centerBeam(
+    P,
+    centerType = "median"
+):
+    """
+    Shifts x, y, xp, and yp of a beam to zero
+    centerType is either "median" or "mean"
+    """
+    
     PMod = P
-    PMod.x = P.x - np.mean(P.x)
-    PMod.y = P.y - np.mean(P.y)
-    PMod.px = P.px - np.mean(P.px)
-    PMod.py = P.py - np.mean(P.py)
+    if centerType == "median":
+        PMod.x = P.x - np.median(P.x)
+        PMod.y = P.y - np.median(P.y)
+        PMod.px = P.px - np.median(P.px)
+        PMod.py = P.py - np.median(P.py)
+        return PMod
+        
+    if centerType == "mean":
+        PMod.x = P.x - np.mean(P.x)
+        PMod.y = P.y - np.mean(P.y)
+        PMod.px = P.px - np.mean(P.px)
+        PMod.py = P.py - np.mean(P.py)
+        return PMod
 
-    return PMod
+    return
+
+    

@@ -775,24 +775,45 @@ L2PhaseSet : -50.4947732998
 # YC2FFkG : -0.0041541387
 
 #2024-09-16-16-20-21 Default lattice except above phase; best kickers:
-XC1FFkG : 0.1860519868
-XC3FFkG : -0.1008815711
-YC1FFkG : -0.000193685
-YC2FFkG : 0.0014636347
+# XC1FFkG : 0.1860519868
+# XC3FFkG : -0.1008815711
+# YC1FFkG : -0.000193685
+# YC2FFkG : 0.0014636347
 
 #Interim
-S1EL_xOffset : -0.0000682543
-S1EL_yOffset : -4.3207e-6
-S2EL_xOffset : -8.7153e-6
-S2EL_yOffset : -0.0000154942
-S2ER_xOffset : -0.0000102144
-S2ER_yOffset : 0.0000438444
-S1ER_xOffset : 0.000024466
-S1ER_yOffset : 0.0000241593
-XC1FFkG : 0.1853198327
-XC3FFkG : -0.1014029212
-YC1FFkG : -0.0001981362
-YC2FFkG : 0.0014782835
+# S1EL_xOffset : -0.0000682543
+# S1EL_yOffset : -4.3207e-6
+# S2EL_xOffset : -8.7153e-6
+# S2EL_yOffset : -0.0000154942
+# S2ER_xOffset : -0.0000102144
+# S2ER_yOffset : 0.0000438444
+# S1ER_xOffset : 0.000024466
+# S1ER_yOffset : 0.0000241593
+# XC1FFkG : 0.1853198327
+# XC3FFkG : -0.1014029212
+# YC1FFkG : -0.0001981362
+# YC2FFkG : 0.0014782835
 
 #2024-09-17-16-22-08 Changing over to median for angle and position constraint. Observed large difference between mean and median!
-#Unlimited angle and position constraint error
+
+#2024-09-17-16-27-46 Default lattice except above phase; best kickers:
+#CSR on, 1e4 particles
+XC1FFkG : 0.2207655767
+XC3FFkG : -0.1182241004
+YC1FFkG : 0.0030261088
+YC2FFkG : -0.0161409746
+
+#2024-09-17-17-00-29 Unlimited angle and position constraint error
+#CSR on, 1e3 particles
+S1EL_xOffset : 4.1031e-6
+S1EL_yOffset : -0.0000422548
+S2EL_xOffset : 0.0000284479
+S2EL_yOffset : -4.8586e-6
+S2ER_xOffset : -0.0000373685
+S2ER_yOffset : 0.0000566646
+S1ER_xOffset : 0.0002078634
+S1ER_yOffset : -0.0000165183
+XC1FFkG : 0.2197883562
+XC3FFkG : -0.1187804171
+YC1FFkG : 0.0030937767
+YC2FFkG : -0.0158939567
