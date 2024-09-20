@@ -826,16 +826,18 @@ QE10525kG : -3.9580562132
 # YC1FFkG : 0.0080017693
 # YC2FFkG : -0.0241120761
 
-#Optimizing max(P{Drive,Witness}_sigmaSI90_{x,y,z}) with full constraints (angle, position, spacing). CSR on
-S1EL_xOffset : 0.0031859763
-S1EL_yOffset : 0.000764258
-S2EL_xOffset : -0.0001931414
-S2EL_yOffset : 0.0001850483
-S2ER_xOffset : -0.0001984865
-S2ER_yOffset : 0.0011620239
-S1ER_xOffset : 0.0038849432
-S1ER_yOffset : 0.0017055282
-XC1FFkG : 0.2415617681
-XC3FFkG : -0.1325526966
-YC1FFkG : 0.0087639074
-YC2FFkG : -0.0242381299
+#2024-09-20-14-40-49 Optimizing max(P{Drive,Witness}_sigmaSI90_{x,y,z}) with full constraints (angle, position, spacing). CSR on
+L1PhaseSet : -22.6143397894
+L2PhaseSet : -38.8420977417
+# S1EL_xOffset : 0.0034932802
+# S1EL_yOffset : 0.0006937377
+# S2EL_xOffset : -0.0001745685
+# S2EL_yOffset : 0.0001914738
+# S2ER_xOffset : -0.0001929614
+# S2ER_yOffset : 0.0010431167
+# S1ER_xOffset : 0.003692922
+# S1ER_yOffset : 0.0017972539
+# XC1FFkG : 0.2516245738
+# XC3FFkG : -0.1333120784
+# YC1FFkG : 0.010250268
+# YC2FFkG : -0.0236517583
