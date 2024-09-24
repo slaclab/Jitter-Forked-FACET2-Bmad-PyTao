@@ -827,6 +827,7 @@ QE10525kG : -3.9580562132
 # YC2FFkG : -0.0241120761
 
 #2024-09-21-08-30-06 Optimizing max(P{Drive,Witness}_sigmaSI90_{x,y,z}) with full constraints (angle, position, spacing). CSR on
+#Nuts, must have lost the phases for this....
 # QA10361kG : -2.7665122887
 # QA10371kG : 2.7577049915
 # QE10425kG : -8.8012501329
@@ -894,5 +895,19 @@ QE10525kG : -3.9580562132
 
 
 #2024-09-24-07-43-29
-L1PhaseSet :  0.0 
-L2PhaseSet :  0.0
+#Optimization starting from L1 = L2 = 0 and defaults otherwise
+L1PhaseSet : -17.4744140354
+L2PhaseSet : -34.7638298417
+
+S1EL_xOffset : 0.0034946188
+S1EL_yOffset : -0.0006614782
+S2EL_xOffset : -0.0004775094
+S2EL_yOffset : -0.0001173319
+S2ER_xOffset : 0.0009945794
+S2ER_yOffset : 0.0014612753
+S1ER_xOffset : -0.0003853696
+S1ER_yOffset : 0.000734451
+XC1FFkG : 0.1979046031
+XC3FFkG : -0.0924697909
+YC1FFkG : 0.0057344755
+YC2FFkG : -0.0368519185
