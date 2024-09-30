@@ -141,6 +141,12 @@ L1PhaseSet :  -20.0
 L2PhaseSet :  -38.0
 L2EnergyOffset :  0
 L3EnergyOffset :  0
+#2024-09-30: Extending phase/amplitude setting
+L0BPhaseSet : 0
+L0BEnergyOffset : 0
+L1EnergyOffset: 0
+L3PhaseSet : 0
+
 
 #2024-07-30-12-48-22 Injector quad settings. Quick optimization but substantial improvement over base lattice
 #With CSR on, at BEGBC20 get witness = 4.0 x 3.1, drive = 4.8 x 4.9 um-rad
@@ -936,20 +942,20 @@ QE10525kG : -3.9580562132
 #Back to physics informed thresholds (https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g304afab6ab0_0_5)
 #150 um spacing, movers only. CSR OFF
 #2024-09-26-07-22-09 Satisfies constraints at MTS = 0.50, 1e4 particles
-L1PhaseSet : -19.3681008104
-L2PhaseSet : -36.6316557277
-S1EL_xOffset : 0.0023478831
-S1EL_yOffset : -0.0000973656
-S2EL_xOffset : -0.0015127666
-S2EL_yOffset : -0.0001074805
-S2ER_xOffset : -0.001756974
-S2ER_yOffset : 0.0001006197
-S1ER_xOffset : -0.0002916657
-S1ER_yOffset : 0.0002104775
-XC1FFkG : 0.0002277549
-XC3FFkG : 0.0006122888
-YC1FFkG : 0.0001476128
-YC2FFkG : 0.0007744981
+# L1PhaseSet : -19.3681008104
+# L2PhaseSet : -36.6316557277
+# S1EL_xOffset : 0.0023478831
+# S1EL_yOffset : -0.0000973656
+# S2EL_xOffset : -0.0015127666
+# S2EL_yOffset : -0.0001074805
+# S2ER_xOffset : -0.001756974
+# S2ER_yOffset : 0.0001006197
+# S1ER_xOffset : -0.0002916657
+# S1ER_yOffset : 0.0002104775
+# XC1FFkG : 0.0002277549
+# XC3FFkG : 0.0006122888
+# YC1FFkG : 0.0001476128
+# YC2FFkG : 0.0007744981
 
 #S20 configurator settings for 25 cm betas at PENT
 Q5FFkG :  -76.4
@@ -959,19 +965,18 @@ Q2FFkG :  136.5
 Q1FFkG :  -240.5
 Q0FFkG :  136.5
 
-#Constraints and objective satisfied
-L1PhaseSet : -19.3579987748
-L2PhaseSet : -36.8505706192
-
-S1EL_xOffset : 0.0039417718
-S1EL_yOffset : -0.0000903864
-S2EL_xOffset : -0.0019897847
-S2EL_yOffset : 0.0000852369
-S2ER_xOffset : -0.0015022364
-S2ER_yOffset : 0.0000849995
-S1ER_xOffset : 0.0037563815
-S1ER_yOffset : -0.0000795217
-XC1FFkG : -0.0059576577
-XC3FFkG : 0.0058909724
-YC1FFkG : 0.0001852267
-YC2FFkG : -0.0177712405
+#PENDING Constraints and objective satisfied
+L1PhaseSet : -21.2821041509
+L2PhaseSet : -39.3424287455
+S1EL_xOffset : 0.0033172675
+S1EL_yOffset : -0.0001246871
+S2EL_xOffset : -0.0016894887
+S2EL_yOffset : 0.0000585055
+S2ER_xOffset : -0.0010838973
+S2ER_yOffset : 0.0002039999
+S1ER_xOffset : 0.0034416292
+S1ER_yOffset : 0.0003174483
+XC1FFkG : 0.0471186665
+XC3FFkG : -0.0166520854
+YC1FFkG : 0.0034850109
+YC2FFkG : -0.0348316286
