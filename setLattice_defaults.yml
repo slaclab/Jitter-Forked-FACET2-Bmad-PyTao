@@ -983,23 +983,41 @@ Q0FFkG :  136.5
 # YC1FFkG : -0.0025077111
 # YC2FFkG : -0.0307077009
 
-#2024-10-01 Trying new optimization approach https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2f91233284b_0_0
-L0BPhaseSet : -2.2741943043
-L1PhaseSet : -19.4571599872
-L2PhaseSet : -37.0868074637
-L3PhaseSet : -3.1744629324
+#2024-10-01-12-39-15 Trying new optimization approach https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2f91233284b_0_0
+#Same targets as above, constraints and objective satisfied
+# L0BPhaseSet : -1.7210344516
+# L1PhaseSet : -20.3120443443
+# L2PhaseSet : -38.6737055166
+# L3PhaseSet : -1.4632882388
+# S1EL_xOffset : 0.0003852549
+# S1EL_yOffset : -0.0002411137
+# S2EL_xOffset : -0.0014178669
+# S2EL_yOffset : 0.0000111705
+# S2ER_xOffset : -0.002238162
+# S2ER_yOffset : -0.0006759962
+# S1ER_xOffset : 0.0010071369
+# S1ER_yOffset : 0.0003984557
+# XC1FFkG : 0.2064553639
+# XC3FFkG : -0.089916372
+# YC1FFkG : -0.0022311951
+# YC2FFkG : -0.0085115845
 
-S1EL_xOffset : 0.0009465102
-S1EL_yOffset : -0.0002482788
-S2EL_xOffset : -0.0019527433
-S2EL_yOffset : -5.4633e-6
-S2ER_xOffset : -0.0005627432
-S2ER_yOffset : -0.0005317425
-S1ER_xOffset : 0.0005851932
-S1ER_yOffset : 0.0005159699
-XC1FFkG : 0.2244155602
-XC3FFkG : -0.0871541195
-YC1FFkG : -0.001697669
-YC2FFkG : -0.0103200655
+#200 um spacing, movers only. CSR off. Optimizing from above starting point
+L0BPhaseSet : -1.6736516436
+L1PhaseSet : -20.0843237691
+L2PhaseSet : -39.1578091488
+L3PhaseSet : -1.5271189145
 
+S1EL_xOffset : 0.000416925
+S1EL_yOffset : -0.0002652399
+S2EL_xOffset : -0.0013872292
+S2EL_yOffset : 0.0000148325
+S2ER_xOffset : -0.0023647265
+S2ER_yOffset : -0.0006037556
+S1ER_xOffset : 0.0011003507
+S1ER_yOffset : 0.0003325051
+XC1FFkG : 0.2064142583
+XC3FFkG : -0.0903856727
+YC1FFkG : -0.0023951951
+YC2FFkG : -0.0051652416
 
