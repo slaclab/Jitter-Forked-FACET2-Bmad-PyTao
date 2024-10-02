@@ -1002,22 +1002,54 @@ Q0FFkG :  136.5
 # YC1FFkG : -0.0022311951
 # YC2FFkG : -0.0085115845
 
-#200 um spacing, movers only. CSR off. Optimizing from above starting point
-L0BPhaseSet : -1.6736516436
-L1PhaseSet : -20.0843237691
-L2PhaseSet : -39.1578091488
-L3PhaseSet : -1.5271189145
+#2024-10-01-15-12-10 175 um spacing, movers only. CSR off. 
+#COBYQA optimized from above starting point. Constraints and objective satisfied
+# L0BPhaseSet : -0.3001016916
+# L1PhaseSet : -20.3486149449
+# L2PhaseSet : -38.6843551264
+# L3PhaseSet : -1.4601244874
+# S1EL_xOffset : 0.0004348898
+# S1EL_yOffset : -0.0002420023
+# S2EL_xOffset : -0.0014163823
+# S2EL_yOffset : 0.0000165615
+# S2ER_xOffset : -0.0022379048
+# S2ER_yOffset : -0.0006778551
+# S1ER_xOffset : 0.0009840449
+# S1ER_yOffset : 0.0003466882
+# XC1FFkG : 0.2067822627
+# XC3FFkG : -0.0898349297
+# YC1FFkG : -0.0019597334
+# YC2FFkG : -0.0086423211
 
-S1EL_xOffset : 0.000416925
-S1EL_yOffset : -0.0002652399
-S2EL_xOffset : -0.0013872292
-S2EL_yOffset : 0.0000148325
-S2ER_xOffset : -0.0023647265
-S2ER_yOffset : -0.0006037556
-S1ER_xOffset : 0.0011003507
-S1ER_yOffset : 0.0003325051
-XC1FFkG : 0.2064142583
-XC3FFkG : -0.0903856727
-YC1FFkG : -0.0023951951
-YC2FFkG : -0.0051652416
+#2024-10-01-?? 200 um spacing, movers only. CSR off. 
+#COBYQA then DE optimized from 175 um spacing. Constraints and objective not quite satisfied
+# L0BPhaseSet : 1.2805562686
+# L1PhaseSet : -20.6381104576
+# L2PhaseSet : -39.1545606799
+# L3PhaseSet : -2.0790036928
+# S1EL_xOffset : 0.0003673035
+# S1EL_yOffset : -0.0001783517
+# S2EL_xOffset : -0.0014690255
+# S2EL_yOffset : 0.0001189714
+# S2ER_xOffset : -0.002285939
+# S2ER_yOffset : -0.0006243405
+# S1ER_xOffset : 0.001029078
+# S1ER_yOffset : 0.0002928874
+# XC1FFkG : 0.2089239879
+# XC3FFkG : -0.0907472082
+# YC1FFkG : -0.0020902434
+# YC2FFkG : -0.0153941164
+
+#PENDING 200 um spacing, movers only. CSR off. 
+#Clean start, two stage optimization https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2f91233284b_0_0
+L0BPhaseSet : -7.1657716639
+L1PhaseSet : -17.5093069885
+L2PhaseSet : -37.3232200806
+L3PhaseSet : 8.4560843227
+
+
+
+
+
+
 
