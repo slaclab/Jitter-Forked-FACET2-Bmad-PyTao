@@ -17,7 +17,8 @@ def runImpact(
     numMacroParticles = 1e4,
     GFILESuffix = 'distgen.yaml',
     L0APhaseOffset = 0,
-    solenoidTValue = -0.4185
+    solenoidTValue = -0.4185,
+    returnImpactObject = False
 ):
     print("Running Impact")
     
@@ -45,8 +46,14 @@ def runImpact(
         'header:Nz':gridCount, 
         'stop_1:s':4.2,
         'distgen:n_particle':numMacroParticles,
-        'GUNF:theta0_deg':26.8-90.5,#30 degrees-adjustment for phase def.
-        'GUNF:rf_field_scale': 123/2.44885*1e6,
+
+        
+        #'GUNF:theta0_deg':26.8-90.5,#30 degrees-adjustment for phase def.
+        #'GUNF:rf_field_scale': 123/2.44885*1e6,
+        #New from Eric 2024-10-07
+        'GUNF:theta0_deg':29.3-90,#31.83 degrees-adjustment for phase def.
+        'GUNF:rf_field_scale': 119/2.44885*1e6,
+        
         'SOL10111:solenoid_field_scale':-0.41/sim_sol_conv,
         #'PR10241:sample_frequency':1,
         #'workdir':os.path.expandvars('~/'),
@@ -127,6 +134,11 @@ def runImpact(
     P1['mean_energy']
     
     P1.write(filePath+"/beams/"+"ImpactBeam.h5")
+
+    if returnImpactObject:
+        return I
+
+    
 
     
 
