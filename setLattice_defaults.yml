@@ -1150,19 +1150,40 @@ Q0FFkG :  136.5
 
 #2024-10-10-08-31-49 100 um spacing, movers only. CSR off. 
 #Optimized from "2024-10-09-17-36-45 125 um spacing" starting point. Constraints and objective satisfied
-L0BPhaseSet : -1.7239451029
-L1PhaseSet : -20.733651811
-L2PhaseSet : -37.9924327213
-L3PhaseSet : -1.2457900903
-S1EL_xOffset : 0.0006225425
-S1EL_yOffset : -0.0001290396
-S2EL_xOffset : -0.0011975993
-S2EL_yOffset : -0.0000482164
-S2ER_xOffset : -0.0022647578
-S2ER_yOffset : -0.000411363
-S1ER_xOffset : 0.0009675699
-S1ER_yOffset : 0.000499569
-XC1FFkG : 0.2056506796
-XC3FFkG : -0.0908257599
-YC1FFkG : -0.0015454042
-YC2FFkG : 0.0029837695
+# L0BPhaseSet : -1.7239451029
+# L1PhaseSet : -20.733651811
+# L2PhaseSet : -37.9924327213
+# L3PhaseSet : -1.2457900903
+# S1EL_xOffset : 0.0006225425
+# S1EL_yOffset : -0.0001290396
+# S2EL_xOffset : -0.0011975993
+# S2EL_yOffset : -0.0000482164
+# S2ER_xOffset : -0.0022647578
+# S2ER_yOffset : -0.000411363
+# S1ER_xOffset : 0.0009675699
+# S1ER_yOffset : 0.000499569
+# XC1FFkG : 0.2056506796
+# XC3FFkG : -0.0908257599
+# YC1FFkG : -0.0015454042
+# YC2FFkG : 0.0029837695
+
+#PENDING 150 um spacing, movers only. CSR on. 
+#Optimized from "2024-10-01-09-01-26" 150 um starting point. Constraints and objective satisfied
+L0BPhaseSet : 2.272679177
+L1PhaseSet : -21.8706147942
+L2PhaseSet : -39.427461647
+L3PhaseSet : 2.5644990507
+
+S1EL_xOffset : 0.0018500584
+S1EL_yOffset : -0.0001885093
+S2EL_xOffset : -0.0018472261
+S2EL_yOffset : 0.0002066336
+S2ER_xOffset : -0.0011795824
+S2ER_yOffset : -0.0003601594
+S1ER_xOffset : 0.0037180295
+S1ER_yOffset : -0.0001267517
+
+XC1FFkG : 0.0550246888
+XC3FFkG : -0.0195988608
+YC1FFkG : -0.0031276903
+YC2FFkG : -0.0264716896
