@@ -1087,32 +1087,82 @@ Q0FFkG :  136.5
 # YC1FFkG : 0.0059306717
 # YC2FFkG : 0.025129926
 
-#2024-10-06 Clean start, single stage. With injector quads
-QA10361kG : -2.9931450424
-QA10371kG : 3.424752166
-QE10425kG : -5.9377373795
-QE10441kG : 5.3041295375
-QE10511kG : 4.1091988219
-QE10525kG : -4.8040261376
-L0BPhaseSet : 3.7915040588
-L1PhaseSet : -35.527670309
-L2PhaseSet : -37.491254455
-L3PhaseSet : -12.0923261819
-S1EL_xOffset : 0.00134238
-S1EL_yOffset : -0.0002689122
-S2EL_xOffset : 0.0007873137
-S2EL_yOffset : -0.0001844865
-S2ER_xOffset : -0.0009343433
-S2ER_yOffset : -0.0015000132
-S1ER_xOffset : -0.000121601
-S1ER_yOffset : 0.0020602421
-XC1FFkG : 0.0052198603
-XC3FFkG : -0.0085906824
-YC1FFkG : -0.0033407139
-YC2FFkG : -0.0476741887
+#2024-10-08 Clean start DE. Movers and phase only.
+# L0BPhaseSet : 2.4901201554
+# L1PhaseSet : -21.3114318991
+# L2PhaseSet : -38.8204196971
+# L3PhaseSet : -10.2690452875
+# S1EL_xOffset : 0.0007975382
+# S1EL_yOffset : 0.0009232977
+# S2EL_xOffset : -0.0007568941
+# S2EL_yOffset : 0.0010213391
+# S2ER_xOffset : -0.0011946876
+# S2ER_yOffset : 0.0009752517
+# S1ER_xOffset : -0.0026123331
+# S1ER_yOffset : 0.0023078164
+
+#2024-10-08 Clean start N-M. Phases and offsets allowed for stage 1
+#Never seemed to be any good
+
+#2024-10-08 Clean start N-M. Phases and movers allowed for stage 1
+#I'm starting to think that 200 um might be too much using only phases and movers; in the past, used much more powerful knobs in BC20
 
 
+#2024-10-09-16-08-42 185 um spacing, movers only. CSR off. 
+#Optimized from "2024-10-01-15-12-10 175 um spacing" starting point. Constraints and objective satisfied
+#Scanning masterToleranceScaling from 0.0 to 1.0 over 1000 iterations of DE was very useful
+# L0BPhaseSet : -0.2820237094
+# L1PhaseSet : -20.2820512887
+# L2PhaseSet : -38.802995411
+# L3PhaseSet : -1.5849282754
+# S1EL_xOffset : 0.0007079493
+# S1EL_yOffset : -0.000316874
+# S2EL_xOffset : -0.0015097596
+# S2EL_yOffset : 0.0000132514
+# S2ER_xOffset : -0.0018922048
+# S2ER_yOffset : -0.0005597875
+# S1ER_xOffset : 0.0024335574
+# S1ER_yOffset : 0.000084798
+# XC1FFkG : 0.2078931066
+# XC3FFkG : -0.0883892948
+# YC1FFkG : -0.00201818
+# YC2FFkG : -0.013267368
+
+#2024-10-09-17-36-45 125 um spacing, movers only. CSR off. 
+#Optimized from "2024-10-01-12-39-15" 150 um starting point. Constraints and objective satisfied
+# L0BPhaseSet : -1.7723745877
+# L1PhaseSet : -20.8236631944
+# L2PhaseSet : -38.5704883121
+# L3PhaseSet : -1.6407470437
+# S1EL_xOffset : 0.0005704071
+# S1EL_yOffset : -0.0001260172
+# S2EL_xOffset : -0.0013061721
+# S2EL_yOffset : -0.0000600386
+# S2ER_xOffset : -0.0022312312
+# S2ER_yOffset : -0.0004442555
+# S1ER_xOffset : 0.0010350288
+# S1ER_yOffset : 0.0004448766
+# XC1FFkG : 0.2031686348
+# XC3FFkG : -0.0892700766
+# YC1FFkG : -0.0025516638
+# YC2FFkG : 0.0087826719
 
 
-
-
+#2024-10-10-08-31-49 100 um spacing, movers only. CSR off. 
+#Optimized from "2024-10-09-17-36-45 125 um spacing" starting point. Constraints and objective satisfied
+L0BPhaseSet : -1.7239451029
+L1PhaseSet : -20.733651811
+L2PhaseSet : -37.9924327213
+L3PhaseSet : -1.2457900903
+S1EL_xOffset : 0.0006225425
+S1EL_yOffset : -0.0001290396
+S2EL_xOffset : -0.0011975993
+S2EL_yOffset : -0.0000482164
+S2ER_xOffset : -0.0022647578
+S2ER_yOffset : -0.000411363
+S1ER_xOffset : 0.0009675699
+S1ER_yOffset : 0.000499569
+XC1FFkG : 0.2056506796
+XC3FFkG : -0.0908257599
+YC1FFkG : -0.0015454042
+YC2FFkG : 0.0029837695

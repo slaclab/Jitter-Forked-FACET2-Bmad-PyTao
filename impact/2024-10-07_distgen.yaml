@@ -6,7 +6,7 @@ random_type: hammersley
 start:
     type: cathode
     MTE:
-        value: 100.0 #400
+        value: 1000000.0 #400
         units: meV
         
 total_charge:
@@ -34,10 +34,10 @@ r_dist:
     type: radial_gaussian #radial_uniform
     # For radial_gaussian, allowed params: ['sigma_xy', 'truncation_fraction', 'truncation_radius_left', 'truncation_radius_right', 'n_sigma_cutoff_left', 'n_sigma_cutoff_left', 'n_sigma_cutoff', 'truncation_radius', 'truncation_radius_left', 'truncation_radius_right', 'verbose', 'type', 'indent']
     sigma_xy:
-        value: 1.78 #1.7
+        value: 1.48 #1.7
         units: mm
     truncation_radius:
-        value: 2.67 #2.7
+        value: 2.52 #2.7
         units: mm
         
 t_dist:
