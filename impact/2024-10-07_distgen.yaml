@@ -6,7 +6,7 @@ random_type: hammersley
 start:
     type: cathode
     MTE:
-        value: 400 #400
+        value: 1000 #400
         units: meV
         
 total_charge:
