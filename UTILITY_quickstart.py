@@ -264,6 +264,51 @@ def getBeamAtElement(tao, eleString, tToZ = True):
         
     return P
 
+def nudgeMacroparticleWeights(
+    PInput,
+    trailingBunchFraction = None,
+    trailingBunchType = None
+):
+    """
+    This is NOT a robust function. Don't trust it to do what you want
+    Presently splits based on z and a user-specified charge ratio. Lots of things can go wrong if you aren't careful!
+    
+    Borrowing stuff from 2024-03-29_nudgeMacroparticleWeights.ipynb
+    """
+
+    P = PInput.copy()
+
+    zVals = (P["delta_z"]).copy()
+    zVals = np.sort(zVals)
+    
+    splitZ = zVals[int(trailingBunchFraction * len(zVals))] 
+    
+    
+    
+    startingWeight = P.weight[0]
+    startingWeight
+    
+    witnessWeight = 0.999*startingWeight
+    driverWeight = 1.001*startingWeight
+    
+    if trailingBunchType == "witness":
+        trailingBunchWeight = witnessWeight
+        leadingBunchWeight = driverWeight
+    if trailingBunchType == "driver": 
+        trailingBunchWeight = driverWeight
+        leadingBunchWeight = witnessWeight
+    
+    newWeightArr = np.full(np.size(P.weight), -1.1)
+    for i in range(np.size(newWeightArr)):
+        if P["delta_z"][i] < splitZ:
+            newWeightArr[i] = trailingBunchWeight
+        else:
+            newWeightArr[i] = leadingBunchWeight
+    
+    P.weight = newWeightArr
+
+    return P
+
 def getDriverAndWitness(P):
     #See, e.g. "2024-07-01 Nudge Macroparticle Weights.ipynb" for details
     
@@ -441,5 +486,7 @@ def centerBeam(
         return PMod
 
     return
+
+
 
     
