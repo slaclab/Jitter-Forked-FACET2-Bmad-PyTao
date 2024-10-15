@@ -1203,3 +1203,35 @@ XC3FFkG : -0.2133291784
 YC1FFkG : -0.0068693139
 YC2FFkG : -0.1791143438
 
+
+
+####################
+########################################
+############################################################
+################################################################################
+####################################################################################################
+########################################################################################################################
+
+#2024-10-15: Transitioning to new IMPACT two-bunch
+#https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g30aeebd68fb_0_0
+
+########################################################################################################################
+####################################################################################################
+################################################################################
+############################################################
+########################################
+####################
+
+#This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+L0BEnergyOffset : -2259313
+
+#PENDING Injector quad settings. Nelder-Mead and COBYQA from golden lattice, minimizing drive and witness emittances in quadrature at BEGBC20, with CSR on
+    #I have mixed feelings about CSR on vs off; the former should give better real-world results but the latter should agree more with the linear model.
+#Golden lattice: witness = 56 x 35, drive = 36 x 10 um-rad
+#New settings: witness = XXX, drive = XXX um-rad
+QA10361kG : 0.0
+QA10371kG : 0.0
+QE10425kG : 0.0
+QE10441kG : 0.0
+QE10511kG : 0.0
+QE10525kG : 0.0
