@@ -62,7 +62,7 @@ def initializeTao(
     #Launch and configure Tao
     #######################################################################
     tao=Tao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE'])) 
-    tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX")
+    tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX, PR10571")
 
     tao.cmd(f'set beam_init track_end = {lastTrackedElement}') #See track_start and track_end values with `show beam`
     print(f"Tracking to {lastTrackedElement}")
@@ -359,7 +359,13 @@ def smallestIntervalImpliedEmittanceModelFunction(z, sigmax, sigmaxp, rho):
     return np.sqrt(sigmax**2 + 2 * z * rho * sigmax * sigmaxp + z**2 * sigmaxp**2)
 
 def smallestIntervalImpliedEmittance(P, plane = "x", percentage = 0.9, verbose = False):
-    zValues = np.arange(-20, 20, 0.1)
+    #zValues = np.arange(-20, 20, 0.1)
+    zValues = np.array([-131.072, -65.536, -32.768, -16.384, -8.192, -4.096, -2.048, -1.024, 
+               -0.512, -0.256, -0.128, -0.064, -0.032, -0.016, -0.008, -0.004, 
+               -0.002, -0.001, 0.0, 0.001, 0.002, 0.004, 0.008, 0.016, 0.032, 
+               0.064, 0.128, 0.256, 0.512, 1.024, 2.048, 4.096, 8.192, 
+               16.384, 32.768, 65.536, 131.072]) #(-Reverse[#])~Join~{0}~Join~# &@PowerRange[0.001, 200, 2]
+    
     if plane == "x":
         sigmaXResults = [ smallestIntervalImpliedSigma(P.x + z * P.xp, percentage = percentage) for z in zValues]
         sigmaXResultsExact = [ np.std(P.x + z * P.xp) for z in zValues]
