@@ -1279,6 +1279,7 @@ L0BEnergyOffset : -2259313
 
 #2024-10-17 Injector quad settings. Nelder-Mead from above, minimizing PDrive and PWitness (BMAG * emit) differences from golden twiss at BEGBC20, with CSR OFF
     #This may be a completely stupid thing to optimize on, I'm not sure yet. Obviously BMAG doesn't matter at the end of the linac in the typical sense, I'm just trying to use it as a proxy for "agreement with design lattice"
+#Details: https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2fa94b21dd9_0_19
 #Results:
 #     twissCalculationFraction : 0.9
 #     PDrive_norm_emit_x : 2.5501e-6
@@ -1295,20 +1296,6 @@ QE10425kG : -0.505152257
 QE10441kG : 0.5541299231
 QE10511kG : 0.3702810219
 QE10525kG : 0.987261693
-
-
-
-
-
-#PENDING Injector quad settings. Nelder-Mead from above, minimizing PDrive and PWitness (BMAG * emit) differences from golden twiss at BEGBC20, with CSR ON
-    #I have mixed feelings about CSR on vs off; the former should give better real-world results but the latter should agree more with the linear model.
-#New settings: witness = XXX, drive = XXX um-rad
-# QA10361kG : -2.0163208273
-# QA10371kG : 2.4077843478
-# QE10425kG : -1.276092365
-# QE10441kG : 0.9312315187
-# QE10511kG : 4.9330226529
-# QE10525kG : -2.4951806502
 
 
 #2024-10-17-10-10-27 Temporary config for testing https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2fa94b21dd9_0_6
@@ -1347,4 +1334,23 @@ QE10525kG : 0.987261693
 # QE10441kG : 1.9964807695
 # QE10511kG : 5.2259332584
 # QE10525kG : -4.0369870876
+
+
+#PENDING 150 um spacing, movers only. CSR off. 
+L0BPhaseSet : -3.2843563684
+L1PhaseSet : -22.4056159852
+L2PhaseSet : -33.2408819234
+
+S1EL_xOffset : 0.0010930422
+S1EL_yOffset : -0.0000747382
+S2EL_xOffset : -0.0018999044
+S2EL_yOffset : -0.0002616497
+S2ER_xOffset : -0.0000148268
+S2ER_yOffset : 0.0002381464
+S1ER_xOffset : 0.0001674831
+S1ER_yOffset : 0.0001759872
+XC1FFkG : 0.1316813344
+XC3FFkG : -0.0491206738
+YC1FFkG : -0.0002926864
+YC2FFkG : 0.020260939
 
