@@ -1223,15 +1223,7 @@ L3PhaseSet : 0
 ####################
 
 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
-L0BEnergyOffset : -2259313
-
-
-# QA10361kG : 0.0
-# QA10371kG : 0.0
-# QE10425kG : 0.0
-# QE10441kG : 0.0
-# QE10511kG : 0.0
-# QE10525kG : 0.0
+# L0BEnergyOffset : -2259313
 
 
 #2024-10-16-13-10-45 Injector quad settings. Nelder-Mead from zeroed magnets, minimizing PSystem (BMAG * emit) differences from golden twiss at PR10571
@@ -1290,12 +1282,12 @@ L0BEnergyOffset : -2259313
 #     PWitness_norm_emit_y : 1.9053e-6
 #     PWitness_BMAG_x : 1.5205387601
 #     PWitness_BMAG_y : 1.5932386976
-QA10361kG : -2.0689588254
-QA10371kG : 2.3254937457
-QE10425kG : -0.505152257
-QE10441kG : 0.5541299231
-QE10511kG : 0.3702810219
-QE10525kG : 0.987261693
+# QA10361kG : -2.0689588254
+# QA10371kG : 2.3254937457
+# QE10425kG : -0.505152257
+# QE10441kG : 0.5541299231
+# QE10511kG : 0.3702810219
+# QE10525kG : 0.987261693
 
 
 #2024-10-17-10-10-27 Temporary config for testing https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2fa94b21dd9_0_6
@@ -1454,8 +1446,18 @@ QE10525kG : -5.3942250594
 
 
 #PENDING 2024-10-22_oneBunch optimization, CSR on.
-XC1FFkG : 0.0008323208
-XC3FFkG : 0.0037659281
-YC1FFkG : -0.0059874679
-YC2FFkG : 0.0037914396
+
+#Pretty decent transverse specs
+S1EL_xOffset : 0.0017699239
+S1EL_yOffset : 0.0001764778
+S2EL_xOffset : -0.00217966
+S2EL_yOffset : 0.0002035951
+S2ER_xOffset : -0.002841106
+S2ER_yOffset : 0.0007044006
+S1ER_xOffset : 0.0009039826
+S1ER_yOffset : 0.0005750563
+XC1FFkG : -0.0104646658
+XC3FFkG : -0.0009574519
+YC1FFkG : -0.0004450369
+YC2FFkG : 0.01415218
 
