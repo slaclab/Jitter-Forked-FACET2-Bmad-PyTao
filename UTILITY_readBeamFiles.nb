@@ -1,0 +1,236 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8995,        228]
+NotebookOptionsPosition[      8267,        210]
+NotebookOutlinePosition[      8666,        226]
+CellTagsIndexPosition[      8623,        223]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "readBeamFile", "]"}]], "Input",
+ CellChangeTimes->{{3.9382593828736873`*^9, 3.938259385495219*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"1f83effa-4b6b-4153-aded-c7b78d59058e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"readBeamFile", "[", "fileName_", "]"}], ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"raw", " ", "=", " ", 
+     RowBox[{"Import", "[", 
+      RowBox[{"fileName", ",", "\"\<Data\>\""}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sanity", " ", "check"}], "..."}], " ", "if", " ", "these", 
+       " ", "keys", " ", 
+       RowBox[{"don", "'"}], "t", " ", "match", " ", "a", " ", "specifically",
+        " ", "permitted", " ", "pattern"}], ",", " ", "crash"}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"keys", " ", "=", " ", 
+     RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Keys", "[", "raw", "]"}], " ", "==", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\</id\>\"", ",", "\"\</momentum/x\>\"", ",", "\"\</momentum/y\>\"",
+          ",", "\"\</momentum/z\>\"", ",", "\"\</position/x\>\"", ",", 
+         "\"\</position/y\>\"", ",", "\"\</position/z\>\"", ",", 
+         "\"\</time\>\"", ",", "\"\</weight\>\""}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"keys", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<id\>\"", ",", "\"\<px\>\"", ",", "\"\<py\>\"", ",", "\"\<pz\>\"",
+          ",", "\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\"", ",", 
+         "\"\<t\>\"", ",", "\"\<weight\>\""}], "}"}]}]}], 
+     "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Keys", "[", "raw", "]"}], " ", "==", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\</momentum/x\>\"", ",", "\"\</momentum/y\>\"", ",", 
+         "\"\</momentum/z\>\"", ",", "\"\</position/x\>\"", ",", 
+         "\"\</position/y\>\"", ",", "\"\</time\>\"", ",", 
+         "\"\</weight\>\""}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"keys", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<px\>\"", ",", "\"\<py\>\"", ",", "\"\<pz\>\"", ",", "\"\<x\>\"", 
+         ",", "\"\<y\>\"", ",", "\"\<t\>\"", ",", "\"\<weight\>\""}], 
+        "}"}]}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Keys", "[", "raw", "]"}], " ", "==", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\</momentum/x\>\"", ",", "\"\</momentum/y\>\"", ",", 
+         "\"\</momentum/z\>\"", ",", "\"\</position/x\>\"", ",", 
+         "\"\</position/y\>\"", ",", "\"\</time\>\"", ",", 
+         "\"\</timeOffset\>\"", ",", "\"\</weight\>\""}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"keys", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<px\>\"", ",", "\"\<py\>\"", ",", "\"\<pz\>\"", ",", "\"\<x\>\"", 
+         ",", "\"\<y\>\"", ",", "\"\<t\>\"", ",", "\"\<tOffset\>\"", ",", 
+         "\"\<weight\>\""}], "}"}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"keys", " ", "==", 
+       RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+       "Print", "[", "\"\<File fields don't match. Aborting\>\"", "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"Keys", "[", "raw", "]"}], " ", "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "]"}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Table", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"AssociationThread", "[", 
+       RowBox[{"keys", ",", 
+        RowBox[{"Values", "[", 
+         RowBox[{"raw", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", "i"}], "]"}], "]"}], "]"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"raw", "[", "\"\</weight\>\"", "]"}], "]"}]}], "}"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", ")"}]}]], "Input",\
+
+ CellChangeTimes->{{3.938258429065124*^9, 3.938258605417234*^9}, {
+  3.938259270298825*^9, 3.93825937005254*^9}, {3.938259409724976*^9, 
+  3.938259410622779*^9}, {3.938259588571865*^9, 3.9382595899185033`*^9}, {
+  3.93825965115088*^9, 3.938259652034874*^9}, {3.938275889534429*^9, 
+  3.9382759758733187`*^9}, {3.9382761404882708`*^9, 
+  3.9382761625057917`*^9}},ExpressionUUID->"f9a5d51e-7597-461e-b9f2-\
+a7b87094fe80"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getDriverAndWitness", "[", "data_", "]"}], ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"witnessWeight", ",", " ", "driverWeight"}], "}"}], " ", "=", 
+     " ", 
+     RowBox[{"Sort", "[", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"data", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "\"\<weight\>\""}], "]"}], "]"}], "]"}], "]"}]}],
+     ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"driverData", " ", "=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{
+        RowBox[{"#weight", " ", "==", " ", "driverWeight"}], "&"}]}], "]"}]}],
+     ";", "\[IndentingNewLine]", 
+    RowBox[{"witnessData", " ", "=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{
+        RowBox[{"#weight", " ", "==", " ", "witnessWeight"}], "&"}]}], 
+      "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"driverData", ",", "witnessData"}], "}"}]}], 
+   "\[IndentingNewLine]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.938258764693628*^9, 3.938258814461165*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"be3540b5-8832-4405-a914-d3df405d71f6"],
+
+Cell["\<\
+Just wrap DensityHistogram[] so it defaults to a purple rather than white \
+background\
+\>", "Text",
+ CellChangeTimes->{{3.938260918260804*^9, 
+  3.938260933609447*^9}},ExpressionUUID->"d6f6db7c-05ef-407e-a74b-\
+e02de40f6c10"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"densityHistogramMod", "[", "\[IndentingNewLine]", 
+   RowBox[{
+   "data_", ",", "\[IndentingNewLine]", "binSpec_", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"opts", ":", 
+     RowBox[{"OptionsPattern", "[", "]"}]}]}], "\[IndentingNewLine]", "]"}], ":=", 
+  RowBox[{"DensityHistogram", "[", "\[IndentingNewLine]", 
+   RowBox[{
+   "data", ",", "\[IndentingNewLine]", "binSpec", ",", "\[IndentingNewLine]", 
+    
+    RowBox[{"ColorFunction", "->", "\"\<Rainbow\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Prolog", "->", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}], "[", "0", "]"}], 
+       ",", 
+       RowBox[{"Rectangle", "[", 
+        RowBox[{
+         RowBox[{"Scaled", "[", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], "]"}], ",", 
+         RowBox[{"Scaled", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1"}], "}"}], "]"}]}], "]"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", "opts"}], "\[IndentingNewLine]", "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.938260913461576*^9, 3.938260916119061*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{342, Automatic}, {Automatic, 121}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"936b6fa1-a9db-4abb-8700-68c620a57d47"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 218, 3, 30, "Input",ExpressionUUID->"1f83effa-4b6b-4153-aded-c7b78d59058e"],
+Cell[779, 25, 4751, 109, 766, "Input",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
+Cell[5533, 136, 1258, 31, 178, "Input",ExpressionUUID->"be3540b5-8832-4405-a914-d3df405d71f6"],
+Cell[6794, 169, 236, 6, 35, "Text",ExpressionUUID->"d6f6db7c-05ef-407e-a74b-e02de40f6c10"],
+Cell[7033, 177, 1230, 31, 241, "Input",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"]
+}
+]
+*)
+

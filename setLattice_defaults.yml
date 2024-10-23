@@ -1336,21 +1336,126 @@ QE10525kG : 0.987261693
 # QE10525kG : -4.0369870876
 
 
-#PENDING 150 um spacing, movers only. CSR off. 
-L0BPhaseSet : -3.2843563684
-L1PhaseSet : -22.4056159852
-L2PhaseSet : -33.2408819234
+#2024-10-18-13-47-49 150 um spacing, movers only. CSR off. 
+#Constraints and objective satisfied
+# L0BPhaseSet : -3.0315278768
+# L1PhaseSet : -22.9808306257
+# L2PhaseSet : -34.2183032768
+# S1EL_xOffset : -0.000784866
+# S1EL_yOffset : 0.0028119895
+# S2EL_xOffset : -0.0029684253
+# S2EL_yOffset : 0.001588586
+# S2ER_xOffset : -0.0026682032
+# S2ER_yOffset : 0.0000908608
+# S1ER_xOffset : -0.0000504308
+# S1ER_yOffset : 0.0006922355
+# XC1FFkG : -0.0022693954
+# XC3FFkG : 0.0015425072
+# YC1FFkG : -0.0157761812
+# YC2FFkG : 0.0993465929
 
-S1EL_xOffset : 0.0010930422
-S1EL_yOffset : -0.0000747382
-S2EL_xOffset : -0.0018999044
-S2EL_yOffset : -0.0002616497
-S2ER_xOffset : -0.0000148268
-S2ER_yOffset : 0.0002381464
-S1ER_xOffset : 0.0001674831
-S1ER_yOffset : 0.0001759872
-XC1FFkG : 0.1316813344
-XC3FFkG : -0.0491206738
-YC1FFkG : -0.0002926864
-YC2FFkG : 0.020260939
+#PENDING 150 um spacing, movers only. CSR on. 
+#Constraints and objective satisfied
+# L0BPhaseSet : -3.2125161843
+# L1PhaseSet : -22.7355802739
+# L2PhaseSet : -33.4587920158
+# S1EL_xOffset : -0.0007762377
+# S1EL_yOffset : 0.0028080144
+# S2EL_xOffset : -0.0028486683
+# S2EL_yOffset : 0.0016388713
+# S2ER_xOffset : -0.0026964178
+# S2ER_yOffset : 0.0000668757
+# S1ER_xOffset : 0.0000668425
+# S1ER_yOffset : 0.0006899562
+# XC1FFkG : 0.0066757903
+# XC3FFkG : -0.009518358
+# YC1FFkG : -0.0170546125
+# YC2FFkG : 0.1009148654
+
+# L0BPhaseSet : -3.141102411
+# L1PhaseSet : -23.491608019
+# L2PhaseSet : -34.4669762833
+
+# S1EL_xOffset : -0.0007715958
+# S1EL_yOffset : 0.002935715
+# S2EL_xOffset : -0.0028650222
+# S2EL_yOffset : 0.0016513091
+# S2ER_xOffset : -0.0029444931
+# S2ER_yOffset : 0.0001436177
+# S1ER_xOffset : -0.000127658
+# S1ER_yOffset : 0.0007307706
+# XC1FFkG : -0.0007835241
+# XC3FFkG : -0.0065804944
+# YC1FFkG : -0.017399947
+# YC2FFkG : 0.1115043501
+
+#Clean start. 2.1 stage
+# L0BPhaseSet : -0.6691055904
+# L1PhaseSet : -24.3589579902
+# L2PhaseSet : -34.2269236047
+
+# L0BPhaseSet : -0.8280143964
+# L1PhaseSet : -24.5982776873
+# L2PhaseSet : -34.6350453885
+# S1EL_xOffset : -0.0000202797
+# S1EL_yOffset : -0.0000530118
+# S2EL_xOffset : -0.0008316736
+# S2EL_yOffset : 0.0004458037
+# S2ER_xOffset : -0.0030673678
+# S2ER_yOffset : 0.0005204822
+# S1ER_xOffset : 0.0021375507
+# S1ER_yOffset : 0.0002219223
+# XC1FFkG : 0.678285735
+# XC3FFkG : -0.37
+# YC1FFkG : 0.0127262823
+# YC2FFkG : -0.0956836236
+
+
+
+#2024-10-22-10-45-00 Quick and dirty driver optimization, CSR off. Still propagating both beams but only considering driver specs.
+#Using injector quads NOT sextupoles
+# QA10361kG : -3.3152261567
+# QA10371kG : 3.3948163986
+# QE10425kG : 4.5078264601
+# QE10441kG : 3.151905317
+# QE10511kG : 4.9097822074
+# QE10525kG : -4.6016071978
+# L0BPhaseSet : -6.2668271695
+# L1PhaseSet : -34.4676654331
+# L2PhaseSet : -41.6862121844
+# XC1FFkG : 0.2321150061
+# XC3FFkG : -0.1251069621
+# YC1FFkG : -0.0057006515
+# YC2FFkG : 0.0296811043
+
+
+#2024-10-22-15-20-50 2024-10-22_oneBunch optimization on PR10571.
+    # twissCalculationFraction : 0.7
+    # PSystem_emitSI_x : 2.7609e-6
+    # PSystem_emitSI_y : 2.1442e-6
+    # PSystem_norm_emit_x : 1.2512e-6
+    # PSystem_norm_emit_y : 1.0193e-6
+    # PSystem_BMAG_x : 1.0001451679
+    # PSystem_BMAG_y : 1.0001521435
+    # PSystem_BMAG_emit_x : 1.2514e-6
+    # PSystem_BMAG_emit_y : 1.0195e-6
+    # PSystem_BMAG_emitSI_x : 2.7613e-6
+    # PSystem_BMAG_emitSI_y : 2.1446e-6
+    
+#2024-10-22_oneBunch comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+L0BEnergyOffset : -2759313
+
+QA10361kG : -3.1976079537
+QA10371kG : 3.1129092742
+QE10425kG : -6.8469996218
+QE10441kG : 1.5057761462
+QE10511kG : 7.0138622173
+QE10525kG : -5.3942250594
+
+
+#PENDING 2024-10-22_oneBunch optimization, CSR on.
+XC1FFkG : 0.0008323208
+XC3FFkG : 0.0037659281
+YC1FFkG : -0.0059874679
+YC2FFkG : 0.0037914396
 
