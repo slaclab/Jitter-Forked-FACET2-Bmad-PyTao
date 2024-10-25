@@ -137,15 +137,17 @@ YC2FFkGBounds: (-0.38, 0.38)
 #L2PhaseSet :  -40.0
 
 #2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
-L1PhaseSet :  -20.0 
-L2PhaseSet :  -38.0
-L2EnergyOffset :  0
-L3EnergyOffset :  0
 #2024-09-30: Extending phase/amplitude setting
 L0BPhaseSet : 0
+L1PhaseSet :  -20.0 
+L2PhaseSet :  -38.0
+L3PhaseSet : 0
+
 L0BEnergyOffset : 0
 L1EnergyOffset: 0
-L3PhaseSet : 0
+L2EnergyOffset :  0
+L3EnergyOffset :  0
+
 
 
 #2024-07-30-12-48-22 Injector quad settings. Quick optimization but substantial improvement over base lattice
@@ -1203,6 +1205,9 @@ L3PhaseSet : 0
 # YC1FFkG : -0.0068693139
 # YC2FFkG : -0.1791143438
 
+#PENDING Minimizing PSystem_emitSI90's at MFFF (no other constraints)
+
+
 
 
 ####################
@@ -1222,8 +1227,7 @@ L3PhaseSet : 0
 ########################################
 ####################
 
-#This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
-# L0BEnergyOffset : -2259313
+
 
 
 #2024-10-16-13-10-45 Injector quad settings. Nelder-Mead from zeroed magnets, minimizing PSystem (BMAG * emit) differences from golden twiss at PR10571
@@ -1237,12 +1241,16 @@ L3PhaseSet : 0
 #     PSystem_BMAG_y : 1.0026233182
 #     PSystem_BMAG_emit_x : 1.1784e-6
 #     PSystem_BMAG_emit_y : 1.2119e-6
-# QA10361kG : -2.2481515833
-# QA10371kG : 2.338890812
-# QE10425kG : -1.0721888188
-# QE10441kG : 1.3152401751
-# QE10511kG : 0.2241208022
-# QE10525kG : 0.6276060908
+inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
+QA10361kG : -2.2481515833
+QA10371kG : 2.338890812
+QE10425kG : -1.0721888188
+QE10441kG : 1.3152401751
+QE10511kG : 0.2241208022
+QE10525kG : 0.6276060908
+
+L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
+L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
 
 
 #2024-10-16-13-15-32 Injector quad settings. Nelder-Mead from above, minimizing PDrive and PWitness (BMAG * emit) differences from golden twiss at PR10571
@@ -1420,6 +1428,78 @@ L3PhaseSet : 0
 # YC1FFkG : -0.0057006515
 # YC2FFkG : 0.0296811043
 
+#2024-10-24-14-14-02 150+/-100 um spacing, movers only. CSR on.
+#Constraints and objective satisfied
+# L0BPhaseSet : -15.1559531299
+# L1PhaseSet : -19.4004058975
+# L2PhaseSet : -33.2477716663
+# S1EL_xOffset : 0.0034245377
+# S1EL_yOffset : 0.0003329755
+# S2EL_xOffset : -0.0013166625
+# S2EL_yOffset : -0.000069675
+# S2ER_xOffset : -0.0033734115
+# S2ER_yOffset : 0.0008899245
+# S1ER_xOffset : -0.0000801755
+# S1ER_yOffset : 0.0006200984
+# XC1FFkG : -0.0144858309
+# XC3FFkG : -0.0112271717
+# YC1FFkG : 0.0027847805
+# YC2FFkG : 0.0221923394
+
+
+#2024-10-24-17-41-47 INCOMPLETE 150+/-100 um spacing, all knobs. CSR on.
+#Constraints and objective satisfied
+# L0BPhaseSet : -15.208773075
+# L1PhaseSet : -21.0570468482
+# L2PhaseSet : -34.7188457948
+# Q1EkG : 160.849857389
+# Q2EkG : -154.3056261713
+# Q3EkG : 109.162177995
+# Q4EkG : 130.1909857574
+# Q5EkG : -23.8101312004
+# Q6EkG : -144.9894279125
+# S1ELkG : 808.3135012732
+# S2ELkG : -2137.8116804093
+# S3ELkG : -1016.801694027
+# S3ERkG : -1012.0490400463
+# S2ERkG : -2128.9974488561
+# S1ERkG : 761.3542539344
+# S1EL_xOffset : 0.0000169709
+# S1EL_yOffset : 0.0001055958
+# S2EL_xOffset : -0.000148058
+# S2EL_yOffset : -0.0000258234
+# S2ER_xOffset : -0.0000147533
+# S2ER_yOffset : 0.000012145
+# S1ER_xOffset : -0.0000264493
+# S1ER_yOffset : 0.0000308391
+# Q5FFkG : -69.5503385783
+# Q4FFkG : -82.2419449409
+# Q3FFkG : 98.1391894991
+# Q2FFkG : 127.6138214133
+# Q1FFkG : -235.5750327077
+# Q0FFkG : 124.4434542041
+# XC1FFkG : -0.0021807082
+# XC3FFkG : 0.0010213819
+# YC1FFkG : 0.0002955052
+# YC2FFkG : 0.0012764296
+
+
+
+####################
+########################################
+############################################################
+################################################################################
+####################################################################################################
+########################################################################################################################
+
+#2024-10-22: New IMPACT one-bunch
+
+########################################################################################################################
+####################################################################################################
+################################################################################
+############################################################
+########################################
+####################
 
 #2024-10-22-15-20-50 2024-10-22_oneBunch optimization on PR10571.
     # twissCalculationFraction : 0.7
@@ -1433,31 +1513,30 @@ L3PhaseSet : 0
     # PSystem_BMAG_emit_y : 1.0195e-6
     # PSystem_BMAG_emitSI_x : 2.7613e-6
     # PSystem_BMAG_emitSI_y : 2.1446e-6
-    
-#2024-10-22_oneBunch comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
-L0BEnergyOffset : -2759313
+# QA10361kG : -3.1976079537
+# QA10371kG : 3.1129092742
+# QE10425kG : -6.8469996218
+# QE10441kG : 1.5057761462
+# QE10511kG : 7.0138622173
+# QE10525kG : -5.3942250594
 
-QA10361kG : -3.1976079537
-QA10371kG : 3.1129092742
-QE10425kG : -6.8469996218
-QE10441kG : 1.5057761462
-QE10511kG : 7.0138622173
-QE10525kG : -5.3942250594
+#2024-10-22_oneBunch comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+# L0BEnergyOffset : -2759313
 
 
 #PENDING 2024-10-22_oneBunch optimization, CSR on.
 
 #Pretty decent transverse specs
-S1EL_xOffset : 0.0017699239
-S1EL_yOffset : 0.0001764778
-S2EL_xOffset : -0.00217966
-S2EL_yOffset : 0.0002035951
-S2ER_xOffset : -0.002841106
-S2ER_yOffset : 0.0007044006
-S1ER_xOffset : 0.0009039826
-S1ER_yOffset : 0.0005750563
-XC1FFkG : -0.0104646658
-XC3FFkG : -0.0009574519
-YC1FFkG : -0.0004450369
-YC2FFkG : 0.01415218
+# S1EL_xOffset : 0.0017699239
+# S1EL_yOffset : 0.0001764778
+# S2EL_xOffset : -0.00217966
+# S2EL_yOffset : 0.0002035951
+# S2ER_xOffset : -0.002841106
+# S2ER_yOffset : 0.0007044006
+# S1ER_xOffset : 0.0009039826
+# S1ER_yOffset : 0.0005750563
+# XC1FFkG : -0.0104646658
+# XC3FFkG : -0.0009574519
+# YC1FFkG : -0.0004450369
+# YC2FFkG : 0.01415218
 
