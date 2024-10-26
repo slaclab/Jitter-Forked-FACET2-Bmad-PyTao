@@ -1205,7 +1205,7 @@ L3EnergyOffset :  0
 # YC1FFkG : -0.0068693139
 # YC2FFkG : -0.1791143438
 
-#PENDING Minimizing PSystem_emitSI90's at MFFF (no other constraints)
+
 
 
 
@@ -1248,7 +1248,6 @@ QE10425kG : -1.0721888188
 QE10441kG : 1.3152401751
 QE10511kG : 0.2241208022
 QE10525kG : 0.6276060908
-
 L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
 L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
 
@@ -1429,7 +1428,7 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 # YC2FFkG : 0.0296811043
 
 #2024-10-24-14-14-02 150+/-100 um spacing, movers only. CSR on.
-#Constraints and objective satisfied
+#Constraints and objective satisfied... but it folded the x phase space on itself
 # L0BPhaseSet : -15.1559531299
 # L1PhaseSet : -19.4004058975
 # L2PhaseSet : -33.2477716663
@@ -1447,42 +1446,168 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 # YC2FFkG : 0.0221923394
 
 
-#2024-10-24-17-41-47 INCOMPLETE 150+/-100 um spacing, all knobs. CSR on.
-#Constraints and objective satisfied
-# L0BPhaseSet : -15.208773075
-# L1PhaseSet : -21.0570468482
-# L2PhaseSet : -34.7188457948
-# Q1EkG : 160.849857389
-# Q2EkG : -154.3056261713
-# Q3EkG : 109.162177995
-# Q4EkG : 130.1909857574
-# Q5EkG : -23.8101312004
-# Q6EkG : -144.9894279125
-# S1ELkG : 808.3135012732
-# S2ELkG : -2137.8116804093
-# S3ELkG : -1016.801694027
-# S3ERkG : -1012.0490400463
-# S2ERkG : -2128.9974488561
-# S1ERkG : 761.3542539344
-# S1EL_xOffset : 0.0000169709
-# S1EL_yOffset : 0.0001055958
-# S2EL_xOffset : -0.000148058
-# S2EL_yOffset : -0.0000258234
-# S2ER_xOffset : -0.0000147533
-# S2ER_yOffset : 0.000012145
-# S1ER_xOffset : -0.0000264493
-# S1ER_yOffset : 0.0000308391
-# Q5FFkG : -69.5503385783
-# Q4FFkG : -82.2419449409
-# Q3FFkG : 98.1391894991
-# Q2FFkG : 127.6138214133
-# Q1FFkG : -235.5750327077
-# Q0FFkG : 124.4434542041
-# XC1FFkG : -0.0021807082
-# XC3FFkG : 0.0010213819
-# YC1FFkG : 0.0002955052
-# YC2FFkG : 0.0012764296
 
+#2024-10-25-13-47-51 Minimizing PDrive_norm_emit's at MFFF (no other constraints). CSR off.
+#This appears to give a sane drive beam!
+# S1ELkG : 827.3426624996
+# S2ELkG : -3229.0817327398
+# S3ELkG : -973.5599994138
+# S3ERkG : -996.9755429467
+# S2ERkG : -3265.6051237955
+# S1ERkG : 834.4642524032
+# S1EL_xOffset : 0.0002159395
+# S1EL_yOffset : 0.0001242003
+# S2EL_xOffset : -0.0001722335
+# S2EL_yOffset : 0.0000633399
+# S2ER_xOffset : -0.0001586091
+# S2ER_yOffset : 0.000080846
+# S1ER_xOffset : 0.0001400887
+# S1ER_yOffset : 0.0001550221
+
+
+#2024-10-25-16-18-53 150+/-100 um spacing, all knobs. CSR off.
+#Constraints and objective satisfied 
+# L0BPhaseSet : -14.6618343714
+# L1PhaseSet : -19.9249281721
+# L2PhaseSet : -34.0634319591
+# Q1EkG : 162.3220122836
+# Q2EkG : -153.9240861727
+# Q3EkG : 110.3032517407
+# Q4EkG : 132.4700716131
+# Q5EkG : -23.2539241407
+# Q6EkG : -145.3582708576
+# S1ELkG : 834.938959354
+# S2ELkG : -3242.9696271719
+# S3ELkG : -952.1897228118
+# S3ERkG : -991.3143305689
+# S2ERkG : -3253.7242571905
+# S1ERkG : 865.7611106558
+# S1EL_xOffset : 0.0002768354
+# S1EL_yOffset : 0.0001691495
+# S2EL_xOffset : -0.0001505212
+# S2EL_yOffset : 0.000049814
+# S2ER_xOffset : -0.0001642657
+# S2ER_yOffset : 0.0000919499
+# S1ER_xOffset : 0.0001446343
+# S1ER_yOffset : 0.0001745684
+# Q5FFkG : -80.8173022111
+# Q4FFkG : -81.4314879439
+# Q3FFkG : 99.3180264175
+# Q2FFkG : 126.5206513936
+# Q1FFkG : -232.868634478
+# Q0FFkG : 128.1315359507
+# XC1FFkG : 0.0347395962
+# XC3FFkG : -0.016814133
+# YC1FFkG : 0.0002818435
+# YC2FFkG : -0.0028642463
+
+
+#2024-10-26-07-56-57 150+/-100 um spacing, all knobs. CSR on.
+#Constraints and objective satisfied 
+# L0BPhaseSet : -14.6618343714
+# L1PhaseSet : -19.9249281721
+# L2PhaseSet : -34.0634319591
+# Q1EkG : 162.2693434276
+# Q2EkG : -153.9775384104
+# Q3EkG : 110.2073212335
+# Q4EkG : 132.2271773726
+# Q5EkG : -23.2484376005
+# Q6EkG : -145.2301034483
+# S1ELkG : 841.682059005
+# S2ELkG : -3228.4678927282
+# S3ELkG : -925.346456463
+# S3ERkG : -974.7729711573
+# S2ERkG : -3276.0192647687
+# S1ERkG : 799.8874797544
+# S1EL_xOffset : 0.0004189721
+# S1EL_yOffset : 0.0002033162
+# S2EL_xOffset : -0.0001698801
+# S2EL_yOffset : 0.0000603656
+# S2ER_xOffset : -0.0001829382
+# S2ER_yOffset : 0.0000407737
+# S1ER_xOffset : 0.0001514215
+# S1ER_yOffset : 0.0001498517
+# Q5FFkG : -89.4829118966
+# Q4FFkG : -78.9070619531
+# Q3FFkG : 97.8620398002
+# Q2FFkG : 126.9686982458
+# Q1FFkG : -231.855862476
+# Q0FFkG : 131.0762511728
+# XC1FFkG : -0.0443358336
+# XC3FFkG : 0.0169083546
+# YC1FFkG : -0.0003297859
+# YC2FFkG : -0.0021003489
+
+
+#2024-10-26-15-39-15 Minimizing PDrive_norm_emit's at MFFF (no other constraints). CSR off.
+#It's still completely curved over, but the emittance is good (These phases look crazy though)
+# L0BPhaseSet : -25.8208354186
+# L1PhaseSet : -5.7051674509
+# L2PhaseSet : -14.1055166402
+# S1EL_xOffset : -0.0013456779
+# S1EL_yOffset : 0.0018852494
+# S2EL_xOffset : -0.0021296166
+# S2EL_yOffset : 0.0016895561
+# S2ER_xOffset : -0.0021913432
+# S2ER_yOffset : -0.0000314797
+# S1ER_xOffset : -0.002791299
+# S1ER_yOffset : 0.0006330865
+
+#2024-10-26-15-49-15 Minimizing PDrive_norm_emit's at MFFF (no other constraints). CSR off.
+#Using phases from 2024-10-26-15-39-15 then "2024-10-26 Special case two bunch optimizer - adiabatic sextupole strength.ipynb" to transition from 2024-10-25-13-47-51 config
+#Looks funky but no clear curvature. Phases flip the bunches though....
+# L0BPhaseSet : -25.8208354186
+# L1PhaseSet : -5.7051674509
+# L2PhaseSet : -14.1055166402
+# S1EL_xOffset : 0.0002574115
+# S1EL_yOffset : 0.0000559734
+# S2EL_xOffset : -0.0001101577
+# S2EL_yOffset : 0.0000992731
+# S2ER_xOffset : -0.0000575551
+# S2ER_yOffset : 0.0000861403
+# S1ER_xOffset : 0.0001073883
+# S1ER_yOffset : 0.0001319419
+
+
+#PENDING 150+/-100 um spacing, movers only. CSR off. Starting from 2024-10-26-15-49-15
+#Constraints and objective satisfied
+# L0BPhaseSet : -25.8208354186
+# L1PhaseSet : -5.7051674509
+# L2PhaseSet : -14.1055166402
+# S1EL_xOffset : 0.0002574115
+# S1EL_yOffset : 0.0000559734
+# S2EL_xOffset : -0.0001101577
+# S2EL_yOffset : 0.0000992731
+# S2ER_xOffset : -0.0000575551
+# S2ER_yOffset : 0.0000861403
+# S1ER_xOffset : 0.0001073883
+# S1ER_yOffset : 0.0001319419
+
+# XC1FFkG : -0.0072552755
+# XC3FFkG : 0.0018638301
+# YC1FFkG : -0.0011250505
+# YC2FFkG : 0.0045345844
+
+
+L0BPhaseSet : -14.6283920385
+L1PhaseSet : -19.9898579562
+L2PhaseSet : -33.9833038999
+S1EL_xOffset : 0.0004084355
+S1EL_yOffset : 0.0001943043
+S2EL_xOffset : -0.0001068604
+S2EL_yOffset : 0.0000933259
+S2ER_xOffset : -0.0002034308
+S2ER_yOffset : 0.0000326742
+S1ER_xOffset : 0.0001619988
+S1ER_yOffset : 0.0001663648
+XC1FFkG : 0.0472620889
+XC3FFkG : -0.0243735262
+YC1FFkG : 0.0007664072
+YC2FFkG : -0.0061378143
+
+
+S2ELkG : -3205
+S2ERkG : -3205
 
 
 ####################
