@@ -552,6 +552,10 @@ def collimateBeam(
     P,
     allCollimatorRules = None             
 ):
+    """
+    allCollimatorRules is a list of lists. Each sublist should have exactly two elements for the lower and upper x position of a collimator
+    Arbitrarily many collimators can be defined this way; therefore it works for notch and/or jaw collimators
+    """
     PMod = P.copy()
 
 
