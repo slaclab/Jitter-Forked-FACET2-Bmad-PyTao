@@ -62,7 +62,7 @@ def initializeTao(
     #Launch and configure Tao
     #######################################################################
     tao=Tao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE'])) 
-    tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX, PR10571, PR10711")
+    tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX, PR10571, PR10711, CN2069")
 
     tao.cmd(f'set beam_init track_end = {lastTrackedElement}') #See track_start and track_end values with `show beam`
     print(f"Tracking to {lastTrackedElement}")
@@ -131,6 +131,7 @@ def trackBeam(
     laserHeater = False,
     centerBC14 = False,
     centerBC20 = False,
+    allCollimatorRules = None,
     verbose = False,
     **kwargs,
 ):
@@ -222,6 +223,29 @@ def trackBeam(
         tao.cmd(f'set beam_init track_start = BEGBC20')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
         if verbose: print(f"Set track_start = BEGBC20, track_end = {trackEnd}")
+
+
+    if allCollimatorRules:
+        tao.cmd(f'set beam_init track_end = CN2069')
+        if verbose: print(f"Set track_end = CN2069")
+
+        if verbose: print(f"Tracking!")
+        trackBeamHelper(tao)
+
+        P = getBeamAtElement(tao, "CN2069", tToZ = False)
+
+        PMod = collimateBeam(P, allCollimatorRules)
+        
+        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
+        if verbose: print(f"Collimated beam written to patchBeamFile.h5. Rules: {allCollimatorRules}")
+
+        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd('reinit beam')
+        if verbose: print("Loaded patchBeamFile.h5")
+
+        tao.cmd(f'set beam_init track_start = CN2069')
+        tao.cmd(f'set beam_init track_end = {trackEnd}')
+        if verbose: print(f"Set track_start = CN2069, track_end = {trackEnd}")
 
     if verbose: print(f"Tracking!")
     trackBeamHelper(tao)
@@ -522,4 +546,40 @@ def calcBMAG(b0, a0, b, a):
     B  = (b0 * g - 2.0 * a0 * a + g0 * b) / 2
 
     return B
-    
+
+
+def collimateBeam(
+    P,
+    allCollimatorRules = None             
+):
+    PMod = P.copy()
+
+
+    for collimatorRange in allCollimatorRules:
+
+        print(collimatorRange)
+        all_indices = np.arange(len(PMod.x))
+        killedIndices = np.where(np.logical_and(PMod.x > collimatorRange[0], PMod.x < collimatorRange[1]))[0]
+        survivingIndices = np.setdiff1d(all_indices, killedIndices)
+        
+        # OpenPMD checks the length so I can't just remove the "killed" particles
+        # Also, for compatibility, I don't want to change either the weight or status of the killed particles
+        filtered_data = {
+            "x": PMod.x[survivingIndices],
+            "y": PMod.y[survivingIndices],
+            "z": PMod.z[survivingIndices],
+            "px": PMod.px[survivingIndices],
+            "py": PMod.py[survivingIndices],
+            "pz": PMod.pz[survivingIndices],
+            "t": PMod.t[survivingIndices], 
+            "status": PMod.status[survivingIndices], 
+            "weight": PMod.weight[survivingIndices], 
+            "species": PMod.species
+        }
+        
+        # Create a new ParticleGroup instance with the filtered data
+        PMod = ParticleGroup(data=filtered_data)
+        print(f"New particle count: {len(PMod.x)}")
+        print(f"{len(PMod.x)}")
+
+    return PMod

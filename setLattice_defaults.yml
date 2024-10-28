@@ -1588,26 +1588,46 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 # YC1FFkG : -0.0011250505
 # YC2FFkG : 0.0045345844
 
+#PENDING 150+/-100 um spacing, movers only. CSR off. Starting from 2024-10-26-07-56-57 then "2024-10-26 Special case two bunch optimizer - adiabatic sextupole strength.ipynb" to transition
 
-L0BPhaseSet : -14.6283920385
-L1PhaseSet : -19.9898579562
-L2PhaseSet : -33.9833038999
-S1EL_xOffset : 0.0004084355
-S1EL_yOffset : 0.0001943043
-S2EL_xOffset : -0.0001068604
-S2EL_yOffset : 0.0000933259
-S2ER_xOffset : -0.0002034308
-S2ER_yOffset : 0.0000326742
-S1ER_xOffset : 0.0001619988
-S1ER_yOffset : 0.0001663648
-XC1FFkG : 0.0472620889
-XC3FFkG : -0.0243735262
-YC1FFkG : 0.0007664072
-YC2FFkG : -0.0061378143
+# L0BPhaseSet : -17.0897646641
+# L1PhaseSet : -19.3647118564
+# L2PhaseSet : -34.330458891
+# S1EL_xOffset : 0.0005541982
+# S1EL_yOffset : 0.0001106721
+# S2EL_xOffset : -0.0003271614
+# S2EL_yOffset : 0.0001422687
+# S2ER_xOffset : -0.0003669722
+# S2ER_yOffset : 0.0001009588
+# S1ER_xOffset : -0.0003826897
+# S1ER_yOffset : -0.0002273594
+# XC1FFkG : 0.0384347108
+# XC3FFkG : -0.0185497282
+# YC1FFkG : 0.0018994329
+# YC2FFkG : -0.0040607437
 
 
-S2ELkG : -3205
-S2ERkG : -3205
+# S2ELkG : -2833
+# S2ERkG : -2833
+
+
+
+L0BPhaseSet : -29.6767726386
+L1PhaseSet : -27.9772902862
+L2PhaseSet : -45.2682022457
+S1EL_xOffset : 0.003934955
+S1EL_yOffset : -0.0012891473
+S2EL_xOffset : -0.0009776052
+S2EL_yOffset : -0.0000220992
+S2ER_xOffset : -0.0036289409
+S2ER_yOffset : 0.0006895684
+S1ER_xOffset : -0.0009442719
+S1ER_yOffset : 0.0009442719
+XC1FFkG : 0.0098529176
+XC3FFkG : -0.0285939728
+YC1FFkG : 0.0113906531
+YC2FFkG : -0.1057559661
+
 
 
 ####################
