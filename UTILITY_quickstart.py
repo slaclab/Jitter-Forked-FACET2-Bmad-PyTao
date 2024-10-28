@@ -550,7 +550,7 @@ def calcBMAG(b0, a0, b, a):
 
 def collimateBeam(
     P,
-    allCollimatorRules = None             
+    allCollimatorRules = None
 ):
     """
     allCollimatorRules is a list of lists. Each sublist should have exactly two elements for the lower and upper x position of a collimator
