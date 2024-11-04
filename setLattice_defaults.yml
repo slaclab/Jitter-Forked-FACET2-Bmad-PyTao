@@ -1790,7 +1790,7 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 
 
-#PENDING Movers + modified sextupole strengths. Starting from 2024-10-25-16-18-53. CSR off
+#2024-10-30-17-??-?? Movers + modified sextupole strengths. Starting from 2024-10-25-16-18-53. CSR off. Alignment terms off.
 L0BPhaseSet : -15.1357115961
 L1PhaseSet : -21.5805783917
 L2PhaseSet : -35.3982843414
@@ -1812,6 +1812,11 @@ XC1FFkG : 0.0348834199
 XC3FFkG : -0.0239182046
 YC1FFkG : 0.0009319953
 YC2FFkG : 0.0008191683
+
+#2024-11-04-09-53-41 Updating only phases from above for zero-charge limit. This is useful as a starting point for charge-varying optimization so the optimizer doesn't rush off to find these phases
+L0BPhaseSet : -13.9492576822
+L1PhaseSet : -35.510932663
+L2PhaseSet : -33.0726082752
 
 #PENDING CSR on
 # S1ELkG : 953.1612836124
