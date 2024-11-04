@@ -1241,15 +1241,15 @@ L3EnergyOffset :  0
 #     PSystem_BMAG_y : 1.0026233182
 #     PSystem_BMAG_emit_x : 1.1784e-6
 #     PSystem_BMAG_emit_y : 1.2119e-6
-inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
-QA10361kG : -2.2481515833
-QA10371kG : 2.338890812
-QE10425kG : -1.0721888188
-QE10441kG : 1.3152401751
-QE10511kG : 0.2241208022
-QE10525kG : 0.6276060908
-L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
-L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+# inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
+# QA10361kG : -2.2481515833
+# QA10371kG : 2.338890812
+# QE10425kG : -1.0721888188
+# QE10441kG : 1.3152401751
+# QE10511kG : 0.2241208022
+# QE10525kG : 0.6276060908
+# L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
+# L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
 
 
 #2024-10-16-13-15-32 Injector quad settings. Nelder-Mead from above, minimizing PDrive and PWitness (BMAG * emit) differences from golden twiss at PR10571
@@ -1612,21 +1612,21 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 
 
 
-L0BPhaseSet : -29.6767726386
-L1PhaseSet : -27.9772902862
-L2PhaseSet : -45.2682022457
-S1EL_xOffset : 0.003934955
-S1EL_yOffset : -0.0012891473
-S2EL_xOffset : -0.0009776052
-S2EL_yOffset : -0.0000220992
-S2ER_xOffset : -0.0036289409
-S2ER_yOffset : 0.0006895684
-S1ER_xOffset : -0.0009442719
-S1ER_yOffset : 0.0009442719
-XC1FFkG : 0.0098529176
-XC3FFkG : -0.0285939728
-YC1FFkG : 0.0113906531
-YC2FFkG : -0.1057559661
+# L0BPhaseSet : -29.6767726386
+# L1PhaseSet : -27.9772902862
+# L2PhaseSet : -45.2682022457
+# S1EL_xOffset : 0.003934955
+# S1EL_yOffset : -0.0012891473
+# S2EL_xOffset : -0.0009776052
+# S2EL_yOffset : -0.0000220992
+# S2ER_xOffset : -0.0036289409
+# S2ER_yOffset : 0.0006895684
+# S1ER_xOffset : -0.0009442719
+# S1ER_yOffset : 0.0009442719
+# XC1FFkG : 0.0098529176
+# XC3FFkG : -0.0285939728
+# YC1FFkG : 0.0113906531
+# YC2FFkG : -0.1057559661
 
 
 
@@ -1658,15 +1658,15 @@ YC2FFkG : -0.1057559661
     # PSystem_BMAG_emit_y : 1.0195e-6
     # PSystem_BMAG_emitSI_x : 2.7613e-6
     # PSystem_BMAG_emitSI_y : 2.1446e-6
-# QA10361kG : -3.1976079537
-# QA10371kG : 3.1129092742
-# QE10425kG : -6.8469996218
-# QE10441kG : 1.5057761462
-# QE10511kG : 7.0138622173
-# QE10525kG : -5.3942250594
+inputBeamFilePathSuffix : '/beams/2024-10-22_Impact_OneBunch/2024-10-22_oneBunch.h5'
+QA10361kG : -3.1976079537
+QA10371kG : 3.1129092742
+QE10425kG : -6.8469996218
+QE10441kG : 1.5057761462
+QE10511kG : 7.0138622173
+QE10525kG : -5.3942250594
 
-#2024-10-22_oneBunch comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
-# L0BEnergyOffset : -2759313
+L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
 
 
 #PENDING 2024-10-22_oneBunch optimization, CSR on.
@@ -1684,4 +1684,152 @@ YC2FFkG : -0.1057559661
 # XC3FFkG : -0.0009574519
 # YC1FFkG : -0.0004450369
 # YC2FFkG : 0.01415218
+
+#PENDING Movers + modified sextupole strengths. Starting from 2024-10-25-16-18-53. CSR off
+# L0BPhaseSet : -14.7693325189
+# L1PhaseSet : -19.286627682
+# L2PhaseSet : -33.3542077943
+
+# S1ELkG : 835.3115661233
+# S2ELkG : -3237.6929540106
+# S3ELkG : -948.8236783199
+# S3ERkG : -992.0392145078
+# S2ERkG : -3252.6993839598
+# S1ERkG : 869.400065025
+
+# S1EL_xOffset : 0.0001878117
+# S1EL_yOffset : 0.0001711223
+# S2EL_xOffset : 2.7486e-6
+# S2EL_yOffset : 0.0000805797
+# S2ER_xOffset : -0.0001175521
+# S2ER_yOffset : 0.0000196128
+# S1ER_xOffset : 0.0000971158
+# S1ER_yOffset : 0.0001841446
+
+# XC1FFkG : 0.03489305
+# XC3FFkG : -0.0168822377
+# YC1FFkG : 0.0004564785
+# YC2FFkG : -0.0017261778
+
+# CSR on. Quick and dirty. Alignment terms disabled
+# L0BPhaseSet : -14.717414284
+# L1PhaseSet : -19.9097733484
+# L2PhaseSet : -33.2819322912
+
+# S1ELkG : 841.682059005
+# S2ELkG : -3228.4678927282
+# S3ELkG : -925.346456463
+# S3ERkG : -974.7729711573
+# S2ERkG : -3276.0192647687
+# S1ERkG : 799.8874797544
+
+# S1EL_xOffset : 0.0008506309
+# S1EL_yOffset : 0.0003554216
+# S2EL_xOffset : -0.0013625911
+# S2EL_yOffset : 0.0003245319
+# S2ER_xOffset : -0.0012594741
+# S2ER_yOffset : 0.0003815117
+# S1ER_xOffset : 0.000710956
+# S1ER_yOffset : 0.0001855709
+
+# XC1FFkG : 0.0887948372
+# XC3FFkG : 0.0121536856
+# YC1FFkG : 0.0034841692
+# YC2FFkG : -0.0179544209
+
+
+# #Starting from more conservative phase
+# L0BPhaseSet : -15
+# L1PhaseSet : -20
+# L2PhaseSet : -38
+# S1ELkG : 841.682059005
+# S2ELkG : -3228.4678927282
+# S3ELkG : -925.346456463
+# S3ERkG : -974.7729711573
+# S2ERkG : -3276.0192647687
+# S1ERkG : 799.8874797544
+
+# #First optimizing norm_emit at MFFF
+# S1EL_xOffset : 0.0001355384
+# S1EL_yOffset : 0.0000754605
+# S2EL_xOffset : -0.0002838861
+# S2EL_yOffset : 0.0000324354
+# S2ER_xOffset : -0.0001393405
+# S2ER_yOffset : 0.000029494
+# S1ER_xOffset : 0.0000270731
+# S1ER_yOffset : 0.000100389
+
+# #Center the beam at PENT
+# XC1FFkG : 0.0033137376
+# XC3FFkG : -0.0011659412
+# YC1FFkG : -0.0006206165
+# YC2FFkG : 0.0020514094
+
+# #Then optimizing all with phases and movers
+# L0BPhaseSet : -15.2952022959
+# L1PhaseSet : -20.9641656006
+# L2PhaseSet : -36.3953315306
+
+
+
+
+
+# S1EL_xOffset : -0.0002337189
+# S1EL_yOffset : 0.0000195472
+# S2EL_xOffset : -0.0007088682
+# S2EL_yOffset : 0.000013237
+# S2ER_xOffset : -0.0001851002
+# S2ER_yOffset : 0.0001105164
+# S1ER_xOffset : 0.0013423274
+# S1ER_yOffset : 0.0001650207
+
+# XC1FFkG : -0.0135384873
+# XC3FFkG : 0.0022512603
+# YC1FFkG : 0.0000907836
+# YC2FFkG : -0.0013701391
+
+
+
+#PENDING Movers + modified sextupole strengths. Starting from 2024-10-25-16-18-53. CSR off
+L0BPhaseSet : -15.1357115961
+L1PhaseSet : -21.5805783917
+L2PhaseSet : -35.3982843414
+S1ELkG : 878.7759621727
+S2ELkG : -3170.347080126
+S3ELkG : -949.4621163446
+S3ERkG : -1003.0200208973
+S2ERkG : -3053.3838630064
+S1ERkG : 868.5886254957
+S1EL_xOffset : 0.0000649855
+S1EL_yOffset : 0.0001924621
+S2EL_xOffset : 0.0000249194
+S2EL_yOffset : 0.0000720062
+S2ER_xOffset : -0.0000658789
+S2ER_yOffset : -6.197e-7
+S1ER_xOffset : 0.0000551462
+S1ER_yOffset : 0.000142799
+XC1FFkG : 0.0348834199
+XC3FFkG : -0.0239182046
+YC1FFkG : 0.0009319953
+YC2FFkG : 0.0008191683
+
+#PENDING CSR on
+# S1ELkG : 953.1612836124
+# S2ELkG : -3052.50901224
+# S3ELkG : -905.3720401158
+# S3ERkG : -974.3555058957
+# S2ERkG : -3625.1327850783
+# S1ERkG : 842.967104201
+# S1EL_xOffset : 0.0002734981
+# S1EL_yOffset : 0.000132787
+# S2EL_xOffset : -0.000642431
+# S2EL_yOffset : 0.0000583867
+# S2ER_xOffset : 0.0001065787
+# S2ER_yOffset : -0.0000286657
+# S1ER_xOffset : -4.086e-7
+# S1ER_yOffset : 0.000237024
+# XC1FFkG : 0.0897662737
+# XC3FFkG : -0.0226202528
+# YC1FFkG : -0.0054657014
+# YC2FFkG : 0.0036610411
 
