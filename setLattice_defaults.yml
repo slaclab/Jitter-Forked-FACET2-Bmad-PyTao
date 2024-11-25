@@ -1791,7 +1791,7 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 
 #2024-10-30-17-??-?? Movers + modified sextupole strengths. Starting from 2024-10-25-16-18-53. CSR off. Alignment terms off.
-# L0BPhaseSet : -15.1357115961
+L0BPhaseSet : -15.1357115961
 L1PhaseSet : -21.5805783917
 L2PhaseSet : -35.3982843414
 S1ELkG : 878.7759621727
@@ -1850,38 +1850,35 @@ YC2FFkG : 0.0008191683
 #Ironically, getting better optimization with fewer variables: start with just phases and movers
 L0BPhaseSet : -15
 
-L1PhaseSet : -21.8791021342
-L2PhaseSet : -34.3053173153
-S1EL_xOffset : 0.0001200481
-S1EL_yOffset : 0.0002550158
-S2EL_xOffset : -0.0000930042
-S2EL_yOffset : 0.0000472978
-S2ER_xOffset : -0.0000472515
-S2ER_yOffset : 0.000041076
-S1ER_xOffset : 0.0000523766
-S1ER_yOffset : 0.0001220216
-# charge : 1.e-9
-# charge_nC : 1.04
+# L1PhaseSet : -22.6559209306
+# L2PhaseSet : -34.0808572594
+# S1EL_xOffset : 0.0001987523
+# S1EL_yOffset : 0.0002495047
+# S2EL_xOffset : -0.0001416154
+# S2EL_yOffset : 0.0001247734
+# S2ER_xOffset : -0.0001719472
+# S2ER_yOffset : 0.0000894864
+# S1ER_xOffset : 3.7729e-6
+# S1ER_yOffset : 0.0001656066
+# # charge : 9.e-10
+# # charge_nC : 0.89
 
-
-
-L1PhaseSet : -21.5299062552
-L2PhaseSet : -34.6018769929
-S1ELkG : 893.6013122766
-S2ELkG : -3241.3869903073
-S3ELkG : -939.7415236363
-S3ERkG : -1013.8972173137
-S2ERkG : -3410.2387084694
-S1ERkG : 869.836511692
-S1EL_xOffset : 0.000232317
-S1EL_yOffset : 0.0002041149
-S2EL_xOffset : -0.0001921157
-S2EL_yOffset : 0.0000146997
-S2ER_xOffset : 0.0000378231
-S2ER_yOffset : 0.0000559486
-S1ER_xOffset : 0.000032777
-S1ER_yOffset : 0.000124236
-XC1FFkG : 0.0523082272
-XC3FFkG : -0.0170197353
-YC1FFkG : -0.0034424
-YC2FFkG : 0.0065488236
+# #Targetting MFFF emit
+# L1PhaseSet : -22.515246882
+# L2PhaseSet : -33.9660921344
+# S1ELkG : 879.5147409823
+# S2ELkG : -3274.8388423628
+# S3ELkG : -965.679651068
+# S3ERkG : -989.8178872345
+# S2ERkG : -3131.5772249939
+# S1ERkG : 867.774282801
+# S1EL_xOffset : 0.0002393274
+# S1EL_yOffset : 0.0002688298
+# S2EL_xOffset : -0.0001495051
+# S2EL_yOffset : 0.0001414423
+# S2ER_xOffset : -0.0001893027
+# S2ER_yOffset : 0.0000960231
+# S1ER_xOffset : 0.000044348
+# S1ER_yOffset : 0.0001792872
+# charge : 9.e-10
+# charge_nC : 0.91
