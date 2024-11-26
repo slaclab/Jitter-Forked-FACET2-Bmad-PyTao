@@ -35,6 +35,7 @@ Q6EkG :  -142.271
 #These sextupole settings are from the official lattice, as of 2024-05-20
 #sextNameList :  ["S1EL", "S2EL", "S3EL_1", "S3EL_2", "S3ER_1", "S3ER_2", "S2ER", "S1ER"]
 #[(i, getSextkG(tao,i)) for i in sextNameList]
+symmetricSextupoleStrengths : False #For backwards compatibility, this must default to False
 S1ELkG :  804.871
 S2ELkG :  -2049.489
 S3ELkG :  -1019.3230 
@@ -1875,19 +1876,27 @@ L2PhaseSet : -40.0
 # YC1FFkG : -0.0004644585
 # YC2FFkG : 0.0009770122
 
-#This uses the new (2024-11-25-16-12-06) "errorTerm_sigma_xp_rule" penalty
-S1EL_xOffset : 0.0005126859
-S1EL_yOffset : 5.0386e-6
-S2EL_xOffset : -0.0003896535
-S2EL_yOffset : 0.0001723714
-S2ER_xOffset : 0.0011314697
-S2ER_yOffset : 0.0000351139
-S1ER_xOffset : -0.0002562544
-S1ER_yOffset : 0.0001277821
-XC1FFkG : -0.1651722668
-XC3FFkG : 0.0259886224
-YC1FFkG : 0.0221946097
-YC2FFkG : -0.0679733108
+#This uses the new (2024-11-25-16-12-06) "errorTerm_sigma_xp_rule" penalty. Threshold at 200e-6
+ #Threshold at 200e-6 still bends it over more than I'd like
+#Alignment and longitudinal terms off
 
 
+# S1EL_xOffset : 0.0002354481
+# S1EL_yOffset : -0.0000177499
+# S2EL_xOffset : -0.0007911701
+# S2EL_yOffset : -0.0002107309
+# S2ER_xOffset : 0.0009473585
+# S2ER_yOffset : 0.0002046818
+# S1ER_xOffset : -0.0003120972
+# S1ER_yOffset : -0.0003958239
+# XC1FFkG : 0.0102769401
+# XC3FFkG : 0.0172041811
+# YC1FFkG : 0.0054362569
+# YC2FFkG : 0.0171525257
+
+#Starting from clean slate with sextupoles off
+symmetricSextupoleStrengths : True
+S1ELkG : 0.0
+S2ELkG : 0.0
+S3ELkG : 0.0
 

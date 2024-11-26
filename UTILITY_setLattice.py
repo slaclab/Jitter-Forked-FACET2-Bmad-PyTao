@@ -83,15 +83,26 @@ def setLattice(
                         latticeSettings["Q5EkG"], 
                         latticeSettings["Q6EkG"]
                        )
-    
-    setAllWChicaneSextupoles(tao, 
-                             latticeSettings["S1ELkG"], 
-                             latticeSettings["S2ELkG"], 
-                             latticeSettings["S3ELkG"], 
-                             latticeSettings["S3ERkG"], 
-                             latticeSettings["S2ERkG"], 
-                             latticeSettings["S1ERkG"]
-                            )
+
+    if latticeSettings["symmetricSextupoleStrengths"]:
+        #Everything set symmetrically to "L" values
+        setAllWChicaneSextupoles(tao, 
+                                 latticeSettings["S1ELkG"], 
+                                 latticeSettings["S2ELkG"], 
+                                 latticeSettings["S3ELkG"], 
+                                 latticeSettings["S3ELkG"], 
+                                 latticeSettings["S2ELkG"], 
+                                 latticeSettings["S1ELkG"]
+                                )
+    else: 
+        setAllWChicaneSextupoles(tao, 
+                         latticeSettings["S1ELkG"], 
+                         latticeSettings["S2ELkG"], 
+                         latticeSettings["S3ELkG"], 
+                         latticeSettings["S3ERkG"], 
+                         latticeSettings["S2ERkG"], 
+                         latticeSettings["S1ERkG"]
+                        )
 
     setAllWChicaneMovers(tao,
                          latticeSettings["S1EL_xOffset"], 
