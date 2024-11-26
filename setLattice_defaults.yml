@@ -1791,27 +1791,27 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 
 #2024-10-30-17-??-?? Movers + modified sextupole strengths. Starting from 2024-10-25-16-18-53. CSR off. Alignment terms off.
-L0BPhaseSet : -15.1357115961
-L1PhaseSet : -21.5805783917
-L2PhaseSet : -35.3982843414
-S1ELkG : 878.7759621727
-S2ELkG : -3170.347080126
-S3ELkG : -949.4621163446
-S3ERkG : -1003.0200208973
-S2ERkG : -3053.3838630064
-S1ERkG : 868.5886254957
-S1EL_xOffset : 0.0000649855
-S1EL_yOffset : 0.0001924621
-S2EL_xOffset : 0.0000249194
-S2EL_yOffset : 0.0000720062
-S2ER_xOffset : -0.0000658789
-S2ER_yOffset : -6.197e-7
-S1ER_xOffset : 0.0000551462
-S1ER_yOffset : 0.000142799
-XC1FFkG : 0.0348834199
-XC3FFkG : -0.0239182046
-YC1FFkG : 0.0009319953
-YC2FFkG : 0.0008191683
+# L0BPhaseSet : -15.1357115961
+# L1PhaseSet : -21.5805783917
+# L2PhaseSet : -35.3982843414
+# S1ELkG : 878.7759621727
+# S2ELkG : -3170.347080126
+# S3ELkG : -949.4621163446
+# S3ERkG : -1003.0200208973
+# S2ERkG : -3053.3838630064
+# S1ERkG : 868.5886254957
+# S1EL_xOffset : 0.0000649855
+# S1EL_yOffset : 0.0001924621
+# S2EL_xOffset : 0.0000249194
+# S2EL_yOffset : 0.0000720062
+# S2ER_xOffset : -0.0000658789
+# S2ER_yOffset : -6.197e-7
+# S1ER_xOffset : 0.0000551462
+# S1ER_yOffset : 0.000142799
+# XC1FFkG : 0.0348834199
+# XC3FFkG : -0.0239182046
+# YC1FFkG : 0.0009319953
+# YC2FFkG : 0.0008191683
 
 #2024-11-05-11-38-15 Updating only L1/2 phases (L0B fixed = -15.0) from above for zero-charge limit. This is useful as a starting point for charge-varying optimization so the optimizer doesn't rush off to find these phases
 # L0BPhaseSet : -15.0
@@ -1845,40 +1845,49 @@ YC2FFkG : 0.0008191683
 # charge : 1.1e-9
 # charge_nC : 1.11
 
+# These are real machine BDES values as of 2024-11-25
+S1ELkG : 1400.0
+S2ELkG : -3200.0
+S3ELkG : -1150.0
+S3ERkG : -1150.0
+S2ERkG : -3200.0
+S1ERkG : 1400.0
 
-#Instead of starting at zero charge, iterate from 2024-10-30-17-??-?? starting at 0.8 nC without presetting phases
-#Ironically, getting better optimization with fewer variables: start with just phases and movers
-L0BPhaseSet : -15
+#PENDING Repeating one bunch, CSR-on optimization. Now with machine BDES settings for sextuple strengths
+#Starting off with beam far from compression: L0B / L1 / L2 = -15 / -20 / -40
+ #Hope is to start with weak wakes and CSR then let the optimizer walk the compression up. Sextupoles and kickers initially set with longitudinal terms disabled
+L0BPhaseSet : -15.0
+L1PhaseSet : -20.0
+L2PhaseSet : -40.0
 
-# L1PhaseSet : -22.6559209306
-# L2PhaseSet : -34.0808572594
-# S1EL_xOffset : 0.0001987523
-# S1EL_yOffset : 0.0002495047
-# S2EL_xOffset : -0.0001416154
-# S2EL_yOffset : 0.0001247734
-# S2ER_xOffset : -0.0001719472
-# S2ER_yOffset : 0.0000894864
-# S1ER_xOffset : 3.7729e-6
-# S1ER_yOffset : 0.0001656066
-# # charge : 9.e-10
-# # charge_nC : 0.89
+#CSR off starting point
+#Blerg, nevermind. This is folding the x phase space over at PENT
+# S1EL_xOffset : 0.0005818171
+# S1EL_yOffset : -0.0000682966
+# S2EL_xOffset : -0.0008429882
+# S2EL_yOffset : -0.0001466651
+# S2ER_xOffset : -0.0008086592
+# S2ER_yOffset : 0.0001352188
+# S1ER_xOffset : 0.0009353035
+# S1ER_yOffset : 0.0001765693
+# XC1FFkG : 0.0299776068
+# XC3FFkG : -0.0182904279
+# YC1FFkG : -0.0004644585
+# YC2FFkG : 0.0009770122
 
-# #Targetting MFFF emit
-# L1PhaseSet : -22.515246882
-# L2PhaseSet : -33.9660921344
-# S1ELkG : 879.5147409823
-# S2ELkG : -3274.8388423628
-# S3ELkG : -965.679651068
-# S3ERkG : -989.8178872345
-# S2ERkG : -3131.5772249939
-# S1ERkG : 867.774282801
-# S1EL_xOffset : 0.0002393274
-# S1EL_yOffset : 0.0002688298
-# S2EL_xOffset : -0.0001495051
-# S2EL_yOffset : 0.0001414423
-# S2ER_xOffset : -0.0001893027
-# S2ER_yOffset : 0.0000960231
-# S1ER_xOffset : 0.000044348
-# S1ER_yOffset : 0.0001792872
-# charge : 9.e-10
-# charge_nC : 0.91
+#This uses the new (2024-11-25-16-12-06) "errorTerm_sigma_xp_rule" penalty
+S1EL_xOffset : 0.0005126859
+S1EL_yOffset : 5.0386e-6
+S2EL_xOffset : -0.0003896535
+S2EL_yOffset : 0.0001723714
+S2ER_xOffset : 0.0011314697
+S2ER_yOffset : 0.0000351139
+S1ER_xOffset : -0.0002562544
+S1ER_yOffset : 0.0001277821
+XC1FFkG : -0.1651722668
+XC3FFkG : 0.0259886224
+YC1FFkG : 0.0221946097
+YC2FFkG : -0.0679733108
+
+
+
