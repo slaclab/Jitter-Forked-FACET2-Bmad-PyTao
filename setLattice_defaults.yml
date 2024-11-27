@@ -1847,19 +1847,19 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 # charge_nC : 1.11
 
 # These are real machine BDES values as of 2024-11-25
-S1ELkG : 1400.0
-S2ELkG : -3200.0
-S3ELkG : -1150.0
-S3ERkG : -1150.0
-S2ERkG : -3200.0
-S1ERkG : 1400.0
+# S1ELkG : 1400.0
+# S2ELkG : -3200.0
+# S3ELkG : -1150.0
+# S3ERkG : -1150.0
+# S2ERkG : -3200.0
+# S1ERkG : 1400.0
 
 #PENDING Repeating one bunch, CSR-on optimization. Now with machine BDES settings for sextuple strengths
 #Starting off with beam far from compression: L0B / L1 / L2 = -15 / -20 / -40
  #Hope is to start with weak wakes and CSR then let the optimizer walk the compression up. Sextupoles and kickers initially set with longitudinal terms disabled
-L0BPhaseSet : -15.0
-L1PhaseSet : -20.0
-L2PhaseSet : -40.0
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
 
 #CSR off starting point
 #Blerg, nevermind. This is folding the x phase space over at PENT
@@ -1895,8 +1895,200 @@ L2PhaseSet : -40.0
 # YC2FFkG : 0.0171525257
 
 #Starting from clean slate with sextupoles off
-symmetricSextupoleStrengths : True
-S1ELkG : 0.0
-S2ELkG : 0.0
-S3ELkG : 0.0
+#Optimizing on MFFF, BMAG * norm_emit
+# symmetricSextupoleStrengths : True
+# XC1FFkG : -0.0217374145
+# XC3FFkG : -0.0139912933
+# YC1FFkG : -0.0013923725
+# YC2FFkG : 0.008215901
 
+
+# S1ELkG : 0.0
+# S2ELkG : 0.0
+# S3ELkG : 0.0
+
+# S1ELkG :  804.871
+# S2ELkG :  -2049.489
+# S3ELkG :  -1019.3230 
+
+# S1ELkG : 479.6657856722
+# S2ELkG : -925.9473671454
+# S3ELkG : -461.8580064022
+# S1EL_xOffset : -0.0005880661
+# S2EL_xOffset : 0.0002500288
+# S2ER_xOffset : -0.000413283
+# S1ER_xOffset : -0.0001941726
+# XC1FFkG : 0.4894264523
+# XC3FFkG : -0.3658065204
+
+# S1EL_xOffset : 0.0001049218
+# S1EL_yOffset : -0.0000383147
+# S2EL_xOffset : -0.0001488118
+# S2EL_yOffset : 0.0000332474
+# S2ER_xOffset : -0.0002819368
+# S2ER_yOffset : 0.000028148
+# S1ER_xOffset : 0.0001947458
+# S1ER_yOffset : 0.0000718428
+
+#2024-11-26-13-38-43 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Optimization starting from design lattice except with beam far from compression: L0B / L1 / L2 = -15 / -20 / -40
+#Also, charge set to 1 pC!
+#Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+# symmetricSextupoleStrengths : True
+# S1ELkG : 1496.1183325445
+# S2ELkG : -2863.0546113784
+# S3ELkG : -908.6286896152
+# S1EL_xOffset : -0.0013099584
+# S1EL_yOffset : 0.0002692175
+# S2EL_xOffset : -0.0018121695
+# S2EL_yOffset : -0.0000361024
+# S2ER_xOffset : -0.0006899169
+# S2ER_yOffset : 0.0000887423
+# S1ER_xOffset : 0.0007425262
+# S1ER_yOffset : 0.0001282241
+
+#2024-11-26-13-41-24 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-26-13-38-43
+#Charge now 100 pC
+#Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+# symmetricSextupoleStrengths : True
+# S1ELkG : 1500.3441653898
+# S2ELkG : -2919.2803184179
+# S3ELkG : -907.9463202518
+# S1EL_xOffset : -0.0013240137
+# S1EL_yOffset : 0.0002974036
+# S2EL_xOffset : -0.0018234025
+# S2EL_yOffset : -0.0000370996
+# S2ER_xOffset : -0.0006779021
+# S2ER_yOffset : 0.0001755447
+# S1ER_xOffset : 0.0007595341
+# S1ER_yOffset : 0.0000784119
+
+#2024-11-26-13-49-13 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-26-13-41-24
+#Charge now 500 pC
+#Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+# symmetricSextupoleStrengths : True
+# S1ELkG : 1538.9137676311
+# S2ELkG : -3317.230105787
+# S3ELkG : -935.4246291056
+# S1EL_xOffset : -0.0015744783
+# S1EL_yOffset : 0.0002793464
+# S2EL_xOffset : -0.001453824
+# S2EL_yOffset : -0.0000445184
+# S2ER_xOffset : -0.0003726787
+# S2ER_yOffset : 0.0002587831
+# S1ER_xOffset : 0.0004456355
+# S1ER_yOffset : 0.0001978608
+#This is looking good. Good emittance and BMAG at MFFF, decent spot without "folding" at PENT
+
+#2024-11-26-13-55-17 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-26-13-49-13
+#Charge now 1 nC
+#Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+# symmetricSextupoleStrengths : True
+# S1ELkG : 1522.8470539848
+# S2ELkG : -3524.5872909766
+# S3ELkG : -908.9576851213
+# S1EL_xOffset : -0.0017136744
+# S1EL_yOffset : 0.0002482434
+# S2EL_xOffset : -0.0013068739
+# S2EL_yOffset : -0.0000138088
+# S2ER_xOffset : -0.0002493406
+# S2ER_yOffset : 0.000226457
+# S1ER_xOffset : 0.0004155418
+# S1ER_yOffset : 0.0002010484
+#Still looking promising. MFFF and PENT definitely starting to look increasinglyodd, but not folded
+
+#2024-11-26-14-02-21 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-26-13-55-17
+#Charge now full 1.6 nC
+#Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+# symmetricSextupoleStrengths : True
+# S1ELkG : 1505.859108015
+# S2ELkG : -3666.4066738902
+# S3ELkG : -898.1888707348
+# S1EL_xOffset : -0.0017946882
+# S1EL_yOffset : 0.0001889537
+# S2EL_xOffset : -0.0011477387
+# S2EL_yOffset : -0.0000221747
+# S2ER_xOffset : -0.0001324024
+# S2ER_yOffset : 0.0002167639
+# S1ER_xOffset : 0.0003789026
+# S1ER_yOffset : 0.000245291
+#Still looking promising. MFFF and PENT definitely starting to look increasingly odd, but not folded
+#With CSR on, still no evidence of folding
+
+#2024-11-26-14-36-27 One bunch, CSR-on optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-26-14-02-21
+#Charge now full 1.6 nC
+#Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+L0BPhaseSet : -15.0
+L1PhaseSet : -20.0
+L2PhaseSet : -40.0
+symmetricSextupoleStrengths : True
+S1ELkG : 1531.6912234269
+S2ELkG : -3717.8993872618
+S3ELkG : -896.4432105648
+S1EL_xOffset : -0.0017865765
+S1EL_yOffset : 0.0002306556
+S2EL_xOffset : -0.0012254238
+S2EL_yOffset : -0.0000113954
+S2ER_xOffset : -0.0001662012
+S2ER_yOffset : 0.0002263164
+S1ER_xOffset : 0.000448409
+S1ER_yOffset : 0.0002225562
+#Still no evidence of folding
+
+
+#THIS FOLDS!! DELETE ME
+        #2024-11-26-17-02-35 (Probably room for improvement) One bunch, CSR-on optimization. Moving L2 from low-compression -40 to typical -38. Insisting on the beam not being folded over in x phase space
+        #Starting from 2024-11-26-14-36-27
+        #Charge now full 1.6 nC
+        #Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
+        # L0BPhaseSet : -15.0
+        # L1PhaseSet : -20.0
+        # L2PhaseSet : -38.0
+        # symmetricSextupoleStrengths : True
+        # S1ELkG : 1563.7505776122
+        # S2ELkG : -3655.9309885219
+        # S3ELkG : -892.5887469109
+        # S1EL_xOffset : -0.0017723963
+        # S1EL_yOffset : 0.0002296674
+        # S2EL_xOffset : -0.0014632415
+        # S2EL_yOffset : -0.0000368266
+        # S2ER_xOffset : -0.0001060565
+        # S2ER_yOffset : 0.0002373241
+        # S1ER_xOffset : 0.0005807652
+        # S1ER_yOffset : 0.00017824
+
+#Overnight. 
+#THIS FOLDS
+        # L1PhaseSet : -17.6126696625
+        # L2PhaseSet : -36.2539265078
+        # S1ELkG : 1606.587467478
+        # S2ELkG : -3784.5450453518
+        # S3ELkG : -904.2662153834
+        # S1EL_xOffset : -0.0023795593
+        # S1EL_yOffset : 0.0001945608
+        # S2EL_xOffset : -0.0015191381
+        # S2EL_yOffset : -0.000166953
+        # S2ER_xOffset : 1.6094e-6
+        # S2ER_yOffset : 0.0001253696
+        # S1ER_xOffset : 0.0007136846
+        # S1ER_yOffset : 0.0000358259

@@ -587,3 +587,47 @@ def collimateBeam(
         print(f"{len(PMod.x)}")
 
     return PMod
+
+
+def sortIndices(lst):
+    #Returns the indices of the sorted elements, e.g. [1, 3, 5, 2, 4] --> [0, 3, 1, 4, 2]
+    return [i for i, _ in sorted(enumerate(lst), key=lambda x: x[1])]
+
+def sliceBeam(
+    P,
+    sortKey = None,
+    numBeamlets = None
+):
+    """Sort a beam by sortKey, then slice it into numBeamlets of equal count"""
+    sortedIndices = sortIndices(P[sortKey])
+    
+    subsetIndices = np.array_split(sortedIndices, numBeamlets)
+    
+    resultBeamlets = []
+    
+    for activeSubsetIndices in subsetIndices:
+        PMod = P.copy()
+        
+        # OpenPMD checks the length so I can't just remove the "killed" particles
+        # Also, for compatibility, I don't want to change either the weight or status of the killed particles
+        filtered_data = {
+            "x": PMod.x[activeSubsetIndices],
+            "y": PMod.y[activeSubsetIndices],
+            "z": PMod.z[activeSubsetIndices],
+            "px": PMod.px[activeSubsetIndices],
+            "py": PMod.py[activeSubsetIndices],
+            "pz": PMod.pz[activeSubsetIndices],
+            "t": PMod.t[activeSubsetIndices], 
+            "status": PMod.status[activeSubsetIndices], 
+            "weight": PMod.weight[activeSubsetIndices], 
+            "species": PMod.species
+        }
+        
+        # Create a new ParticleGroup instance with the filtered data
+        PMod = ParticleGroup(data=filtered_data)
+        #print(f"New particle count: {len(PMod.x)}")
+        #print(f"{len(PMod.x)}")
+    
+        resultBeamlets.append(PMod)
+
+    return resultBeamlets
