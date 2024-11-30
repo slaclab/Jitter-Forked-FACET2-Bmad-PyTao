@@ -2038,21 +2038,21 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 #Starting from 2024-11-26-14-02-21
 #Charge now full 1.6 nC
 #Optimizing on MFFF, BMAG * norm_emit. Length and alignment terms disabled
-L0BPhaseSet : -15.0
-L1PhaseSet : -20.0
-L2PhaseSet : -40.0
-symmetricSextupoleStrengths : True
-S1ELkG : 1531.6912234269
-S2ELkG : -3717.8993872618
-S3ELkG : -896.4432105648
-S1EL_xOffset : -0.0017865765
-S1EL_yOffset : 0.0002306556
-S2EL_xOffset : -0.0012254238
-S2EL_yOffset : -0.0000113954
-S2ER_xOffset : -0.0001662012
-S2ER_yOffset : 0.0002263164
-S1ER_xOffset : 0.000448409
-S1ER_yOffset : 0.0002225562
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+# symmetricSextupoleStrengths : True
+# S1ELkG : 1531.6912234269
+# S2ELkG : -3717.8993872618
+# S3ELkG : -896.4432105648
+# S1EL_xOffset : -0.0017865765
+# S1EL_yOffset : 0.0002306556
+# S2EL_xOffset : -0.0012254238
+# S2EL_yOffset : -0.0000113954
+# S2ER_xOffset : -0.0001662012
+# S2ER_yOffset : 0.0002263164
+# S1ER_xOffset : 0.000448409
+# S1ER_yOffset : 0.0002225562
 #Still no evidence of folding
 
 
@@ -2092,3 +2092,162 @@ S1ER_yOffset : 0.0002225562
         # S2ER_yOffset : 0.0001253696
         # S1ER_xOffset : 0.0007136846
         # S1ER_yOffset : 0.0000358259
+
+
+#PENDING One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-26-14-36-27
+#Charge now full 1.6 nC
+#Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) MFFF, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. 
+#Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -20.0
+# L2PhaseSet : -40.0
+#symmetricSextupoleStrengths : True
+# S1ELkG : 1531.6912234269
+# S2ELkG : -3717.8993872618
+# S3ELkG : -896.4432105648
+# S1EL_xOffset : -0.0017865765
+# S1EL_yOffset : 0.0002306556
+# S2EL_xOffset : -0.0012254238
+# S2EL_yOffset : -0.0000113954
+# S2ER_xOffset : -0.0001662012
+# S2ER_yOffset : 0.0002263164
+# S1ER_xOffset : 0.000448409
+# S1ER_yOffset : 0.0002225562
+
+# S1ELkG : 1293.805922031
+# S2ELkG : -2426.0193640548
+# S3ELkG : -1055.4447870451
+# S1EL_xOffset : -0.0002775949
+# S1EL_yOffset : -0.001514708
+# S2EL_xOffset : -0.0009828716
+# S2EL_yOffset : 0.0006074862
+# S2ER_xOffset : -0.0012330273
+# S2ER_yOffset : -0.0004806621
+# S1ER_xOffset : 0.0012786276
+# S1ER_yOffset : 0.000676979
+
+
+#2024-11-27-12-20-26 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#This is a delicate and probably very stupid dance... but the golden lattice plus these L3 settings gives a low energy spread beam into BEGBC20
+#Charge now full 1.6 nC
+#Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) MFFF, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. 
+#Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L2PhaseSet : -38.0
+# L3PhaseSet : -65.0
+# L3EnergyOffset :  -250000000
+
+# S1ELkG : 687.3276519701
+# S2ELkG : -1304.0589540574
+# S3ELkG : -1366.202909113
+# S3ERkG : -1202.0459375667
+# S2ERkG : -1294.965564701
+# S1ERkG : 764.6076059724
+# S1EL_xOffset : -0.0006085781
+# S1EL_yOffset : 0.0027904068
+# S2EL_xOffset : 0.0009911565
+# S2EL_yOffset : -0.0008109247
+# S2ER_xOffset : -0.002095112
+# S2ER_yOffset : 0.002408909
+# S1ER_xOffset : 0.0001256803
+# S1ER_yOffset : -0.0037444013
+#This successfully removes the "twist" along pz in (x, px, pz) but other things are pretty bad. 
+
+#2024-11-27-15-56-17 Also let it use BC20 quads?
+#Pretty decent, but room to improve
+# L0BPhaseSet : -15.0
+# L2PhaseSet : -38.0
+# L3PhaseSet : -65.0
+# L3EnergyOffset :  -250000000
+
+# Q1EkG : 140.1578312319
+# Q2EkG : -145.3106399741
+# Q3EkG : 116.2583537737
+# Q4EkG : 115.9925296479
+# Q5EkG : -25.2691130332
+# Q6EkG : -134.1764923994
+# S1ELkG : 657.952910629
+# S2ELkG : -781.4124105617
+# S3ELkG : -1343.9994382448
+# S3ERkG : -1217.9101862991
+# S2ERkG : -1064.8951341458
+# S1ERkG : 384.3963060538
+# S1EL_xOffset : 0.0003770156
+# S1EL_yOffset : 0.0027858521
+# S2EL_xOffset : 0.0010060831
+# S2EL_yOffset : -0.0005313376
+# S2ER_xOffset : -0.0017701556
+# S2ER_yOffset : 0.0009750091
+# S1ER_xOffset : 0.0006391121
+# S1ER_yOffset : -0.0039184411
+
+
+
+
+
+
+
+
+
+
+
+#2024-11-29-17-23-17 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-27-15-56-17, walking L3 phase back to crest
+#Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) MFFF, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. 
+#Length and alignment terms disabled
+# L0BPhaseSet : -15.0
+# L2PhaseSet : -38.0
+# L3PhaseSet : 0.0
+# Q1EkG : 103.8750026037
+# Q2EkG : -154.2579526277
+# Q3EkG : 126.18343149
+# Q4EkG : 95.2853017956
+# Q5EkG : -34.252622587
+# Q6EkG : -117.9996467769
+# S1ELkG : 1530.1504528004
+# S2ELkG : -10178.1770512811
+# S3ELkG : -2572.8906174097
+# S3ERkG : -1774.47756455
+# S2ERkG : -9057.92172783
+# S1ERkG : 836.5503333589
+# S1EL_xOffset : -0.0016161826
+# S1EL_yOffset : 0.0038651853
+# S2EL_xOffset : 0.003948843
+# S2EL_yOffset : 0.0020703129
+# S2ER_xOffset : 0.0039194057
+# S2ER_yOffset : -0.0022286249
+# S1ER_xOffset : -0.0023502527
+# S1ER_yOffset : 0.0030876702
+#This is really getting quite respectable. At MFFF, all slice BMAGs are around 1.1 and the projected emittances are ~30 um-rad. By eye, the (x, px, pz) space is looking decent.
+#More refinement time would help, but I want to move on to matching PENT. I think the chromatic aberation will need a new fix there so I don't want to spend more time here
+
+
+#PENDING One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-29-17-23-17, walking L3 phase back to crest
+#Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) PENT, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. Using golden lattice 50 cm final focus optics
+#Length and alignment terms disabled
+L0BPhaseSet : -15.0
+L2PhaseSet : -38.0
+L3PhaseSet : 0.0
+Q1EkG : 103.8750026037
+Q2EkG : -154.2579526277
+Q3EkG : 126.18343149
+Q4EkG : 95.2853017956
+Q5EkG : -34.252622587
+Q6EkG : -117.9996467769
+S1ELkG : 1530.1504528004
+S2ELkG : -10178.1770512811
+S3ELkG : -2572.8906174097
+S3ERkG : -1774.47756455
+S2ERkG : -9057.92172783
+S1ERkG : 836.5503333589
+S1EL_xOffset : -0.0016161826
+S1EL_yOffset : 0.0038651853
+S2EL_xOffset : 0.003948843
+S2EL_yOffset : 0.0020703129
+S2ER_xOffset : 0.0039194057
+S2ER_yOffset : -0.0022286249
+S1ER_xOffset : -0.0023502527
+S1ER_yOffset : 0.0030876702
+
