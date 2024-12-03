@@ -2223,31 +2223,143 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 #More refinement time would help, but I want to move on to matching PENT. I think the chromatic aberation will need a new fix there so I don't want to spend more time here
 
 
-#PENDING One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
-#Starting from 2024-11-29-17-23-17, walking L3 phase back to crest
+#2024-11-30-08-07-05 One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-29-17-23-17
 #Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) PENT, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. Using golden lattice 50 cm final focus optics
 #Length and alignment terms disabled
-L0BPhaseSet : -15.0
-L2PhaseSet : -38.0
-L3PhaseSet : 0.0
-Q1EkG : 103.8750026037
-Q2EkG : -154.2579526277
-Q3EkG : 126.18343149
-Q4EkG : 95.2853017956
-Q5EkG : -34.252622587
-Q6EkG : -117.9996467769
-S1ELkG : 1530.1504528004
-S2ELkG : -10178.1770512811
-S3ELkG : -2572.8906174097
-S3ERkG : -1774.47756455
-S2ERkG : -9057.92172783
-S1ERkG : 836.5503333589
-S1EL_xOffset : -0.0016161826
-S1EL_yOffset : 0.0038651853
-S2EL_xOffset : 0.003948843
-S2EL_yOffset : 0.0020703129
-S2ER_xOffset : 0.0039194057
-S2ER_yOffset : -0.0022286249
-S1ER_xOffset : -0.0023502527
-S1ER_yOffset : 0.0030876702
+# L0BPhaseSet : -15.0
+# L2PhaseSet : -38.0
+# L3PhaseSet : 0.0
+# Q1EkG : 111.2167506115
+# Q2EkG : -154.937708308
+# Q3EkG : 130.5787618166
+# Q4EkG : 95.0645891463
+# Q5EkG : -35.3786752705
+# Q6EkG : -112.3702292292
+# S1ELkG : 1563.127932958
+# S2ELkG : -14230.9397753217
+# S3ELkG : -146.6394432532
+# S3ERkG : -1013.0754233454
+# S2ERkG : -10195.1367623626
+# S1ERkG : 1125.9012846525
+# S1EL_xOffset : 0.0012999173
+# S1EL_yOffset : 0.0038758261
+# S2EL_xOffset : 0.0030855007
+# S2EL_yOffset : 0.0011848671
+# S2ER_xOffset : 0.0002140437
+# S2ER_yOffset : -0.0025688208
+# S1ER_xOffset : -0.0036364183
+# S1ER_yOffset : 0.0029180519
+# XC1FFkG : 0.6684372196
+# XC3FFkG : -0.2232434513
+# YC1FFkG : 0.0906275296
+# YC2FFkG : 0.0254738106
+#This is getting respectable. At PENT, all slice BMAGs are around 1.1 and the spot is ~30 um-rad.
+
+
+#2024-12-01-08-24-43 One bunch, CSR-on optimization. Insisting on the beam not being folded over in x phase space
+#Starting from 2024-11-30-08-07-05. (Right out of the gate, CSR-on seems to have done little to ruin the beams, probably because the bunch length is still long. Going directly into optimization with longitudinal constraint)
+#Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) PENT, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. Using golden lattice 50 cm final focus optics
+#Length term on and alignment terms on
+# L0BPhaseSet : -15.0
+# L1PhaseSet : -19.9387710229
+# L2PhaseSet : -35.2138678801
+# Q1EkG : 111.3783731288
+# Q2EkG : -154.0980692497
+# Q3EkG : 129.2771034228
+# Q4EkG : 95.5400182658
+# Q5EkG : -35.8031211429
+# Q6EkG : -112.9648724379
+# S1ELkG : 1614.1659925665
+# S2ELkG : -14073.7956690616
+# S3ELkG : -225.5772379321
+# S3ERkG : -883.0585729705
+# S2ERkG : -8809.117706562
+# S1ERkG : 1122.9506335381
+# S1EL_xOffset : 0.0012107573
+# S1EL_yOffset : 0.0038668807
+# S2EL_xOffset : 0.0030820336
+# S2EL_yOffset : 0.001188856
+# S2ER_xOffset : 0.0002295888
+# S2ER_yOffset : -0.0023594855
+# S1ER_xOffset : -0.0039889551
+# S1ER_yOffset : 0.0029392327
+# XC1FFkG : 0.3507748827
+# XC3FFkG : -0.175412552
+# YC1FFkG : -0.1106670483
+# YC2FFkG : 0.3755622448
+#This seemed to be going in a promising direction with all the slice BMAGs in spec and ~50x40x50 um spot at PENT... however, it appears to have basically turned the R56 of BC20 off (R56 < 0.5 mm)!!
+
+#PENDING One bunch, CSR-off optimization. Insisting on the beam not being folded over in x phase space
+#Clean start from golden lattice. I think that letting the optimizer run amok with the BC20 quads might be too much power. See how much can be done without them...
+#Optimizing on sliceBeam( PDrive , sortKey = "pz", numBeamlets = 5 ) PENT, BMAG * norm_emit. Imposing BMAG < 1.1 penalty for each beamlet. Using golden lattice 50 cm final focus optics
+#Length term on and alignment terms off
+# L0BPhaseSet : -15.0
+
+# L1PhaseSet : -19.2768326403
+# L2PhaseSet : -36.9549141928
+
+# S1ELkG : 646.2248723312
+# S2ELkG : -2639.0147056839
+# S3ELkG : -10.2845446283
+# S3ERkG : -2239.2454058157
+# S2ERkG : -2918.5504174113
+# S1ERkG : 2172.6300877932
+# S1EL_xOffset : -0.0010061312
+# S1EL_yOffset : 0.0035936264
+# S2EL_xOffset : 0.0005675132
+# S2EL_yOffset : -0.0003733359
+# S2ER_xOffset : -0.001535705
+# S2ER_yOffset : 0.0004048451
+# S1ER_xOffset : 0.0005868415
+# S1ER_yOffset : -0.001829956
+# XC1FFkG : 0.4857234902
+# XC3FFkG : -0.369899883
+# YC1FFkG : 0.1288984022
+# YC2FFkG : 0.0555979389
+
+
+#TEMPORARY: Pretty good. 24 x 22 x 12 um and most slice BMAGs < 1.2
+# L0BPhaseSet : -15.0
+# L2PhaseSet : -34.5
+# S1ELkG : 632.5754501357
+# S2ELkG : -2328.224085419
+# S3ELkG : -260.553470915
+# S3ERkG : -2584.1144810144
+# S2ERkG : -2451.409393552
+# S1ERkG : 1861.8018564492
+# S1EL_xOffset : 0.0001429136
+# S1EL_yOffset : -0.0039919032
+# S2EL_xOffset : 0.0004315979
+# S2EL_yOffset : 0.0003584245
+# S2ER_xOffset : -0.003057974
+# S2ER_yOffset : 0.0002958365
+# S1ER_xOffset : 0.0004953655
+# S1ER_yOffset : 0.001795584
+# XC1FFkG : 0.6364466267
+# YC1FFkG : -0.1653537433
+#Hrm, falls apart when alignment terms are enforced... seems it was using the FF quads to do some bad things
+
+
+
+L1PhaseSet : -19.5672851834
+L2PhaseSet : -34.5867436973
+S1ELkG : 608.1553730713
+S2ELkG : -2380.7976723818
+S3ELkG : -246.6361699107
+S3ERkG : -2581.4423846634
+S2ERkG : -2459.5606608851
+S1ERkG : 1860.1089942014
+S1EL_xOffset : 0.0001203544
+S1EL_yOffset : -0.0039306735
+S2EL_xOffset : 0.0004252964
+S2EL_yOffset : 0.0003157055
+S2ER_xOffset : -0.0030834646
+S2ER_yOffset : 0.0002883047
+S1ER_xOffset : 0.0005271076
+S1ER_yOffset : 0.0018646084
+XC1FFkG : 0.1095015838
+XC3FFkG : -0.0829244422
+YC1FFkG : -0.0535985365
+YC2FFkG : 0.0812056886
 

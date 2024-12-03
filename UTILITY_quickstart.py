@@ -132,6 +132,7 @@ def trackBeam(
     centerBC14 = False,
     centerBC20 = False,
     allCollimatorRules = None,
+    centerMFFF = False,
     verbose = False,
     **kwargs,
 ):
@@ -246,6 +247,28 @@ def trackBeam(
         tao.cmd(f'set beam_init track_start = CN2069')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
         if verbose: print(f"Set track_start = CN2069, track_end = {trackEnd}")
+
+    if centerMFFF:
+        tao.cmd(f'set beam_init track_end = MFFF')
+        if verbose: print(f"Set track_end = MFFF")
+
+        if verbose: print(f"Tracking!")
+        trackBeamHelper(tao)
+
+        P = getBeamAtElement(tao, "MFFF", tToZ = False)
+
+        PMod = centerBeam(P)
+        
+        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
+        if verbose: print(f"Beam centered at MFFF written to patchBeamFile.h5")
+
+        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd('reinit beam')
+        if verbose: print("Loaded patchBeamFile.h5")
+
+        tao.cmd(f'set beam_init track_start = MFFF')
+        tao.cmd(f'set beam_init track_end = {trackEnd}')
+        if verbose: print(f"Set track_start = MFFF, track_end = {trackEnd}")
 
     if verbose: print(f"Tracking!")
     trackBeamHelper(tao)
@@ -435,11 +458,18 @@ def smallestIntervalImpliedEmittance(P, plane = "x", percentage = 0.9, verbose =
 def displayMatrix(matrix):
     display(pd.DataFrame(matrix).style.hide(axis="index").hide(axis="columns"))
 
-def getMatrix(tao, start, end, print = False):
-    """Return first order transport matrix from start to end. Optionally print in a human readable format"""
-    
-    transportMatrix = (tao.matrix(start, end))["mat6"]
+def getMatrix(tao, start, end, order = 1, print = False):
+    """Return zero or first order transport matrix from start to end. Optionally print in a human readable format"""
 
+    if order == 0: 
+        transportMatrix = (tao.matrix(start, end))["vec0"]
+    elif order == 1:
+        transportMatrix = (tao.matrix(start, end))["mat6"]
+    else:
+        print("Invalid matrix order requested")
+        return
+    
+    
     if print:
         #display(pd.DataFrame(transportMatrix).style.hide(axis="index").hide(axis="columns"))
         displayMatrix(transportMatrix)
