@@ -293,7 +293,7 @@ def trackBeamHelper(tao):
     except:
         print("Beam tracking failed. Resetting track_type = single")
         tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
-        return
+        raise #Rethrow the error. Adding this line causes trackBeam() to see the error and also fail instead of potentially entering a weird state
 
     tao.cmd('set global track_type = single') #return to single to prevent accidental long re-evaluation
 
