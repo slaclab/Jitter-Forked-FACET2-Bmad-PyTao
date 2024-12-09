@@ -2370,7 +2370,6 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 #Quickly getting promising but I want to give it a freer hand; increasing emittance threshold to 30 um-rad from 20 um-rad and slice BMAG threshold to 1.2 from 1.1
 # L0BPhaseSet : -15.0
 # symmetricSextupoleStrengths : True
-
 # L1PhaseSet : -21.4108669884
 # L2PhaseSet : -33.6026592129
 # S1ELkG : 1413.1192638457
@@ -2424,26 +2423,68 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
     # S1ER_yOffset : -0.000205307
 
 #Peak compression is around L1/L2 = -20 / -34.0
-L1PhaseSet : -20
-L2PhaseSet : -34.5
+# L1PhaseSet : -20
+# L2PhaseSet : -34.5
 
-#PENDING One bunch, CSR-on optimization.
+#2024-12-09-13-14-03 One bunch, CSR-on optimization.
 #The (x, px, pz) phase space with CSR-on near peak compression is so completely pathological that I don't think the slicewise BMAG requirement helps. Also turning off BMAG*emit penalty terms; spot size only
 #Here's the result of lifting those constraints... most of the slicewise BMAGs are >>1
 L0BPhaseSet : -15.0
 symmetricSextupoleStrengths : True
+L1PhaseSet : -14.8497817049
+L2PhaseSet : -33.2649586063
+S1ELkG : 1198.3974976341
+S2ELkG : -3135.3072427404
+S3ELkG : -1614.159195231
+S1EL_xOffset : 0.0007730129
+S1EL_yOffset : -0.0001312114
+S2EL_xOffset : -0.0004352787
+S2EL_yOffset : -0.0000292591
+S2ER_xOffset : -0.0006924693
+S2ER_yOffset : -0.0008549877
+S1ER_xOffset : -0.0000748848
+S1ER_yOffset : -0.0010639993
+#Gives 20 x 11 x 20 um spot at PENT
 
-L1PhaseSet : -16.0117312164
-L2PhaseSet : -33.4135906231
-S1ELkG : 1265.8395873682
-S2ELkG : -3152.4756165088
-S3ELkG : -1806.4244371993
-S1EL_xOffset : 0.0013831013
-S1EL_yOffset : -0.0003787703
-S2EL_xOffset : -0.0003411982
-S2EL_yOffset : -0.0001209407
-S2ER_xOffset : -0.0009281224
-S2ER_yOffset : -0.0009425813
-S1ER_xOffset : -0.0001820575
-S1ER_yOffset : -0.001001353
+
+
+
+#2024-12-07-08-22-52 One bunch, CSR-off optimization for spot size at PENT
+#Starting from golden lattice. Compare to 2024-12-03-20-23-21 removing BMAG and emittance constraints. PENT spot only
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -28.2087289769
+# L2PhaseSet : -38.8329327102
+# S1ELkG : 1219.2142711437
+# S2ELkG : -3294.8862910229
+# S3ELkG : -45.5208507649
+# S1EL_xOffset : -0.0007230771
+# S1EL_yOffset : 0.0001164202
+# S2EL_xOffset : -0.0001881255
+# S2EL_yOffset : 0.0000962843
+# S2ER_xOffset : 0.0000471635
+# S2ER_yOffset : -0.0000781191
+# S1ER_xOffset : -0.000101113
+# S1ER_yOffset : -0.0000761512
+#SUPERCEDED. SEE BELOW. Solid result. 10 x 7 x 11 um at PENT. Twisting in (p, px, pz) but not really folding
+
+
+#2024-12-09-09-53-16 One bunch, CSR-off optimization for spot size at PENT
+#Starting from golden lattice. Compare to 2024-12-03-20-23-21 removing BMAG and emittance constraints. PENT spot only
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -29.4387643476
+# L2PhaseSet : -41.0670184184
+# S1ELkG : 1324.5225931072
+# S2ELkG : -3438.3556688376
+# S3ELkG : -1410.3369862988
+# S1EL_xOffset : 0.0021433113
+# S1EL_yOffset : 0.0001216888
+# S2EL_xOffset : 0.0006973704
+# S2EL_yOffset : 0.0002785862
+# S2ER_xOffset : -0.0011856196
+# S2ER_yOffset : -0.0009047691
+# S1ER_xOffset : -0.0024191539
+# S1ER_yOffset : -0.0011109803
+#Solid result. 10 x 5 x 8 um at PENT. Twisting in (p, px, pz) but not really folding
 
