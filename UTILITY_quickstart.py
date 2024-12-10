@@ -209,7 +209,7 @@ def trackBeam(
         if assertBC14Energy:
             if type(assertBC14Energy) is bool: 
                 assertBC14Energy = 4.5e9
-            if verbose: print(f"Also setting BC14 energy = {assertBC14Energy}")
+            if verbose: print(f"""Also setting BC14 energy = {1e-9 * assertBC14Energy} GeV, from {1e-9 * P["mean_energy"]} GeV""")
             PMod = centerBeam(P, assertEnergy = assertBC14Energy)
         else:
             PMod = centerBeam(P)
@@ -237,7 +237,7 @@ def trackBeam(
         if assertBC20Energy:
             if type(assertBC20Energy) is bool: 
                 assertBC20Energy = 10e9
-            if verbose: print(f"Also setting BC20 energy = {assertBC20Energy}")
+            if verbose: print(f"""Also setting BC20 energy = {1e-9 * assertBC20Energy} GeV, from {1e-9 * P["mean_energy"]} GeV""")
             PMod = centerBeam(P, assertEnergy = assertBC20Energy)
         else:
             PMod = centerBeam(P)
