@@ -130,12 +130,28 @@ def trackBeam(
     trackEnd = "end",
     laserHeater = False,
     centerBC14 = False,
+    assertBC14Energy = False,
     centerBC20 = False,
+    assertBC20Energy = False,
     allCollimatorRules = None,
     centerMFFF = False,
     verbose = False,
     **kwargs,
 ):
+    """
+    Tracks the beam in activeBeamFile.h5 through the lattice presently in tao from trackStart to trackEnd
+
+    Some special options are available but disabled by default
+    * Centering
+     * At some selected treaty points, remove net offsets to transverse position and angle
+    * Assert energy
+     * Centering must be enabled. Can either set True (for default energy at that point) or the desired energy in eV. This is sort of a virtual energy feedback
+    * Laser heater
+     * Refer to addLHmodulation(). Need to pass additional options to trackBeam() as **kwargs!
+    * BC20 collimators
+     * Refer to collimateBeam(). Collimator positions passed as allCollimatorRules
+
+    """
     global filePathGlobal
 
     #For backwards compatibility, want this function to leave activeBeamFile unmodified
@@ -190,7 +206,13 @@ def trackBeam(
 
         P = getBeamAtElement(tao, "BEGBC14_1", tToZ = False)
 
-        PMod = centerBeam(P)
+        if assertBC14Energy:
+            if type(assertBC14Energy) is bool: 
+                assertBC14Energy = 4.5e9
+            if verbose: print(f"Also setting BC14 energy = {assertBC14Energy}")
+            PMod = centerBeam(P, assertEnergy = assertBC14Energy)
+        else:
+            PMod = centerBeam(P)
         
         writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
         if verbose: print(f"Beam centered at BEGBC14 written to patchBeamFile.h5")
@@ -212,7 +234,13 @@ def trackBeam(
 
         P = getBeamAtElement(tao, "BEGBC20", tToZ = False)
 
-        PMod = centerBeam(P)
+        if assertBC20Energy:
+            if type(assertBC20Energy) is bool: 
+                assertBC20Energy = 10e9
+            if verbose: print(f"Also setting BC20 energy = {assertBC20Energy}")
+            PMod = centerBeam(P, assertEnergy = assertBC20Energy)
+        else:
+            PMod = centerBeam(P)
         
         writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
         if verbose: print(f"Beam centered at BEGBC20 written to patchBeamFile.h5")
@@ -523,7 +551,8 @@ def addLHmodulation(
 
 def centerBeam(
     P,
-    centerType = "median"
+    centerType = "median",
+    assertEnergy = None
 ):
     """
     Shifts x, y, xp, and yp of a beam to zero
@@ -536,6 +565,9 @@ def centerBeam(
         PMod.y = P.y - np.median(P.y)
         PMod.px = P.px - np.median(P.px)
         PMod.py = P.py - np.median(P.py)
+        if assertEnergy:
+            PMod.pz = P.pz * assertEnergy / np.median(P.pz)
+        
         return PMod
         
     if centerType == "mean":
@@ -543,6 +575,9 @@ def centerBeam(
         PMod.y = P.y - np.mean(P.y)
         PMod.px = P.px - np.mean(P.px)
         PMod.py = P.py - np.mean(P.py)
+        if assertEnergy:
+            PMod.pz = P.pz * assertEnergy / np.mean(P.pz)
+                    
         return PMod
 
     return

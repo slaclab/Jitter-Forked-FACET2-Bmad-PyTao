@@ -2422,29 +2422,9 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
     # S1ER_xOffset : 0.0001601039
     # S1ER_yOffset : -0.000205307
 
-#Peak compression is around L1/L2 = -20 / -34.0
-# L1PhaseSet : -20
-# L2PhaseSet : -34.5
-
-#2024-12-09-13-14-03 One bunch, CSR-on optimization.
-#The (x, px, pz) phase space with CSR-on near peak compression is so completely pathological that I don't think the slicewise BMAG requirement helps. Also turning off BMAG*emit penalty terms; spot size only
-#Here's the result of lifting those constraints... most of the slicewise BMAGs are >>1
-L0BPhaseSet : -15.0
-symmetricSextupoleStrengths : True
-L1PhaseSet : -14.8497817049
-L2PhaseSet : -33.2649586063
-S1ELkG : 1198.3974976341
-S2ELkG : -3135.3072427404
-S3ELkG : -1614.159195231
-S1EL_xOffset : 0.0007730129
-S1EL_yOffset : -0.0001312114
-S2EL_xOffset : -0.0004352787
-S2EL_yOffset : -0.0000292591
-S2ER_xOffset : -0.0006924693
-S2ER_yOffset : -0.0008549877
-S1ER_xOffset : -0.0000748848
-S1ER_yOffset : -0.0010639993
-#Gives 20 x 11 x 20 um spot at PENT
+    #Peak compression is around L1/L2 = -20 / -34.0
+    # L1PhaseSet : -20
+    # L2PhaseSet : -34.5
 
 
 
@@ -2487,4 +2467,50 @@ S1ER_yOffset : -0.0010639993
 # S1ER_xOffset : -0.0024191539
 # S1ER_yOffset : -0.0011109803
 #Solid result. 10 x 5 x 8 um at PENT. Twisting in (p, px, pz) but not really folding
+
+
+#2024-12-09-13-14-03 One bunch, CSR-on optimization.
+#The (x, px, pz) phase space with CSR-on near peak compression is so completely pathological that I don't think the slicewise BMAG requirement helps. Also turning off BMAG*emit penalty terms; spot size only
+#Here's the result of lifting those constraints... most of the slicewise BMAGs are >>1
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -14.8497817049
+# L2PhaseSet : -33.2649586063
+# S1ELkG : 1198.3974976341
+# S2ELkG : -3135.3072427404
+# S3ELkG : -1614.159195231
+# S1EL_xOffset : 0.0007730129
+# S1EL_yOffset : -0.0001312114
+# S2EL_xOffset : -0.0004352787
+# S2EL_yOffset : -0.0000292591
+# S2ER_xOffset : -0.0006924693
+# S2ER_yOffset : -0.0008549877
+# S1ER_xOffset : -0.0000748848
+# S1ER_yOffset : -0.0010639993
+#Gives 20 x 11 x 20 um spot at PENT
+
+
+
+#PENDING One bunch, CSR-on optimization.
+#Now with asymmetric sextupole strengths
+L0BPhaseSet : -15.0
+symmetricSextupoleStrengths : False
+L1PhaseSet : -24.9631286578
+L2PhaseSet : -37.1533697512
+
+
+S1ELkG : 1207.3614597181
+S2ELkG : -3541.1090077101
+S3ELkG : -1576.6807736483
+S3ERkG : -1612.8875698804
+S2ERkG : -3657.8697088078
+S1ERkG : 1239.0019191569
+S1EL_xOffset : 0.0008941446
+S1EL_yOffset : -0.0000416011
+S2EL_xOffset : -0.0006006518
+S2EL_yOffset : -0.000070475
+S2ER_xOffset : -0.0005679446
+S2ER_yOffset : -0.000881662
+S1ER_xOffset : -0.0000897824
+S1ER_yOffset : -0.0010860309
 
