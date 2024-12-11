@@ -22,3 +22,15 @@ OSError: Unable to synchronously open file (file signature not found)
 Start by setting up a Conda environment using bmadCondaEnv.yml (https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
 Try executing "2024-06-26 Testing quickstart utility.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation beginning from a pre-generated GPT beam file
+
+If the Conda environment files don't work, from a working install run:
+`conda list --export | cut -d"=" -f1`
+Copy the list of packages to packages.txt. Then, on the new machine, run:
+`conda create --name bmad --file packages.txt -c conda-forge`
+It probably won't work out of the box, but it could get you close
+
+
+If that also doesn't work, you can try something like this...
+`conda install jupyter numpy matplotlib pandas`
+`conda install -c conda-forge bmad pytao openpmd-beamphysics distgen lume-base lume-impact bayesian-optimization`
+But from here, you'll just need to try running things and seeing if you can play whack-a-mole with the errors
