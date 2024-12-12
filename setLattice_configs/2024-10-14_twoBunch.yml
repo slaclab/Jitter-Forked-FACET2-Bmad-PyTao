@@ -34,6 +34,7 @@ include:
 #     PSystem_BMAG_emit_x : 1.1784e-6
 #     PSystem_BMAG_emit_y : 1.2119e-6
 inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
+bunchCount : 2
 QA10361kG : -2.2481515833
 QA10371kG : 2.338890812
 QE10425kG : -1.0721888188

@@ -1,3 +1,13 @@
+# Typical installation 
+
+Start by setting up a Conda environment using bmadCondaEnv.yml or bmadCondaEnv_noBuilds.yml (https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings
+
+# Additional notes
+
+## Git LFS
+
 This repo uses Git LFS. Strongly recommend installing it: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
 
 Alternative is to manually download the requisite large files (namely .h5 beam files). Otherwise you'll get errors like
@@ -19,10 +29,7 @@ File h5py/h5f.pyx:102, in h5py.h5f.open()
 OSError: Unable to synchronously open file (file signature not found)
 ```
 
-Start by setting up a Conda environment using bmadCondaEnv.yml (https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-
-Try executing "2024-06-26 Testing quickstart utility.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation beginning from a pre-generated GPT beam file
-
+## Other Conda hints
 
 If the Conda environment files don't work, from a working install run:
 `conda list --export | cut -d"=" -f1`
