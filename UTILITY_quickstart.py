@@ -482,6 +482,10 @@ def smallestIntervalImpliedEmittance(P, plane = "x", percentage = 0.9, verbose =
         print(f"""Fit emittance: \t\t {emit_opt * P["mean_gamma"]}""")
 
     return emit_opt * P["mean_gamma"]
+
+def emittance(P, plane = "x", fraction = 0.9):
+    """Just a wrapper for the OpenPMD functions which let you specify the fraction used in the emittance calculation"""
+    return P.twiss(plane = plane, fraction = fraction)[f"norm_emit_{plane}"]
     
 def displayMatrix(matrix):
     display(pd.DataFrame(matrix).style.hide(axis="index").hide(axis="columns"))
