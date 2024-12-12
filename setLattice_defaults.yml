@@ -2493,24 +2493,39 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 #PENDING One bunch, CSR-on optimization.
 #Now with asymmetric sextupole strengths
-L0BPhaseSet : -15.0
-symmetricSextupoleStrengths : False
-L1PhaseSet : -24.9631286578
-L2PhaseSet : -37.1533697512
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : False
+# L1PhaseSet : -24.9631286578
+# L2PhaseSet : -37.1533697512
 
 
-S1ELkG : 1207.3614597181
-S2ELkG : -3541.1090077101
-S3ELkG : -1576.6807736483
-S3ERkG : -1612.8875698804
-S2ERkG : -3657.8697088078
-S1ERkG : 1239.0019191569
-S1EL_xOffset : 0.0008941446
-S1EL_yOffset : -0.0000416011
-S2EL_xOffset : -0.0006006518
-S2EL_yOffset : -0.000070475
-S2ER_xOffset : -0.0005679446
-S2ER_yOffset : -0.000881662
-S1ER_xOffset : -0.0000897824
-S1ER_yOffset : -0.0010860309
+# S1ELkG : 1207.3614597181
+# S2ELkG : -3541.1090077101
+# S3ELkG : -1576.6807736483
+# S3ERkG : -1612.8875698804
+# S2ERkG : -3657.8697088078
+# S1ERkG : 1239.0019191569
+# S1EL_xOffset : 0.0008941446
+# S1EL_yOffset : -0.0000416011
+# S2EL_xOffset : -0.0006006518
+# S2EL_yOffset : -0.000070475
+# S2ER_xOffset : -0.0005679446
+# S2ER_yOffset : -0.000881662
+# S1ER_xOffset : -0.0000897824
+# S1ER_yOffset : -0.0010860309
 
+
+
+
+inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
+QA10361kG : -2.2481515833
+QA10371kG : 2.338890812
+QE10425kG : -1.0721888188
+QE10441kG : 1.3152401751
+QE10511kG : 0.2241208022
+QE10525kG : 0.6276060908
+L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
+L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+
+L1PhaseSet : -19.6016815874
+L2PhaseSet : -33.1523088776
