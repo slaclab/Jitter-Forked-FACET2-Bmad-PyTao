@@ -1,0 +1,421 @@
+include: 
+- "setLattice_configs/defaults.yml"
+- "setLattice_configs/bounds.yml"
+
+####################
+########################################
+############################################################
+################################################################################
+####################################################################################################
+########################################################################################################################
+
+#2024-10-15: Transitioning to new IMPACT two-bunch
+#https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g30aeebd68fb_0_0
+
+########################################################################################################################
+####################################################################################################
+################################################################################
+############################################################
+########################################
+####################
+
+
+
+
+#2024-10-16-13-10-45 Injector quad settings. Nelder-Mead from zeroed magnets, minimizing PSystem (BMAG * emit) differences from golden twiss at PR10571
+#NOTE! Using OpenPMD .twiss(). Pay attention to twissCalculationFraction and see "2024-10-16 Emittance calculation sanity check and discussion.ipynb"
+#"2024-10-15 Two bunch injector match - PR10571 objective.ipynb"
+#Results
+#     twissCalculationFraction : 0.7
+#     PSystem_norm_emit_x : 1.1783e-6
+#     PSystem_norm_emit_y : 1.2087e-6
+#     PSystem_BMAG_x : 1.0001109671
+#     PSystem_BMAG_y : 1.0026233182
+#     PSystem_BMAG_emit_x : 1.1784e-6
+#     PSystem_BMAG_emit_y : 1.2119e-6
+inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
+QA10361kG : -2.2481515833
+QA10371kG : 2.338890812
+QE10425kG : -1.0721888188
+QE10441kG : 1.3152401751
+QE10511kG : 0.2241208022
+QE10525kG : 0.6276060908
+L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
+L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+
+
+#2024-10-16-13-15-32 Injector quad settings. Nelder-Mead from above, minimizing PDrive and PWitness (BMAG * emit) differences from golden twiss at PR10571
+#NOTE! Using OpenPMD .twiss(). Pay attention to twissCalculationFraction and see "2024-10-16 Emittance calculation sanity check and discussion.ipynb"
+#"2024-10-15 Two bunch injector match - PR10571 objective.ipynb"
+#Results
+#     twissCalculationFraction : 0.7
+#     PDrive_norm_emit_x : 9.306e-7
+#     PDrive_norm_emit_y : 9.648e-7
+#     PDrive_BMAG_x : 1.6131690611
+#     PDrive_BMAG_y : 1.5105680407
+#     PDrive_BMAG_emit_x : 1.5012e-6
+#     PDrive_BMAG_emit_y : 1.4574e-6
+#     PWitness_norm_emit_x : 7.425e-7
+#     PWitness_norm_emit_y : 7.499e-7
+#     PWitness_BMAG_x : 1.8961501619
+#     PWitness_BMAG_y : 1.8578466118
+#     PWitness_BMAG_emit_x : 1.4079e-6
+#     PWitness_BMAG_emit_y : 1.3931e-6
+# QA10361kG : -1.9765574917
+# QA10371kG : 2.2887798853
+# QE10425kG : -0.9942322198
+# QE10441kG : 0.6417344269
+# QE10511kG : 0.4972483171
+# QE10525kG : 2.3587337643
+
+#2024-10-17 Injector quad settings. Nelder-Mead from above, minimizing PDrive and PWitness (BMAG * emit) differences from golden twiss at BEGBC20, with CSR OFF
+    #This may be a completely stupid thing to optimize on, I'm not sure yet. Obviously BMAG doesn't matter at the end of the linac in the typical sense, I'm just trying to use it as a proxy for "agreement with design lattice"
+#Details: https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2fa94b21dd9_0_19
+#Results:
+#     twissCalculationFraction : 0.9
+#     PDrive_norm_emit_x : 2.5501e-6
+#     PDrive_norm_emit_y : 2.306e-6
+#     PDrive_BMAG_x : 1.5363883235
+#     PDrive_BMAG_y : 1.3922350733
+#     PWitness_norm_emit_x : 2.2613e-6
+#     PWitness_norm_emit_y : 1.9053e-6
+#     PWitness_BMAG_x : 1.5205387601
+#     PWitness_BMAG_y : 1.5932386976
+# QA10361kG : -2.0689588254
+# QA10371kG : 2.3254937457
+# QE10425kG : -0.505152257
+# QE10441kG : 0.5541299231
+# QE10511kG : 0.3702810219
+# QE10525kG : 0.987261693
+
+
+#2024-10-17-10-10-27 Temporary config for testing https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g2fa94b21dd9_0_6
+#Designed to match PDrive at BEGBC20 with CSR OFF
+#Results:
+#     twissCalculationFraction : 0.9
+#     PDrive_mean_x : 0.0000159615
+#     PDrive_mean_y : 9.19e-8
+#     PDrive_sigma_x : 0.0000685624
+#     PDrive_sigma_y : 0.0000782732
+#     PDrive_mean_xp : -5.729e-7
+#     PDrive_mean_yp : 1.13e-8
+#     PDrive_twiss_beta_x : 10.3169386976
+#     PDrive_twiss_alpha_x : 0.5304898896
+#     PDrive_twiss_beta_y : 24.4677090877
+#     PDrive_twiss_alpha_y : 0.9863889317
+#     PDrive_median_x : 0.0000246533
+#     PDrive_median_y : -3.282e-7
+#     PDrive_median_xp : -2.342e-7
+#     PDrive_median_yp : 3.86e-8
+#     PDrive_emitSI_x : 5.419e-6
+#     PDrive_emitSI_y : 2.5129e-6
+#     PDrive_norm_emit_x : 2.0742e-6
+#     PDrive_norm_emit_y : 1.7232e-6
+#>>>     PDrive_BMAG_x : 1.0111963439
+#>>>     PDrive_BMAG_y : 1.0104350351
+#     PDrive_BMAG_emit_x : 2.0975e-6
+#     PDrive_BMAG_emit_y : 1.7412e-6
+#     PDrive_BMAG_emitSI_x : 5.4796e-6
+#     PDrive_BMAG_emitSI_y : 2.5391e-6
+
+#L3PhaseSet :  -40.0 #Gets to ~zero energy spread with CSR off
+# QA10361kG : -2.9541219102
+# QA10371kG : 2.8930583425
+# QE10425kG : -1.2523029837
+# QE10441kG : 1.9964807695
+# QE10511kG : 5.2259332584
+# QE10525kG : -4.0369870876
+
+
+#2024-10-18-13-47-49 150 um spacing, movers only. CSR off. 
+#Constraints and objective satisfied
+# L0BPhaseSet : -3.0315278768
+# L1PhaseSet : -22.9808306257
+# L2PhaseSet : -34.2183032768
+# S1EL_xOffset : -0.000784866
+# S1EL_yOffset : 0.0028119895
+# S2EL_xOffset : -0.0029684253
+# S2EL_yOffset : 0.001588586
+# S2ER_xOffset : -0.0026682032
+# S2ER_yOffset : 0.0000908608
+# S1ER_xOffset : -0.0000504308
+# S1ER_yOffset : 0.0006922355
+# XC1FFkG : -0.0022693954
+# XC3FFkG : 0.0015425072
+# YC1FFkG : -0.0157761812
+# YC2FFkG : 0.0993465929
+
+#PENDING 150 um spacing, movers only. CSR on. 
+#Constraints and objective satisfied
+# L0BPhaseSet : -3.2125161843
+# L1PhaseSet : -22.7355802739
+# L2PhaseSet : -33.4587920158
+# S1EL_xOffset : -0.0007762377
+# S1EL_yOffset : 0.0028080144
+# S2EL_xOffset : -0.0028486683
+# S2EL_yOffset : 0.0016388713
+# S2ER_xOffset : -0.0026964178
+# S2ER_yOffset : 0.0000668757
+# S1ER_xOffset : 0.0000668425
+# S1ER_yOffset : 0.0006899562
+# XC1FFkG : 0.0066757903
+# XC3FFkG : -0.009518358
+# YC1FFkG : -0.0170546125
+# YC2FFkG : 0.1009148654
+
+# L0BPhaseSet : -3.141102411
+# L1PhaseSet : -23.491608019
+# L2PhaseSet : -34.4669762833
+
+# S1EL_xOffset : -0.0007715958
+# S1EL_yOffset : 0.002935715
+# S2EL_xOffset : -0.0028650222
+# S2EL_yOffset : 0.0016513091
+# S2ER_xOffset : -0.0029444931
+# S2ER_yOffset : 0.0001436177
+# S1ER_xOffset : -0.000127658
+# S1ER_yOffset : 0.0007307706
+# XC1FFkG : -0.0007835241
+# XC3FFkG : -0.0065804944
+# YC1FFkG : -0.017399947
+# YC2FFkG : 0.1115043501
+
+#Clean start. 2.1 stage
+# L0BPhaseSet : -0.6691055904
+# L1PhaseSet : -24.3589579902
+# L2PhaseSet : -34.2269236047
+
+# L0BPhaseSet : -0.8280143964
+# L1PhaseSet : -24.5982776873
+# L2PhaseSet : -34.6350453885
+# S1EL_xOffset : -0.0000202797
+# S1EL_yOffset : -0.0000530118
+# S2EL_xOffset : -0.0008316736
+# S2EL_yOffset : 0.0004458037
+# S2ER_xOffset : -0.0030673678
+# S2ER_yOffset : 0.0005204822
+# S1ER_xOffset : 0.0021375507
+# S1ER_yOffset : 0.0002219223
+# XC1FFkG : 0.678285735
+# XC3FFkG : -0.37
+# YC1FFkG : 0.0127262823
+# YC2FFkG : -0.0956836236
+
+
+
+#2024-10-22-10-45-00 Quick and dirty driver optimization, CSR off. Still propagating both beams but only considering driver specs.
+#Using injector quads NOT sextupoles
+# QA10361kG : -3.3152261567
+# QA10371kG : 3.3948163986
+# QE10425kG : 4.5078264601
+# QE10441kG : 3.151905317
+# QE10511kG : 4.9097822074
+# QE10525kG : -4.6016071978
+# L0BPhaseSet : -6.2668271695
+# L1PhaseSet : -34.4676654331
+# L2PhaseSet : -41.6862121844
+# XC1FFkG : 0.2321150061
+# XC3FFkG : -0.1251069621
+# YC1FFkG : -0.0057006515
+# YC2FFkG : 0.0296811043
+
+#2024-10-24-14-14-02 150+/-100 um spacing, movers only. CSR on.
+#Constraints and objective satisfied... but it folded the x phase space on itself
+# L0BPhaseSet : -15.1559531299
+# L1PhaseSet : -19.4004058975
+# L2PhaseSet : -33.2477716663
+# S1EL_xOffset : 0.0034245377
+# S1EL_yOffset : 0.0003329755
+# S2EL_xOffset : -0.0013166625
+# S2EL_yOffset : -0.000069675
+# S2ER_xOffset : -0.0033734115
+# S2ER_yOffset : 0.0008899245
+# S1ER_xOffset : -0.0000801755
+# S1ER_yOffset : 0.0006200984
+# XC1FFkG : -0.0144858309
+# XC3FFkG : -0.0112271717
+# YC1FFkG : 0.0027847805
+# YC2FFkG : 0.0221923394
+
+
+
+#2024-10-25-13-47-51 Minimizing PDrive_norm_emit's at MFFF (no other constraints). CSR off.
+#This appears to give a sane drive beam!
+# S1ELkG : 827.3426624996
+# S2ELkG : -3229.0817327398
+# S3ELkG : -973.5599994138
+# S3ERkG : -996.9755429467
+# S2ERkG : -3265.6051237955
+# S1ERkG : 834.4642524032
+# S1EL_xOffset : 0.0002159395
+# S1EL_yOffset : 0.0001242003
+# S2EL_xOffset : -0.0001722335
+# S2EL_yOffset : 0.0000633399
+# S2ER_xOffset : -0.0001586091
+# S2ER_yOffset : 0.000080846
+# S1ER_xOffset : 0.0001400887
+# S1ER_yOffset : 0.0001550221
+
+
+#2024-10-25-16-18-53 150+/-100 um spacing, all knobs. CSR off.
+#Constraints and objective satisfied 
+# L0BPhaseSet : -14.6618343714
+# L1PhaseSet : -19.9249281721
+# L2PhaseSet : -34.0634319591
+# Q1EkG : 162.3220122836
+# Q2EkG : -153.9240861727
+# Q3EkG : 110.3032517407
+# Q4EkG : 132.4700716131
+# Q5EkG : -23.2539241407
+# Q6EkG : -145.3582708576
+# S1ELkG : 834.938959354
+# S2ELkG : -3242.9696271719
+# S3ELkG : -952.1897228118
+# S3ERkG : -991.3143305689
+# S2ERkG : -3253.7242571905
+# S1ERkG : 865.7611106558
+# S1EL_xOffset : 0.0002768354
+# S1EL_yOffset : 0.0001691495
+# S2EL_xOffset : -0.0001505212
+# S2EL_yOffset : 0.000049814
+# S2ER_xOffset : -0.0001642657
+# S2ER_yOffset : 0.0000919499
+# S1ER_xOffset : 0.0001446343
+# S1ER_yOffset : 0.0001745684
+# Q5FFkG : -80.8173022111
+# Q4FFkG : -81.4314879439
+# Q3FFkG : 99.3180264175
+# Q2FFkG : 126.5206513936
+# Q1FFkG : -232.868634478
+# Q0FFkG : 128.1315359507
+# XC1FFkG : 0.0347395962
+# XC3FFkG : -0.016814133
+# YC1FFkG : 0.0002818435
+# YC2FFkG : -0.0028642463
+
+
+#2024-10-26-07-56-57 150+/-100 um spacing, all knobs. CSR on.
+#Constraints and objective satisfied 
+# L0BPhaseSet : -14.6618343714
+# L1PhaseSet : -19.9249281721
+# L2PhaseSet : -34.0634319591
+# Q1EkG : 162.2693434276
+# Q2EkG : -153.9775384104
+# Q3EkG : 110.2073212335
+# Q4EkG : 132.2271773726
+# Q5EkG : -23.2484376005
+# Q6EkG : -145.2301034483
+# S1ELkG : 841.682059005
+# S2ELkG : -3228.4678927282
+# S3ELkG : -925.346456463
+# S3ERkG : -974.7729711573
+# S2ERkG : -3276.0192647687
+# S1ERkG : 799.8874797544
+# S1EL_xOffset : 0.0004189721
+# S1EL_yOffset : 0.0002033162
+# S2EL_xOffset : -0.0001698801
+# S2EL_yOffset : 0.0000603656
+# S2ER_xOffset : -0.0001829382
+# S2ER_yOffset : 0.0000407737
+# S1ER_xOffset : 0.0001514215
+# S1ER_yOffset : 0.0001498517
+# Q5FFkG : -89.4829118966
+# Q4FFkG : -78.9070619531
+# Q3FFkG : 97.8620398002
+# Q2FFkG : 126.9686982458
+# Q1FFkG : -231.855862476
+# Q0FFkG : 131.0762511728
+# XC1FFkG : -0.0443358336
+# XC3FFkG : 0.0169083546
+# YC1FFkG : -0.0003297859
+# YC2FFkG : -0.0021003489
+
+
+#2024-10-26-15-39-15 Minimizing PDrive_norm_emit's at MFFF (no other constraints). CSR off.
+#It's still completely curved over, but the emittance is good (These phases look crazy though)
+# L0BPhaseSet : -25.8208354186
+# L1PhaseSet : -5.7051674509
+# L2PhaseSet : -14.1055166402
+# S1EL_xOffset : -0.0013456779
+# S1EL_yOffset : 0.0018852494
+# S2EL_xOffset : -0.0021296166
+# S2EL_yOffset : 0.0016895561
+# S2ER_xOffset : -0.0021913432
+# S2ER_yOffset : -0.0000314797
+# S1ER_xOffset : -0.002791299
+# S1ER_yOffset : 0.0006330865
+
+#2024-10-26-15-49-15 Minimizing PDrive_norm_emit's at MFFF (no other constraints). CSR off.
+#Using phases from 2024-10-26-15-39-15 then "2024-10-26 Special case two bunch optimizer - adiabatic sextupole strength.ipynb" to transition from 2024-10-25-13-47-51 config
+#Looks funky but no clear curvature. Phases flip the bunches though....
+# L0BPhaseSet : -25.8208354186
+# L1PhaseSet : -5.7051674509
+# L2PhaseSet : -14.1055166402
+# S1EL_xOffset : 0.0002574115
+# S1EL_yOffset : 0.0000559734
+# S2EL_xOffset : -0.0001101577
+# S2EL_yOffset : 0.0000992731
+# S2ER_xOffset : -0.0000575551
+# S2ER_yOffset : 0.0000861403
+# S1ER_xOffset : 0.0001073883
+# S1ER_yOffset : 0.0001319419
+
+
+#PENDING 150+/-100 um spacing, movers only. CSR off. Starting from 2024-10-26-15-49-15
+#Constraints and objective satisfied
+# L0BPhaseSet : -25.8208354186
+# L1PhaseSet : -5.7051674509
+# L2PhaseSet : -14.1055166402
+# S1EL_xOffset : 0.0002574115
+# S1EL_yOffset : 0.0000559734
+# S2EL_xOffset : -0.0001101577
+# S2EL_yOffset : 0.0000992731
+# S2ER_xOffset : -0.0000575551
+# S2ER_yOffset : 0.0000861403
+# S1ER_xOffset : 0.0001073883
+# S1ER_yOffset : 0.0001319419
+
+# XC1FFkG : -0.0072552755
+# XC3FFkG : 0.0018638301
+# YC1FFkG : -0.0011250505
+# YC2FFkG : 0.0045345844
+
+#PENDING 150+/-100 um spacing, movers only. CSR off. Starting from 2024-10-26-07-56-57 then "2024-10-26 Special case two bunch optimizer - adiabatic sextupole strength.ipynb" to transition
+
+# L0BPhaseSet : -17.0897646641
+# L1PhaseSet : -19.3647118564
+# L2PhaseSet : -34.330458891
+# S1EL_xOffset : 0.0005541982
+# S1EL_yOffset : 0.0001106721
+# S2EL_xOffset : -0.0003271614
+# S2EL_yOffset : 0.0001422687
+# S2ER_xOffset : -0.0003669722
+# S2ER_yOffset : 0.0001009588
+# S1ER_xOffset : -0.0003826897
+# S1ER_yOffset : -0.0002273594
+# XC1FFkG : 0.0384347108
+# XC3FFkG : -0.0185497282
+# YC1FFkG : 0.0018994329
+# YC2FFkG : -0.0040607437
+
+
+# S2ELkG : -2833
+# S2ERkG : -2833
+
+
+
+# L0BPhaseSet : -29.6767726386
+# L1PhaseSet : -27.9772902862
+# L2PhaseSet : -45.2682022457
+# S1EL_xOffset : 0.003934955
+# S1EL_yOffset : -0.0012891473
+# S2EL_xOffset : -0.0009776052
+# S2EL_yOffset : -0.0000220992
+# S2ER_xOffset : -0.0036289409
+# S2ER_yOffset : 0.0006895684
+# S1ER_xOffset : -0.0009442719
+# S1ER_yOffset : 0.0009442719
+# XC1FFkG : 0.0098529176
+# XC3FFkG : -0.0285939728
+# YC1FFkG : 0.0113906531
+# YC2FFkG : -0.1057559661

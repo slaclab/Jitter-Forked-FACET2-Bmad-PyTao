@@ -1,0 +1,95 @@
+######################################################################################
+######################################################################################
+# Official lattice settings, as of 2024-06-28
+# Optionally superseded below
+######################################################################################
+######################################################################################
+
+#These quad settings are from the official lattice, as of 2024-06-28
+#quadNameList=["QA10361", "QA10371", "QA10425", "QA10441", "QA10511", "QA10525"]
+#[(i, getQuadkG(tao,i)) for i in quadNameList]
+QA10361kG :  -2.60267
+QA10371kG :   2.62955
+QE10425kG :  -8.77368
+QE10441kG :   10.2393
+QE10511kG :   5.46642
+QE10525kG :  -4.91438
+
+#These bend settings are from the official lattice, as of 2024-05-20    
+#bendNameList :  ["B1LE", "B2LE", "B3LE", "B3RE", "B2RE", "B1RE"]
+#[(i, getBendkG(tao,i)) for i in bendNameList]
+B1EkG :  7.533
+B2EkG :  -10.942
+B3EkG :  3.409
+
+#These quad settings are from the official lattice, as of 2024-05-20
+#quadNameList :  ["Q1EL", "Q2EL", "Q3EL_1", "Q3EL_2", "Q4EL_1", "Q4EL_2", "Q4EL_3", "Q5EL", "Q6E", "Q5ER", "Q4ER_1", "Q4ER_2", "Q4ER_3", "Q3ER_1", "Q3ER_2", "Q2ER", "Q1ER"]
+#[(i, getBendkG(tao,i)) for i in bendNameList]
+Q1EkG :  161.311
+Q2EkG :  -154.229
+Q3EkG :  110.217
+Q4EkG :  132.268
+Q5EkG :  -23.373
+Q6EkG :  -142.271
+
+#These sextupole settings are from the official lattice, as of 2024-05-20
+#sextNameList :  ["S1EL", "S2EL", "S3EL_1", "S3EL_2", "S3ER_1", "S3ER_2", "S2ER", "S1ER"]
+#[(i, getSextkG(tao,i)) for i in sextNameList]
+symmetricSextupoleStrengths : False #For backwards compatibility, this must default to False
+S1ELkG :  804.871
+S2ELkG :  -2049.489
+S3ELkG :  -1019.3230 
+S3ERkG :  -1019.3230 
+S2ERkG :  -2049.489 
+S1ERkG :  804.871
+
+#These quad settings are from the official lattice, as of 2024-05-20
+#quadNameList :  ["Q5FF", "Q4FF", "Q3FF", "Q2FF", "Q1FF", "Q0FF", "Q0D", "Q1D", "Q2D"]
+#[(i, getQuadkG(tao,i)) for i in quadNameList]
+Q5FFkG :  -71.837
+Q4FFkG :  -81.251
+Q3FFkG :  99.225
+Q2FFkG :  126.35
+Q1FFkG :  -235.218
+Q0FFkG :  126.353
+Q0DkG :  -109.694
+Q1DkG :  180.862
+Q2DkG :  -109.694
+
+#Sextupole movers
+S1EL_xOffset : 0.0 
+S1EL_yOffset : 0.0 
+S2EL_xOffset : 0.0 
+S2EL_yOffset : 0.0 
+S2ER_xOffset : 0.0 
+S2ER_yOffset : 0.0 
+S1ER_xOffset : 0.0 
+S1ER_yOffset : 0.0
+
+#Final focus kickers
+XC1FFkG: 0.0
+XC3FFkG: 0.0
+YC1FFkG: 0.0
+YC2FFkG: 0.0
+
+
+######################################################################################
+######################################################################################
+# Other default settings
+######################################################################################
+######################################################################################
+
+#2024-06-19: Visual optimization of 2024-02-16_2bunch_1e5Downsample_nudgeWeights.h5 LPS at ENDBC20 "2024-06-19 Phase scan and LPS image dump.ipynb"; no energy offsets
+#2024-09-30: Extending phase/amplitude setting
+L0BPhaseSet : 0
+L1PhaseSet :  -20.0 
+L2PhaseSet :  -38.0
+L3PhaseSet : 0
+
+L0BEnergyOffset : 0
+L1EnergyOffset: 0
+L2EnergyOffset :  0
+L3EnergyOffset :  0
+
+
+

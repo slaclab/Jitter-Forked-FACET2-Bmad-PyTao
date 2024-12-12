@@ -1,0 +1,49 @@
+######################################################################################
+######################################################################################
+# SCP limits and settings, as of 2024-08-01
+######################################################################################
+######################################################################################
+
+#These are in EPICS, not SCP
+QA10361kGBounds :  (-10.1, 10.2) #BCON = -3.2
+QA10371kGBounds :  (-10.1, 10.1) #BCON = 3.0
+QE10425kGBounds :  (-10.1, 10.1) #BCON = -5.5
+QE10441kGBounds :  (-10.1, 10.1) #BCON = 6.8
+QE10511kGBounds :  (-10.1, 10.1) #BCON = -5.4
+QE10525kGBounds :  (-10.1, 10.1) #BCON = 6.1
+
+#There's a substantial difference between these and the Bmad base lattice
+#I don't change these magnets so I'll ignore for now, but beware
+#B1EkGBounds : (0,25) #BCON = 10.0
+#B2EkGBounds : (0,25) #BCON = 10.0
+#B3EkGBounds : (0,26) #BCON = 10.0
+
+Q1EkGBounds :  (0, 388)  #BCON = 133
+Q2EkGBounds :  (-364, 0) #BCON = -136
+Q3EkGBounds :  (0, 299)  #BCON = 94
+Q4EkGBounds :  (0, 304)  #BCON = 118
+Q5EkGBounds :  (-117, 0) #BCON = -17
+Q6EkGBounds :  (-301, 0) #BCON = -142
+
+S1ELkGBounds : (0,2590)   #BCON = 1400
+S2ELkGBounds : (-21706,0) #BCON = -2850
+S3ELkGBounds : (-2625,0)  #BCON = -1200
+S3ERkGBounds : (-2603,0)  #BCON = -1200
+S2ERkGBounds : (-21638,0) #BCON = -2850
+S1ERkGBounds : (0,2601)   #BCON = 1400
+
+Q5FFkGBounds: (-256, 0)  #BCON = -70
+Q4FFkGBounds: (-446, 0)  #BCON = -71
+Q3FFkGBounds: (0, 457)   #BCON = 106
+Q2FFkGBounds: (0, 167)   #BCON = 112
+Q1FFkGBounds: (-257, 0)  #BCON = -225
+Q0FFkGBounds: (0, 167)   #BCON = 112
+Q0DkGBounds : (-239, 0)  #BCON = -112
+Q1DkGBounds : (0, 386)   #BCON = 177
+Q2DkGBounds : (-223, 0)  #BCON = -112
+
+#2024-09-13 These are from EPICS; assuming symmetric and bipolar. Should be confirmed!
+XC1FFkGBounds: (-0.37, 0.37)
+XC3FFkGBounds: (-0.37, 0.37)
+YC1FFkGBounds: (-0.37, 0.37)
+YC2FFkGBounds: (-0.38, 0.38)

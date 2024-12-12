@@ -700,3 +700,23 @@ def sliceBeam(
         resultBeamlets.append(PMod)
 
     return resultBeamlets
+
+def loadConfig(file, loaded_files=None):
+    """Code to load nested config files... ChatGPT is the author, beware!"""
+    if loaded_files is None:
+        loaded_files = set()
+    if file in loaded_files:
+        return {}  # Avoid circular imports
+    loaded_files.add(file)
+
+    with open(file, 'r') as f:
+        data = yaml.safe_load(f) or {}
+
+    # Handle includes
+    includes = data.pop('include', [])
+    merged_data = {}
+    for include_file in includes:
+        merged_data.update(loadConfig(include_file, loaded_files))
+    
+    merged_data.update(data)  # Later settings override earlier ones
+    return merged_data
