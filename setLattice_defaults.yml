@@ -2529,3 +2529,5 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 
 L1PhaseSet : -19.6016815874
 L2PhaseSet : -33.1523088776
+
+symmetricSextupoleStrengths : True
