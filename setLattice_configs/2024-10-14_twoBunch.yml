@@ -399,11 +399,8 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 # YC1FFkG : 0.0018994329
 # YC2FFkG : -0.0040607437
 
-
 # S2ELkG : -2833
 # S2ERkG : -2833
-
-
 
 # L0BPhaseSet : -29.6767726386
 # L1PhaseSet : -27.9772902862
@@ -420,3 +417,36 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 # XC3FFkG : -0.0285939728
 # YC1FFkG : 0.0113906531
 # YC2FFkG : -0.1057559661
+
+symmetricSextupoleStrengths : True
+# L1PhaseSet : -23.624609375
+# L2PhaseSet : -33.4352539062
+
+
+centerBC14 : True
+assertBC14Energy : True
+centerBC20 : True
+assertBC20Energy : True
+centerMFFF : True
+
+# L1PhaseSet : -35.9214371891
+# L2PhaseSet : -40.6858094121
+# S1ELkG : 608.1308677732
+# S2ELkG : -573.230727562
+# S3ELkG : -1177.5448919319
+# S1EL_xOffset : 0.0038710095
+# S1EL_yOffset : 0.0000677913
+# S2EL_xOffset : -0.0008243895
+# S2EL_yOffset : 0.0008757686
+# S2ER_xOffset : -0.0001942039
+# S2ER_yOffset : 0.0001851048
+# S1ER_xOffset : 0.0013010898
+# S1ER_yOffset : -0.0000115367
+
+
+# L1PhaseSet : -33.1421985894
+# L2PhaseSet : -49.1590442035
+# S1EL_xOffset : 0.0036684842
+# S2EL_xOffset : 0.0004308814
+# S2ER_xOffset : -0.0006284538
+# S1ER_xOffset : -0.0001798665

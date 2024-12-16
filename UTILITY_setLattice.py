@@ -115,6 +115,12 @@ def setLattice(
                          latticeSettings["S1ER_yOffset"]
                         )
 
+    setXTCAV(tao, 
+             latticeSettings["XTCAVvoltage"], 
+             latticeSettings["XTCAVphase"]
+            )
+
+    
     setAllFinalFocusKickers(tao,
                         latticeSettings["XC1FFkG"],
                         latticeSettings["XC3FFkG"],
@@ -341,3 +347,7 @@ def setAllFinalFocusKickers(tao, XC1FFkG, XC3FFkG, YC1FFkG, YC2FFkG):
     setKickerkG(tao, "YC2FF", YC2FFkG)
 
     return
+
+def setXTCAV(tao, XTCAVvoltage, XTCAVphase):
+    tao.cmd(f"set ele XTCAVF VOLTAGE = {XTCAVvoltage}")
+    tao.cmd(f"set ele XTCAVF PHI0 = {XTCAVphase / 360.0}")
