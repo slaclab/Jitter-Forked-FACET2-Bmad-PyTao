@@ -845,6 +845,11 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 #2024-12-09-13-14-03 One bunch, CSR-on optimization.
 #The (x, px, pz) phase space with CSR-on near peak compression is so completely pathological that I don't think the slicewise BMAG requirement helps. Also turning off BMAG*emit penalty terms; spot size only
 #Here's the result of lifting those constraints... most of the slicewise BMAGs are >>1
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : True
+# assertBC14Energy : False
+# assertBC20Energy : False
 # L0BPhaseSet : -15.0
 # symmetricSextupoleStrengths : True
 # L1PhaseSet : -14.8497817049
@@ -864,24 +869,108 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 
 
-#PENDING One bunch, CSR-off optimization.
-# From golden, now with energyAssert True (this is a new feature, default was False). center* terms were enabled in scripts before, just adding here.
+#2024-12-16-16-22-39 One bunch, CSR-on optimization.
+# Same as 2024-12-09-13-14-03, except with IP kickers enabled and centerMFFF disabled (Intended for use with sextupole sensitivity study)
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : False
+# assertBC14Energy : False
+# assertBC20Energy : False
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -14.8497817049
+# L2PhaseSet : -33.2649586063
+# S1ELkG : 1198.3974976341
+# S2ELkG : -3135.3072427404
+# S3ELkG : -1614.159195231
+# S1EL_xOffset : 0.0007730129
+# S1EL_yOffset : -0.0001312114
+# S2EL_xOffset : -0.0004352787
+# S2EL_yOffset : -0.0000292591
+# S2ER_xOffset : -0.0006924693
+# S2ER_yOffset : -0.0008549877
+# S1ER_xOffset : -0.0000748848
+# S1ER_yOffset : -0.0010639993
+# XC1FFkG : -0.0540987319
+# XC3FFkG : 0.0222817717
+# YC1FFkG : 0.0033486527
+# YC2FFkG : -0.0158766622
+
+
+#2024-12-16-17-31-09 One bunch, CSR-on optimization.
+# Same as 2024-12-16-16-22-39, except with IP kickers enabled and centerMFFF disabled AND sextupoles are centered (Intended for use with sextupole sensitivity study)
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : False
+# assertBC14Energy : False
+# assertBC20Energy : False
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -14.8497817049
+# L2PhaseSet : -33.2649586063
+# S1ELkG : 1198.3974976341
+# S2ELkG : -3135.3072427404
+# S3ELkG : -1614.159195231
+# S1EL_xOffset : 0.0
+# S1EL_yOffset : 0.0
+# S2EL_xOffset : 0.0
+# S2EL_yOffset : 0.0
+# S2ER_xOffset : 0.0
+# S2ER_yOffset : 0.0
+# S1ER_xOffset : 0.0
+# S1ER_yOffset : 0.0
+# XC1FFkG : 0.1690817773
+# XC3FFkG : -0.0941912246
+# YC1FFkG : 0.0111164198
+# YC2FFkG : -0.0543350239
+
+
+
+#2024-12-17-11-27-07 One bunch, CSR-off optimization for spot size at PENT WITHOUT movers
+#From 2024-12-09-09-53-16
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : True
+# assertBC14Energy : True
+# assertBC20Energy : True
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -29.7966365798
+# L2PhaseSet : -41.4357398703
+# S1ELkG : 1329.2698982067
+# S2ELkG : -2921.1563883646
+# S3ELkG : -1423.0812788217
+# S1EL_xOffset : 0.0
+# S1EL_yOffset : 0.0
+# S2EL_xOffset : 0.0
+# S2EL_yOffset : 0.0
+# S2ER_xOffset : 0.0
+# S2ER_yOffset : 0.0
+# S1ER_xOffset : 0.0
+# S1ER_yOffset : 0.0
+#At PENT get 14 x 8 x 7 um
+
+#2024-12-17-13-38-41 One bunch, CSR-off optimization for spot size at PENT WITHOUT movers
+#From 2024-12-17-11-27-07. MFFF centering off, kickers on
 centerBC14 : True
 centerBC20 : True
-centerMFFF : True
+centerMFFF : False
 assertBC14Energy : True
 assertBC20Energy : True
 symmetricSextupoleStrengths : True
-L1PhaseSet : -14.8497817049
-L2PhaseSet : -33.2649586063
-S1ELkG : 1198.3974976341
-S2ELkG : -3135.3072427404
-S3ELkG : -1614.159195231
-S1EL_xOffset : 0.0007730129
-S1EL_yOffset : -0.0001312114
-S2EL_xOffset : -0.0004352787
-S2EL_yOffset : -0.0000292591
-S2ER_xOffset : -0.0006924693
-S2ER_yOffset : -0.0008549877
-S1ER_xOffset : -0.0000748848
-S1ER_yOffset : -0.0010639993
+S1EL_xOffset : 0.0
+S1EL_yOffset : 0.0
+S2EL_xOffset : 0.0
+S2EL_yOffset : 0.0
+S2ER_xOffset : 0.0
+S2ER_yOffset : 0.0
+S1ER_xOffset : 0.0
+S1ER_yOffset : 0.0
+L1PhaseSet : -29.8037301726
+L2PhaseSet : -41.4454984737
+S1ELkG : 1329.5159431809
+S2ELkG : -2711.1197240642
+S3ELkG : -1423.1843982128
+XC1FFkG : -3.9409e-6
+XC3FFkG : -1.3773e-6
+YC1FFkG : -2.5702e-6
+YC2FFkG : 0.0000297965
