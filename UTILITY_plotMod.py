@@ -30,18 +30,13 @@ def plotMod(particle_group, key1='t', key2='p',
     Derived from openPMD-beamphysics marginal_plot()
     """    
 
-    #NMM new
     plt.close('all')
     
-    #NMM these commands were from the top of plot.py, outside of marginal_plot()
     CMAP0 = copy(plt.get_cmap('viridis'))
-    CMAP0.set_under('white')
+    CMAP0.set_under(CMAP0(0))  # set under-color to the lowest colormap color
     CMAP1 = copy(plt.get_cmap('plasma'))
 
-
-    #NMM new!
     plt.ioff()
-
     
     if not bins:
         n = len(particle_group)
@@ -62,56 +57,41 @@ def plotMod(particle_group, key1='t', key2='p',
     ux = p1+u1
     uy = p2+u2
     
-    # Handle labels. 
     labelx = pmd_beamphysics.labels.mathlabel(key1, units=ux, tex=tex)
     labely = pmd_beamphysics.labels.mathlabel(key2, units=uy, tex=tex)
 
-    
     fig = plt.figure(**kwargs)
-    
     gs = GridSpec(4,4)
     
-    ax_joint =  fig.add_subplot(gs[1:4,0:3])
+    ax_joint = fig.add_subplot(gs[1:4,0:3])
     ax_marg_x = fig.add_subplot(gs[0,0:3])
     ax_marg_y = fig.add_subplot(gs[1:4,3])
-    #ax_info = fig.add_subplot(gs[0, 3:4])
-    #ax_info.table(cellText=['a'])
+
+    # Set the joint plot background color to match the bottom end of the colormap
+    ax_joint.set_facecolor(CMAP0(0))
     
-    # Proper weighting
+    # Plot the hexbin
     ax_joint.hexbin(x, y, C=w, reduce_C_function=np.sum, gridsize=bins, cmap=CMAP0, vmin=1e-20)
     
-    # Manual histogramming version
-    #H, xedges, yedges = np.histogram2d(x, y, weights=w, bins=bins)
-    #extent = [xedges[0], xedges[-1], yedges[0], yedges[-1]]
-    #ax_joint.imshow(H.T, cmap=cmap, vmin=1e-16, origin='lower', extent=extent, aspect='auto')
-    
     # Top histogram
-    # Old method:
-    #dx = x.ptp()/bins
-    #ax_marg_x.hist(x, weights=w/dx/f1, bins=bins, color='gray')
     hist, bin_edges = np.histogram(x, bins=bins, weights=w)
     hist_x = bin_edges[:-1] + np.diff(bin_edges) / 2
     hist_width =  np.diff(bin_edges)
     hist_y, hist_f, hist_prefix = pmd_beamphysics.units.nice_array(hist/hist_width)
     ax_marg_x.bar(hist_x, hist_y, hist_width, color='gray')
-    # Special label for C/s = A
     if u1 == 's':
         _, hist_prefix = pmd_beamphysics.units.nice_scale_prefix(hist_f/f1)
         ax_marg_x.set_ylabel(f'{hist_prefix}A')
     else:   
-        ax_marg_x.set_ylabel(pmd_beamphysics.labels.mathlabel(f'{hist_prefix}C/{ux}')) # Always use tex
-    
-    
+        ax_marg_x.set_ylabel(pmd_beamphysics.labels.mathlabel(f'{hist_prefix}C/{ux}'))
+
     # Side histogram
-    # Old method:
-    #dy = y.ptp()/bins
-    #ax_marg_y.hist(y, orientation="horizontal", weights=w/dy, bins=bins, color='gray')
     hist, bin_edges = np.histogram(y, bins=bins, weights=w)
     hist_x = bin_edges[:-1] + np.diff(bin_edges) / 2
     hist_width =  np.diff(bin_edges)
     hist_y, hist_f, hist_prefix = pmd_beamphysics.units.nice_array(hist/hist_width)
     ax_marg_y.barh(hist_x, hist_y, hist_width, color='gray')
-    ax_marg_y.set_xlabel(pmd_beamphysics.labels.mathlabel(f'{hist_prefix}C/{uy}'))  # Always use tex
+    ax_marg_y.set_xlabel(pmd_beamphysics.labels.mathlabel(f'{hist_prefix}C/{uy}'))
     
     # Turn off tick labels on marginals
     plt.setp(ax_marg_x.get_xticklabels(), visible=False)
@@ -121,16 +101,16 @@ def plotMod(particle_group, key1='t', key2='p',
     ax_joint.set_xlabel(labelx)
     ax_joint.set_ylabel(labely)
     
-    # Actual plot limits, considering scaling
     if xlim:
-        ax_joint.set_xlim( xmin/f1, xmax/f1)      
+        ax_joint.set_xlim(xmin/f1, xmax/f1)      
         ax_marg_x.set_xlim(xmin/f1, xmax/f1)
         
     if ylim:
-        ax_joint.set_ylim( ymin/f2, ymax/f2)     
+        ax_joint.set_ylim(ymin/f2, ymax/f2)     
         ax_marg_y.set_ylim(ymin/f2, ymax/f2)
     
-    return fig 
+    return fig
+ 
 
 
 
