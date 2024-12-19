@@ -845,35 +845,9 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 #2024-12-09-13-14-03 One bunch, CSR-on optimization.
 #The (x, px, pz) phase space with CSR-on near peak compression is so completely pathological that I don't think the slicewise BMAG requirement helps. Also turning off BMAG*emit penalty terms; spot size only
 #Here's the result of lifting those constraints... most of the slicewise BMAGs are >>1
-# centerBC14 : True
-# centerBC20 : True
-# centerMFFF : True
-# assertBC14Energy : False
-# assertBC20Energy : False
-# L0BPhaseSet : -15.0
-# symmetricSextupoleStrengths : True
-# L1PhaseSet : -14.8497817049
-# L2PhaseSet : -33.2649586063
-# S1ELkG : 1198.3974976341
-# S2ELkG : -3135.3072427404
-# S3ELkG : -1614.159195231
-# S1EL_xOffset : 0.0007730129
-# S1EL_yOffset : -0.0001312114
-# S2EL_xOffset : -0.0004352787
-# S2EL_yOffset : -0.0000292591
-# S2ER_xOffset : -0.0006924693
-# S2ER_yOffset : -0.0008549877
-# S1ER_xOffset : -0.0000748848
-# S1ER_yOffset : -0.0010639993
-#Gives 20 x 11 x 20 um spot at PENT
-
-
-
-#2024-12-16-16-22-39 One bunch, CSR-on optimization.
-# Same as 2024-12-09-13-14-03, except with IP kickers enabled and centerMFFF disabled (Intended for use with sextupole sensitivity study)
 centerBC14 : True
 centerBC20 : True
-centerMFFF : False
+centerMFFF : True
 assertBC14Energy : False
 assertBC20Energy : False
 L0BPhaseSet : -15.0
@@ -891,10 +865,36 @@ S2ER_xOffset : -0.0006924693
 S2ER_yOffset : -0.0008549877
 S1ER_xOffset : -0.0000748848
 S1ER_yOffset : -0.0010639993
-XC1FFkG : -0.0540987319
-XC3FFkG : 0.0222817717
-YC1FFkG : 0.0033486527
-YC2FFkG : -0.0158766622
+#Gives 20 x 11 x 20 um spot at PENT
+
+
+
+#2024-12-16-16-22-39 One bunch, CSR-on optimization.
+# Same as 2024-12-09-13-14-03, except with IP kickers enabled and centerMFFF disabled (Intended for use with sextupole sensitivity study)
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : False
+# assertBC14Energy : False
+# assertBC20Energy : False
+# L0BPhaseSet : -15.0
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -14.8497817049
+# L2PhaseSet : -33.2649586063
+# S1ELkG : 1198.3974976341
+# S2ELkG : -3135.3072427404
+# S3ELkG : -1614.159195231
+# S1EL_xOffset : 0.0007730129
+# S1EL_yOffset : -0.0001312114
+# S2EL_xOffset : -0.0004352787
+# S2EL_yOffset : -0.0000292591
+# S2ER_xOffset : -0.0006924693
+# S2ER_yOffset : -0.0008549877
+# S1ER_xOffset : -0.0000748848
+# S1ER_yOffset : -0.0010639993
+# XC1FFkG : -0.0540987319
+# XC3FFkG : 0.0222817717
+# YC1FFkG : 0.0033486527
+# YC2FFkG : -0.0158766622
 
 
 #2024-12-16-17-31-09 One bunch, CSR-on optimization.
