@@ -173,8 +173,18 @@ def trackBeam(
     tao.cmd(f'set beam_init track_end = {trackEnd}')
     if verbose: print(f"Set track_start = {trackStart}, track_end = {trackEnd}")
 
+
+    #Adding S-location checks so center* commands won't trigger unnecessarily 
+    trackStartS  = tao.ele_param(trackStart,"ele.s")['ele_s']
+    trackEndS    = tao.ele_param(trackEnd,"ele.s")['ele_s']
+    laserHeaterS = tao.ele_param("HTRUNDF","ele.s")['ele_s']
+    BC14BEGS     = tao.ele_param("BEGBC14_1","ele.s")['ele_s']
+    BC20BEGS     = tao.ele_param("BEGBC20","ele.s")['ele_s']
+    BC20COLLS    = tao.ele_param("CN2069","ele.s")['ele_s']
+    MFFFS        = tao.ele_param("MFFF","ele.s")['ele_s']
+
     
-    if laserHeater:
+    if laserHeater and trackStartS < laserHeaterS < trackEndS:
         #Will track from start to HTRUNDF, get the beam, modify it, export it, import it, update track_start and track_end
         tao.cmd(f'set beam_init track_end = HTRUNDF')
         if verbose: print(f"Set track_end = HTRUNDF")
@@ -197,7 +207,7 @@ def trackBeam(
         tao.cmd(f'set beam_init track_end = {trackEnd}')
         if verbose: print(f"Set track_start = HTRUNDF, track_end = {trackEnd}")
 
-    if centerBC14:
+    if centerBC14 and trackStartS < BC14BEGS < trackEndS:
         tao.cmd(f'set beam_init track_end = BEGBC14_1')
         if verbose: print(f"Set track_end = BEGBC14_1")
 
@@ -225,7 +235,7 @@ def trackBeam(
         tao.cmd(f'set beam_init track_end = {trackEnd}')
         if verbose: print(f"Set track_start = BEGBC14_1, track_end = {trackEnd}")
 
-    if centerBC20:
+    if centerBC20 and trackStartS < BC20BEGS < trackEndS:
         tao.cmd(f'set beam_init track_end = BEGBC20')
         if verbose: print(f"Set track_end = BEGBC20")
 
@@ -254,7 +264,7 @@ def trackBeam(
         if verbose: print(f"Set track_start = BEGBC20, track_end = {trackEnd}")
 
 
-    if allCollimatorRules:
+    if allCollimatorRules and trackStartS < BC20COLLS < trackEndS:
         tao.cmd(f'set beam_init track_end = CN2069')
         if verbose: print(f"Set track_end = CN2069")
 
@@ -276,7 +286,7 @@ def trackBeam(
         tao.cmd(f'set beam_init track_end = {trackEnd}')
         if verbose: print(f"Set track_start = CN2069, track_end = {trackEnd}")
 
-    if centerMFFF:
+    if centerMFFF and trackStartS < MFFFS < trackEndS:
         tao.cmd(f'set beam_init track_end = MFFF')
         if verbose: print(f"Set track_end = MFFF")
 
