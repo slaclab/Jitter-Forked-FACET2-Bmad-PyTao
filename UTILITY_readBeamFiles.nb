@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11482,        282]
-NotebookOptionsPosition[     10752,        264]
-NotebookOutlinePosition[     11152,        280]
-CellTagsIndexPosition[     11109,        277]
+NotebookDataLength[     15183,        371]
+NotebookOptionsPosition[     14265,        351]
+NotebookOutlinePosition[     14664,        367]
+CellTagsIndexPosition[     14621,        364]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -184,9 +184,8 @@ Cell[BoxData[
   3.9382759758733187`*^9}, {3.93827614048827*^9, 3.9382761625057917`*^9}, {
   3.938799450347943*^9, 3.938799469186265*^9}, {3.939311054591011*^9, 
   3.939311067672132*^9}, {3.941650837687748*^9, 3.941650858221439*^9}, {
-  3.94165093152776*^9, 
-  3.941650941456793*^9}},ExpressionUUID->"f9a5d51e-7597-461e-b9f2-\
-a7b87094fe80"],
+  3.94165093152776*^9, 3.941650941456793*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
 
 Cell[BoxData[
  RowBox[{
@@ -231,7 +230,7 @@ e02de40f6c10"],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"densityHistogramMod", "[", "\[IndentingNewLine]", 
+  RowBox[{"densityHistogramModLEGACY", "[", "\[IndentingNewLine]", 
    RowBox[{
    "data_", ",", "\[IndentingNewLine]", "binSpec_", ",", 
     "\[IndentingNewLine]", 
@@ -259,11 +258,99 @@ Cell[BoxData[
            RowBox[{"1", ",", "1"}], "}"}], "]"}]}], "]"}]}], "}"}]}], ",", 
     "\[IndentingNewLine]", "opts"}], "\[IndentingNewLine]", "]"}]}]], "Input",\
 
- CellChangeTimes->{{3.938260913461576*^9, 3.938260916119061*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"]
+ CellChangeTimes->{{3.938260913461576*^9, 3.938260916119061*^9}, {
+  3.943718067743844*^9, 3.9437180686579638`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"],
+
+Cell["2024-12-20 Clip the data based on IQR", "Text",
+ CellChangeTimes->{{3.94371807119023*^9, 
+  3.943718088115638*^9}},ExpressionUUID->"3d3db8a7-542f-4ace-bd93-\
+e963bc34ce20"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Options", "[", "densityHistogramMod", "]"}], "=", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"iqrRangeScale", "->", "3"}], "}"}], ",", 
+      RowBox[{"Options", "[", "DensityHistogram", "]"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"densityHistogramMod", "[", "\[IndentingNewLine]", 
+   RowBox[{
+   "data_", ",", "\[IndentingNewLine]", "binSpec_", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"opts", ":", 
+     RowBox[{"OptionsPattern", "[", "]"}]}]}], "\[IndentingNewLine]", "]"}], ":=", 
+  RowBox[{
+  "(", "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dataRanges", " ", "=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Median", "[", "#", "]"}], "-", 
+          RowBox[{
+           RowBox[{"OptionValue", "[", "iqrRangeScale", "]"}], "*", 
+           RowBox[{"InterquartileRange", "[", "#", "]"}]}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Median", "[", "#", "]"}], "+", 
+          RowBox[{
+           RowBox[{"OptionValue", "[", "iqrRangeScale", "]"}], "*", 
+           RowBox[{"InterquartileRange", "[", "#", "]"}]}]}]}], 
+        "\[IndentingNewLine]", "}"}], "&"}], "/@", 
+      RowBox[{"Transpose", "[", "data", "]"}]}]}], ";", "\[IndentingNewLine]",
+     "\[IndentingNewLine]", 
+    RowBox[{"clippedData", " ", "=", 
+     RowBox[{"Select", "[", "\[IndentingNewLine]", 
+      RowBox[{"data", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"RegionMember", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"rangeCuboid", " ", "=", " ", 
+           RowBox[{"Cuboid", "[", 
+            RowBox[{
+             RowBox[{"dataRanges", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", 
+             RowBox[{"dataRanges", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}]}], ",", 
+          "\[IndentingNewLine]", "#"}], "\[IndentingNewLine]", "]"}], "&"}]}],
+       "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"DensityHistogram", "[", "\[IndentingNewLine]", 
+     RowBox[{
+     "clippedData", ",", "\[IndentingNewLine]", "binSpec", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ColorFunction", "->", "\"\<Rainbow\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Prolog", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}], "[", "0", "]"}],
+          ",", 
+         RowBox[{"Rectangle", "[", 
+          RowBox[{
+           RowBox[{"Scaled", "[", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], "]"}], ",", 
+           RowBox[{"Scaled", "[", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1"}], "}"}], "]"}]}], "]"}]}], "}"}]}], ",", 
+      "\[IndentingNewLine]", "opts"}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", ")"}]}]}], "Input",ExpressionUUID->"e64e59ae-7879-\
+4a18-b310-e0e3423498e2"]
 },
-WindowSize->{1050, 1164},
-WindowMargins->{{Automatic, 584}, {Automatic, 11}},
+WindowSize->{1203, 1102},
+WindowMargins->{{457, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"936b6fa1-a9db-4abb-8700-68c620a57d47"
@@ -280,10 +367,12 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 216, 3, 30, "Input",ExpressionUUID->"1f83effa-4b6b-4153-aded-c7b78d59058e"],
-Cell[777, 25, 7238, 163, 1039, "Input",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
-Cell[8018, 190, 1258, 31, 178, "Input",ExpressionUUID->"be3540b5-8832-4405-a914-d3df405d71f6"],
-Cell[9279, 223, 236, 6, 35, "Text",ExpressionUUID->"d6f6db7c-05ef-407e-a74b-e02de40f6c10"],
-Cell[9518, 231, 1230, 31, 241, "Input",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"]
+Cell[777, 25, 7256, 162, 976, "Input",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
+Cell[8036, 189, 1258, 31, 178, "Input",ExpressionUUID->"be3540b5-8832-4405-a914-d3df405d71f6"],
+Cell[9297, 222, 236, 6, 35, "Text",ExpressionUUID->"d6f6db7c-05ef-407e-a74b-e02de40f6c10"],
+Cell[9536, 230, 1287, 32, 241, "Input",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"],
+Cell[10826, 264, 178, 3, 35, "Text",ExpressionUUID->"3d3db8a7-542f-4ace-bd93-e963bc34ce20"],
+Cell[11007, 269, 3254, 80, 661, "Input",ExpressionUUID->"e64e59ae-7879-4a18-b310-e0e3423498e2"]
 }
 ]
 *)

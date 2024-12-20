@@ -730,3 +730,113 @@ def loadConfig(file, loaded_files=None):
     
     merged_data.update(data)  # Later settings override earlier ones
     return merged_data
+
+
+def getBeamSpecs(P, targetTwiss = None):
+    """
+    targetTwiss can either be in the form [betaX, alphaX, betaY, alphaY] or
+    for a very limited number of treaty point elements, can instead provide the element name.
+    This will use the golden lattice targetTwiss
+    """
+    
+    savedData = {}
+
+    
+    #A silly trick; set() will give back unique values
+    bunchCount = len(set(P.weight))
+    
+    if bunchCount == 1:
+        PDrive = P.copy()
+        beamsToEvaluate = ["PDrive"]
+    elif bunchCount == 2:
+        PDrive, PWitness = getDriverAndWitness(P)
+        beamsToEvaluate = ["PDrive", "PWitness"]
+    else:
+        print("bunchCount doesn't make sense. Aborting")
+        return
+
+
+
+    if targetTwiss:
+        if isinstance(targetTwiss, str): 
+            if targetTwiss == "MFFF":
+                #MFFF lucretia live model lattice 2024-10-16
+                targetBetaX = 11.6
+                targetAlphaX = -0.64
+                targetBetaY = 25.2
+                targetAlphaY = -1.6
+        
+            elif targetTwiss == "PENT":
+                #These are the wishful twiss specs
+                targetBetaX = 0.5
+                targetAlphaX = 0.0
+                targetBetaY = 0.5
+                targetAlphaY = 0.0
+
+            else:
+                print("Not a valid treaty point. Aborting")
+                return
+
+        else:
+            targetBetaX, targetAlphaX, targetBetaY, targetAlphaY = targetTwiss
+
+    
+    
+    for PActiveStr in beamsToEvaluate:
+        PActive = locals()[PActiveStr]
+
+        
+        # for val in ["mean_x", "mean_y", "sigma_x", "sigma_y", "mean_xp", "mean_yp"]:
+        #     savedData[f"{PActiveStr}_{val}"] = PActive[val]
+
+        
+        savedData[f"{PActiveStr}_median_x"] = np.median(PActive.x)
+        savedData[f"{PActiveStr}_median_y"] = np.median(PActive.y)
+
+        savedData[f"{PActiveStr}_median_xp"] = np.median(PActive.xp)
+        savedData[f"{PActiveStr}_median_yp"] = np.median(PActive.yp)
+        
+        savedData[f"{PActiveStr}_sigmaSI90_x"] = smallestIntervalImpliedSigma(PActive.x, percentage = 0.90)
+        savedData[f"{PActiveStr}_sigmaSI90_y"] = smallestIntervalImpliedSigma(PActive.y, percentage = 0.90)
+        savedData[f"{PActiveStr}_sigmaSI90_z"] = smallestIntervalImpliedSigma(PActive.t * 3e8, percentage=0.9)
+
+        savedData[f"{PActiveStr}_sigmaSI90_xp"] = smallestIntervalImpliedSigma(PActive.xp, percentage = 0.90)
+        savedData[f"{PActiveStr}_sigmaSI90_yp"] = smallestIntervalImpliedSigma(PActive.yp, percentage = 0.90)
+
+        savedData[f"{PActiveStr}_emitSI90_x"] = smallestIntervalImpliedEmittance(PActive, plane = "x", percentage = 0.90)
+        savedData[f"{PActiveStr}_emitSI90_y"] = smallestIntervalImpliedEmittance(PActive, plane = "y", percentage = 0.90)
+
+        savedData[f"{PActiveStr}_norm_emit_x"] = PActive["norm_emit_x"]
+        savedData[f"{PActiveStr}_norm_emit_y"] = PActive["norm_emit_y"]
+
+        if bunchCount == 2:
+            savedData[f"{PActiveStr}_zCentroid"] = np.median(PActive.t * 3e8)
+
+        savedData[f"{PActiveStr}_charge_nC"] = PActive.charge * 1e9
+
+
+        PActiveTwiss = PActive.twiss(plane = "x", fraction = 0.9) | PActive.twiss(plane = "y", fraction = 0.9)
+
+        if targetTwiss: 
+            savedData[f"{PActiveStr}_BMAG_x"] = calcBMAG(targetBetaX, targetAlphaX, PActiveTwiss["beta_x"], PActiveTwiss["alpha_x"])
+            savedData[f"{PActiveStr}_BMAG_y"] = calcBMAG(targetBetaY, targetAlphaY, PActiveTwiss["beta_y"], PActiveTwiss["alpha_y"])
+    
+            # Get BMAGs by energy slice
+            slicedBeamlets = sliceBeam( PActive , sortKey = "pz", numBeamlets = 5 )
+    
+            slicedTwiss =  [ ( beamlet.twiss(plane = "x", fraction = 0.9) | beamlet.twiss(plane = "y", fraction = 0.9) ) for beamlet in slicedBeamlets ] 
+            
+            savedData[f"{PActiveStr}_sliced_BMAG_x"] = [ calcBMAG(targetBetaX, targetAlphaX, beamletTwiss["beta_x"], beamletTwiss["alpha_x"]) for beamletTwiss in slicedTwiss ]
+            savedData[f"{PActiveStr}_sliced_BMAG_y"] = [ calcBMAG(targetBetaY, targetAlphaY, beamletTwiss["beta_y"], beamletTwiss["alpha_y"]) for beamletTwiss in slicedTwiss ]
+
+    if bunchCount == 2:
+        savedData["bunchSpacing"] = savedData["PWitness_zCentroid"] - savedData["PDrive_zCentroid"]
+
+        savedData["transverseCentroidOffset"] = np.sqrt(
+                (savedData["PDrive_median_x"] - savedData["PWitness_median_x"])**2 + 
+                (savedData["PDrive_median_y"] - savedData["PWitness_median_y"])**2
+            )
+
+    #savedData["lostChargeFraction"] = 1 - (P.charge / PInit.charge)
+
+    return savedData
