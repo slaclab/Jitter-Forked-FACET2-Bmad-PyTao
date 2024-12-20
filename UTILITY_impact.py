@@ -13,12 +13,14 @@ import os
 
 def runImpact(
     filePath = None,
-    gridCount = 8,
+    impactGridCount = 8,
     numMacroParticles = 1e4,
     GFILESuffix = 'distgen.yaml',
     L0APhaseOffset = 0,
     solenoidTValue = -0.4185,
-    returnImpactObject = False
+    impactChargepC = 1600, 
+    returnImpactObject = False,
+    **kwargs
 ):
     print("Running Impact")
     
@@ -41,11 +43,12 @@ def runImpact(
     SETTINGS0 = {
         #'numprocs':(len(os.sched_getaffinity(0)))-1, #Number of available cores, minus one (jupyter is running in one core)
         'numprocs':1,
-        'header:Nx':gridCount,
-        'header:Ny':gridCount,  
-        'header:Nz':gridCount, 
+        'header:Nx':impactGridCount,
+        'header:Ny':impactGridCount,  
+        'header:Nz':impactGridCount, 
         'stop_1:s':4.2,
         'distgen:n_particle':numMacroParticles,
+        'distgen:total_charge': {'value': impactChargepC, 'units': 'pC'},
 
         
         #'GUNF:theta0_deg':26.8-90.5,#30 degrees-adjustment for phase def.

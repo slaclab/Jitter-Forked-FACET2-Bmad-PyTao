@@ -41,7 +41,7 @@ def initializeTao(
     loadDefaultLatticeTF = True,
     defaultsFile = None, 
     runImpactTF = False,
-    impactGridCount = 32
+    **kwargs
 ):
 
     #######################################################################
@@ -94,8 +94,8 @@ def initializeTao(
                   
         runImpact(
             filePath = filePath,
-            gridCount = impactGridCount,
-            numMacroParticles = numMacroParticles
+            numMacroParticles = numMacroParticles,
+            **kwargs
         )
 
         inputBeamFilePath = f'{filePath}/beams/ImpactBeam.h5'
