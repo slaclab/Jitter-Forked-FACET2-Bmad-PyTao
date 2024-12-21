@@ -734,9 +734,12 @@ def loadConfig(file, loaded_files=None):
 
 def getBeamSpecs(P, targetTwiss = None):
     """
+    Returns a collection of convenient beam parameters as a dictionary
+    Will automatically detect and add extra measurements for two-bunch beams
+    
     targetTwiss can either be in the form [betaX, alphaX, betaY, alphaY] or
-    for a very limited number of treaty point elements, can instead provide the element name.
-    This will use the golden lattice targetTwiss
+    for a very limited number of treaty point elements, can instead provide the element name. This will use the golden lattice targetTwiss
+    Presently defined: "PR10571", "BEGBC20", "MFFF", "PENT"
     """
     
     savedData = {}
@@ -759,6 +762,20 @@ def getBeamSpecs(P, targetTwiss = None):
 
     if targetTwiss:
         if isinstance(targetTwiss, str): 
+            if targetTwiss == "PR10571":
+                #PR10571 lucretia live model lattice 2024-10-16
+                targetBetaX = 5.7
+                targetBetaY = 2.6
+                targetAlphaX = -2.1
+                targetAlphaY = 0.0
+                
+            if targetTwiss == "BEGBC20":
+                #BEGBC20 lucretia live model lattice 2024-10-16
+                targetBetaX = 11.5
+                targetBetaY = 27.3
+                targetAlphaX = 0.7
+                targetAlphaY = 1.2
+            
             if targetTwiss == "MFFF":
                 #MFFF lucretia live model lattice 2024-10-16
                 targetBetaX = 11.6
@@ -767,7 +784,7 @@ def getBeamSpecs(P, targetTwiss = None):
                 targetAlphaY = -1.6
         
             elif targetTwiss == "PENT":
-                #These are the wishful twiss specs
+                #PENT lucretia live model lattice 2024-10-16
                 targetBetaX = 0.5
                 targetAlphaX = 0.0
                 targetBetaY = 0.5

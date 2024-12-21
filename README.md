@@ -2,7 +2,9 @@
 
 Start by setting up a Conda environment using bmadCondaEnv.yml or bmadCondaEnv_noBuilds.yml (https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
-Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings
+Try executing "S3DF demo notebook.ipynb"; this should, using only a few lines, perform and plot an output from a Bmad simulation from a pre-generated lattice and beam file. It will also demonstrate some of the helper functions for changing magnet and linac settings.
+
+"S3DF demo notebook - with IMPACT.ipynb" will demonstrate a start-to-end simulation which uses IMPACT-T for the beam generation
 
 # Additional notes
 
