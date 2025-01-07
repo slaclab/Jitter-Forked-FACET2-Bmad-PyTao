@@ -978,31 +978,43 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 #PENDING One bunch, CSR-on optimization for PENT spot. 
 #FF optics allowed to vary but projected BMAG<1.1 constraint is imposed
-#Starting from golden lattice + ~maximal compression phases, i.e. L1/L2 = -30 / -40
+#Starting from golden lattice + ~maximal compression phases, i.e. L1/L2 = -29 / -40
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : True
+# assertBC14Energy : True
+# assertBC20Energy : True
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -28.9515337838
+# L2PhaseSet : -40.1186193146
+# S1ELkG : 834.7486251283
+# S2ELkG : -870.6457759734
+# S3ELkG : -1051.3481657248
+# S1EL_xOffset : -0.0000445465
+# S1EL_yOffset : 0.0000727677
+# S2EL_xOffset : -0.0004262888
+# S2EL_yOffset : -0.0000915034
+# S2ER_xOffset : 0.0002008171
+# S2ER_yOffset : -0.0000294535
+# S1ER_xOffset : -0.0002264184
+# S1ER_yOffset : 2.4368e-6
+# Q5FFkG : -69.1994829337
+# Q4FFkG : -74.8201921055
+# Q3FFkG : 107.7149260308
+# Q2FFkG : 129.8110307671
+# Q1FFkG : -240.9279576785
+# Q0FFkG : 127.0144795951
+
+#PENDING One bunch, CSR-on optimization of PENT size
+#From golden, now with assertBC14 and 20 enabled
 centerBC14 : True
 centerBC20 : True
 centerMFFF : True
 assertBC14Energy : True
 assertBC20Energy : True
 symmetricSextupoleStrengths : True
-L1PhaseSet : -28.9515337838
-L2PhaseSet : -40.1186193146
-
-
-S1ELkG : 825.4197658445
-S2ELkG : -1765.4561065392
-S3ELkG : -1042.750009394
-S1EL_xOffset : -0.0000483821
-S1EL_yOffset : 0.0000552886
-S2EL_xOffset : -0.0004658308
-S2EL_yOffset : 0.0000471924
-S2ER_xOffset : -0.0001603295
-S2ER_yOffset : 0.0000296996
-S1ER_xOffset : 0.0000837503
-S1ER_yOffset : -0.0000297519
-Q5FFkG : -67.1833730148
-Q4FFkG : -82.0861289185
-Q3FFkG : 104.9282824515
-Q2FFkG : 131.7943269355
-Q1FFkG : -240.142710027
-Q0FFkG : 127.7001702984
+L1PhaseSet : -19.8466949258
+L2PhaseSet : -37.9645645104
+S1ELkG : 829.0324559194
+S2ELkG : -2611.913351821
+S3ELkG : -991.0111470771
