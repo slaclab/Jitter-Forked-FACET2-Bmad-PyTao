@@ -857,3 +857,81 @@ def getBeamSpecs(P, targetTwiss = None):
     #savedData["lostChargeFraction"] = 1 - (P.charge / PInit.charge)
 
     return savedData
+
+
+
+#Here's a version that would work if the axes are coupled.... they really, really, really shouldn't ever be though
+def launchTwissCorrectionObjective(params, tao, evalElement, targetBetaX, targetAlphaX, targetBetaY, targetAlphaY):
+    betaSetX, alphaSetX, betaSetY, alphaSetY = params
+    
+    try:
+        #Prevent recalculation until changes are made
+        tao.cmd("set global lattice_calc_on = F")
+        
+        tao.cmd(f"set element beginning beta_a = {betaSetX}")
+        tao.cmd(f"set element beginning alpha_a = {alphaSetX}")
+        tao.cmd(f"set element beginning beta_b = {betaSetY}")
+        tao.cmd(f"set element beginning alpha_b = {alphaSetY}")
+        
+        #Reenable lattice calculations
+        tao.cmd("set global lattice_calc_on = T")
+    
+    except: #If Bmad doesn't like the proposed solution, don't crash, give a bad number
+        return 1e20
+    
+    return (tao.ele_twiss(evalElement)[f"beta_a"] - targetBetaX) ** 2 + (tao.ele_twiss(evalElement)[f"alpha_a"] - targetAlphaX) ** 2 + (tao.ele_twiss(evalElement)[f"beta_b"] - targetBetaY) ** 2 + (tao.ele_twiss(evalElement)[f"alpha_b"] - targetAlphaY) ** 2
+
+def launchTwissCorrection(tao, 
+                          evalElement = None, 
+                          targetBetaX = None, 
+                          targetAlphaX = None, 
+                          targetBetaY = None, 
+                          targetAlphaY = None
+                         ):
+    """
+    This function will update the BEGINNING twiss values (set in bmad/models/f2_elec/f2_elec.lat.bmad, e.g. BEGINNING[BETA_A] =  1.39449126865854395E-001) to achieve an arbitrary match at an arbitrary element.
+
+    By default though, if no element is specified, the function will create the default golden lattice match at PR10571
+    """
+    
+    from scipy.optimize import minimize
+
+    if not evalElement:
+        print("No evalElement provided. Assuming golden lattice PR10571")
+        evalElement = "PR10571"
+        targetBetaX = 5.73666431
+        targetAlphaX = -2.14411559
+        targetBetaY = 2.57530302
+        targetAlphaY = 0.01016211
+
+    # Perform optimization using Nelder-Mead
+    result = minimize(
+        launchTwissCorrectionObjective, 
+        [0.5, 0.5, 0.5, 0.5], #Starting point
+        method='Nelder-Mead',
+        bounds = [(1e-9, 1e3), (-100, 100), (1e-9, 1e3), (-100, 100)],
+        args = (tao, evalElement, targetBetaX, targetAlphaX, targetBetaY, targetAlphaY)
+    )
+
+
+    #Apply best result to the lattice
+    betaSetX, alphaSetX, betaSetY, alphaSetY = result.x
+    
+    #Prevent recalculation until changes are made
+    tao.cmd("set global lattice_calc_on = F")
+    
+    tao.cmd(f"set element beginning beta_a = {betaSetX}")
+    tao.cmd(f"set element beginning alpha_a = {alphaSetX}")
+    tao.cmd(f"set element beginning beta_b = {betaSetY}")
+    tao.cmd(f"set element beginning alpha_b = {alphaSetY}")
+    
+    #Reenable lattice calculations
+    tao.cmd("set global lattice_calc_on = T")
+                          
+    print("Optimization Results:")
+    print(f"Optimal Parameters: {result.x}")
+    print(f"Objective Function Value at Optimal Parameters: {result.fun}")
+    print(f"Number of Iterations: {result.nit}")
+    print(f"Converged: {result.success}")
+
+    return
