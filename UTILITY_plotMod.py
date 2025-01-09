@@ -335,7 +335,9 @@ def format_longitudinal_plot(fig, floorplan):
 def floorplanPlot(
     tao,
     zmin = 13,
-    zmax = 1020
+    zmax = 1020,
+    ymin = 0.1,
+    ymax = 250
 ):
     elements=tao.lat_ele_list();
 
@@ -364,7 +366,7 @@ def floorplanPlot(
     ax.semilogy(s,beta_x,label='beta b')
     ax.semilogy(s,beta_y,label='beta a')
     plt.legend(loc=2)
-    ax.set_ylim([0.1,250])
+    ax.set_ylim([ymin, ymax])
     ax_r=ax.twinx()
     ax_r.plot(s,eta_x*1e3,'C0--',label='eta b')
     ax_r.plot(s,eta_y*1e3,'C1--',label='eta a')
