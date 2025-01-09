@@ -20,7 +20,7 @@ from pmd_beamphysics import ParticleGroup
 #from pmd_beamphysics.statistics import resample_particles
 import pmd_beamphysics.statistics
 
-from UTILITY_plotMod import plotMod, slicePlotMod
+from UTILITY_plotMod import plotMod, slicePlotMod, floorplanPlot
 from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, setLinacGradientAuto
 from UTILITY_modifyAndSaveInputBeam import modifyAndSaveInputBeam
 from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG, setXOffset, setYOffset
