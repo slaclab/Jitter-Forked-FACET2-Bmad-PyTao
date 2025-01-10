@@ -26,6 +26,7 @@ from UTILITY_modifyAndSaveInputBeam import modifyAndSaveInputBeam
 from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG, setXOffset, setYOffset
 from UTILITY_impact import runImpact
 from UTILITY_OpenPMDtoBmad import OpenPMD_to_Bmad
+from UTILITY_finalFocusSolver import finalFocusSolver
 
 import os
 import yaml
