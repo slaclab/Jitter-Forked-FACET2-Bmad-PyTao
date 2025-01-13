@@ -1005,7 +1005,7 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 # Q1FFkG : -240.9279576785
 # Q0FFkG : 127.0144795951
 
-#PENDING One bunch, CSR-on optimization of PENT size
+#2025-01-13-10-33-10 One bunch, CSR-on optimization of PENT size
 #From golden, now with assertBC14 and 20 enabled
 centerBC14 : True
 centerBC20 : True
@@ -1013,16 +1013,17 @@ centerMFFF : True
 assertBC14Energy : True
 assertBC20Energy : True
 symmetricSextupoleStrengths : True
-L1PhaseSet : -21.3174523445
-L2PhaseSet : -38.8747718106
-S1ELkG : 704.2931138117
-S2ELkG : -2555.9549338978
-S3ELkG : -771.5077486083
-S1EL_xOffset : 0.0000412092
-S1EL_yOffset : 0.0000633101
-S2EL_xOffset : -0.0002904279
-S2EL_yOffset : 0.0000369095
-S2ER_xOffset : -0.0002239556
-S2ER_yOffset : 0.0000379289
-S1ER_xOffset : 0.0006633219
-S1ER_yOffset : 0.0000972699
+L1PhaseSet : -22.1126373302
+L2PhaseSet : -39.4306903453
+S1ELkG : 1402.0472215805
+S2ELkG : -3076.415811475
+S3ELkG : -1512.4701228732
+S1EL_xOffset : -0.0003918177
+S1EL_yOffset : -0.0001528183
+S2EL_xOffset : -0.0006814372
+S2EL_yOffset : -0.0000919132
+S2ER_xOffset : 0.0006375856
+S2ER_yOffset : -0.0001328972
+S1ER_xOffset : 0.0029259191
+S1ER_yOffset : -0.0002031175
+#Gives 18 x 11 x 14 at PENT
