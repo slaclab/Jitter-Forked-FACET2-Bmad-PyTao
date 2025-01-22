@@ -452,7 +452,7 @@ L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit hi
 # S1ER_xOffset : -0.0001798665
 
 
-# 2025-01-15-16-20-30 CSR off, 150+/-100 um spacing, limited knobs (phases, sym sextupoles, and movers only)
+# 2025-01-22-08-53-47 CSR off, 150+/-100 um spacing, limited knobs (phases, sym sextupoles, and movers only)
 # Starting from golden
 centerBC14 : True
 centerBC20 : True
@@ -460,18 +460,18 @@ centerMFFF : True
 assertBC14Energy : True
 assertBC20Energy : True
 symmetricSextupoleStrengths : True
-L1PhaseSet : -21.5032494209
-L2PhaseSet : -38.1344673122
-S1ELkG : 890.2157252112
-S2ELkG : -2294.557298318
-S3ELkG : -1053.5269813847
-S1EL_xOffset : 0.0011967887
-S1EL_yOffset : 3.5604e-6
-S2EL_xOffset : -0.0003214568
-S2EL_yOffset : 1.166e-6
-S2ER_xOffset : -0.0002658228
-S2ER_yOffset : -0.0001336256
-S1ER_xOffset : 0.001129929
-S1ER_yOffset : -0.0001116558
-#Probably still substantial room to improve
-# Drive: 22 x 10 x 20 um; Witness: 23 x 32 x 10 um; 127 um spacing
+L1PhaseSet : -21.3144185407
+L2PhaseSet : -38.1483024572
+S1ELkG : 1900.8595634531
+S2ELkG : -3238.6823718946
+S3ELkG : -1079.0005998005
+S1EL_xOffset : 0.0009141513
+S1EL_yOffset : 0.0000381505
+S2EL_xOffset : -0.000351706
+S2EL_yOffset : 0.000220635
+S2ER_xOffset : -0.0001420018
+S2ER_yOffset : -0.0014447426
+S1ER_xOffset : 0.001256988
+S1ER_yOffset : -0.0009910776
+#Probably still some room to improve
+# Drive: 22 x 20 x 17 um; Witness: 14 x 14 x 7 um; 137 um spacing
