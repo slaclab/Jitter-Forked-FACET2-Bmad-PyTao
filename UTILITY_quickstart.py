@@ -82,7 +82,7 @@ def initializeTao(
         setLattice(tao, verbose = True,  defaultsFile = defaultsFile) #Set lattice to my latest default config
         
     else:
-        print("Base Tao lattice")
+        print("Not using setLattice(). Golden lattice")
     
 
     #######################################################################
