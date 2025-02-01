@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15183,        371]
-NotebookOptionsPosition[     14265,        351]
-NotebookOutlinePosition[     14664,        367]
-CellTagsIndexPosition[     14621,        364]
+NotebookDataLength[     16040,        390]
+NotebookOptionsPosition[     15120,        370]
+NotebookOutlinePosition[     15518,        386]
+CellTagsIndexPosition[     15475,        383]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -149,6 +149,24 @@ Cell[BoxData[
          ",", "\"\<y\>\"", ",", "\"\<z\>\"", ",", "\"\<t\>\""}], "}"}]}]}], 
      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
     "\[IndentingNewLine]", 
+    RowBox[{"If", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Keys", "[", "raw", "]"}], " ", "==", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\</momentum/x\>\"", ",", "\"\</momentum/y\>\"", ",", 
+         "\"\</momentum/z\>\"", ",", "\"\</position/x\>\"", ",", 
+         "\"\</position/y\>\"", ",", "\"\</position/z\>\"", ",", 
+         "\"\</time\>\"", ",", "\"\</timeOffset\>\""}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"keys", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<px\>\"", ",", "\"\<py\>\"", ",", "\"\<pz\>\"", ",", "\"\<x\>\"", 
+         ",", "\"\<y\>\"", ",", "\"\<z\>\"", ",", "\"\<t\>\"", ",", 
+         "\"\<tOffset\>\""}], "}"}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
     RowBox[{"If", "[", 
      RowBox[{
       RowBox[{"keys", " ", "==", 
@@ -184,8 +202,9 @@ Cell[BoxData[
   3.9382759758733187`*^9}, {3.93827614048827*^9, 3.9382761625057917`*^9}, {
   3.938799450347943*^9, 3.938799469186265*^9}, {3.939311054591011*^9, 
   3.939311067672132*^9}, {3.941650837687748*^9, 3.941650858221439*^9}, {
-  3.94165093152776*^9, 3.941650941456793*^9}},
- CellLabel->"In[2]:=",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
+  3.94165093152776*^9, 3.941650941456793*^9}, {3.9473369693210707`*^9, 
+  3.9473369862692966`*^9}},ExpressionUUID->"f9a5d51e-7597-461e-b9f2-\
+a7b87094fe80"],
 
 Cell[BoxData[
  RowBox[{
@@ -350,8 +369,8 @@ Cell[BoxData[{
 4a18-b310-e0e3423498e2"]
 },
 WindowSize->{1203, 1102},
-WindowMargins->{{457, Automatic}, {Automatic, 0}},
-FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+WindowMargins->{{Automatic, 707}, {Automatic, -323}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"936b6fa1-a9db-4abb-8700-68c620a57d47"
 ]
@@ -366,13 +385,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 216, 3, 30, "Input",ExpressionUUID->"1f83effa-4b6b-4153-aded-c7b78d59058e"],
-Cell[777, 25, 7256, 162, 976, "Input",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
-Cell[8036, 189, 1258, 31, 178, "Input",ExpressionUUID->"be3540b5-8832-4405-a914-d3df405d71f6"],
-Cell[9297, 222, 236, 6, 35, "Text",ExpressionUUID->"d6f6db7c-05ef-407e-a74b-e02de40f6c10"],
-Cell[9536, 230, 1287, 32, 241, "Input",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"],
-Cell[10826, 264, 178, 3, 35, "Text",ExpressionUUID->"3d3db8a7-542f-4ace-bd93-e963bc34ce20"],
-Cell[11007, 269, 3254, 80, 661, "Input",ExpressionUUID->"e64e59ae-7879-4a18-b310-e0e3423498e2"]
+Cell[558, 20, 216, 3, 29, "Input",ExpressionUUID->"1f83effa-4b6b-4153-aded-c7b78d59058e"],
+Cell[777, 25, 8111, 181, 1050, "Input",ExpressionUUID->"f9a5d51e-7597-461e-b9f2-a7b87094fe80"],
+Cell[8891, 208, 1258, 31, 172, "Input",ExpressionUUID->"be3540b5-8832-4405-a914-d3df405d71f6"],
+Cell[10152, 241, 236, 6, 33, "Text",ExpressionUUID->"d6f6db7c-05ef-407e-a74b-e02de40f6c10"],
+Cell[10391, 249, 1287, 32, 233, "Input",ExpressionUUID->"57b28ec1-7a43-4d3a-a978-c653c8b6cc12"],
+Cell[11681, 283, 178, 3, 33, "Text",ExpressionUUID->"3d3db8a7-542f-4ace-bd93-e963bc34ce20"],
+Cell[11862, 288, 3254, 80, 642, "Input",ExpressionUUID->"e64e59ae-7879-4a18-b310-e0e3423498e2"]
 }
 ]
 *)
