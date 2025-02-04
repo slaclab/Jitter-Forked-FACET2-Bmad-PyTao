@@ -350,26 +350,45 @@ def floorplanPlot(
     floorplan.drop(0,inplace=True)
     
     #Get twiss functions
+    #NMM 2025-02-04: I'm swapping out these x/y for a/b for eta and beta. I think they get confused later so just removing any and all ambiguity
     tao.cmd('set global lattice_calc_on = T')
     s=np.array([tao.lat_list(x,'ele.s')[0] for x in floorplan.Index])
     x=np.array([tao.lat_list(x,'orbit.floor.x')[0] for x in floorplan.Index])
-    beta_y=np.array([tao.lat_list(x,'ele.a.beta')[0] for x in floorplan.Index])
-    beta_x=np.array([tao.lat_list(x,'ele.b.beta')[0] for x in floorplan.Index])
+    beta_a=np.array([tao.lat_list(x,'ele.a.beta')[0] for x in floorplan.Index])
+    beta_b=np.array([tao.lat_list(x,'ele.b.beta')[0] for x in floorplan.Index])    
+    # beta_y=np.array([tao.lat_list(x,'ele.a.beta')[0] for x in floorplan.Index])
+    # beta_x=np.array([tao.lat_list(x,'ele.b.beta')[0] for x in floorplan.Index])
     etot=np.array([tao.lat_list(x,'ele.e_tot')[0] for x in floorplan.Index])
-    eta_y=np.array([tao.lat_list(x,'ele.y.eta')[0] for x in floorplan.Index])
-    eta_x=np.array([tao.lat_list(x,'ele.x.eta')[0] for x in floorplan.Index])
+
+    #NMM 2025-02-04: I'm swapping out these eta_x/y for a/b. I think they get confused later so just removing any and all ambiguity
+    #eta_y=np.array([tao.lat_list(x,'ele.y.eta')[0] for x in floorplan.Index])
+    #eta_x=np.array([tao.lat_list(x,'ele.x.eta')[0] for x in floorplan.Index])
+
+    eta_b=np.array([tao.lat_list(x,'ele.b.eta')[0] for x in floorplan.Index])
+    eta_a=np.array([tao.lat_list(x,'ele.a.eta')[0] for x in floorplan.Index])
     
     fig = plt.figure(num=1,figsize=[3.375*5,3.375*2])
     fig.clf()
     ax,ax_fp=format_longitudinal_plot(fig, floorplan)
+
+    ax.semilogy(s,beta_a,label='beta a')
+    ax.semilogy(s,beta_b,label='beta b')
     
-    ax.semilogy(s,beta_x,label='beta b')
-    ax.semilogy(s,beta_y,label='beta a')
+    
+    
+
+    # ax.semilogy(s,beta_x,label='beta b')
+    # ax.semilogy(s,beta_y,label='beta a')
     plt.legend(loc=2)
     ax.set_ylim([ymin, ymax])
     ax_r=ax.twinx()
-    ax_r.plot(s,eta_x*1e3,'C0--',label='eta b')
-    ax_r.plot(s,eta_y*1e3,'C1--',label='eta a')
+    #ax_r.plot(s,eta_x*1e3,'C0--',label='eta b')
+    #ax_r.plot(s,eta_y*1e3,'C1--',label='eta a')
+    ax_r.plot(s,eta_a*1e3,'C0--',label='eta a')
+    ax_r.plot(s,eta_b*1e3,'C1--',label='eta b')
+    
+    
+    
     plt.legend(loc=1)
     
     
