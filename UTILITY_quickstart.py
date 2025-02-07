@@ -42,6 +42,8 @@ def initializeTao(
     loadDefaultLatticeTF = True,
     defaultsFile = None, 
     runImpactTF = False,
+    scratchPath = None,
+    randomizeFileNames = False,
     **kwargs
 ):
 
@@ -52,6 +54,11 @@ def initializeTao(
     
     if not filePath:
         filePath = os.getcwd()
+
+    if not scratchPath:
+        scratchPath = filePath
+
+
         
     os.environ['FACET2_LATTICE'] = filePath
     filePathGlobal = filePath
@@ -64,6 +71,7 @@ def initializeTao(
     #######################################################################
     tao=Tao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE'])) 
     tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX, PR10571, PR10711, CN2069") #The beam is saved at all MARKER elements already; this list just supplements
+
 
     tao.cmd(f'set beam_init track_end = {lastTrackedElement}') #See track_start and track_end values with `show beam`
     print(f"Tracking to {lastTrackedElement}")
@@ -88,6 +96,20 @@ def initializeTao(
     #######################################################################
     #Import or generate input beam file
     #######################################################################
+
+
+    if randomizeFileNames:
+        #True-random path for this particular instance
+        randomPath = str(int.from_bytes(os.urandom(8), "big"))
+        activeFilePath = f'{scratchPath}/beams/activeBeamFile_{randomPath}.h5'
+        patchFilePath = f'{scratchPath}/beams/patchBeamFile_{randomPath}.h5'
+    else:
+        activeFilePath = f'{scratchPath}/beams/activeBeamFile.h5'
+        patchFilePath = f'{scratchPath}/beams/patchBeamFile.h5'
+
+    # Create 'beams' folder if it doesn't exist
+    os.makedirs(f"{scratchPath}/beams", exist_ok=True)
+    
     if runImpactTF:
         if not numMacroParticles:
             print("Define numMacroParticles to run Impact")
@@ -107,23 +129,59 @@ def initializeTao(
             
         else: #If tracking wasn't requested and a beamfile wasn't specified just grab a random beam... assume the user only wants to do single-particle sims
             print("WARNING! No beam file is specified!")
-            inputBeamFilePath = f'{filePath}/beams/activeBeamFile.h5'
-            
+            #inputBeamFilePath = f'{filePath}/beams/activeBeamFile.h5'
+            inputBeamFilePath = f'{filePath}/beams/L0AFEND_facet2-lattice.h5'
 
         if numMacroParticles:
             print(f"Number of macro particles = {numMacroParticles}")
         else:
             print(f"Number of macro particles defined by input file")
-    
+
+
+    #Create the beam
     modifyAndSaveInputBeam(
             inputBeamFilePath,
-            numMacroParticles = (None if runImpactTF else numMacroParticles)
+            numMacroParticles = (None if runImpactTF else numMacroParticles),
+            outputBeamFilePath = activeFilePath
     )
-    
-    tao.cmd(f'set beam_init position_file={filePath}/beams/activeBeamFile.h5')
+
+    tao.cmd(f'set beam_init position_file={activeFilePath}')
     tao.cmd('reinit beam')
+    print(f"Beam created, written to {activeFilePath}, and reinit to tao")
+
+
+
     
+    #Save things into the tao object
+    tao.inputBeamFilePath = inputBeamFilePath
+    tao.activeFilePath = activeFilePath
+    tao.patchFilePath = patchFilePath
+    #tao.activeBeam = activeBeam
+
+
+    
+
+
     return tao
+
+# def reinitActiveBeam(tao):
+#     #Take the beam stored in the tao object (tao.activeBeam), save it to a file, load and reinit tao with that file
+    
+#     (tao.activeBeam).write(tao.activeFilePath)
+    
+#     tao.cmd(f'set beam_init position_file={tao.activeFilePath}')
+#     tao.cmd('reinit beam')
+#     #os.remove(tao.activeFilePath)    
+
+# def reinitPatchBeam(tao, P):
+#     #Take the provided beam, save it to a file, load and reinit tao with that file
+    
+#     P.write(tao.patchFilePath)
+    
+#     tao.cmd(f'set beam_init position_file={tao.patchFilePath}')
+#     tao.cmd('reinit beam')
+#     #os.remove(tao.patchFilePath)
+
 
 def trackBeam(
     tao,
@@ -155,20 +213,10 @@ def trackBeam(
     """
     global filePathGlobal
 
-    #For backwards compatibility, want this function to leave activeBeamFile unmodified
-    #Introducing patchBeamFile for piecewise tracking
-    #Note that, although initializeTao() asks for inputBeamFilePathSuffix, it will /always/ write it to activeBeamFile
 
-
-    #Having second thoughts about this. Might be excessively paranoid?
-    #shutil.copy(f'{filePathGlobal}/beams/activeBeamFile.h5', f'{filePathGlobal}/beams/patchBeamFile.h5') 
-    #tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
-    #tao.cmd('reinit beam')
-
-    #Instead, stick with always starting with activeBeamFile?
-    tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/activeBeamFile.h5')
+    tao.cmd(f'set beam_init position_file={tao.activeFilePath}')
     tao.cmd('reinit beam')
-    if verbose: print("Loaded activeBeamFile.h5")
+    if verbose: print(f"Loaded {tao.activeFilePath}")
     
     tao.cmd(f'set beam_init track_start = {trackStart}')
     tao.cmd(f'set beam_init track_end = {trackEnd}')
@@ -197,12 +245,12 @@ def trackBeam(
 
         PAfterLHmodulation, deltagamma, t = addLHmodulation(P, **kwargs,);
         
-        writeBeam(PAfterLHmodulation, f'{filePathGlobal}/beams/patchBeamFile.h5')
-        if verbose: print(f"Beam with LH modulation written to patchBeamFile.h5")
+        writeBeam(PAfterLHmodulation, tao.patchFilePath)
+        if verbose: print(f"Beam with LH modulation written to {tao.patchFilePath}")
 
-        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd(f'set beam_init position_file={tao.patchFilePath}')
         tao.cmd('reinit beam')
-        if verbose: print("Loaded patchBeamFile.h5")
+        if verbose: print(f"Loaded {tao.patchFilePath}")
 
         tao.cmd(f'set beam_init track_start = HTRUNDF')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
@@ -225,12 +273,12 @@ def trackBeam(
         else:
             PMod = centerBeam(P)
         
-        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
-        if verbose: print(f"Beam centered at BEGBC14 written to patchBeamFile.h5")
+        writeBeam(PMod, tao.patchFilePath)
+        if verbose: print(f"Beam centered at BEGBC14 written to {tao.patchFilePath}")
 
-        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd(f'set beam_init position_file={tao.patchFilePath}')
         tao.cmd('reinit beam')
-        if verbose: print("Loaded patchBeamFile.h5")
+        if verbose: print(f"Loaded {tao.patchFilePath}")
 
         tao.cmd(f'set beam_init track_start = BEGBC14_1')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
@@ -253,12 +301,12 @@ def trackBeam(
         else:
             PMod = centerBeam(P)
         
-        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
-        if verbose: print(f"Beam centered at BEGBC20 written to patchBeamFile.h5")
+        writeBeam(PMod, tao.patchFilePath)
+        if verbose: print(f"Beam centered at BEGBC20 written to {tao.patchFilePath}")
 
-        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd(f'set beam_init position_file={tao.patchFilePath}')
         tao.cmd('reinit beam')
-        if verbose: print("Loaded patchBeamFile.h5")
+        if verbose: print(f"Loaded {tao.patchFilePath}")
 
         tao.cmd(f'set beam_init track_start = BEGBC20')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
@@ -276,12 +324,12 @@ def trackBeam(
 
         PMod = collimateBeam(P, allCollimatorRules)
         
-        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
-        if verbose: print(f"Collimated beam written to patchBeamFile.h5. Rules: {allCollimatorRules}")
+        writeBeam(PMod, tao.patchFilePath)
+        if verbose: print(f"Collimated beam written to {tao.patchFilePath}. Rules: {allCollimatorRules}")
 
-        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd(f'set beam_init position_file={tao.patchFilePath}')
         tao.cmd('reinit beam')
-        if verbose: print("Loaded patchBeamFile.h5")
+        if verbose: print(f"Loaded {tao.patchFilePath}")
 
         tao.cmd(f'set beam_init track_start = CN2069')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
@@ -298,12 +346,12 @@ def trackBeam(
 
         PMod = centerBeam(P)
         
-        writeBeam(PMod, f'{filePathGlobal}/beams/patchBeamFile.h5')
-        if verbose: print(f"Beam centered at MFFF written to patchBeamFile.h5")
+        writeBeam(PMod, tao.patchFilePath)
+        if verbose: print(f"Beam centered at MFFF written to {tao.patchFilePath}")
 
-        tao.cmd(f'set beam_init position_file={filePathGlobal}/beams/patchBeamFile.h5')
+        tao.cmd(f'set beam_init position_file={tao.patchFilePath}')
         tao.cmd('reinit beam')
-        if verbose: print("Loaded patchBeamFile.h5")
+        if verbose: print(f"Loaded {tao.patchFilePath}")
 
         tao.cmd(f'set beam_init track_start = MFFF')
         tao.cmd(f'set beam_init track_end = {trackEnd}')
@@ -411,10 +459,15 @@ def writeBeam(P, fileName):
     P.write(fileName)
     OpenPMD_to_Bmad(fileName)
 
-def makeBeamActiveBeamFile(P):
+def makeBeamActiveBeamFile(P, tao = None):
+    #Weird structure on this function for backwards compatiblity. If no tao object is provided, put the beam in the nominal location. Otherwise, put it in the right place
     global filePathGlobal
-    #P.write(f"{filePathGlobal}/beams/activeBeamFile.h5")
-    writeBeam(P, f"{filePathGlobal}/beams/activeBeamFile.h5")
+
+    if tao:
+        writeBeam(P, tao.activeFilePath)
+    else:
+        print(f"WARNING! No tao object provided. Writing beam to {filePathGlobal}/beams/activeBeamFile.h5... hope that's what you wanted")
+        writeBeam(P, f"{filePathGlobal}/beams/activeBeamFile.h5")
 
 def smallestInterval(nums, percentage=0.9):
     """Give the smallest interval containing a desired percentage of provided points"""

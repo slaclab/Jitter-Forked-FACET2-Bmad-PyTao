@@ -11,7 +11,9 @@ def modifyAndSaveInputBeam(
     betaY = None,
     alphaY = None,
     numMacroParticles = None,
-    timeCenterTF = True):
+    timeCenterTF = True,
+    outputBeamFilePath = None
+):
 
     #Import
     P = ParticleGroup(inputBeamFilePath)
@@ -48,8 +50,15 @@ def modifyAndSaveInputBeam(
               inplace=True)
 
     filePath = os.getcwd()
-    #Write as the active file
-    P.write(f'{filePath}/beams/activeBeamFile.h5')
+
+    if not outputBeamFilePath:
+        P.write(f'{filePath}/beams/activeBeamFile.h5')
+    else:
+        P.write(outputBeamFilePath)
 
     #Also return the beam object
     return P
+
+
+
+    
