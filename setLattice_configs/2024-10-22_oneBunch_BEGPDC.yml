@@ -1,0 +1,75 @@
+include: 
+- "setLattice_configs/defaults.yml"
+- "setLattice_configs/bounds.yml"
+
+
+####################
+########################################
+############################################################
+################################################################################
+####################################################################################################
+########################################################################################################################
+
+#2024-10-22: New IMPACT one-bunch
+
+########################################################################################################################
+####################################################################################################
+################################################################################
+############################################################
+########################################
+####################
+
+#2024-10-22-15-20-50 2024-10-22_oneBunch optimization on PR10571.
+    # twissCalculationFraction : 0.7
+    # PSystem_emitSI_x : 2.7609e-6
+    # PSystem_emitSI_y : 2.1442e-6
+    # PSystem_norm_emit_x : 1.2512e-6
+    # PSystem_norm_emit_y : 1.0193e-6
+    # PSystem_BMAG_x : 1.0001451679
+    # PSystem_BMAG_y : 1.0001521435
+    # PSystem_BMAG_emit_x : 1.2514e-6
+    # PSystem_BMAG_emit_y : 1.0195e-6
+    # PSystem_BMAG_emitSI_x : 2.7613e-6
+    # PSystem_BMAG_emitSI_y : 2.1446e-6
+inputBeamFilePathSuffix : '/beams/2024-10-22_Impact_OneBunch/2024-10-22_oneBunch.h5'
+bunchCount : 1
+QA10361kG : -3.1976079537
+QA10371kG : 3.1129092742
+QE10425kG : -6.8469996218
+QE10441kG : 1.5057761462
+QE10511kG : 7.0138622173
+QE10525kG : -5.3942250594
+L0BPhaseSet : -15.0
+L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+
+
+#2025-02-04-13-43-54 CSR off. Quick optimization of bunch size at BEGPDC
+centerBC14 : True
+centerBC20 : True
+centerMFFF : True
+assertBC14Energy : True
+assertBC20Energy : True
+symmetricSextupoleStrengths : True
+L1PhaseSet : -22.1711566081
+L2PhaseSet : -34.1004574939
+S1ELkG : 1408.4410969389
+S2ELkG : -2507.6265099827
+S3ELkG : -1472.2407416531
+S1EL_xOffset : -0.0007127346
+S1EL_yOffset : -0.0004405488
+S2EL_xOffset : -0.0008820556
+S2EL_yOffset : 0.0002384656
+S2ER_xOffset : 0.0007531158
+S2ER_yOffset : -0.0001341203
+S1ER_xOffset : 0.0027970897
+S1ER_yOffset : 7.6669e-6
+Q5FFkG : -60.5546926848
+Q4FFkG : -64.0401152798
+Q3FFkG : 127.1589877449
+Q2FFkG : 134.5911205082
+Q1FFkG : -230.2615170162
+Q0FFkG : 120.414599031
+Q0DkG : -120.2325344016
+Q1DkG : 179.4600157156
+Q2DkG : -135.520670764
+

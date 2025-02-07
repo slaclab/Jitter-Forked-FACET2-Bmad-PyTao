@@ -792,8 +792,13 @@ def getBeamSpecs(P, targetTwiss = None):
                 targetAlphaY = 0.0
 
             else:
-                print("Not a valid treaty point. Aborting")
-                return
+                #print("Not a valid treaty point. Aborting")
+                #return
+
+                
+                #Invalid treaty point; setting to None to avoid BMAG evaluation
+                targetTwiss = None
+
 
         else:
             targetBetaX, targetAlphaX, targetBetaY, targetAlphaY = targetTwiss

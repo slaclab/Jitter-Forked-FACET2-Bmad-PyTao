@@ -1007,23 +1007,81 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 #2025-01-13-10-33-10 One bunch, CSR-on optimization of PENT size
 #From golden, now with assertBC14 and 20 enabled
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : True
+# assertBC14Energy : True
+# assertBC20Energy : True
+# symmetricSextupoleStrengths : True
+# L1PhaseSet : -22.1126373302
+# L2PhaseSet : -39.4306903453
+# S1ELkG : 1402.0472215805
+# S2ELkG : -3076.415811475
+# S3ELkG : -1512.4701228732
+# S1EL_xOffset : -0.0003918177
+# S1EL_yOffset : -0.0001528183
+# S2EL_xOffset : -0.0006814372
+# S2EL_yOffset : -0.0000919132
+# S2ER_xOffset : 0.0006375856
+# S2ER_yOffset : -0.0001328972
+# S1ER_xOffset : 0.0029259191
+# S1ER_yOffset : -0.0002031175
+#Gives 18 x 11 x 14 at PENT
+
+
+#PENDING One bunch, CSR on. Minimizing bunch length at the cost of everything else
+#Allow asym sextupoles. Allow BC20 quads but not FF quads
 centerBC14 : True
 centerBC20 : True
 centerMFFF : True
 assertBC14Energy : True
 assertBC20Energy : True
-symmetricSextupoleStrengths : True
-L1PhaseSet : -22.1126373302
-L2PhaseSet : -39.4306903453
-S1ELkG : 1402.0472215805
-S2ELkG : -3076.415811475
-S3ELkG : -1512.4701228732
-S1EL_xOffset : -0.0003918177
-S1EL_yOffset : -0.0001528183
-S2EL_xOffset : -0.0006814372
-S2EL_yOffset : -0.0000919132
-S2ER_xOffset : 0.0006375856
-S2ER_yOffset : -0.0001328972
-S1ER_xOffset : 0.0029259191
-S1ER_yOffset : -0.0002031175
-#Gives 18 x 11 x 14 at PENT
+symmetricSextupoleStrengths : False
+
+# L1PhaseSet : -21.4267851543
+# L2PhaseSet : -38.3497408397
+# Q1EkG : 162.5174166753
+# Q2EkG : -159.5723020697
+# Q3EkG : 110.0344654146
+# Q4EkG : 136.3203389061
+# Q5EkG : -19.906273846
+# Q6EkG : -142.5314162001
+# S1ELkG : 772.1231988567
+# S2ELkG : -5319.6115245462
+# S3ELkG : -947.0920837739
+# S3ERkG : -986.1610294986
+# S2ERkG : -5099.5669818366
+# S1ERkG : 794.0139809225
+# S1EL_xOffset : 0.0003564651
+# S1EL_yOffset : 0.0001680911
+# S2EL_xOffset : 0.0002743401
+# S2EL_yOffset : 0.0001569711
+# S2ER_xOffset : 0.0001225821
+# S2ER_yOffset : 0.000161107
+# S1ER_xOffset : 0.0003063583
+# S1ER_yOffset : 0.0004139588
+
+
+
+# L1PhaseSet : -22.3364901368
+# L2PhaseSet : -37.3524214418
+# Q1EkG : 162.6773283869
+# Q2EkG : -154.6524193837
+# Q3EkG : 111.2868912466
+# Q4EkG : 139.1052425379
+# Q5EkG : -22.579621968
+# Q6EkG : -139.9520321024
+# S1ELkG : 797.8095007785
+# S2ELkG : -2826.8083790974
+# S3ELkG : -1014.5189556415
+# S3ERkG : -986.9373111926
+# S2ERkG : -2622.4806353396
+# S1ERkG : 810.6394950616
+# S1EL_xOffset : 6.7732e-6
+# S1EL_yOffset : 0.0000500468
+# S2EL_xOffset : 0.0000493947
+# S2EL_yOffset : 0.0000114668
+# S2ER_xOffset : 0.0002120172
+# S2ER_yOffset : 0.0001343813
+# S1ER_xOffset : -0.0000180517
+# S1ER_yOffset : -0.0000261812
