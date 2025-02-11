@@ -6,12 +6,9 @@ from UTILITY_quickstart import *
 
 def worker(overrides):
     importedDefaultSettings = loadConfig("setLattice_configs/2024-10-22_oneBunch.yml")
+    
     csrTF = True
 
-
-
-
-    
     tao = initializeTao(
         inputBeamFilePathSuffix = importedDefaultSettings["inputBeamFilePathSuffix"],
         
@@ -25,7 +22,6 @@ def worker(overrides):
 
 
 
-    
     activeSettings = importedDefaultSettings | overrides
 
     setLattice(tao, **activeSettings)
