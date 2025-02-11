@@ -994,3 +994,64 @@ def launchTwissCorrection(tao,
     print(f"Converged: {result.success}")
 
     return
+
+
+def generalizedEmittanceSolverObjective(params, data):
+    betaI, alphaI, emittanceGeo = params
+    
+    errorComponents = []
+
+    for shot in data:
+        # Twiss transfer matrix for beta
+        # R11^2 \[Beta] - 2 R11 R12 \[Alpha] +  + R12^2 \[Gamma]
+        term1 = betaI * shot["R11"] ** 2
+        term2 = -2 * alphaI * shot["R11"] * shot["R12"]
+        term3 =  ( (1 + alphaI ** 2) / betaI ) * shot["R12"] ** 2
+
+        # (beta * emit_geo) == sigma^2
+        errorComponent = ( term1 + term2 + term3 ) * emittanceGeo - shot["sigma"] ** 2
+
+        #Add all error terms in quadrature
+        errorComponents.append(errorComponent ** 2)
+    
+        
+    
+    return np.sum(errorComponents)
+
+def generalizedEmittanceSolver(
+    data,
+    energyGeV = None
+):
+    """
+    `data` should be a list of dictionaries, each of which should contain at least "R11", "R12", and "sigma" corresponding to the R-matrix terms for the transfer of interest
+    and the beam sigma at the downstream screen.
+
+    The the initial beta, alpha, and emittance are used as fit parameters to explain the observations
+    The typical Twiss transfer is applied for each case and compared to the observed spot size
+    """
+    
+    from scipy.optimize import minimize
+
+
+    # Perform optimization using Nelder-Mead
+    result = minimize(
+        generalizedEmittanceSolverObjective, 
+        [0.5, 0.5, 1e-9], #Starting point
+        method='Nelder-Mead',
+        args = (data, )
+    )
+
+                          
+    # print("Optimization Results:")
+    # print(f"Optimal Parameters: {result.x}")
+    # print(f"Objective Function Value at Optimal Parameters: {result.fun}")
+    # print(f"Number of Iterations: {result.nit}")
+    # print(f"Converged: {result.success}")
+
+    output = {"beta" : result.x[0], "alpha" : result.x[1], "emitGeo" : result.x[2]}
+
+    if energyGeV:
+        #Sloppy, ultrarel only
+        output["emit"] = result.x[2] * energyGeV * 1000 / 0.511
+    
+    return output
