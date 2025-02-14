@@ -765,6 +765,40 @@ def sliceBeam(
 
     return resultBeamlets
 
+
+def getSingleBeamSlice(
+    P,
+    sortKey = None,
+    minVal = None,
+    maxVal = None
+):
+    """Return a beamlet of particles which satisfy the inequality """
+
+    # Get indices where sortKey is within the given range
+    mask = (P[sortKey] >= minVal) & (P[sortKey] <= maxVal)
+    
+    if not np.any(mask):
+        raise ValueError("No particles found in the specified range.")
+    
+    # Filter data based on the mask
+    filtered_data = {
+        "x": P.x[mask],
+        "y": P.y[mask],
+        "z": P.z[mask],
+        "px": P.px[mask],
+        "py": P.py[mask],
+        "pz": P.pz[mask],
+        "t": P.t[mask],
+        "status": P.status[mask],
+        "weight": P.weight[mask],
+        "species": P.species
+    }
+
+
+    PMod = ParticleGroup(data=filtered_data)
+
+    return PMod
+
 def loadConfig(file, loaded_files=None):
     """Code to load nested config files... ChatGPT is the author, beware!"""
     if loaded_files is None:
@@ -882,8 +916,8 @@ def getBeamSpecs(P, targetTwiss = None):
         savedData[f"{PActiveStr}_emitSI90_x"] = smallestIntervalImpliedEmittance(PActive, plane = "x", percentage = 0.90)
         savedData[f"{PActiveStr}_emitSI90_y"] = smallestIntervalImpliedEmittance(PActive, plane = "y", percentage = 0.90)
 
-        savedData[f"{PActiveStr}_norm_emit_x"] = PActive["norm_emit_x"]
-        savedData[f"{PActiveStr}_norm_emit_y"] = PActive["norm_emit_y"]
+        savedData[f"{PActiveStr}_norm_emit_x"] = (PActive.twiss(plane = "x", fraction = 0.9))["norm_emit_x"]
+        savedData[f"{PActiveStr}_norm_emit_y"] = (PActive.twiss(plane = "y", fraction = 0.9))["norm_emit_y"]
 
         if bunchCount == 2:
             savedData[f"{PActiveStr}_zCentroid"] = np.median(PActive.t * 3e8)
@@ -1028,6 +1062,8 @@ def generalizedEmittanceSolver(
 
     The the initial beta, alpha, and emittance are used as fit parameters to explain the observations
     The typical Twiss transfer is applied for each case and compared to the observed spot size
+
+    If this isn't giving the values you expect, make sure the single-particle Twiss values are what you expect! (Consider running launchTwissCorrection())
     """
     
     from scipy.optimize import minimize

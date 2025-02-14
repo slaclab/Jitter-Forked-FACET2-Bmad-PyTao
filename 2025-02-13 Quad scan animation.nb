@@ -1,0 +1,102 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3113,         94]
+NotebookOptionsPosition[      2411,         73]
+NotebookOutlinePosition[      2810,         89]
+CellTagsIndexPosition[      2767,         86]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"raw", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+   "ImportString", 
+    "[", "\"\</Users/nmajik/-60.png\n/Users/nmajik/-50.png\n\
+/Users/nmajik/-40.png\n/Users/nmajik/-30.png\n/Users/nmajik/-20.png\n\
+/Users/nmajik/-10.png\>\"", "]"}], "//", "Flatten"}]}]], "Input",
+ CellChangeTimes->{{3.948465099307802*^9, 3.9484651160834513`*^9}, 
+   3.948465185279518*^9},
+ CellLabel->
+  "In[2518]:=",ExpressionUUID->"7da359d8-f55c-4f24-9c34-1c3c94ba8fa0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"/Users/nmajik/-60.png\"\>", 
+   ",", "\<\"/Users/nmajik/-50.png\"\>", ",", "\<\"/Users/nmajik/-40.png\"\>",
+    ",", "\<\"/Users/nmajik/-30.png\"\>", 
+   ",", "\<\"/Users/nmajik/-20.png\"\>", 
+   ",", "\<\"/Users/nmajik/-10.png\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9484651120790462`*^9, 3.948465116529873*^9}, 
+   3.9484651859711113`*^9},
+ CellLabel->
+  "Out[2518]=",ExpressionUUID->"0de1f881-eb7d-4bf3-97f5-a690a4f9f402"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"imgArr", " ", "=", " ", 
+    RowBox[{"Table", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Import", "[", "i", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "raw"}], "}"}]}], "\[IndentingNewLine]", "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<~/quadScan.gif\>\"", ",", "imgArr"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9484651182214117`*^9, 3.94846516261418*^9}},
+ CellLabel->
+  "In[2519]:=",ExpressionUUID->"e4997677-8886-478e-8783-1cdb6b57bd2d"],
+
+Cell[BoxData["\<\"~/quadScan.gif\"\>"], "Output",
+ CellChangeTimes->{
+  3.9484651285715303`*^9, {3.948465163193091*^9, 3.948465186257515*^9}},
+ CellLabel->
+  "Out[2520]=",ExpressionUUID->"a8e74350-89c3-430b-81c9-58d8ba66edef"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 314}, {Automatic, 180}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6db2edb3-30cf-4e9d-b923-44d5ac432dbb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 465, 11, 131, "Input",ExpressionUUID->"7da359d8-f55c-4f24-9c34-1c3c94ba8fa0"],
+Cell[1044, 35, 477, 10, 67, "Output",ExpressionUUID->"0de1f881-eb7d-4bf3-97f5-a690a4f9f402"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1558, 50, 608, 14, 131, "Input",ExpressionUUID->"e4997677-8886-478e-8783-1cdb6b57bd2d"],
+Cell[2169, 66, 226, 4, 47, "Output",ExpressionUUID->"a8e74350-89c3-430b-81c9-58d8ba66edef"]
+}, Open  ]]
+}
+]
+*)
+
