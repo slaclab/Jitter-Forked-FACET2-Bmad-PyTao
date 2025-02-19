@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     76208,       1489]
-NotebookOptionsPosition[     74617,       1459]
-NotebookOutlinePosition[     75017,       1475]
-CellTagsIndexPosition[     74974,       1472]
+NotebookDataLength[    132208,       2658]
+NotebookOptionsPosition[    130615,       2628]
+NotebookOutlinePosition[    131015,       2644]
+CellTagsIndexPosition[    130972,       2641]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -971,21 +971,44 @@ Cell[BoxData[{
   RowBox[{"xBetaData", ",", "\[IndentingNewLine]", 
    RowBox[{"ColorFunction", "->", "\"\<Rainbow\>\""}], ",", 
    "\[IndentingNewLine]", 
-   RowBox[{"InterpolationOrder", "->", "2"}]}], "\[IndentingNewLine]", 
-  "]"}], "\[IndentingNewLine]", 
+   RowBox[{"InterpolationOrder", "->", "2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotLegends", "->", "Automatic"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Q14891\>\"", ",", "\"\<Q14901\>\""}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+   "PlotLabel", "->", "\"\<\!\(\*SubscriptBox[\(\[Beta]\), \(x\)]\)\>\""}], ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "->", "600"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"LabelStyle", "->", "20"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
  RowBox[{"ListContourPlot", "[", "\[IndentingNewLine]", 
   RowBox[{"yBetaData", ",", "\[IndentingNewLine]", 
    RowBox[{"ColorFunction", "->", "\"\<Rainbow\>\""}], ",", 
    "\[IndentingNewLine]", 
-   RowBox[{"InterpolationOrder", "->", "2"}]}], "\[IndentingNewLine]", 
+   RowBox[{"InterpolationOrder", "->", "2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotLegends", "->", "Automatic"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Q14891\>\"", ",", "\"\<Q14901\>\""}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+   "PlotLabel", "->", "\"\<\!\(\*SubscriptBox[\(\[Beta]\), \(y\)]\)\>\""}], ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "->", "600"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"LabelStyle", "->", "20"}]}], "\[IndentingNewLine]", 
   "]"}]}], "Input",
  CellChangeTimes->{
-  3.9484869257364273`*^9, {3.948487005386307*^9, 3.948487055180262*^9}},
+  3.9484869257364273`*^9, {3.948487005386307*^9, 3.948487055180262*^9}, {
+   3.948488503767849*^9, 3.9484885122723217`*^9}, {3.948488555746622*^9, 
+   3.948488612081781*^9}},
  CellLabel->
-  "In[2659]:=",ExpressionUUID->"838bf259-cee0-492e-9e92-2d420aed6b8f"],
+  "In[2669]:=",ExpressionUUID->"838bf259-cee0-492e-9e92-2d420aed6b8f"],
 
 Cell[BoxData[
- GraphicsBox[GraphicsComplexBox[CompressedData["
+ TemplateBox[{
+   GraphicsBox[
+    GraphicsComplexBox[CompressedData["
 1:eJxllglMFFcYx7lSQcSDbloFCYiDQLCjS4ZjWJl9ww7jDpc3VmwqaFGpHAYs
 HtR61FCxHrEqYttopZh6ICLWcBl5gBBLtLaigBUrVhCRVsKiSKNoKex7k/3c
 hLz88tv35v/+E/LtlOVp8xNtrKysBob+/l8tPzHYArdGWrKVArwMvAS8CLwA
@@ -1020,204 +1043,743 @@ fBbXpCw9HG4TQfvdZkz82SUbzNOh851WduUWlvtj1/RJK+L3yij1auLubTyD
 9ZtbfTY9VefrX80lH/MXyXnq/PhD15K0vUvGLb6hpgtL1HkYm3Av70C9ggpr
 KrTeewLo9+Prm3RKjw5/kd9pONdHzlPnS4BpnuexNm/8YeCq1Xa6CFRdwhum
 trjhGi0T4ZWtzs//ALeyGLE=
-   "], {{
-     {RGBColor[0.47141199999999994`, 0.108766, 0.527016], EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{150, 3, 149}, {147, 2, 145}, {149, 3, 146}}], 
-        PolygonBox[{{145, 2, 1, 152}, {146, 3, 2, 147}}]}]}, 
-     {RGBColor[0.2778195908356527, 0.1769765979972755, 0.7221449555882677], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{172, 51, 173}, {28, 16, 27}, {147, 14, 146}, {27, 39, 
-         28}, {6, 18, 7}, {164, 41, 167}, {152, 13, 145}, {37, 26, 25}, {25, 
-         14, 13}, {173, 51, 170}, {5, 17, 6}, {7, 19, 8}, {16, 4, 15}, {18, 
-         30, 19}, {14, 26, 15}, {26, 38, 27}, {17, 5, 16}, {18, 6, 17}, {19, 
-         31, 20}, {20, 8, 19}, {27, 15, 26}, {19, 7, 18}, {17, 29, 18}, {8, 
-         20, 9}, {159, 31, 160}, {154, 10, 155}, {39, 51, 40}, {29, 17, 28}, {
-         30, 18, 29}, {39, 27, 38}, {40, 28, 39}, {160, 31, 163}, {61, 50, 
-         49}, {41, 29, 40}, {50, 38, 49}, {51, 39, 50}, {31, 19, 30}, {49, 38,
-          37}, {38, 26, 37}, {15, 27, 16}, {151, 10, 154}, {4, 16, 5}, {26, 
-         14, 25}, {167, 41, 165}, {156, 20, 158}, {28, 40, 29}, {38, 50, 
-         39}, {16, 28, 17}, {179, 61, 188}, {29, 41, 30}}], 
-        PolygonBox[{{153, 9, 20, 156}, {161, 30, 41, 164}, {171, 50, 61, 
-         179}, {158, 20, 31, 159}, {166, 40, 51, 172}, {146, 14, 15, 149}, {
-         145, 13, 14, 147}, {155, 10, 9, 153}, {170, 51, 50, 171}, {165, 41, 
-         40, 166}, {163, 31, 30, 161}, {149, 15, 4, 150}}]}]}, 
-     {RGBColor[0.26554567186332884`, 0.4833846139389542, 0.8028834201021948], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{198, 87, 199}, {43, 55, 44}, {23, 11, 22}, {171, 62, 
-         170}, {32, 44, 33}, {161, 42, 163}, {44, 32, 43}, {24, 12, 23}, {22, 
-         34, 23}, {63, 75, 64}, {64, 76, 65}, {42, 54, 43}, {52, 64, 53}, {
-         166, 52, 165}, {23, 35, 24}, {44, 56, 45}, {34, 46, 35}, {33, 45, 
-         34}, {35, 23, 34}, {54, 42, 53}, {53, 65, 54}, {156, 21, 153}, {74, 
-         86, 75}, {157, 35, 168}, {175, 46, 176}, {153, 21, 155}, {55, 43, 
-         54}, {56, 44, 55}, {34, 22, 33}, {33, 21, 32}, {11, 23, 12}, {45, 33,
-          44}, {62, 74, 63}, {159, 32, 158}, {46, 34, 45}, {182, 66, 185}, {
-         21, 33, 22}, {172, 52, 166}, {180, 56, 181}, {66, 54, 65}, {193, 77, 
-         190}, {74, 62, 73}, {85, 74, 73}, {177, 56, 180}, {65, 53, 64}, {64, 
-         52, 63}, {169, 46, 175}, {65, 77, 66}, {207, 97, 217}, {199, 87, 
-         195}, {164, 42, 161}, {86, 74, 85}, {54, 66, 55}, {77, 65, 76}, {75, 
-         87, 76}, {189, 77, 193}, {97, 86, 85}, {76, 64, 75}, {75, 63, 74}, {
-         179, 62, 171}, {87, 75, 86}}], 
-        PolygonBox[{{168, 35, 46, 169}, {173, 63, 52, 172}, {163, 42, 43, 
-         160}, {196, 86, 97, 207}, {191, 76, 87, 198}, {158, 32, 21, 156}, {
-         176, 46, 45, 174}, {174, 45, 56, 177}, {181, 56, 55, 178}, {155, 21, 
-         22, 154}, {178, 55, 66, 182}, {162, 24, 35, 157}, {185, 66, 77, 
-         189}, {160, 43, 32, 159}, {154, 22, 11, 151}, {188, 73, 62, 179}, {
-         167, 53, 42, 164}, {170, 62, 63, 173}, {190, 77, 76, 191}, {165, 52, 
-         53, 167}, {195, 87, 86, 196}}]}]}, 
-     {RGBColor[0.3879992474144648, 0.6740451237180687, 0.6038862472923278], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{121, 110, 109}, {187, 60, 186}, {78, 90, 79}, {191, 88, 
-         190}, {70, 58, 69}, {68, 80, 69}, {67, 79, 68}, {79, 67, 78}, {196, 
-         98, 195}, {47, 59, 48}, {80, 68, 79}, {79, 91, 80}, {69, 57, 68}, {
-         69, 81, 70}, {58, 70, 59}, {90, 78, 89}, {209, 101, 213}, {91, 79, 
-         90}, {178, 67, 181}, {200, 81, 201}, {174, 57, 176}, {89, 101, 90}, {
-         98, 110, 99}, {221, 111, 222}, {207, 98, 196}, {99, 111, 100}, {100, 
-         88, 99}, {59, 47, 58}, {88, 100, 89}, {48, 36, 47}, {222, 111, 
-         218}, {198, 88, 191}, {189, 78, 185}, {202, 91, 203}, {229, 121, 
-         239}, {177, 57, 174}, {60, 48, 59}, {213, 101, 210}, {157, 36, 
-         162}, {182, 67, 178}, {110, 98, 109}, {111, 99, 110}, {101, 89, 
-         100}, {81, 69, 80}, {57, 69, 58}, {203, 91, 208}, {194, 81, 200}, {
-         169, 47, 168}, {184, 70, 192}}], 
-        PolygonBox[{{208, 91, 90, 204}, {168, 47, 36, 157}, {175, 58, 47, 
-         169}, {204, 90, 101, 209}, {197, 80, 91, 202}, {201, 81, 80, 197}, {
-         190, 88, 89, 193}, {180, 68, 57, 177}, {176, 57, 58, 175}, {195, 98, 
-         99, 199}, {181, 67, 68, 180}, {199, 99, 88, 198}, {185, 78, 67, 
-         182}, {211, 100, 111, 221}, {217, 109, 98, 207}, {183, 59, 70, 
-         184}, {186, 60, 59, 183}, {210, 101, 100, 211}, {193, 89, 78, 189}, {
-         219, 110, 121, 229}, {218, 111, 110, 219}, {192, 70, 81, 194}}]}]}, 
-     {RGBColor[0.5906552555423986, 0.7412294366149587, 0.37339421267803913`], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{231, 125, 235}, {82, 94, 83}, {197, 92, 201}, {71, 83, 
-         72}, {94, 82, 93}, {84, 72, 83}, {95, 83, 94}, {113, 125, 114}, {115,
-          103, 114}, {122, 134, 123}, {114, 102, 113}, {102, 114, 103}, {112, 
-         124, 113}, {83, 95, 84}, {83, 71, 82}, {235, 125, 232}, {125, 113, 
-         124}, {134, 122, 133}, {135, 123, 134}, {93, 105, 94}, {124, 112, 
-         123}, {183, 71, 186}, {204, 102, 208}, {92, 104, 93}, {223, 105, 
-         224}, {123, 135, 124}, {219, 122, 218}, {226, 115, 230}, {209, 102, 
-         204}, {221, 112, 211}, {214, 95, 216}, {194, 82, 192}, {184, 71, 
-         183}, {229, 122, 219}, {211, 112, 210}, {215, 105, 223}, {103, 115, 
-         104}, {202, 92, 197}, {104, 92, 103}, {206, 95, 214}, {105, 93, 
-         104}, {225, 115, 226}}], 
-        PolygonBox[{{212, 94, 105, 215}, {227, 114, 125, 231}, {210, 112, 113,
-          213}, {224, 105, 104, 220}, {216, 95, 94, 212}, {233, 124, 135, 
-         241}, {208, 102, 103, 203}, {148, 84, 95, 206}, {203, 103, 92, 
-         202}, {232, 125, 124, 233}, {222, 123, 112, 221}, {192, 82, 71, 
-         184}, {186, 71, 72, 187}, {200, 93, 82, 194}, {230, 115, 114, 227}, {
-         239, 133, 122, 229}, {220, 104, 115, 225}, {201, 92, 93, 200}, {218, 
-         122, 123, 222}, {213, 113, 102, 209}}]}]}, 
-     {RGBColor[0.8112751605280359, 0.7089372287092187, 0.25494381105501795`], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{236, 119, 238}, {241, 136, 233}, {225, 116, 220}, {139, 
-         127, 138}, {106, 118, 107}, {119, 107, 118}, {233, 136, 232}, {126, 
-         138, 127}, {237, 129, 242}, {116, 128, 117}, {108, 96, 107}, {227, 
-         126, 230}, {206, 96, 148}, {117, 129, 118}, {228, 119, 236}, {107, 
-         119, 108}, {231, 126, 227}, {129, 117, 128}, {212, 106, 216}, {220, 
-         116, 224}, {215, 106, 212}, {118, 106, 117}, {128, 116, 127}, {127, 
-         139, 128}, {242, 129, 243}, {138, 126, 137}}], 
-        PolygonBox[{{205, 108, 119, 228}, {235, 137, 126, 231}, {230, 126, 
-         127, 226}, {243, 129, 128, 240}, {232, 136, 137, 235}, {234, 118, 
-         129, 237}, {216, 106, 107, 214}, {226, 127, 116, 225}, {240, 128, 
-         139, 244}, {238, 119, 118, 234}, {214, 107, 96, 206}, {224, 116, 117,
-          223}, {223, 117, 106, 215}}]}]}, 
-     {RGBColor[
-      0.9022377316168155, 0.49707694964323823`, 0.20022025497702464`], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{130, 142, 131}, {132, 120, 131}, {234, 130, 238}, {248, 
-         132, 247}, {228, 120, 205}, {240, 140, 243}, {142, 130, 141}, {244, 
-         140, 240}, {237, 130, 234}}], 
-        PolygonBox[{{238, 130, 131, 236}, {236, 131, 120, 228}, {242, 141, 
-         130, 237}, {247, 132, 131, 245}, {245, 131, 142, 246}, {243, 140, 
-         141, 242}}]}]}, 
-     {RGBColor[0.857359, 0.131106, 0.132128], EdgeForm[None], 
-      GraphicsGroupBox[{PolygonBox[{{245, 143, 247}, {246, 143, 245}}], 
-        PolygonBox[{{247, 143, 144, 248}}]}]}}, {{}, 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{246, 245, 247, 248}]},
-       "80"],
-      Annotation[#, 80, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{205, 228, 236, 238, 234, 237, 242, 243, 240, 244}]},
-       "70"],
-      Annotation[#, 70, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{148, 206, 214, 216, 212, 215, 223, 224, 220, 225, 226, 230, 
-         227, 231, 235, 232, 233, 241}]},
-       "60"],
-      Annotation[#, 60, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{187, 186, 183, 184, 192, 194, 200, 201, 197, 202, 203, 208, 
-         204, 209, 213, 210, 211, 221, 222, 218, 219, 229, 239}]},
-       "50"],
-      Annotation[#, 50, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{162, 157, 168, 169, 175, 176, 174, 177, 180, 181, 178, 182, 
-         185, 189, 193, 190, 191, 198, 199, 195, 196, 207, 217}]},
-       "40"],
-      Annotation[#, 40, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{151, 154, 155, 153, 156, 158, 159, 160, 163, 161, 164, 167, 
-         165, 166, 172, 173, 170, 171, 179, 188}]},
-       "30"],
-      Annotation[#, 30, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{150, 149, 146, 147, 145, 152}]},
-       "20"],
-      Annotation[#, 20, "Tooltip"]& ], {}, {}}}],
-  AspectRatio->1,
-  AxesOrigin->{Automatic, Automatic},
-  DisplayFunction->Identity,
-  Frame->True,
-  FrameLabel->{None, None},
-  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{None, None},
-  GridLinesStyle->Directive[
-    GrayLevel[0.5, 0.4]],
-  Method->{
-   "DefaultBoundaryStyle" -> Automatic, 
-    "DefaultGraphicsInteraction" -> {
-     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-      "Effects" -> {
-       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
-        "Droplines" -> {
-         "freeformCursorMode" -> True, 
-          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "GridLinesInFront" -> 
-    True},
-  PlotRange->{{0., 55.}, {-60., -5.}},
-  PlotRangeClipping->True,
-  PlotRangePadding->{{
-     Scaled[0.02], 
-     Scaled[0.02]}, {
-     Scaled[0.02], 
-     Scaled[0.02]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+     "], {{{
+        EdgeForm[], 
+        RGBColor[0.47141199999999994`, 0.108766, 0.527016], 
+        GraphicsGroupBox[{
+          PolygonBox[{{150, 3, 149}, {147, 2, 145}, {149, 3, 146}}], 
+          PolygonBox[{{145, 2, 1, 152}, {146, 3, 2, 147}}]}]}, {
+        EdgeForm[], 
+        RGBColor[0.2778195908356527, 0.1769765979972755, 0.7221449555882677], 
+        
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{172, 51, 173}, {28, 16, 27}, {147, 14, 146}, {27, 39, 
+           28}, {6, 18, 7}, {164, 41, 167}, {152, 13, 145}, {37, 26, 25}, {25,
+            14, 13}, {173, 51, 170}, {5, 17, 6}, {7, 19, 8}, {16, 4, 15}, {18,
+            30, 19}, {14, 26, 15}, {26, 38, 27}, {17, 5, 16}, {18, 6, 17}, {
+           19, 31, 20}, {20, 8, 19}, {27, 15, 26}, {19, 7, 18}, {17, 29, 
+           18}, {8, 20, 9}, {159, 31, 160}, {154, 10, 155}, {39, 51, 40}, {29,
+            17, 28}, {30, 18, 29}, {39, 27, 38}, {40, 28, 39}, {160, 31, 
+           163}, {61, 50, 49}, {41, 29, 40}, {50, 38, 49}, {51, 39, 50}, {31, 
+           19, 30}, {49, 38, 37}, {38, 26, 37}, {15, 27, 16}, {151, 10, 
+           154}, {4, 16, 5}, {26, 14, 25}, {167, 41, 165}, {156, 20, 158}, {
+           28, 40, 29}, {38, 50, 39}, {16, 28, 17}, {179, 61, 188}, {29, 41, 
+           30}}], 
+          
+          PolygonBox[{{153, 9, 20, 156}, {161, 30, 41, 164}, {171, 50, 61, 
+           179}, {158, 20, 31, 159}, {166, 40, 51, 172}, {146, 14, 15, 149}, {
+           145, 13, 14, 147}, {155, 10, 9, 153}, {170, 51, 50, 171}, {165, 41,
+            40, 166}, {163, 31, 30, 161}, {149, 15, 4, 150}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.26554567186332884`, 0.4833846139389542, 0.8028834201021948], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{198, 87, 199}, {43, 55, 44}, {23, 11, 22}, {171, 62, 
+           170}, {32, 44, 33}, {161, 42, 163}, {44, 32, 43}, {24, 12, 23}, {
+           22, 34, 23}, {63, 75, 64}, {64, 76, 65}, {42, 54, 43}, {52, 64, 
+           53}, {166, 52, 165}, {23, 35, 24}, {44, 56, 45}, {34, 46, 35}, {33,
+            45, 34}, {35, 23, 34}, {54, 42, 53}, {53, 65, 54}, {156, 21, 
+           153}, {74, 86, 75}, {157, 35, 168}, {175, 46, 176}, {153, 21, 
+           155}, {55, 43, 54}, {56, 44, 55}, {34, 22, 33}, {33, 21, 32}, {11, 
+           23, 12}, {45, 33, 44}, {62, 74, 63}, {159, 32, 158}, {46, 34, 
+           45}, {182, 66, 185}, {21, 33, 22}, {172, 52, 166}, {180, 56, 
+           181}, {66, 54, 65}, {193, 77, 190}, {74, 62, 73}, {85, 74, 73}, {
+           177, 56, 180}, {65, 53, 64}, {64, 52, 63}, {169, 46, 175}, {65, 77,
+            66}, {207, 97, 217}, {199, 87, 195}, {164, 42, 161}, {86, 74, 
+           85}, {54, 66, 55}, {77, 65, 76}, {75, 87, 76}, {189, 77, 193}, {97,
+            86, 85}, {76, 64, 75}, {75, 63, 74}, {179, 62, 171}, {87, 75, 
+           86}}], 
+          
+          PolygonBox[{{168, 35, 46, 169}, {173, 63, 52, 172}, {163, 42, 43, 
+           160}, {196, 86, 97, 207}, {191, 76, 87, 198}, {158, 32, 21, 156}, {
+           176, 46, 45, 174}, {174, 45, 56, 177}, {181, 56, 55, 178}, {155, 
+           21, 22, 154}, {178, 55, 66, 182}, {162, 24, 35, 157}, {185, 66, 77,
+            189}, {160, 43, 32, 159}, {154, 22, 11, 151}, {188, 73, 62, 
+           179}, {167, 53, 42, 164}, {170, 62, 63, 173}, {190, 77, 76, 191}, {
+           165, 52, 53, 167}, {195, 87, 86, 196}}]}]}, {
+        EdgeForm[], 
+        RGBColor[0.3879992474144648, 0.6740451237180687, 0.6038862472923278], 
+        
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{121, 110, 109}, {187, 60, 186}, {78, 90, 79}, {191, 88,
+            190}, {70, 58, 69}, {68, 80, 69}, {67, 79, 68}, {79, 67, 78}, {
+           196, 98, 195}, {47, 59, 48}, {80, 68, 79}, {79, 91, 80}, {69, 57, 
+           68}, {69, 81, 70}, {58, 70, 59}, {90, 78, 89}, {209, 101, 213}, {
+           91, 79, 90}, {178, 67, 181}, {200, 81, 201}, {174, 57, 176}, {89, 
+           101, 90}, {98, 110, 99}, {221, 111, 222}, {207, 98, 196}, {99, 111,
+            100}, {100, 88, 99}, {59, 47, 58}, {88, 100, 89}, {48, 36, 47}, {
+           222, 111, 218}, {198, 88, 191}, {189, 78, 185}, {202, 91, 203}, {
+           229, 121, 239}, {177, 57, 174}, {60, 48, 59}, {213, 101, 210}, {
+           157, 36, 162}, {182, 67, 178}, {110, 98, 109}, {111, 99, 110}, {
+           101, 89, 100}, {81, 69, 80}, {57, 69, 58}, {203, 91, 208}, {194, 
+           81, 200}, {169, 47, 168}, {184, 70, 192}}], 
+          
+          PolygonBox[{{208, 91, 90, 204}, {168, 47, 36, 157}, {175, 58, 47, 
+           169}, {204, 90, 101, 209}, {197, 80, 91, 202}, {201, 81, 80, 
+           197}, {190, 88, 89, 193}, {180, 68, 57, 177}, {176, 57, 58, 175}, {
+           195, 98, 99, 199}, {181, 67, 68, 180}, {199, 99, 88, 198}, {185, 
+           78, 67, 182}, {211, 100, 111, 221}, {217, 109, 98, 207}, {183, 59, 
+           70, 184}, {186, 60, 59, 183}, {210, 101, 100, 211}, {193, 89, 78, 
+           189}, {219, 110, 121, 229}, {218, 111, 110, 219}, {192, 70, 81, 
+           194}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.5906552555423986, 0.7412294366149587, 0.37339421267803913`], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{231, 125, 235}, {82, 94, 83}, {197, 92, 201}, {71, 83, 
+           72}, {94, 82, 93}, {84, 72, 83}, {95, 83, 94}, {113, 125, 114}, {
+           115, 103, 114}, {122, 134, 123}, {114, 102, 113}, {102, 114, 
+           103}, {112, 124, 113}, {83, 95, 84}, {83, 71, 82}, {235, 125, 
+           232}, {125, 113, 124}, {134, 122, 133}, {135, 123, 134}, {93, 105, 
+           94}, {124, 112, 123}, {183, 71, 186}, {204, 102, 208}, {92, 104, 
+           93}, {223, 105, 224}, {123, 135, 124}, {219, 122, 218}, {226, 115, 
+           230}, {209, 102, 204}, {221, 112, 211}, {214, 95, 216}, {194, 82, 
+           192}, {184, 71, 183}, {229, 122, 219}, {211, 112, 210}, {215, 105, 
+           223}, {103, 115, 104}, {202, 92, 197}, {104, 92, 103}, {206, 95, 
+           214}, {105, 93, 104}, {225, 115, 226}}], 
+          
+          PolygonBox[{{212, 94, 105, 215}, {227, 114, 125, 231}, {210, 112, 
+           113, 213}, {224, 105, 104, 220}, {216, 95, 94, 212}, {233, 124, 
+           135, 241}, {208, 102, 103, 203}, {148, 84, 95, 206}, {203, 103, 92,
+            202}, {232, 125, 124, 233}, {222, 123, 112, 221}, {192, 82, 71, 
+           184}, {186, 71, 72, 187}, {200, 93, 82, 194}, {230, 115, 114, 
+           227}, {239, 133, 122, 229}, {220, 104, 115, 225}, {201, 92, 93, 
+           200}, {218, 122, 123, 222}, {213, 113, 102, 209}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.8112751605280359, 0.7089372287092187, 0.25494381105501795`], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{236, 119, 238}, {241, 136, 233}, {225, 116, 220}, {139,
+            127, 138}, {106, 118, 107}, {119, 107, 118}, {233, 136, 232}, {
+           126, 138, 127}, {237, 129, 242}, {116, 128, 117}, {108, 96, 107}, {
+           227, 126, 230}, {206, 96, 148}, {117, 129, 118}, {228, 119, 236}, {
+           107, 119, 108}, {231, 126, 227}, {129, 117, 128}, {212, 106, 
+           216}, {220, 116, 224}, {215, 106, 212}, {118, 106, 117}, {128, 116,
+            127}, {127, 139, 128}, {242, 129, 243}, {138, 126, 137}}], 
+          
+          PolygonBox[{{205, 108, 119, 228}, {235, 137, 126, 231}, {230, 126, 
+           127, 226}, {243, 129, 128, 240}, {232, 136, 137, 235}, {234, 118, 
+           129, 237}, {216, 106, 107, 214}, {226, 127, 116, 225}, {240, 128, 
+           139, 244}, {238, 119, 118, 234}, {214, 107, 96, 206}, {224, 116, 
+           117, 223}, {223, 117, 106, 215}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.9022377316168155, 0.49707694964323823`, 0.20022025497702464`], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{130, 142, 131}, {132, 120, 131}, {234, 130, 238}, {248,
+            132, 247}, {228, 120, 205}, {240, 140, 243}, {142, 130, 141}, {
+           244, 140, 240}, {237, 130, 234}}], 
+          
+          PolygonBox[{{238, 130, 131, 236}, {236, 131, 120, 228}, {242, 141, 
+           130, 237}, {247, 132, 131, 245}, {245, 131, 142, 246}, {243, 140, 
+           141, 242}}]}]}, {
+        EdgeForm[], 
+        RGBColor[0.857359, 0.131106, 0.132128], 
+        GraphicsGroupBox[{
+          PolygonBox[{{245, 143, 247}, {246, 143, 245}}], 
+          PolygonBox[{{247, 143, 144, 248}}]}]}}, {{}, 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          LineBox[{246, 245, 247, 248}]}, "80"], 
+        Annotation[#, 80, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          LineBox[{205, 228, 236, 238, 234, 237, 242, 243, 240, 244}]}, "70"],
+         Annotation[#, 70, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{148, 206, 214, 216, 212, 215, 223, 224, 220, 225, 226, 230,
+            227, 231, 235, 232, 233, 241}]}, "60"], 
+        Annotation[#, 60, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{187, 186, 183, 184, 192, 194, 200, 201, 197, 202, 203, 208,
+            204, 209, 213, 210, 211, 221, 222, 218, 219, 229, 239}]}, "50"], 
+        Annotation[#, 50, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{162, 157, 168, 169, 175, 176, 174, 177, 180, 181, 178, 182,
+            185, 189, 193, 190, 191, 198, 199, 195, 196, 207, 217}]}, "40"], 
+        Annotation[#, 40, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{151, 154, 155, 153, 156, 158, 159, 160, 163, 161, 164, 167,
+            165, 166, 172, 173, 170, 171, 179, 188}]}, "30"], 
+        Annotation[#, 30, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          LineBox[{150, 149, 146, 147, 145, 152}]}, "20"], 
+        Annotation[#, 20, "Tooltip"]& ], {}, {}}}], {
+    DisplayFunction -> Identity, DisplayFunction -> Identity, AspectRatio -> 
+     1, AxesOrigin -> {Automatic, Automatic}, DisplayFunction :> Identity, 
+     Frame -> True, FrameLabel -> {{
+        FormBox["\"Q14901\"", TraditionalForm], None}, {
+        FormBox["\"Q14891\"", TraditionalForm], None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], ImageSize -> 600, LabelStyle -> 20, 
+     Method -> {
+      "DefaultBoundaryStyle" -> Automatic, 
+       "DefaultGraphicsInteraction" -> {
+        "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+         "Effects" -> {
+          "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+           "Droplines" -> {
+            "freeformCursorMode" -> True, 
+             "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+       "GridLinesInFront" -> True}, PlotLabel -> 
+     FormBox["\"\\!\\(\\*SubscriptBox[\\(\[Beta]\\), \\(x\\)]\\)\"", 
+       TraditionalForm], PlotRange -> {{0., 55.}, {-60., -5.}}, 
+     PlotRangeClipping -> True, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.02], 
+        Scaled[0.02]}}, Ticks -> {Automatic, Automatic}}], 
+   FormBox[
+    FormBox[
+     TemplateBox[{
+       FormBox[
+        StyleBox[
+         StyleBox[
+          PaneBox[
+           GraphicsBox[{
+             
+             RasterBox[{{{0.471412, 0.108766, 0.527016}}, {{
+              0.2778195908356527, 0.17697659799727547`, 
+              0.7221449555882676}}, {{0.26554567186332884`, 
+              0.48338461393895416`, 0.8028834201021948}}, {{
+              0.3879992474144648, 0.6740451237180687, 0.6038862472923278}}, {{
+              0.5906552555423986, 0.7412294366149587, 
+              0.37339421267803913`}}, {{0.8112751605280357, 
+              0.7089372287092187, 0.25494381105501807`}}, {{
+              0.9022377316168155, 0.49707694964323823`, 
+              0.20022025497702464`}}, {{0.857359, 0.131106, 0.132128}}}, {{
+                Rational[-15, 2], -300}, {
+                Rational[15, 2], 300}}], {Antialiasing -> False, 
+              AbsoluteThickness[0.1], 
+              Directive[
+               Opacity[0.3], 
+               GrayLevel[0]], 
+              LineBox[
+               NCache[{{
+                  Rational[15, 2], -300}, {
+                  Rational[-15, 2], -300}, {
+                  Rational[-15, 2], 300}, {
+                  Rational[15, 2], 300}, {
+                  Rational[15, 2], -300}}, {{
+                 7.5, -300}, {-7.5, -300}, {-7.5, 300}, {7.5, 300}, {
+                 7.5, -300}}]]}, {
+              CapForm[None], {{
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -224.99999999999997`}, {
+                    Rational[
+                    15, 2], -224.99999999999997`}}, {{-7.5, \
+-224.99999999999997`}, {7.5, -224.99999999999997`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -150.}, {
+                    Rational[15, 2], -150.}}, {{-7.5, -150.}, {
+                  7.5, -150.}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -75.}, {
+                    Rational[15, 2], -75.}}, {{-7.5, -75.}, {7.5, -75.}}]]}, {
+               
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 0.}, {
+                    Rational[15, 2], 0.}}, {{-7.5, 0.}, {7.5, 0.}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 75.00000000000006}, {
+                    Rational[15, 2], 75.00000000000006}}, {{-7.5, 
+                  75.00000000000006}, {7.5, 75.00000000000006}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 150.00000000000006`}, {
+                    Rational[15, 2], 150.00000000000006`}}, {{-7.5, 
+                  150.00000000000006`}, {7.5, 150.00000000000006`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 224.99999999999994`}, {
+                    Rational[15, 2], 224.99999999999994`}}, {{-7.5, 
+                  224.99999999999994`}, {7.5, 224.99999999999994`}}]]}}}, 
+             StyleBox[{Antialiasing -> False, 
+               StyleBox[
+                StyleBox[{{
+                   StyleBox[
+                    LineBox[{{{7.500000000000001, -225.}, 
+                    Offset[{4., 0}, {7.500000000000001, -225.}]}, {{
+                    7.500000000000001, -75.00000000000003}, 
+                    
+                    Offset[{4., 0}, {
+                    7.500000000000001, -75.00000000000003}]}, {{
+                    7.500000000000001, 75.00000000000009}, 
+                    
+                    Offset[{4., 0}, {7.500000000000001, 
+                    75.00000000000009}]}, {{7.500000000000001, 
+                    225.00000000000003`}, 
+                    
+                    Offset[{4., 0}, {7.500000000000001, 
+                    225.00000000000003`}]}}], {
+                    Directive[
+                    AbsoluteThickness[0.5], 
+                    GrayLevel[0.4]]}, StripOnInput -> False]}, 
+                  StyleBox[
+                   StyleBox[{{
+                    StyleBox[{
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{7., 0.}, {7.500000000000001, -225.}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["40", TraditionalForm], 
+                    Offset[{7., 0.}, {7.500000000000001, -75.00000000000003}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["60", TraditionalForm], 
+                    Offset[{7., 0.}, {7.500000000000001, 75.00000000000009}], 
+                    
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["80", TraditionalForm], 
+                    
+                    Offset[{7., 0.}, {7.500000000000001, 
+                    225.00000000000003`}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, {
+                    Directive[
+                    AbsoluteThickness[0.5], 
+                    GrayLevel[0.4]], {
+                    Directive[
+                    Opacity[1], FontSize -> 20]}}, StripOnInput -> 
+                    False]}, {}}, {{
+                    Directive[
+                    Opacity[1], FontSize -> 20]}}, StripOnInput -> False], {
+                   "GraphicsLabel"}, StripOnInput -> False]}, {
+                 "GraphicsTicks"}, StripOnInput -> False], {{
+                  Directive[
+                   AbsoluteThickness[0.5], 
+                   GrayLevel[0.4]]}}, StripOnInput -> False]}, {
+              "GraphicsAxes"}, StripOnInput -> False]}, PlotRangePadding -> 
+            Scaled[0.02], PlotRange -> All, Frame -> True, 
+            FrameTicks -> {{False, False}, {True, False}}, FrameStyle -> 
+            Opacity[0], FrameTicksStyle -> Opacity[0], 
+            ImageSize -> {Automatic, 600}, BaseStyle -> {}], Alignment -> 
+           Left, AppearanceElements -> None, ImageMargins -> {{5, 5}, {5, 5}},
+            ImageSizeAction -> "ResizeToFit"], LineIndent -> 0, StripOnInput -> 
+          False], {FontSize -> 20, FontFamily -> "Arial"}, Background -> 
+         Automatic, StripOnInput -> False], TraditionalForm]}, "BarLegend", 
+      DisplayFunction -> (#& ), 
+      InterpretationFunction :> (RowBox[{"BarLegend", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{
+                 RowBox[{
+                   InterpretationBox[
+                    RowBox[{
+                    TagBox["ColorDataFunction", "SummaryHead"], "[", 
+                    
+                    DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxOpener"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                    "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Rainbow\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Gradient: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    StyleBox[
+                    GraphicsBox[{
+                    RasterBox[CompressedData["
+1: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
+qMG/ZUbp9w==
+                    "], {{0, 0}, {1, 1}}]}, {
+                    ImageSize -> 65, BaselinePosition -> Bottom, AspectRatio -> 
+                    NCache[
+                    Rational[1, 8], 0.125], PlotRange -> {{0, 1}, {0, 1}}}], 
+                    Selectable -> False, StripOnInput -> False], 
+                    "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxCloser"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                    "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Rainbow\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Gradient: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    StyleBox[
+                    GraphicsBox[{
+                    RasterBox[CompressedData["
+1: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
+qMG/ZUbp9w==
+                    "], {{0, 0}, {1, 1}}]}, {
+                    ImageSize -> 65, BaselinePosition -> Bottom, AspectRatio -> 
+                    NCache[
+                    Rational[1, 8], 0.125], PlotRange -> {{0, 1}, {0, 1}}}], 
+                    Selectable -> False, StripOnInput -> False], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Gradients\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                    ColorDataFunction[
+                    "Rainbow", "Gradients", {0, 1}, Blend["Rainbow", #]& ], 
+                    Selectable -> False, Editable -> False, 
+                    SelectWithContents -> True], "[", "#1", "]"}], "&"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"18.598739587428767`", ",", "84.63544363901526`"}], 
+                 "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{"{", 
+                 RowBox[{"20.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"30.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"40.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"50.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"60.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"70.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"80.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}]}], "}"}], ",", 
+           RowBox[{"LabelStyle", "\[Rule]", "20"}], ",", 
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}], ",", 
+           RowBox[{"LegendMarkerSize", "\[Rule]", "600"}], ",", 
+           RowBox[{"ScalingFunctions", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{"Identity", ",", "Identity"}], "}"}]}], ",", 
+           RowBox[{"Charting`AxisLabel", "\[Rule]", "None"}], ",", 
+           RowBox[{"Charting`TickSide", "\[Rule]", "Right"}], ",", 
+           RowBox[{"ColorFunctionScaling", "\[Rule]", "True"}]}], "]"}]& )], 
+     TraditionalForm], TraditionalForm]},
+  "Legended",
+  DisplayFunction->(GridBox[{{
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"], 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, GridBoxItemSize -> Automatic, 
+    BaselinePosition -> {1, 1}]& ),
+  Editable->True,
+  InterpretationFunction->(RowBox[{"Legended", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"Placed", "[", 
+         RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
  CellChangeTimes->{
-  3.948486927087493*^9, {3.948487010076458*^9, 3.948487055420662*^9}},
+  3.948486927087493*^9, {3.948487010076458*^9, 3.948487055420662*^9}, 
+   3.948488512645043*^9, {3.9484885728230343`*^9, 3.948488612340003*^9}},
  CellLabel->
-  "Out[2659]=",ExpressionUUID->"27c6212e-9fa6-4fa0-9673-e1bc2d2ebcb4"],
+  "Out[2669]=",ExpressionUUID->"402b7040-5e60-4bc6-8932-8ddf29df9936"],
 
 Cell[BoxData[
- GraphicsBox[GraphicsComplexBox[CompressedData["
+ TemplateBox[{
+   GraphicsBox[
+    GraphicsComplexBox[CompressedData["
 1:eJxllQlMFFccxqFaRK22RKwIbQUZVyzucA2ww+IwA+PALIqGVhMtLUZQtIJH
 BbHVoLVVIxgl9ShatBUliNGFqqgcKU+LGvGqtGqIsdICUg0GPPDAknYM+2Yz
 nySbl19+7818759dPr+5S5LnveHi4vJC+7xajX9JxIBrE43sooJXwMvgJfAC
@@ -1250,211 +1812,818 @@ hrVdTC6NIc0L3mnwuauK/atM9g+e/yytmeZx9k9O9cxZue2R5JCpzORaRe/r
 7CMf4dvA7s5gnQ+rBVP/7GOIvDmUuTb29T553rP8efaMRLLm/EHfURXQh6/u
 3/ygYbpJIU3M+prUv2zG/JrPr8w6Vn7B+byGnBP3i7qtOhccDDt6ZUA4Oem/
 PFpdZhNvb7n0kDk7Qfft2Wp05XQzIWsWBXTLzj79H3Qh7iQ=
-   "], {{
-     {RGBColor[0.471412, 0.108766, 0.527016], EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{2, 14, 3}, {19, 7, 18}, {18, 6, 17}, {6, 18, 7}, {25, 14,
-          13}, {26, 38, 27}, {14, 26, 15}, {28, 16, 27}, {192, 86, 193}, {166,
-          52, 167}, {75, 63, 74}, {85, 74, 73}, {159, 41, 161}, {29, 41, 
-         30}, {17, 5, 16}, {27, 15, 26}, {14, 2, 13}, {15, 3, 14}, {3, 15, 
-         4}, {13, 2, 1}, {26, 14, 25}, {28, 40, 29}, {38, 50, 39}, {37, 26, 
-         25}, {7, 19, 8}, {4, 16, 5}, {5, 17, 6}, {16, 28, 17}, {18, 30, 
-         19}, {17, 29, 18}, {16, 4, 15}, {15, 27, 16}, {62, 50, 61}, {63, 51, 
-         62}, {174, 75, 182}, {30, 18, 29}, {39, 27, 38}, {50, 62, 51}, {38, 
-         26, 37}, {49, 38, 37}, {40, 28, 39}, {41, 29, 40}, {51, 63, 52}, {62,
-          74, 63}, {61, 50, 49}, {50, 38, 49}, {51, 39, 50}, {52, 40, 51}, {
-         74, 62, 73}, {40, 52, 41}, {39, 51, 40}, {74, 86, 75}, {182, 75, 
-         183}, {86, 74, 85}, {153, 30, 156}, {29, 17, 28}, {204, 97, 214}, {
-         97, 86, 85}, {27, 39, 28}, {73, 62, 61}, {145, 8, 147}, {148, 19, 
-         151}}], PolygonBox[{{173, 63, 75, 174}, {167, 52, 63, 173}, {151, 19,
-          30, 153}, {161, 41, 52, 166}, {147, 8, 19, 148}, {193, 86, 97, 
-         204}, {156, 30, 41, 159}, {183, 75, 86, 192}}]}]}, 
-     {RGBColor[0.24596049318138838`, 0.3228129564304002, 0.8028085327934839], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{76, 88, 77}, {192, 87, 183}, {21, 33, 22}, {54, 66, 
-         55}, {22, 10, 21}, {44, 32, 43}, {21, 9, 20}, {195, 89, 198}, {173, 
-         64, 167}, {150, 22, 154}, {65, 77, 66}, {146, 11, 149}, {66, 54, 
-         65}, {54, 42, 53}, {205, 100, 208}, {204, 98, 193}, {43, 31, 42}, {
-         64, 76, 65}, {174, 64, 173}, {33, 21, 32}, {55, 43, 54}, {42, 54, 
-         43}, {32, 44, 33}, {31, 43, 32}, {175, 66, 180}, {43, 55, 44}, {53, 
-         65, 54}, {20, 32, 21}, {216, 111, 217}, {32, 20, 31}, {148, 20, 
-         147}, {9, 21, 10}, {65, 53, 64}, {155, 33, 158}, {10, 22, 11}, {166, 
-         53, 161}, {99, 111, 100}, {77, 65, 76}, {122, 110, 121}, {100, 88, 
-         99}, {169, 55, 171}, {99, 87, 98}, {121, 110, 109}, {98, 110, 99}, {
-         159, 42, 156}, {110, 98, 109}, {160, 44, 165}, {87, 99, 88}, {88, 76,
-          87}, {133, 122, 121}, {110, 122, 111}, {88, 100, 89}, {187, 89, 
-         195}, {229, 134, 240}, {89, 77, 88}, {134, 122, 133}, {111, 99, 
-         110}, {153, 31, 151}}], 
-        PolygonBox[{{147, 20, 9, 145}, {165, 44, 55, 169}, {198, 89, 100, 
-         205}, {156, 42, 31, 153}, {154, 22, 33, 155}, {183, 87, 76, 182}, {
-         185, 77, 89, 187}, {193, 98, 87, 192}, {171, 55, 66, 175}, {208, 100,
-          111, 216}, {161, 53, 42, 159}, {149, 11, 22, 150}, {167, 64, 53, 
-         166}, {182, 76, 64, 174}, {151, 31, 20, 148}, {180, 66, 77, 185}, {
-         158, 33, 44, 160}, {217, 111, 122, 228}, {228, 122, 134, 229}, {214, 
-         109, 98, 204}}]}]}, 
-     {RGBColor[0.28876077574113673`, 0.5429301493914509, 0.7667689839330835], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{207, 102, 212}, {24, 12, 23}, {35, 23, 34}, {68, 80, 
-         69}, {46, 34, 45}, {150, 23, 149}, {123, 135, 124}, {155, 34, 154}, {
-         102, 90, 101}, {228, 123, 217}, {187, 78, 185}, {57, 45, 56}, {67, 
-         79, 68}, {80, 68, 79}, {79, 67, 78}, {79, 91, 80}, {91, 79, 90}, {69,
-          57, 68}, {90, 102, 91}, {68, 56, 67}, {56, 68, 57}, {176, 69, 
-         178}, {136, 124, 135}, {233, 136, 242}, {152, 35, 162}, {218, 113, 
-         221}, {216, 112, 208}, {197, 91, 202}, {101, 113, 102}, {205, 101, 
-         198}, {229, 123, 228}, {23, 35, 24}, {112, 124, 113}, {113, 101, 
-         112}, {163, 46, 168}, {124, 112, 123}, {160, 45, 158}, {175, 67, 
-         171}, {186, 80, 194}, {45, 57, 46}, {169, 56, 165}, {34, 46, 35}, {
-         78, 90, 79}, {185, 78, 180}, {178, 69, 184}}], 
-        PolygonBox[{{165, 56, 45, 160}, {158, 45, 34, 155}, {154, 34, 23, 
-         150}, {184, 69, 80, 186}, {171, 67, 56, 169}, {162, 35, 46, 163}, {
-         170, 57, 69, 176}, {240, 135, 123, 229}, {212, 102, 113, 218}, {230, 
-         124, 136, 233}, {217, 123, 112, 216}, {221, 113, 124, 230}, {195, 90,
-          78, 187}, {202, 91, 102, 207}, {194, 80, 91, 197}, {168, 46, 57, 
-         170}, {180, 78, 67, 175}, {149, 23, 12, 146}, {208, 112, 101, 205}, {
-         198, 101, 90, 195}, {157, 24, 35, 152}}]}]}, 
-     {RGBColor[0.38965217846570677`, 0.6751434714034258, 0.6013752038131833], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{152, 36, 157}, {188, 82, 189}, {59, 47, 58}, {176, 58, 
-         170}, {58, 70, 59}, {81, 93, 82}, {164, 59, 177}, {189, 82, 196}, {
-         115, 103, 114}, {210, 104, 215}, {126, 114, 125}, {125, 137, 126}, {
-         93, 81, 92}, {163, 47, 162}, {104, 92, 103}, {207, 103, 202}, {233, 
-         125, 230}, {197, 92, 194}, {47, 59, 48}, {103, 115, 104}, {92, 104, 
-         93}, {218, 114, 212}, {232, 126, 239}, {219, 115, 225}, {114, 126, 
-         115}, {170, 58, 168}, {48, 36, 47}, {186, 81, 184}, {230, 125, 
-         221}, {82, 70, 81}, {200, 93, 206}}], 
-        PolygonBox[{{215, 104, 115, 219}, {221, 125, 114, 218}, {196, 82, 93, 
-         200}, {212, 114, 103, 207}, {206, 93, 104, 210}, {179, 70, 82, 
-         188}, {225, 115, 126, 232}, {177, 59, 70, 179}, {184, 81, 70, 178}, {
-         242, 137, 125, 233}, {202, 103, 92, 197}, {194, 92, 81, 186}, {168, 
-         58, 47, 163}, {172, 48, 59, 164}, {162, 47, 36, 152}, {178, 70, 58, 
-         176}, {239, 126, 137, 244}}]}]}, 
-     {RGBColor[0.539077014543069, 0.7336772095068157, 0.4183277198686387], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{116, 128, 117}, {201, 94, 209}, {200, 94, 196}, {139, 
-         127, 138}, {127, 139, 128}, {188, 71, 179}, {219, 116, 215}, {128, 
-         116, 127}, {164, 60, 172}, {232, 127, 225}, {72, 60, 71}, {235, 128, 
-         241}, {179, 71, 177}, {191, 83, 199}, {210, 105, 206}, {223, 117, 
-         231}, {244, 138, 239}, {220, 117, 223}, {71, 83, 72}, {117, 105, 
-         116}}], PolygonBox[{{199, 83, 94, 201}, {215, 116, 105, 210}, {241, 
-         128, 139, 245}, {239, 138, 127, 232}, {189, 83, 71, 188}, {225, 127, 
-         116, 219}, {196, 94, 83, 189}, {206, 105, 94, 200}, {209, 94, 105, 
-         211}, {231, 117, 128, 235}, {181, 72, 83, 191}, {177, 71, 60, 164}, {
-         211, 105, 117, 220}}]}]}, 
-     {RGBColor[0.7161394553212387, 0.7399328072426841, 0.29441219227686377`], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{213, 107, 222}, {245, 140, 241}, {201, 95, 199}, {107, 
-         95, 106}, {235, 129, 231}, {237, 129, 243}, {106, 118, 107}, {220, 
-         106, 211}, {96, 84, 95}, {191, 84, 181}, {95, 107, 96}, {224, 118, 
-         234}, {211, 106, 209}}], 
-        PolygonBox[{{190, 96, 107, 213}, {222, 107, 118, 224}, {241, 140, 129,
-          235}, {223, 118, 106, 220}, {234, 118, 129, 237}, {231, 129, 118, 
-         223}, {209, 106, 95, 201}, {243, 129, 140, 246}, {199, 95, 84, 
-         191}}]}]}, 
-     {RGBColor[0.8618393510753793, 0.6719931011464823, 0.23715253046062262`], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{246, 141, 243}, {213, 108, 190}, {142, 130, 141}, {247, 
-         142, 248}, {224, 119, 222}, {227, 119, 236}, {237, 130, 234}}], 
-        PolygonBox[{{243, 141, 130, 237}, {234, 130, 119, 224}, {203, 108, 
-         119, 227}, {222, 119, 108, 213}, {238, 130, 142, 247}, {236, 119, 
-         130, 238}}]}]}, 
-     {RGBColor[
-      0.9025357137380215, 0.47619681255631585`, 0.19624586374867156`], 
-      EdgeForm[None], 
-      GraphicsGroupBox[{
-        PolygonBox[{{132, 120, 131}, {131, 143, 132}, {238, 131, 236}, {227, 
-         120, 203}, {247, 131, 238}}], 
-        PolygonBox[{{236, 131, 120, 227}, {249, 132, 143, 226}, {248, 143, 
-         131, 247}}]}]}, 
-     {RGBColor[0.857359, 0.131106, 0.132128], EdgeForm[None], 
-      GraphicsGroupBox[PolygonBox[{{226, 144, 249}}]]}}, {{}, 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], LineBox[{249, 226}]},
-       "1600"],
-      Annotation[#, 1600, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{203, 227, 236, 238, 247, 248}]},
-       "1400"],
-      Annotation[#, 1400, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{190, 213, 222, 224, 234, 237, 243, 246}]},
-       "1200"],
-      Annotation[#, 1200, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{181, 191, 199, 201, 209, 211, 220, 223, 231, 235, 241, 245}]},
-       "1000"],
-      Annotation[#, 1000, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{172, 164, 177, 179, 188, 189, 196, 200, 206, 210, 215, 219, 
-         225, 232, 239, 244}]},
-       "800"],
-      Annotation[#, 800, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{157, 152, 162, 163, 168, 170, 176, 178, 184, 186, 194, 197, 
-         202, 207, 212, 218, 221, 230, 233, 242}]},
-       "600"],
-      Annotation[#, 600, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{146, 149, 150, 154, 155, 158, 160, 165, 169, 171, 175, 180, 
-         185, 187, 195, 198, 205, 208, 216, 217, 228, 229, 240}]},
-       "400"],
-      Annotation[#, 400, "Tooltip"]& ], 
-     TagBox[
-      TooltipBox[
-       {GrayLevel[0], Opacity[0.5], CapForm["Butt"], 
-        LineBox[{145, 147, 148, 151, 153, 156, 159, 161, 166, 167, 173, 174, 
-         182, 183, 192, 193, 204, 214}]},
-       "200"],
-      Annotation[#, 200, "Tooltip"]& ], {}, {}}}],
-  AspectRatio->1,
-  AxesOrigin->{Automatic, Automatic},
-  DisplayFunction->Identity,
-  Frame->True,
-  FrameLabel->{None, None},
-  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{None, None},
-  GridLinesStyle->Directive[
-    GrayLevel[0.5, 0.4]],
-  Method->{
-   "DefaultBoundaryStyle" -> Automatic, 
-    "DefaultGraphicsInteraction" -> {
-     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-      "Effects" -> {
-       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
-        "Droplines" -> {
-         "freeformCursorMode" -> True, 
-          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "GridLinesInFront" -> 
-    True},
-  PlotRange->{{0., 55.}, {-60., -5.}},
-  PlotRangeClipping->True,
-  PlotRangePadding->{{
-     Scaled[0.02], 
-     Scaled[0.02]}, {
-     Scaled[0.02], 
-     Scaled[0.02]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+     "], {{{
+        EdgeForm[], 
+        RGBColor[0.471412, 0.108766, 0.527016], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{2, 14, 3}, {19, 7, 18}, {18, 6, 17}, {6, 18, 7}, {25, 
+           14, 13}, {26, 38, 27}, {14, 26, 15}, {28, 16, 27}, {192, 86, 
+           193}, {166, 52, 167}, {75, 63, 74}, {85, 74, 73}, {159, 41, 161}, {
+           29, 41, 30}, {17, 5, 16}, {27, 15, 26}, {14, 2, 13}, {15, 3, 14}, {
+           3, 15, 4}, {13, 2, 1}, {26, 14, 25}, {28, 40, 29}, {38, 50, 39}, {
+           37, 26, 25}, {7, 19, 8}, {4, 16, 5}, {5, 17, 6}, {16, 28, 17}, {18,
+            30, 19}, {17, 29, 18}, {16, 4, 15}, {15, 27, 16}, {62, 50, 61}, {
+           63, 51, 62}, {174, 75, 182}, {30, 18, 29}, {39, 27, 38}, {50, 62, 
+           51}, {38, 26, 37}, {49, 38, 37}, {40, 28, 39}, {41, 29, 40}, {51, 
+           63, 52}, {62, 74, 63}, {61, 50, 49}, {50, 38, 49}, {51, 39, 50}, {
+           52, 40, 51}, {74, 62, 73}, {40, 52, 41}, {39, 51, 40}, {74, 86, 
+           75}, {182, 75, 183}, {86, 74, 85}, {153, 30, 156}, {29, 17, 28}, {
+           204, 97, 214}, {97, 86, 85}, {27, 39, 28}, {73, 62, 61}, {145, 8, 
+           147}, {148, 19, 151}}], 
+          
+          PolygonBox[{{173, 63, 75, 174}, {167, 52, 63, 173}, {151, 19, 30, 
+           153}, {161, 41, 52, 166}, {147, 8, 19, 148}, {193, 86, 97, 204}, {
+           156, 30, 41, 159}, {183, 75, 86, 192}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.24596049318138838`, 0.3228129564304002, 0.8028085327934839], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{76, 88, 77}, {192, 87, 183}, {21, 33, 22}, {54, 66, 
+           55}, {22, 10, 21}, {44, 32, 43}, {21, 9, 20}, {195, 89, 198}, {173,
+            64, 167}, {150, 22, 154}, {65, 77, 66}, {146, 11, 149}, {66, 54, 
+           65}, {54, 42, 53}, {205, 100, 208}, {204, 98, 193}, {43, 31, 42}, {
+           64, 76, 65}, {174, 64, 173}, {33, 21, 32}, {55, 43, 54}, {42, 54, 
+           43}, {32, 44, 33}, {31, 43, 32}, {175, 66, 180}, {43, 55, 44}, {53,
+            65, 54}, {20, 32, 21}, {216, 111, 217}, {32, 20, 31}, {148, 20, 
+           147}, {9, 21, 10}, {65, 53, 64}, {155, 33, 158}, {10, 22, 11}, {
+           166, 53, 161}, {99, 111, 100}, {77, 65, 76}, {122, 110, 121}, {100,
+            88, 99}, {169, 55, 171}, {99, 87, 98}, {121, 110, 109}, {98, 110, 
+           99}, {159, 42, 156}, {110, 98, 109}, {160, 44, 165}, {87, 99, 
+           88}, {88, 76, 87}, {133, 122, 121}, {110, 122, 111}, {88, 100, 
+           89}, {187, 89, 195}, {229, 134, 240}, {89, 77, 88}, {134, 122, 
+           133}, {111, 99, 110}, {153, 31, 151}}], 
+          
+          PolygonBox[{{147, 20, 9, 145}, {165, 44, 55, 169}, {198, 89, 100, 
+           205}, {156, 42, 31, 153}, {154, 22, 33, 155}, {183, 87, 76, 182}, {
+           185, 77, 89, 187}, {193, 98, 87, 192}, {171, 55, 66, 175}, {208, 
+           100, 111, 216}, {161, 53, 42, 159}, {149, 11, 22, 150}, {167, 64, 
+           53, 166}, {182, 76, 64, 174}, {151, 31, 20, 148}, {180, 66, 77, 
+           185}, {158, 33, 44, 160}, {217, 111, 122, 228}, {228, 122, 134, 
+           229}, {214, 109, 98, 204}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.28876077574113673`, 0.5429301493914509, 0.7667689839330835], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{207, 102, 212}, {24, 12, 23}, {35, 23, 34}, {68, 80, 
+           69}, {46, 34, 45}, {150, 23, 149}, {123, 135, 124}, {155, 34, 
+           154}, {102, 90, 101}, {228, 123, 217}, {187, 78, 185}, {57, 45, 
+           56}, {67, 79, 68}, {80, 68, 79}, {79, 67, 78}, {79, 91, 80}, {91, 
+           79, 90}, {69, 57, 68}, {90, 102, 91}, {68, 56, 67}, {56, 68, 57}, {
+           176, 69, 178}, {136, 124, 135}, {233, 136, 242}, {152, 35, 162}, {
+           218, 113, 221}, {216, 112, 208}, {197, 91, 202}, {101, 113, 102}, {
+           205, 101, 198}, {229, 123, 228}, {23, 35, 24}, {112, 124, 113}, {
+           113, 101, 112}, {163, 46, 168}, {124, 112, 123}, {160, 45, 158}, {
+           175, 67, 171}, {186, 80, 194}, {45, 57, 46}, {169, 56, 165}, {34, 
+           46, 35}, {78, 90, 79}, {185, 78, 180}, {178, 69, 184}}], 
+          
+          PolygonBox[{{165, 56, 45, 160}, {158, 45, 34, 155}, {154, 34, 23, 
+           150}, {184, 69, 80, 186}, {171, 67, 56, 169}, {162, 35, 46, 163}, {
+           170, 57, 69, 176}, {240, 135, 123, 229}, {212, 102, 113, 218}, {
+           230, 124, 136, 233}, {217, 123, 112, 216}, {221, 113, 124, 230}, {
+           195, 90, 78, 187}, {202, 91, 102, 207}, {194, 80, 91, 197}, {168, 
+           46, 57, 170}, {180, 78, 67, 175}, {149, 23, 12, 146}, {208, 112, 
+           101, 205}, {198, 101, 90, 195}, {157, 24, 35, 152}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.38965217846570677`, 0.6751434714034258, 0.6013752038131833], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{152, 36, 157}, {188, 82, 189}, {59, 47, 58}, {176, 58, 
+           170}, {58, 70, 59}, {81, 93, 82}, {164, 59, 177}, {189, 82, 196}, {
+           115, 103, 114}, {210, 104, 215}, {126, 114, 125}, {125, 137, 
+           126}, {93, 81, 92}, {163, 47, 162}, {104, 92, 103}, {207, 103, 
+           202}, {233, 125, 230}, {197, 92, 194}, {47, 59, 48}, {103, 115, 
+           104}, {92, 104, 93}, {218, 114, 212}, {232, 126, 239}, {219, 115, 
+           225}, {114, 126, 115}, {170, 58, 168}, {48, 36, 47}, {186, 81, 
+           184}, {230, 125, 221}, {82, 70, 81}, {200, 93, 206}}], 
+          
+          PolygonBox[{{215, 104, 115, 219}, {221, 125, 114, 218}, {196, 82, 
+           93, 200}, {212, 114, 103, 207}, {206, 93, 104, 210}, {179, 70, 82, 
+           188}, {225, 115, 126, 232}, {177, 59, 70, 179}, {184, 81, 70, 
+           178}, {242, 137, 125, 233}, {202, 103, 92, 197}, {194, 92, 81, 
+           186}, {168, 58, 47, 163}, {172, 48, 59, 164}, {162, 47, 36, 152}, {
+           178, 70, 58, 176}, {239, 126, 137, 244}}]}]}, {
+        EdgeForm[], 
+        RGBColor[0.539077014543069, 0.7336772095068157, 0.4183277198686387], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{116, 128, 117}, {201, 94, 209}, {200, 94, 196}, {139, 
+           127, 138}, {127, 139, 128}, {188, 71, 179}, {219, 116, 215}, {128, 
+           116, 127}, {164, 60, 172}, {232, 127, 225}, {72, 60, 71}, {235, 
+           128, 241}, {179, 71, 177}, {191, 83, 199}, {210, 105, 206}, {223, 
+           117, 231}, {244, 138, 239}, {220, 117, 223}, {71, 83, 72}, {117, 
+           105, 116}}], 
+          
+          PolygonBox[{{199, 83, 94, 201}, {215, 116, 105, 210}, {241, 128, 
+           139, 245}, {239, 138, 127, 232}, {189, 83, 71, 188}, {225, 127, 
+           116, 219}, {196, 94, 83, 189}, {206, 105, 94, 200}, {209, 94, 105, 
+           211}, {231, 117, 128, 235}, {181, 72, 83, 191}, {177, 71, 60, 164},
+            {211, 105, 117, 220}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.7161394553212387, 0.7399328072426841, 0.29441219227686377`], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{213, 107, 222}, {245, 140, 241}, {201, 95, 199}, {107, 
+           95, 106}, {235, 129, 231}, {237, 129, 243}, {106, 118, 107}, {220, 
+           106, 211}, {96, 84, 95}, {191, 84, 181}, {95, 107, 96}, {224, 118, 
+           234}, {211, 106, 209}}], 
+          
+          PolygonBox[{{190, 96, 107, 213}, {222, 107, 118, 224}, {241, 140, 
+           129, 235}, {223, 118, 106, 220}, {234, 118, 129, 237}, {231, 129, 
+           118, 223}, {209, 106, 95, 201}, {243, 129, 140, 246}, {199, 95, 84,
+            191}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.8618393510753793, 0.6719931011464823, 0.23715253046062262`], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{246, 141, 243}, {213, 108, 190}, {142, 130, 141}, {247,
+            142, 248}, {224, 119, 222}, {227, 119, 236}, {237, 130, 234}}], 
+          
+          PolygonBox[{{243, 141, 130, 237}, {234, 130, 119, 224}, {203, 108, 
+           119, 227}, {222, 119, 108, 213}, {238, 130, 142, 247}, {236, 119, 
+           130, 238}}]}]}, {
+        EdgeForm[], 
+        RGBColor[
+        0.9025357137380215, 0.47619681255631585`, 0.19624586374867156`], 
+        GraphicsGroupBox[{
+          
+          PolygonBox[{{132, 120, 131}, {131, 143, 132}, {238, 131, 236}, {227,
+            120, 203}, {247, 131, 238}}], 
+          
+          PolygonBox[{{236, 131, 120, 227}, {249, 132, 143, 226}, {248, 143, 
+           131, 247}}]}]}, {
+        EdgeForm[], 
+        RGBColor[0.857359, 0.131106, 0.132128], 
+        GraphicsGroupBox[{
+          PolygonBox[{{226, 144, 249}}]}]}}, {{}, 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          LineBox[{249, 226}]}, "1600"], Annotation[#, 1600, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          LineBox[{203, 227, 236, 238, 247, 248}]}, "1400"], 
+        Annotation[#, 1400, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          LineBox[{190, 213, 222, 224, 234, 237, 243, 246}]}, "1200"], 
+        Annotation[#, 1200, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{181, 191, 199, 201, 209, 211, 220, 223, 231, 235, 241, 
+           245}]}, "1000"], Annotation[#, 1000, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{172, 164, 177, 179, 188, 189, 196, 200, 206, 210, 215, 219,
+            225, 232, 239, 244}]}, "800"], Annotation[#, 800, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{157, 152, 162, 163, 168, 170, 176, 178, 184, 186, 194, 197,
+            202, 207, 212, 218, 221, 230, 233, 242}]}, "600"], 
+        Annotation[#, 600, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{146, 149, 150, 154, 155, 158, 160, 165, 169, 171, 175, 180,
+            185, 187, 195, 198, 205, 208, 216, 217, 228, 229, 240}]}, "400"], 
+        Annotation[#, 400, "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Directive[
+           GrayLevel[0], 
+           Opacity[0.5], 
+           CapForm["Butt"]], 
+          
+          LineBox[{145, 147, 148, 151, 153, 156, 159, 161, 166, 167, 173, 174,
+            182, 183, 192, 193, 204, 214}]}, "200"], 
+        Annotation[#, 200, "Tooltip"]& ], {}, {}}}], {
+    DisplayFunction -> Identity, DisplayFunction -> Identity, AspectRatio -> 
+     1, AxesOrigin -> {Automatic, Automatic}, DisplayFunction :> Identity, 
+     Frame -> True, FrameLabel -> {{
+        FormBox["\"Q14901\"", TraditionalForm], None}, {
+        FormBox["\"Q14891\"", TraditionalForm], None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], ImageSize -> 600, LabelStyle -> 20, 
+     Method -> {
+      "DefaultBoundaryStyle" -> Automatic, 
+       "DefaultGraphicsInteraction" -> {
+        "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+         "Effects" -> {
+          "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+           "Droplines" -> {
+            "freeformCursorMode" -> True, 
+             "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+       "GridLinesInFront" -> True}, PlotLabel -> 
+     FormBox["\"\\!\\(\\*SubscriptBox[\\(\[Beta]\\), \\(y\\)]\\)\"", 
+       TraditionalForm], PlotRange -> {{0., 55.}, {-60., -5.}}, 
+     PlotRangeClipping -> True, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.02], 
+        Scaled[0.02]}}, Ticks -> {Automatic, Automatic}}], 
+   FormBox[
+    FormBox[
+     TemplateBox[{
+       FormBox[
+        StyleBox[
+         StyleBox[
+          PaneBox[
+           GraphicsBox[{
+             
+             RasterBox[{{{0.471412, 0.108766, 0.527016}}, {{
+              0.24596049318138838`, 0.3228129564304002, 
+              0.8028085327934839}}, {{0.28876077574113673`, 
+              0.5429301493914509, 0.7667689839330835}}, {{
+              0.38965217846570677`, 0.6751434714034258, 
+              0.6013752038131833}}, {{0.539077014543069, 0.7336772095068157, 
+              0.4183277198686387}}, {{0.7161394553212389, 0.739932807242684, 
+              0.2944121922768637}}, {{0.8618393510753793, 0.6719931011464823, 
+              0.23715253046062262`}}, {{0.9025357137380215, 
+              0.47619681255631563`, 0.19624586374867153`}}, {{0.857359, 
+              0.131106, 0.132128}}}, {{
+                Rational[-15, 2], -300}, {
+                Rational[15, 2], 300}}], {Antialiasing -> False, 
+              AbsoluteThickness[0.1], 
+              Directive[
+               Opacity[0.3], 
+               GrayLevel[0]], 
+              LineBox[
+               NCache[{{
+                  Rational[15, 2], -300}, {
+                  Rational[-15, 2], -300}, {
+                  Rational[-15, 2], 300}, {
+                  Rational[15, 2], 300}, {
+                  Rational[15, 2], -300}}, {{
+                 7.5, -300}, {-7.5, -300}, {-7.5, 300}, {7.5, 300}, {
+                 7.5, -300}}]]}, {
+              CapForm[None], {{
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -233.33333333333334`}, {
+                    Rational[
+                    15, 2], -233.33333333333334`}}, {{-7.5, \
+-233.33333333333334`}, {7.5, -233.33333333333334`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -166.66666666666669`}, {
+                    Rational[
+                    15, 2], -166.66666666666669`}}, {{-7.5, \
+-166.66666666666669`}, {7.5, -166.66666666666669`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -100.00000000000003`}, {
+                    Rational[
+                    15, 2], -100.00000000000003`}}, {{-7.5, \
+-100.00000000000003`}, {7.5, -100.00000000000003`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], -33.333333333333314`}, {
+                    Rational[
+                    15, 2], -33.333333333333314`}}, {{-7.5, \
+-33.333333333333314`}, {7.5, -33.333333333333314`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 33.333333333333314`}, {
+                    Rational[15, 2], 33.333333333333314`}}, {{-7.5, 
+                  33.333333333333314`}, {7.5, 33.333333333333314`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 99.99999999999994}, {
+                    Rational[15, 2], 99.99999999999994}}, {{-7.5, 
+                  99.99999999999994}, {7.5, 99.99999999999994}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 166.66666666666657`}, {
+                    Rational[15, 2], 166.66666666666657`}}, {{-7.5, 
+                  166.66666666666657`}, {7.5, 166.66666666666657`}}]]}, {
+                Directive[
+                 GrayLevel[0], 
+                 Opacity[0.5], 
+                 CapForm["Butt"]], 
+                CapForm["Butt"], 
+                LineBox[
+                 NCache[{{
+                    Rational[-15, 2], 233.33333333333326`}, {
+                    Rational[15, 2], 233.33333333333326`}}, {{-7.5, 
+                  233.33333333333326`}, {7.5, 233.33333333333326`}}]]}}}, 
+             StyleBox[{Antialiasing -> False, 
+               StyleBox[
+                StyleBox[{{
+                   StyleBox[
+                    LineBox[{{{7.499999999999999, -233.33333333333334`}, 
+                    
+                    Offset[{4., 0}, {
+                    7.499999999999999, -233.33333333333334`}]}, {{
+                    7.499999999999999, -166.6666666666667}, 
+                    
+                    Offset[{4., 0}, {
+                    7.499999999999999, -166.6666666666667}]}, {{
+                    7.499999999999999, -100.00000000000001`}, 
+                    
+                    Offset[{4., 0}, {
+                    7.499999999999999, -100.00000000000001`}]}, {{
+                    7.499999999999999, -33.33333333333336}, 
+                    
+                    Offset[{4., 0}, {
+                    7.499999999999999, -33.33333333333336}]}, {{
+                    7.499999999999999, 33.33333333333333}, 
+                    
+                    Offset[{4., 0}, {7.499999999999999, 
+                    33.33333333333333}]}, {{7.499999999999999, 
+                    99.99999999999991}, 
+                    
+                    Offset[{4., 0}, {7.499999999999999, 
+                    99.99999999999991}]}, {{7.499999999999999, 
+                    166.66666666666657`}, 
+                    
+                    Offset[{4., 0}, {7.499999999999999, 
+                    166.66666666666657`}]}, {{7.499999999999999, 
+                    233.3333333333333}, 
+                    
+                    Offset[{4., 0}, {7.499999999999999, 
+                    233.3333333333333}]}}], {
+                    Directive[
+                    AbsoluteThickness[0.5], 
+                    GrayLevel[0.4]]}, StripOnInput -> False]}, 
+                  StyleBox[
+                   StyleBox[{{
+                    StyleBox[{
+                    InsetBox[
+                    FormBox["200", TraditionalForm], 
+                    
+                    Offset[{7., 0.}, {
+                    7.499999999999999, -233.33333333333334`}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["400", TraditionalForm], 
+                    Offset[{7., 0.}, {7.499999999999999, -166.6666666666667}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["600", TraditionalForm], 
+                    
+                    Offset[{7., 0.}, {
+                    7.499999999999999, -100.00000000000001`}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["800", TraditionalForm], 
+                    Offset[{7., 0.}, {7.499999999999999, -33.33333333333336}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["1000", TraditionalForm], 
+                    Offset[{7., 0.}, {7.499999999999999, 33.33333333333333}], 
+                    
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["1200", TraditionalForm], 
+                    Offset[{7., 0.}, {7.499999999999999, 99.99999999999991}], 
+                    
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["1400", TraditionalForm], 
+                    
+                    Offset[{7., 0.}, {7.499999999999999, 
+                    166.66666666666657`}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["1600", TraditionalForm], 
+                    Offset[{7., 0.}, {7.499999999999999, 233.3333333333333}], 
+                    
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, {
+                    Directive[
+                    AbsoluteThickness[0.5], 
+                    GrayLevel[0.4]], {
+                    Directive[
+                    Opacity[1], FontSize -> 20]}}, StripOnInput -> 
+                    False]}, {}}, {{
+                    Directive[
+                    Opacity[1], FontSize -> 20]}}, StripOnInput -> False], {
+                   "GraphicsLabel"}, StripOnInput -> False]}, {
+                 "GraphicsTicks"}, StripOnInput -> False], {{
+                  Directive[
+                   AbsoluteThickness[0.5], 
+                   GrayLevel[0.4]]}}, StripOnInput -> False]}, {
+              "GraphicsAxes"}, StripOnInput -> False]}, PlotRangePadding -> 
+            Scaled[0.02], PlotRange -> All, Frame -> True, 
+            FrameTicks -> {{False, False}, {True, False}}, FrameStyle -> 
+            Opacity[0], FrameTicksStyle -> Opacity[0], 
+            ImageSize -> {Automatic, 600}, BaseStyle -> {}], Alignment -> 
+           Left, AppearanceElements -> None, ImageMargins -> {{5, 5}, {5, 5}},
+            ImageSizeAction -> "ResizeToFit"], LineIndent -> 0, StripOnInput -> 
+          False], {FontSize -> 20, FontFamily -> "Arial"}, Background -> 
+         Automatic, StripOnInput -> False], TraditionalForm]}, "BarLegend", 
+      DisplayFunction -> (#& ), 
+      InterpretationFunction :> (RowBox[{"BarLegend", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{
+                 RowBox[{
+                   InterpretationBox[
+                    RowBox[{
+                    TagBox["ColorDataFunction", "SummaryHead"], "[", 
+                    
+                    DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxOpener"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                    "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Rainbow\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Gradient: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    StyleBox[
+                    GraphicsBox[{
+                    RasterBox[CompressedData["
+1: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
+qMG/ZUbp9w==
+                    "], {{0, 0}, {1, 1}}]}, {
+                    ImageSize -> 65, BaselinePosition -> Bottom, AspectRatio -> 
+                    NCache[
+                    Rational[1, 8], 0.125], PlotRange -> {{0, 1}, {0, 1}}}], 
+                    Selectable -> False, StripOnInput -> False], 
+                    "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxCloser"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                    "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Rainbow\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Gradient: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    StyleBox[
+                    GraphicsBox[{
+                    RasterBox[CompressedData["
+1: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
+qMG/ZUbp9w==
+                    "], {{0, 0}, {1, 1}}]}, {
+                    ImageSize -> 65, BaselinePosition -> Bottom, AspectRatio -> 
+                    NCache[
+                    Rational[1, 8], 0.125], PlotRange -> {{0, 1}, {0, 1}}}], 
+                    Selectable -> False, StripOnInput -> False], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Gradients\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                    ColorDataFunction[
+                    "Rainbow", "Gradients", {0, 1}, Blend["Rainbow", #]& ], 
+                    Selectable -> False, Editable -> False, 
+                    SelectWithContents -> True], "[", "#1", "]"}], "&"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"6.529004144715586`", ",", "1734.6498613290892`"}], 
+                 "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{"{", 
+                 RowBox[{"200.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"400.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"600.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"800.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"1000.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"1200.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"1400.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{"1600.`", ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    
+                    TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                    "GrayLevelColorSwatchTemplate"], ",", 
+                    RowBox[{"Opacity", "[", "0.5`", "]"}], ",", 
+                    RowBox[{"CapForm", "[", "\"Butt\"", "]"}]}], "]"}]}], 
+                 "}"}]}], "}"}], ",", 
+           RowBox[{"LabelStyle", "\[Rule]", "20"}], ",", 
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}], ",", 
+           RowBox[{"LegendMarkerSize", "\[Rule]", "600"}], ",", 
+           RowBox[{"ScalingFunctions", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{"Identity", ",", "Identity"}], "}"}]}], ",", 
+           RowBox[{"Charting`AxisLabel", "\[Rule]", "None"}], ",", 
+           RowBox[{"Charting`TickSide", "\[Rule]", "Right"}], ",", 
+           RowBox[{"ColorFunctionScaling", "\[Rule]", "True"}]}], "]"}]& )], 
+     TraditionalForm], TraditionalForm]},
+  "Legended",
+  DisplayFunction->(GridBox[{{
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"], 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, GridBoxItemSize -> Automatic, 
+    BaselinePosition -> {1, 1}]& ),
+  Editable->True,
+  InterpretationFunction->(RowBox[{"Legended", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"Placed", "[", 
+         RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
  CellChangeTimes->{
-  3.948486927087493*^9, {3.948487010076458*^9, 3.948487055440997*^9}},
+  3.948486927087493*^9, {3.948487010076458*^9, 3.948487055420662*^9}, 
+   3.948488512645043*^9, {3.9484885728230343`*^9, 3.948488612424634*^9}},
  CellLabel->
-  "Out[2660]=",ExpressionUUID->"c7933f8a-f9c7-4713-992e-a5bf770ff558"]
+  "Out[2670]=",ExpressionUUID->"b964d9d2-b24e-4105-a68c-899342b6af95"]
 }, Open  ]]
 },
 WindowSize->{1285, 1387},
@@ -1487,9 +2656,9 @@ Cell[43710, 847, 2308, 56, 485, "Text",ExpressionUUID->"9b527f75-5ce7-48d9-ac3a-
 Cell[46021, 905, 987, 27, 115, "Input",ExpressionUUID->"3eac0366-864b-41a9-b777-41f00b5817e0"],
 Cell[47011, 934, 1112, 30, 115, "Input",ExpressionUUID->"b7c40aeb-a488-434c-a66b-fbe5d9fb567b"],
 Cell[CellGroupData[{
-Cell[48148, 968, 782, 16, 213, "Input",ExpressionUUID->"838bf259-cee0-492e-9e92-2d420aed6b8f"],
-Cell[48933, 986, 12716, 230, 384, "Output",ExpressionUUID->"27c6212e-9fa6-4fa0-9673-e1bc2d2ebcb4"],
-Cell[61652, 1218, 12949, 238, 384, "Output",ExpressionUUID->"c7933f8a-f9c7-4713-992e-a5bf770ff558"]
+Cell[48148, 968, 1843, 37, 418, "Input",ExpressionUUID->"838bf259-cee0-492e-9e92-2d420aed6b8f"],
+Cell[49994, 1007, 38605, 769, 645, "Output",ExpressionUUID->"402b7040-5e60-4bc6-8932-8ddf29df9936"],
+Cell[88602, 1778, 41997, 847, 647, "Output",ExpressionUUID->"b964d9d2-b24e-4105-a68c-899342b6af95"]
 }, Open  ]]
 }
 ]

@@ -1029,7 +1029,41 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 #Gives 18 x 11 x 14 at PENT
 
 
-#PENDING One bunch, CSR on. Minimizing bunch length at the cost of everything else
+#2025-02-14-14-42-01 One bunch, CSR on. Minimizing bunch length at the cost of everything else
+#Allow asym sextupoles. Allow BC20 quads but not FF quads
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : True
+# assertBC14Energy : True
+# assertBC20Energy : True
+# symmetricSextupoleStrengths : False
+# L1PhaseSet : -27.5610187417
+# L2PhaseSet : -41.5127864262
+# Q1EkG : 135.4574291922
+# Q2EkG : -154.679536731
+# Q3EkG : 113.7172177105
+# Q4EkG : 133.1584326584
+# Q5EkG : -17.2167734004
+# Q6EkG : -150.9617036705
+# S1ELkG : 1062.6340390643
+# S2ELkG : -5581.4502261498
+# S3ELkG : -598.8043221569
+# S3ERkG : -829.9974849771
+# S2ERkG : -5243.6986958889
+# S1ERkG : 267.2539993953
+# S1EL_xOffset : 0.0002425131
+# S1EL_yOffset : 0.0000474352
+# S2EL_xOffset : 0.0003922771
+# S2EL_yOffset : -0.0000482662
+# S2ER_xOffset : 0.0001984301
+# S2ER_yOffset : 0.0000990938
+# S1ER_xOffset : 0.0003678365
+# S1ER_yOffset : 0.0001151889
+#Gets to 1.3 um bunch length with 1e5 particles but varies case-by-case
+
+
+
+#PENDING One bunch, CSR on. <5 um length constraint. Otherwise optimize spot
 #Allow asym sextupoles. Allow BC20 quads but not FF quads
 centerBC14 : True
 centerBC20 : True
@@ -1037,60 +1071,25 @@ centerMFFF : True
 assertBC14Energy : True
 assertBC20Energy : True
 symmetricSextupoleStrengths : False
-
-
-#Gets to 1.4 um with CSR. Polish pending
-L1PhaseSet : -27.6305237522
-L2PhaseSet : -42.4264345084
-Q1EkG : 149.793915373
-Q2EkG : -153.3745631686
-Q3EkG : 111.3136120003
-Q4EkG : 133.5071017157
-Q5EkG : -12.6563144438
-Q6EkG : -152.59922671
-S1ELkG : 1040.1856956062
-S2ELkG : -4873.9481641802
-S3ELkG : -698.7864879621
-S3ERkG : -698.245025678
-S2ERkG : -4398.1261530656
-S1ERkG : 329.9854847975
-S1EL_xOffset : -0.0004629678
-S1EL_yOffset : 0.0000936773
-S2EL_xOffset : 0.000206889
-S2EL_yOffset : -0.0000313085
-S2ER_xOffset : -0.0000767828
-S2ER_yOffset : 0.0000571957
-S1ER_xOffset : -6.035e-6
-S1ER_yOffset : 0.0000828621
-
-
-
-
-
-
-
-
-
-
-# L1PhaseSet : -24.9683174323
-# L2PhaseSet : -38.1441565551
-# Q1EkG : 132.6614137775
-# Q2EkG : -155.737105198
-# Q3EkG : 113.2902475123
-# Q4EkG : 150.2404784858
-# Q5EkG : -22.2109801393
-# Q6EkG : -133.3365641562
-# S1ELkG : 886.3865768772
-# S2ELkG : -3673.1113374155
-# S3ELkG : -984.9853751727
-# S3ERkG : -1019.5389849171
-# S2ERkG : -1710.7948948989
-# S1ERkG : 805.6950729697
-# S1EL_xOffset : -0.0001362895
-# S1EL_yOffset : 0.0000395725
-# S2EL_xOffset : 0.0001779674
-# S2EL_yOffset : 0.000014047
-# S2ER_xOffset : 0.0001556878
-# S2ER_yOffset : 0.0001049458
-# S1ER_xOffset : 0.000040298
-# S1ER_yOffset : 0.0000986183
+L1PhaseSet : -25.0891242033
+L2PhaseSet : -39.9973555653
+Q1EkG : 126.2658207732
+Q2EkG : -155.266712752
+Q3EkG : 117.1471101787
+Q4EkG : 115.1652266302
+Q5EkG : -21.5128578613
+Q6EkG : -150.9002493858
+S1ELkG : 1489.999826851
+S2ELkG : -5621.8958187563
+S3ELkG : -750.3032492915
+S3ERkG : -802.0289586528
+S2ERkG : -5329.6097171075
+S1ERkG : 365.4059560722
+S1EL_xOffset : 0.0004493276
+S1EL_yOffset : 0.0001104705
+S2EL_xOffset : 0.0006800702
+S2EL_yOffset : -0.0000882942
+S2ER_xOffset : 0.000145391
+S2ER_yOffset : 0.0001474377
+S1ER_xOffset : 0.0002205589
+S1ER_yOffset : 0.0009057645

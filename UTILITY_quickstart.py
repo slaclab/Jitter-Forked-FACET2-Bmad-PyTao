@@ -1054,7 +1054,10 @@ def generalizedEmittanceSolverObjective(params, data):
 
 def generalizedEmittanceSolver(
     data,
-    energyGeV = None
+    energyGeV = None,
+    verbose = False,
+    initialGuess = [0.5, 0.5, 1e-9],
+    **kwargs
 ):
     """
     `data` should be a list of dictionaries, each of which should contain at least "R11", "R12", and "sigma" corresponding to the R-matrix terms for the transfer of interest
@@ -1072,17 +1075,19 @@ def generalizedEmittanceSolver(
     # Perform optimization using Nelder-Mead
     result = minimize(
         generalizedEmittanceSolverObjective, 
-        [0.5, 0.5, 1e-9], #Starting point
+        initialGuess, #Starting point
         method='Nelder-Mead',
-        args = (data, )
+        args = (data, ),
+        **kwargs
     )
 
-                          
-    # print("Optimization Results:")
-    # print(f"Optimal Parameters: {result.x}")
-    # print(f"Objective Function Value at Optimal Parameters: {result.fun}")
-    # print(f"Number of Iterations: {result.nit}")
-    # print(f"Converged: {result.success}")
+
+    if verbose:
+        print("Optimization Results:")
+        print(f"Optimal Parameters: {result.x}")
+        print(f"Objective Function Value at Optimal Parameters: {result.fun}")
+        print(f"Number of Iterations: {result.nit}")
+        print(f"Converged: {result.success}")
 
     output = {"beta" : result.x[0], "alpha" : result.x[1], "emitGeo" : result.x[2]}
 
