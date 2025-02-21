@@ -12,6 +12,9 @@ QE10441kGBounds :  (-10.1, 10.1) #BCON = 6.8
 QE10511kGBounds :  (-10.1, 10.1) #BCON = -5.4
 QE10525kGBounds :  (-10.1, 10.1) #BCON = 6.1
 
+Q19851kGBounds : (-101, 0) #BCON = -64.095
+Q19871kGBounds : (0, 101)  #BCON = 44.936
+
 #There's a substantial difference between these and the Bmad base lattice
 #I don't change these magnets so I'll ignore for now, but beware
 #B1EkGBounds : (0,25) #BCON = 10.0

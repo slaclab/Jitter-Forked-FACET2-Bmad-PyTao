@@ -68,6 +68,10 @@ def setLattice(
                           latticeSettings["Q2DkG"]
                          )
 
+    setWChicaneLaunchQuads(tao, 
+                           latticeSettings["Q19851kG"], 
+                           latticeSettings["Q19871kG"]
+                          )
     
     setAllWChicaneBends(tao, 
                         latticeSettings["B1EkG"], 
@@ -351,3 +355,10 @@ def setAllFinalFocusKickers(tao, XC1FFkG, XC3FFkG, YC1FFkG, YC2FFkG):
 def setXTCAV(tao, XTCAVvoltage, XTCAVphase):
     tao.cmd(f"set ele XTCAVF VOLTAGE = {XTCAVvoltage}")
     tao.cmd(f"set ele XTCAVF PHI0 = {XTCAVphase / 360.0}")
+
+def setWChicaneLaunchQuads(tao, Q19851kG, Q19871kG):
+    
+    setQuadkG(tao, "Q19851", Q19851kG)
+    setQuadkG(tao, "Q19871", Q19871kG)
+
+    return
