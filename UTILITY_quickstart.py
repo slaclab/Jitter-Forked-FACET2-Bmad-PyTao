@@ -1000,7 +1000,7 @@ def launchTwissCorrection(tao,
     # Perform optimization using Nelder-Mead
     result = minimize(
         launchTwissCorrectionObjective, 
-        [0.5, 0.5, 0.5, 0.5], #Starting point
+        [0.137, 0.954, 0.406, 2.20], #Starting point
         method='Nelder-Mead',
         bounds = [(1e-9, 1e3), (-100, 100), (1e-9, 1e3), (-100, 100)],
         args = (tao, evalElement, targetBetaX, targetAlphaX, targetBetaY, targetAlphaY)

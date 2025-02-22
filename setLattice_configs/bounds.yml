@@ -15,11 +15,11 @@ QE10525kGBounds :  (-10.1, 10.1) #BCON = 6.1
 Q19851kGBounds : (-101, 0) #BCON = -64.095
 Q19871kGBounds : (0, 101)  #BCON = 44.936
 
-#There's a substantial difference between these and the Bmad base lattice
-#I don't change these magnets so I'll ignore for now, but beware
-#B1EkGBounds : (0,25) #BCON = 10.0
-#B2EkGBounds : (0,25) #BCON = 10.0
-#B3EkGBounds : (0,26) #BCON = 10.0
+#This approach may not be valid. Per Zack, bends in SCP/EPICS report their strength in GeV instead of integrated field (!)
+#Going to scale the golden lattice magnet settings to infer a range... beware!
+B1EkGBounds : (0, 18.83) #SCP: BCON = 10.0, range = (0,25). Golden lattice: kG = 7.533
+B2EkGBounds : (-27.4, 0) #SCP: BCON = 10.0, range = (0,25). Golden lattice: kG = -10.942
+B3EkGBounds : (0, 8.5)   #SCP: BCON = 10.0, range = (0,25). Golden lattice: kG = 3.409
 
 Q1EkGBounds :  (0, 388)  #BCON = 133
 Q2EkGBounds :  (-364, 0) #BCON = -136

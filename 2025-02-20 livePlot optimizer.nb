@@ -1,0 +1,139 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      5686,        131]
+NotebookOptionsPosition[      5201,        114]
+NotebookOutlinePosition[      5600,        130]
+CellTagsIndexPosition[      5557,        127]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Dynamic", "[", "plotGrid", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"While", "[", 
+  RowBox[{"True", ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"raw", " ", "=", " ", 
+     RowBox[{"Import", "[", "\"\</tmp/runningData.csv\>\"", "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"latest", " ", "=", " ", 
+     RowBox[{"raw", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"-", "100"}], ";;"}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"imageSize", " ", "=", " ", "600"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"plotGrid", " ", "=", " ", 
+     RowBox[{"Grid", "[", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ListLogLogPlot", "[", 
+           RowBox[{"raw", ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"100", ",", "All"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"All", ",", "10"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"ImageSize", "->", "imageSize"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ListPlot", "[", 
+           RowBox[{"raw", ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{"All", ",", "1.86"}], "}"}]}], ",", 
+            RowBox[{"ImageSize", "->", "imageSize"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ListPlot", "[", 
+           RowBox[{"latest", ",", 
+            RowBox[{"ImageSize", "->", "imageSize"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "SpanFromLeft"}], "\[IndentingNewLine]", 
+         "}"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Pause", "[", "1", "]"}], ";"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.949088109913705*^9, 3.949088117903103*^9}, {
+   3.9490881657997913`*^9, 3.949088207574459*^9}, {3.9490882482995443`*^9, 
+   3.9490882631514273`*^9}, {3.949088713393422*^9, 3.9490887252740173`*^9}, {
+   3.949089874342836*^9, 3.949089914793767*^9}, {3.9490904935199137`*^9, 
+   3.9490905326415253`*^9}, 3.9490908142692623`*^9, {3.949094877226177*^9, 
+   3.949094879628837*^9}, 3.9490951310276737`*^9, {3.949095205890452*^9, 
+   3.9490952086385508`*^9}, {3.949095312328438*^9, 3.949095319017995*^9}, {
+   3.94909842705434*^9, 3.949098427975526*^9}, 3.949101802587525*^9, {
+   3.949102690559984*^9, 3.949102699438743*^9}, {3.949102925379075*^9, 
+   3.949102926118272*^9}, {3.949149017605892*^9, 3.9491490184873247`*^9}, {
+   3.94915215238905*^9, 3.9491521629171143`*^9}, {3.9491616045178413`*^9, 
+   3.949161605127789*^9}, {3.949169572986691*^9, 3.9491695740317593`*^9}, {
+   3.9491700579560347`*^9, 3.949170058474989*^9}, {3.949171928850604*^9, 
+   3.949171946594574*^9}, {3.949175057891862*^9, 3.949175189455967*^9}, {
+   3.9491752579473543`*^9, 3.949175261473577*^9}, {3.949175326528911*^9, 
+   3.949175333340404*^9}},
+ CellLabel->
+  "In[464]:=",ExpressionUUID->"3fbb1086-686d-40d4-aeeb-6fbfa5d5825a"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[$CellContext`plotGrid, StandardForm],
+  ImageSizeCache->{
+   1205.2000000000003`, {366.98340271676574`, 
+    372.71533631051574`}}]], "Output",
+ CellChangeTimes->{{3.949088118408318*^9, 3.949088192397501*^9}, 
+   3.949088277399034*^9, 3.949088726325448*^9, 3.94908988235231*^9, 
+   3.949089920618703*^9, {3.949090514022987*^9, 3.949090533704871*^9}, 
+   3.949090816498713*^9, 3.949094880218361*^9, 3.949095132207254*^9, 
+   3.949095177594823*^9, 3.949095209617298*^9, {3.9490953135922327`*^9, 
+   3.949095319454323*^9}, 3.949098429736108*^9, 3.9491018031260767`*^9, 
+   3.949102489369381*^9, {3.949102691925144*^9, 3.9491027014230537`*^9}, {
+   3.949102917508649*^9, 3.9491029267267933`*^9}, 3.9491030245519667`*^9, {
+   3.949148999204912*^9, 3.949149020712303*^9}, 3.949149964535367*^9, {
+   3.9491521527943*^9, 3.949152164244204*^9}, 3.949161605862856*^9, 
+   3.949165216262353*^9, 3.949169574817226*^9, 3.9491700625028687`*^9, {
+   3.9491719328146677`*^9, 3.9491719486495857`*^9}, 3.949175067412355*^9, {
+   3.949175126593246*^9, 3.949175144888115*^9}, 3.949175191168289*^9, 
+   3.949175262080625*^9, 3.949175335169942*^9},
+ CellLabel->
+  "Out[464]=",ExpressionUUID->"e1d512cf-4d2a-4bf3-9457-297b9401dbaf"]
+}, Open  ]]
+},
+WindowSize->{1431, 1387},
+WindowMargins->{{927, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ad76ceac-6eb0-4ee0-903c-bb3b6d88ca89"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 3363, 67, 478, "Input",ExpressionUUID->"3fbb1086-686d-40d4-aeeb-6fbfa5d5825a"],
+Cell[3942, 91, 1243, 20, 756, "Output",ExpressionUUID->"e1d512cf-4d2a-4bf3-9457-297b9401dbaf"]
+}, Open  ]]
+}
+]
+*)
+
