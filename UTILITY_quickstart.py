@@ -1096,3 +1096,14 @@ def generalizedEmittanceSolver(
         output["emit"] = result.x[2] * energyGeV * 1000 / 0.511
     
     return output
+
+def disableAutoQuadEnergyCompensation(tao):
+    """
+    The golden lattice, by default, has the quads set according to the design K1 rather than a fixed gradient.
+    For "typical" simulations, this is a good approach. It's basically assuming that we LEM the machine
+    For some edge cases, like jitter simulations, we don't want the magnets to be changing though
+    """ 
+    
+    tao.cmd("set ele QUAD::* FIELD_MASTER = T")
+
+    return
