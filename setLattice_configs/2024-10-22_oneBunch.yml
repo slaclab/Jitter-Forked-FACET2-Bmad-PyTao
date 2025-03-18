@@ -1063,7 +1063,7 @@ L0BEnergyOffset : -2759313 #2024-10-22_oneBunch comes out of L0A just at a tiny 
 
 
 
-#PENDING One bunch, CSR on. <5 um length constraint. Otherwise optimize spot
+#2025-03-18-09-31-18 One bunch, CSR on. <5 um length constraint. Otherwise optimize spot
 #Allow asym sextupoles. Allow BC20 quads but not FF quads
 centerBC14 : True
 centerBC20 : True
@@ -1071,25 +1071,85 @@ centerMFFF : True
 assertBC14Energy : True
 assertBC20Energy : True
 symmetricSextupoleStrengths : False
-L1PhaseSet : -25.0891242033
-L2PhaseSet : -39.9973555653
-Q1EkG : 126.2658207732
-Q2EkG : -155.266712752
-Q3EkG : 117.1471101787
-Q4EkG : 115.1652266302
-Q5EkG : -21.5128578613
-Q6EkG : -150.9002493858
-S1ELkG : 1489.999826851
-S2ELkG : -5621.8958187563
-S3ELkG : -750.3032492915
-S3ERkG : -802.0289586528
-S2ERkG : -5329.6097171075
-S1ERkG : 365.4059560722
-S1EL_xOffset : 0.0004493276
-S1EL_yOffset : 0.0001104705
-S2EL_xOffset : 0.0006800702
-S2EL_yOffset : -0.0000882942
-S2ER_xOffset : 0.000145391
-S2ER_yOffset : 0.0001474377
-S1ER_xOffset : 0.0002205589
-S1ER_yOffset : 0.0009057645
+L1PhaseSet : -26.5133471429
+L2PhaseSet : -39.3450450004
+Q1EkG : 113.7850217773
+Q2EkG : -152.1836013016
+Q3EkG : 128.5244553522
+Q4EkG : 95.6005938793
+Q5EkG : -2.7789318034
+Q6EkG : -151.6349336035
+S1ELkG : 759.4781617899
+S2ELkG : -4671.4413087484
+S3ELkG : -1104.8281641308
+S3ERkG : -1401.6671360413
+S2ERkG : -9677.5744584085
+S1ERkG : 702.5864833881
+S1EL_xOffset : -0.0006054483
+S1EL_yOffset : -0.0006602461
+S2EL_xOffset : 0.0006730135
+S2EL_yOffset : -0.0004134554
+S2ER_xOffset : 0.0004443489
+S2ER_yOffset : 0.0001638508
+S1ER_xOffset : -0.0019311703
+S1ER_yOffset : -0.0002912521
+# Final beam: 47 x 11 x 4.0 um
+
+
+
+
+
+
+
+
+#2025-03-10-08-23-23 One bunch, CSR OFF! "Best beam"
+#Allow asym sextupoles. Allow BC20 quads but not FF quads
+#Starting from 2025-02-14-14-42-01
+# centerBC14 : True
+# centerBC20 : True
+# centerMFFF : True
+# assertBC14Energy : True
+# assertBC20Energy : True
+# symmetricSextupoleStrengths : False
+# L1PhaseSet : -28.1455193092
+# L2PhaseSet : -42.6337451956
+# Q1EkG : 125.4382859217
+# Q2EkG : -156.7857163174
+# Q3EkG : 122.0689936864
+# Q4EkG : 105.6023724067
+# Q5EkG : -18.8927630863
+# Q6EkG : -146.6394706009
+# S1ELkG : 1723.8647547866
+# S2ELkG : -4140.1644932912
+# S3ELkG : -821.9257026789
+# S3ERkG : -626.5243922497
+# S2ERkG : -3933.9314768113
+# S1ERkG : 527.0379910277
+# S1EL_xOffset : 0.0000447807
+# S1EL_yOffset : -0.000052104
+# S2EL_xOffset : 0.0000472712
+# S2EL_yOffset : -0.0000149177
+# S2ER_xOffset : 0.0003079119
+# S2ER_yOffset : 0.0003502504
+# S1ER_xOffset : 0.0002924568
+# S1ER_yOffset : 0.0008235852
+#Gets to 10 x 7 x 4 um
+
+
+#2025-03-10-14-16-39 Demo sextupole mover fix
+# S1EL_xOffset : 0.0010128672
+# S1EL_yOffset : 0.000425045
+# S2EL_xOffset : -0.0033194026
+# S2EL_yOffset : -0.0011502482
+# S2ER_xOffset : -0.0001889776
+# S2ER_yOffset : 0.0039993966
+# S1ER_xOffset : 0.003123353
+# S1ER_yOffset : -0.0031670003
+
+
+
+
+
+
+
+

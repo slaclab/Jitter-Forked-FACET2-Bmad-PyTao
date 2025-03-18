@@ -23,7 +23,7 @@ import pmd_beamphysics.statistics
 from UTILITY_plotMod import plotMod, slicePlotMod, floorplanPlot
 from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, setLinacGradientAuto
 from UTILITY_modifyAndSaveInputBeam import modifyAndSaveInputBeam
-from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG, setXOffset, setYOffset
+from UTILITY_setLattice import setLattice, getBendkG, getQuadkG, getSextkG, setBendkG, setQuadkG, setSextkG, setXOffset, setYOffset, setKickerkG
 from UTILITY_impact import runImpact
 from UTILITY_OpenPMDtoBmad import OpenPMD_to_Bmad
 from UTILITY_finalFocusSolver import finalFocusSolver
@@ -1001,6 +1001,7 @@ def launchTwissCorrection(tao,
     result = minimize(
         launchTwissCorrectionObjective, 
         [0.137, 0.954, 0.406, 2.20], #Starting point
+        #[101, -26, 101, -26],
         method='Nelder-Mead',
         bounds = [(1e-9, 1e3), (-100, 100), (1e-9, 1e3), (-100, 100)],
         args = (tao, evalElement, targetBetaX, targetAlphaX, targetBetaY, targetAlphaY)
