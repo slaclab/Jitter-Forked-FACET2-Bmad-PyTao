@@ -1,4 +1,4 @@
-from pytao import Tao
+from pytao import Tao, SubprocessTao
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
@@ -9,7 +9,7 @@ from os import path,environ
 import pandas as pd
 import random
 from IPython.display import display, clear_output, update_display
-import bayes_opt
+# import bayes_opt
 import shutil
 from scipy.special import jn as besselj
 
@@ -69,7 +69,8 @@ def initializeTao(
     #######################################################################
     #Launch and configure Tao
     #######################################################################
-    tao=Tao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE'])) 
+    # tao=Tao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE']))
+    tao = SubprocessTao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE']), plot=False, env={**os.environ, "OMP_NUM_THREADS": str(1)})
     tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX, PR10571, PR10711, CN2069") #The beam is saved at all MARKER elements already; this list just supplements
 
 
@@ -161,8 +162,10 @@ def initializeTao(
 
     
 
-
-    return tao
+    if randomizeFileNames:
+        return tao, randomPath
+    else:
+        return tao
 
 # def reinitActiveBeam(tao):
 #     #Take the beam stored in the tao object (tao.activeBeam), save it to a file, load and reinit tao with that file
