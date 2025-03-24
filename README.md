@@ -1,3 +1,8 @@
+# For a tutorial on how to set up/use this code and navigate output data, refer to confluence page below:
+https://confluence.slac.stanford.edu/spaces/FACET/pages/582472555/Start-to-end+jitter+simulations+on+NERSC+Impact-T+Bmad
+
+_Below is from the un-forked directory_
+
 # Typical installation 
 
 Start by setting up a Conda environment using bmadCondaEnv.yml or bmadCondaEnv_noBuilds.yml (https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
