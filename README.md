@@ -1,7 +1,7 @@
 # For a tutorial on how to set up/use this code and navigate output data, refer to confluence page below:
 https://confluence.slac.stanford.edu/spaces/FACET/pages/582472555/Start-to-end+jitter+simulations+on+NERSC+Impact-T+Bmad
 
-_Below is from the un-forked directory_
+_The info below is from the original repo this was forked from:_
 
 # Typical installation 
 
