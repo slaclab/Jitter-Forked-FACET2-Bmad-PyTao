@@ -102,14 +102,17 @@ def initializeTao(
     if randomizeFileNames:
         #True-random path for this particular instance
         randomPath = str(int.from_bytes(os.urandom(8), "big"))
-        activeFilePath = f'{scratchPath}/beams/activeBeamFile_{randomPath}.h5'
-        patchFilePath = f'{scratchPath}/beams/patchBeamFile_{randomPath}.h5'
+        
+        activeFilePath = f'{scratchPath}/{randomPath}/activeBeamFile_{randomPath}.h5'
+        patchFilePath = f'{scratchPath}/{randomPath}/patchBeamFile_{randomPath}.h5'
+	
+        # make output directory if it doesn't exist
+        os.makedirs(f'{scratchPath}/{randomPath}', exist_ok=True)
     else:
         activeFilePath = f'{scratchPath}/beams/activeBeamFile.h5'
         patchFilePath = f'{scratchPath}/beams/patchBeamFile.h5'
-
-    # Create 'beams' folder if it doesn't exist
-    os.makedirs(f"{scratchPath}/beams", exist_ok=True)
+        # Create 'beams' folder if it doesn't exist
+        os.makedirs(f"{scratchPath}/beams", exist_ok=True)
     
     if runImpactTF:
         if not numMacroParticles:

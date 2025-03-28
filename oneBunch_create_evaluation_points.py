@@ -3,9 +3,9 @@ from UTILITY_quickstart import *
 
 importedDefaultSettings = loadConfig(f'setLattice_configs/2025-02-25_oneBunch_baseline.yml')
 
-num_calls          = 10 # 9
-multiplicity_count = 36 # 8
-tasks_per_node     = 140 # 139
+num_calls          = 9 # 10
+multiplicity_count = 8 # 36
+tasks_per_node     = 139 # 140
 num_tasks = int(num_calls * multiplicity_count * tasks_per_node)
 
 
@@ -95,14 +95,14 @@ L3_Amp_jitter_percent  = 0.3
 
 # note that the linac amplitudes are jittered via *offsets* from the nominal, not set absolutely
 cal_data = {
-    'L0BPhaseSet':[nominal_L0B_Phase - L0B_Phase_jitter, nominal_L0B_Phase + L0B_Phase_jitter],
-    'L1PhaseSet':[nominal_L1_Phase - L1A_Phase_jitter, nominal_L1_Phase + L1A_Phase_jitter], # pick the larger jitter of L1A and L1B
-    'L2PhaseSet':[nominal_L2_Phase - L2_Phase_jitter, nominal_L2_Phase + L2_Phase_jitter],
-    'L3PhaseSet':[nominal_L3_Phase - L3_Phase_jitter, nominal_L3_Phase + L3_Phase_jitter],
-    'L0BEnergyOffset':[-L0B_Amp_jitter_percent * nominal_L0BF_Amp, L0B_Amp_jitter_percent * nominal_L0BF_Amp],
-    'L1EnergyOffset':[-L1B_Amp_jitter_percent * nominal_L1_Amp, L1B_Amp_jitter_percent * nominal_L1_Amp], # pick the larger jitter of L1A and L1B
-    'L2EnergyOffset':[-L2_Amp_jitter_percent * nominal_L2_Amp, L2_Amp_jitter_percent * nominal_L2_Amp],
-    'L3EnergyOffset':[-L3_Amp_jitter_percent * nominal_L3_Amp, L3_Amp_jitter_percent * nominal_L3_Amp],
+    #'L0BPhaseSet':[nominal_L0B_Phase - L0B_Phase_jitter, nominal_L0B_Phase + L0B_Phase_jitter],
+    #'L1PhaseSet':[nominal_L1_Phase - L1A_Phase_jitter, nominal_L1_Phase + L1A_Phase_jitter], # pick the larger jitter of L1A and L1B
+    #'L2PhaseSet':[nominal_L2_Phase - L2_Phase_jitter, nominal_L2_Phase + L2_Phase_jitter],
+    #'L3PhaseSet':[nominal_L3_Phase - L3_Phase_jitter, nominal_L3_Phase + L3_Phase_jitter],
+    #'L0BEnergyOffset':[-L0B_Amp_jitter_percent * 1e-2 * nominal_L0BF_Amp, L0B_Amp_jitter_percent * 1e-2 * nominal_L0BF_Amp],
+    #'L1EnergyOffset':[-L1B_Amp_jitter_percent * 1e-2 * nominal_L1_Amp, L1B_Amp_jitter_percent * 1e-2 * nominal_L1_Amp], # pick the larger jitter of L1A and L1B
+    #'L2EnergyOffset':[-L2_Amp_jitter_percent * 1e-2 * nominal_L2_Amp, L2_Amp_jitter_percent * 1e-2 * nominal_L2_Amp],
+    'L3EnergyOffset':[-L3_Amp_jitter_percent * 1e-2 * nominal_L3_Amp, L3_Amp_jitter_percent * 1e-2 * nominal_L3_Amp],
 }
 
 
@@ -124,7 +124,7 @@ points = pd.DataFrame(points)
 
 if __name__ == '__main__':
     
-    output_path = '/pscratch/sd/m/maxvarv/Linac_phase_amp_jitter_2025_03_17'
+    output_path = '/pscratch/sd/m/maxvarv/L3_amp_jitter/'
     os.makedirs(output_path, exist_ok=True)
     
     points.to_csv(f'{output_path}/evaluation_points.csv', index=False)

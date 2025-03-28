@@ -4,13 +4,11 @@ import os
 import time
 import sys
 from UTILITY_quickstart import *
-from UTILITY_setLattice import setLinacsHelper
+from UTILITY_setLattice import *
+from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, setLinacGradientAuto
 
-# assuming 40 min per sim, mult 8 ==> 320 min = 5 hr 20 min
-# and to hit 10^4 sims we run this on 9 nodes ==> 140 * 8 * 9 = 10,080
-# or 9 * 139 * 8 = 10,008
-multiplicity_count = 36 # 8
-tasks_per_node = 140 # 139
+multiplicity_count = 4
+tasks_per_node = 60
 num_tasks = int(multiplicity_count * tasks_per_node)
 print(f"Multiplicity: {multiplicity_count}")
 print(f"Tasks per node: {tasks_per_node}")
@@ -25,10 +23,8 @@ print(f'sim_call_count={sim_call_count}')
 
 importedDefaultSettings = loadConfig(f'setLattice_configs/2025-02-25_oneBunch_baseline.yml')
 
-# L_str = 'L2'
-
 # Beam output locations
-locations = ['L0AFEND','ENDINJ','BEGL1F','ENDL1F','BC11CEND','ENDL2F','ENDBC14_2','ENDL3F_2','BEGFF20','ENDFF20','PENT']
+locations = ['L0AFEND','ENDINJ','BEGL1F','ENDL1F','BC11CEND','ENDL2F','ENDBC14_2','ENDL3F_2','BEGFF20','MFFF','XC1FF','YC1FF','YC2FF','XC3FF','ENDFF20','PENT']
 
 # Diagnostic keys
 diagnostic_keys = [
@@ -48,7 +44,7 @@ diagnostic_keys = [
 
 path_conda = '/global/homes/m/maxvarv/miniforge3/envs/bmad/bin/'
 
-output_path = '/pscratch/sd/m/maxvarv/Linac_phase_amp_jitter_2025_03_17'
+output_path = '/pscratch/sd/m/maxvarv/twoBunch/L123_Energy_Offset_Scan'
 os.makedirs(output_path, exist_ok=True)
 
 # get evaluation points
@@ -65,10 +61,11 @@ def worker(overrides):
 
     # initialize diagnostics dict
     diagnostics = { loc: {key: 0.0 for key in diagnostic_keys} for loc in locations }
+    beam_specs = {}
     
     tao, unique_ID = initializeTao(
             inputBeamFilePathSuffix = importedDefaultSettings["inputBeamFilePathSuffix"],
-            GFILESuffix = f'2024-10-22_distgen_onebunch.yaml',
+            GFILESuffix = 'distgen_twobunch.yaml',
             csrTF = True,
             runImpactTF = False,
             # impactGridCount = 32,          # unused when `runImpactTF = False`
@@ -82,24 +79,27 @@ def worker(overrides):
             randomizeFileNames = True,
     	)
 
+    [L1MatchStrings, L2MatchStrings, L3MatchStrings, selectMarkers] = getLinacMatchStrings(tao)
+    
     setLattice(tao, **importedDefaultSettings)
     disableAutoQuadEnergyCompensation(tao)
     
     try:
-        
+                
+        # without energy compensation
         # setLinacPhase(tao, L_str, overrides[f'{L_str}PhaseSet']) # adjust L2 Phase
-        setLinacsHelper(
-            tao,
-            overrides['L0BPhaseSet'],
-            overrides['L0BEnergyOffset'],
-            overrides['L1PhaseSet'],
-            overrides['L1EnergyOffset'],
-            overrides['L2PhaseSet'],
-            overrides['L2EnergyOffset'],
-            overrides['L3PhaseSet'],
-            overrides['L3EnergyOffset']
-        )
+
+        setLinacGradientAuto( tao, L1MatchStrings, overrides['L1EnergyOffset'] + 0.335e9 - 0.125e9 )
+        setLinacGradientAuto( tao, L2MatchStrings, overrides['L2EnergyOffset'] + 4.5e9 - 0.335e9 )
+        setLinacGradientAuto( tao, L3MatchStrings, overrides['L3EnergyOffset'] + 10.0e9 - 4.5e9 )
         
+        # setAllFinalFocusKickers(tao,
+        #                 latticeSettings["XC1FFkG"],
+        #                 latticeSettings["XC3FFkG"],
+        #                 latticeSettings["YC1FFkG"],
+        #                 latticeSettings["YC2FFkG"]
+        #                 )
+
         trackBeam(tao)
     
         result = {'Unique ID': unique_ID}
@@ -110,6 +110,8 @@ def worker(overrides):
         for location in locations:
             P = getBeamAtElement(tao, location)
 
+            beam_specs[location] = getBeamSpecs(P)
+            
             diagnostics[location]['energy'          ] = P['mean_energy']
             diagnostics[location]['peak current 50' ] = P.slice_statistics(slice_key='t', n_slice=50)['current'].max()
             diagnostics[location]['peak current 100'] = P.slice_statistics(slice_key='t', n_slice=100)['current'].max()
@@ -131,7 +133,15 @@ def worker(overrides):
         
         diagnostics = pd.DataFrame(diagnostics)
         diagnostics.to_csv(f'{output_path}/{unique_ID}/diagnostics.csv')
+        
+        beam_specs = pd.DataFrame(beam_specs)
+        beam_specs.to_csv(f'{output_path}/{unique_ID}/beam_specs.csv')
 
+        # early_out = {'Unique ID': unique_ID}
+        # early_out.update(overrides)
+        # early_out = pd.DataFrame(early_out)
+        # early_out.to_csv(f'{output_path}/{unique_ID}/early_out.csv')
+        
         print(f'Run {unique_ID} elapsed time: {(time.time() - start_time) / 60:.1f} minutes')
         
     return result
