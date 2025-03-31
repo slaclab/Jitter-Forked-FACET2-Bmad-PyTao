@@ -87,18 +87,18 @@ def worker(overrides):
     
     try:
         
-        setLinacPhase(tao, L_str, overrides[f'{L_str}PhaseSet']) # adjust L_str Phase
-        #setLinacsHelper(
-        #    tao,
-        #    overrides['L0BPhaseSet'],
-        #    overrides['L0BEnergyOffset'],
-        #    overrides['L1PhaseSet'],
-        #    overrides['L1EnergyOffset'],
-        #    overrides['L2PhaseSet'],
-        #    overrides['L2EnergyOffset'],
-        #    overrides['L3PhaseSet'],
-        #    overrides['L3EnergyOffset']
-        #)
+        #setLinacPhase(tao, L_str, overrides[f'{L_str}PhaseSet']) # adjust L_str Phase
+        setLinacsHelper(
+            tao,
+            overrides['L0BPhaseSet'],
+            importedDefaultSettings['L0BEnergyOffset'],
+            importedDefaultSettings['L1PhaseSet'],
+            importedDefaultSettings['L1EnergyOffset'],
+            importedDefaultSettings['L2PhaseSet'],
+            importedDefaultSettings['L2EnergyOffset'],
+            importedDefaultSettings['L3PhaseSet'],
+            importedDefaultSettings['L3EnergyOffset']
+        )
         
         trackBeam(tao)
     

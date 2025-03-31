@@ -95,14 +95,14 @@ L3_Amp_jitter_percent  = 0.3
 
 # note that the linac amplitudes are jittered via *offsets* from the nominal, not set absolutely
 cal_data = {
-    #'L0BPhaseSet':[nominal_L0B_Phase - L0B_Phase_jitter, nominal_L0B_Phase + L0B_Phase_jitter],
+    'L0BPhaseSet':[nominal_L0B_Phase - L0B_Phase_jitter, nominal_L0B_Phase + L0B_Phase_jitter],
     #'L1PhaseSet':[nominal_L1_Phase - L1A_Phase_jitter, nominal_L1_Phase + L1A_Phase_jitter], # pick the larger jitter of L1A and L1B
     #'L2PhaseSet':[nominal_L2_Phase - L2_Phase_jitter, nominal_L2_Phase + L2_Phase_jitter],
     #'L3PhaseSet':[nominal_L3_Phase - L3_Phase_jitter, nominal_L3_Phase + L3_Phase_jitter],
     #'L0BEnergyOffset':[-L0B_Amp_jitter_percent * 1e-2 * nominal_L0BF_Amp, L0B_Amp_jitter_percent * 1e-2 * nominal_L0BF_Amp],
     #'L1EnergyOffset':[-L1B_Amp_jitter_percent * 1e-2 * nominal_L1_Amp, L1B_Amp_jitter_percent * 1e-2 * nominal_L1_Amp], # pick the larger jitter of L1A and L1B
     #'L2EnergyOffset':[-L2_Amp_jitter_percent * 1e-2 * nominal_L2_Amp, L2_Amp_jitter_percent * 1e-2 * nominal_L2_Amp],
-    'L3EnergyOffset':[-L3_Amp_jitter_percent * 1e-2 * nominal_L3_Amp, L3_Amp_jitter_percent * 1e-2 * nominal_L3_Amp],
+    #'L3EnergyOffset':[-L3_Amp_jitter_percent * 1e-2 * nominal_L3_Amp, L3_Amp_jitter_percent * 1e-2 * nominal_L3_Amp],
 }
 
 
@@ -124,7 +124,7 @@ points = pd.DataFrame(points)
 
 if __name__ == '__main__':
     
-    output_path = '/pscratch/sd/m/maxvarv/L3_amp_jitter/'
+    output_path = '/pscratch/sd/m/maxvarv/L0B_phase_jitter/'
     os.makedirs(output_path, exist_ok=True)
     
     points.to_csv(f'{output_path}/evaluation_points.csv', index=False)
