@@ -70,6 +70,7 @@ def initializeTao(
     #Launch and configure Tao
     #######################################################################
     # tao=Tao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE']))
+    # tao = SubprocessTao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE']), plot=False)
     tao = SubprocessTao('-init {:s}/bmad/models/f2_elec/tao.init -noplot'.format(environ['FACET2_LATTICE']), plot=False, env={**os.environ, "OMP_NUM_THREADS": str(1)})
     tao.cmd("set beam add_saved_at = DTOTR, XTCAVF, M2EX, PR10571, PR10711, CN2069") #The beam is saved at all MARKER elements already; this list just supplements
 
