@@ -1,7 +1,7 @@
 #!/bin/bash
 
-parent_dir="/pscratch/sd/m/maxvarv/Linac_phase_amp_jitter_2025_03_17"
-target_dir="/global/cfs/cdirs/m4272/mvarverakis/2025-03-20_oneBunch_linac_phase_amp_jitter"
+parent_dir="/pscratch/sd/m/maxvarv/twoBunch_linac_phase_amp_jitter"
+target_dir="/global/cfs/cdirs/m4272/mvarverakis/twoBunch_PENT_jitter_data_for_Thamine"
 
 mkdir -p "$target_dir"
 

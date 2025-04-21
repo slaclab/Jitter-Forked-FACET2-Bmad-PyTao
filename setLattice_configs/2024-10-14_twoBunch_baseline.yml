@@ -1,0 +1,76 @@
+include: 
+- "setLattice_configs/defaults.yml"
+- "setLattice_configs/bounds.yml"
+
+####################
+########################################
+############################################################
+################################################################################
+####################################################################################################
+########################################################################################################################
+
+#2024-10-15: Transitioning to new IMPACT two-bunch
+#https://docs.google.com/presentation/d/1b6WoEwmDz5cA0fm9FbbGiZoMwBcbCNNNCsD7JiFDxRc/edit#slide=id.g30aeebd68fb_0_0
+
+########################################################################################################################
+####################################################################################################
+################################################################################
+############################################################
+########################################
+####################
+
+
+
+
+#2024-10-16-13-10-45 Injector quad settings. Nelder-Mead from zeroed magnets, minimizing PSystem (BMAG * emit) differences from golden twiss at PR10571
+#NOTE! Using OpenPMD .twiss(). Pay attention to twissCalculationFraction and see "2024-10-16 Emittance calculation sanity check and discussion.ipynb"
+#"2024-10-15 Two bunch injector match - PR10571 objective.ipynb"
+#Results
+#     twissCalculationFraction : 0.7
+#     PSystem_norm_emit_x : 1.1783e-6
+#     PSystem_norm_emit_y : 1.2087e-6
+#     PSystem_BMAG_x : 1.0001109671
+#     PSystem_BMAG_y : 1.0026233182
+#     PSystem_BMAG_emit_x : 1.1784e-6
+#     PSystem_BMAG_emit_y : 1.2119e-6
+inputBeamFilePathSuffix : '/beams/2024-10-14_Impact_TwoBunch/2024-10-14_TwoBunch.h5'
+bunchCount : 2
+QA10361kG : -2.2481515833
+QA10371kG : 2.338890812
+QE10425kG : -1.0721888188
+QE10441kG : 1.3152401751
+QE10511kG : 0.2241208022
+QE10525kG : 0.6276060908
+L0BPhaseSet : -15.0  #By eye, this "feels" right... it should be a fit parameter though
+L0BEnergyOffset : -2259313 #This new beam comes out of L0A just at a tiny bit higher energy. Compensate in L0B to get to the design 125 MeV
+
+
+
+#2025-03-31-13-46-38 CSR on, 150+/-50 um spacing, limited knobs
+#Center and energy asserts disabled!
+centerBC14 : False
+centerBC20 : False
+centerMFFF : False
+assertBC14Energy : False
+assertBC20Energy : False
+symmetricSextupoleStrengths : True
+L1PhaseSet : -20.2889213421
+L2PhaseSet : -35.5447801603
+L2EnergyOffset : -6.817565553821569e+6
+L3EnergyOffset : 1.1703527144314773e+7
+S1ELkG : 2089.4846449653
+S2ELkG : -3954.374460403
+S3ELkG : -1087.9568814486
+S1EL_xOffset : 0.0009068268
+S1EL_yOffset : 0.0001315754
+S2EL_xOffset : -0.000388583
+S2EL_yOffset : 0.0001165775
+S2ER_xOffset : -0.0001679111
+S2ER_yOffset : -0.0014881668
+S1ER_xOffset : 0.0013323302
+S1ER_yOffset : -0.0011182646
+XC1FFkG : 0.0023982219
+XC3FFkG : 0.0015344214
+YC1FFkG : -0.0053321184
+YC2FFkG : -0.0035512385
+# Drive: 23 x 20 x 20 um; Witness: 20 x 20 x 9 um; 200 um spacing

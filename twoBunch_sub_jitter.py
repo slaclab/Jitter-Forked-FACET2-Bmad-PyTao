@@ -7,8 +7,8 @@ from UTILITY_quickstart import *
 from UTILITY_setLattice import *
 from UTILITY_linacPhaseAndAmplitude import getLinacMatchStrings, setLinacPhase, setLinacGradientAuto
 
-multiplicity_count = 4
-tasks_per_node = 60
+multiplicity_count = 12
+tasks_per_node = 40 
 num_tasks = int(multiplicity_count * tasks_per_node)
 print(f"Multiplicity: {multiplicity_count}")
 print(f"Tasks per node: {tasks_per_node}")
@@ -21,10 +21,10 @@ sim_call_count = int(sys.argv[1])
 # Print the call index
 print(f'sim_call_count={sim_call_count}')
 
-importedDefaultSettings = loadConfig(f'setLattice_configs/2025-02-25_oneBunch_baseline.yml')
+importedDefaultSettings = loadConfig(f'setLattice_configs/2024-10-14_twoBunch_baseline.yml')
 
 # Beam output locations
-locations = ['L0AFEND','ENDINJ','BEGL1F','ENDL1F','BC11CEND','ENDL2F','ENDBC14_2','ENDL3F_2','BEGFF20','MFFF','XC1FF','YC1FF','YC2FF','XC3FF','ENDFF20','PENT']
+locations = ['L0AFEND','ENDINJ','BEGL1F','ENDL1F','BC11CEND','ENDL2F','ENDBC14_2','ENDL3F_2','BEGFF20','ENDFF20','PENT']
 
 # Diagnostic keys
 diagnostic_keys = [
@@ -44,7 +44,7 @@ diagnostic_keys = [
 
 path_conda = '/global/homes/m/maxvarv/miniforge3/envs/bmad/bin/'
 
-output_path = '/pscratch/sd/m/maxvarv/twoBunch/L123_Energy_Offset_Scan'
+output_path = '/pscratch/sd/m/maxvarv/twoBunch_linac_phase_amp_jitter'
 os.makedirs(output_path, exist_ok=True)
 
 # get evaluation points
@@ -79,7 +79,7 @@ def worker(overrides):
             randomizeFileNames = True,
     	)
 
-    [L1MatchStrings, L2MatchStrings, L3MatchStrings, selectMarkers] = getLinacMatchStrings(tao)
+    #[L1MatchStrings, L2MatchStrings, L3MatchStrings, selectMarkers] = getLinacMatchStrings(tao)
     
     setLattice(tao, **importedDefaultSettings)
     disableAutoQuadEnergyCompensation(tao)
@@ -89,9 +89,9 @@ def worker(overrides):
         # without energy compensation
         # setLinacPhase(tao, L_str, overrides[f'{L_str}PhaseSet']) # adjust L2 Phase
 
-        setLinacGradientAuto( tao, L1MatchStrings, overrides['L1EnergyOffset'] + 0.335e9 - 0.125e9 )
-        setLinacGradientAuto( tao, L2MatchStrings, overrides['L2EnergyOffset'] + 4.5e9 - 0.335e9 )
-        setLinacGradientAuto( tao, L3MatchStrings, overrides['L3EnergyOffset'] + 10.0e9 - 4.5e9 )
+        #setLinacGradientAuto( tao, L1MatchStrings, overrides['L1EnergyOffset'] + 0.335e9 - 0.125e9 )
+        #setLinacGradientAuto( tao, L2MatchStrings, overrides['L2EnergyOffset'] + 4.5e9 - 0.335e9 )
+        #setLinacGradientAuto( tao, L3MatchStrings, overrides['L3EnergyOffset'] + 10.0e9 - 4.5e9 )
         
         # setAllFinalFocusKickers(tao,
         #                 latticeSettings["XC1FFkG"],
@@ -99,6 +99,18 @@ def worker(overrides):
         #                 latticeSettings["YC1FFkG"],
         #                 latticeSettings["YC2FFkG"]
         #                 )
+
+        setLinacsHelper(
+            tao,
+            overrides['L0BPhaseSet'],
+            overrides['L0BEnergyOffset'],
+            overrides['L1PhaseSet'],
+            overrides['L1EnergyOffset'],
+            overrides['L2PhaseSet'],
+            overrides['L2EnergyOffset'],
+            overrides['L3PhaseSet'],
+            overrides['L3EnergyOffset']
+        )
 
         trackBeam(tao)
     
